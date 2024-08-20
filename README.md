@@ -35,7 +35,7 @@
   6. `for` 循环、`for ... in`
   7. 最小示例：循环构造列表
   8. 列表推导式 - list comprehension
-  9. 依照 Step 数简单分析代码性能瓶颈
+  9. 依照 Step 数简单分析代码性能瓶颈（时间复杂度初步）
 - 第五部分：Python 进阶
   1. 常用数据类型：List, Dict, Tuple, etc. 和相关操作
   2. 常用高级语法：解包、多变量赋值、行内 `if-else`、lambda 表达式
