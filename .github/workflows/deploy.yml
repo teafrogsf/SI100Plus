@@ -1,0 +1,40 @@
+name: Deploy Reveal.js Slides
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install reveal-md
+        run: npm install -g reveal-md
+
+      - name: Build slides
+        run: |
+            mkdir -p ./static
+            for file in $(find . -name '*.md' ! -name 'README.md'); do
+                output_dir="static/$(basename ${file%.md})"
+                echo $output_dir
+                reveal-md $file --static $output_dir
+                file_dir=$(dirname $file)
+                if [ -d "$file_dir/images" ]; then
+                    cp -r $file_dir/images $output_dir
+                fi
+            done
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./static
