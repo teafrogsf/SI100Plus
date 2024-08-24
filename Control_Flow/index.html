@@ -298,6 +298,7 @@ set2 = set([4, 5, 6, 7])      # 使用 set() 函数从列表创建集合
 ## Dict（字典）
 
 * 字典的每个键值 **key:value** 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示：
+* 就像我们查《新华字典》，字就是``key``，字的释义就是``value``
 
 ```python
 d = {key1 : value1, key2 : value2 }
@@ -316,13 +317,15 @@ tinydict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
 
 ## Dict（字典）
 
-* construct(构造): di = {‘1’: 1, ‘2’: 2, ‘3’: 3}
+* construct(构造): di = {'a': 1, 'b': 2, 'b': '3'}
 
-* visit(访问): print(di[‘1’])
+* visit(访问): print(di[‘a’])
 
-* change(改变): di[‘1’] = 100
+* change(改变): di[‘a’] = 100
 
-* delete(删除): del di[‘1’]
+* delete(删除): del di[‘a’]
+
+**Attention：对dict几乎所有的操作都是通过键来实现的**
 
 ---
 
