@@ -827,6 +827,31 @@ Python 的布尔运算符就能够这样“偷懒”。
   </div>
 </div>
 
+<!--v-->
+
+## Takeaway Message - 1
+
+- 我们发布的资料一定要**解压缩后再使用**！
+- VS Code 基础操作
+- Python 官方文档是最权威的 Python 参考资料
+  - 建立起“遇事不决先上网查文档/资料”的习惯
+  - **RTFM** = Read The *Friendly* Manual
+- 标识符起名规则、缩进和注释
+  - 善加利用注释，为他人也为自己
+
+<!--v-->
+
+## Takeaway Message - 2
+
+- 字面值、赋值语句：如何把字面值赋给一个变量
+- 变量的概念（类比高中数学的“未知数”）
+  - 如何创建（声明&赋值）变量
+- 基本数据类型：数字（整型和浮点型）、字符串、布尔
+  - 浮点型数字的误差
+  - 部分类型之间可强制转换
+- 
+
+
 <!--s-->
 
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;   ">
