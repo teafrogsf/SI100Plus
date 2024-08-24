@@ -836,8 +836,9 @@ Python 的布尔运算符就能够这样“偷懒”。
 - Python 官方文档是最权威的 Python 参考资料
   - 建立起“遇事不决先上网查文档/资料”的习惯
   - **RTFM** = Read The *Friendly* Manual
+  - **STFW** = Search The *Friendly* Web
 - 标识符起名规则、缩进和注释
-  - 善加利用注释，为他人也为自己
+  - 善加利用注释，为他人更为自己
 
 <!--v-->
 
