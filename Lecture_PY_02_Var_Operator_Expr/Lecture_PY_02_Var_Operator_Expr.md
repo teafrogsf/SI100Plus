@@ -35,13 +35,11 @@ revealOptions:
 
 ## 前置知识
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -100px;">
+<div style="width: 100%; margin-top: 100px; text-align: center;">
 
-  <font size="6"> **在开始这节课之前，先完成前两节录播课：计算机基础知识 & 编程语言和 Python 基础** </font>
-  
-  </div>
-</div>
+<font size="7"> **在开始这节课之前，先完成前两节录播课：计算机基础知识 & 编程语言和 Python 基础** </font>
+
+</div>  
 
 <!--v-->
 
@@ -437,182 +435,160 @@ Python 中的 **基本运算符 (operator)** 有：`+`, `-`, `*`, `/`, `//`, `%`
 
 <mark>高亮</mark> `->` 下一步计算对象
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -330px;">
+<div style="width: 100%; margin-top: 100px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
   
-  </div>
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -550px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** <mark>(1/2)</mark> </font>
-  
-  </div>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** <mark>(1/2)</mark> </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -550px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** **(0.5)** </font>
-  
-  </div>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** **(0.5)** </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -550px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + <mark>16 ** (0.5)</mark> </font>
-  
-  </div>
+<font size="7"> 3 * 3 + 5 % 3 + <mark>16 ** (0.5)</mark> </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -450px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + **4** </font>
-  
-  </div>
+<font size="7"> 3 * 3 + 5 % 3 + **4** </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -450px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> <mark>3 * 3</mark> + 5 % 3 + 4 </font>
-  
-  </div>
+<font size="7"> <mark>3 * 3</mark> + 5 % 3 + 4 </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -350px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 4 </font>
+<font size="7"> 3 * 3 + 5 % 3 + 4 </font>
 
-  <font size="7"> **9** + 5 % 3 + 4 </font>
-  
-  </div>
+<font size="7"> **9** + 5 % 3 + 4 </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -350px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 4 </font>
+<font size="7"> 3 * 3 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + <mark>5 % 3</mark> + 4 </font>
+<font size="7"> 9 + <mark>5 % 3</mark> + 4 </font>
   
-  </div>
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -250px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 4 </font>
+<font size="7"> 3 * 3 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + 5 % 3 + 4 </font>
+<font size="7"> 9 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + **2** + 4 </font>
-  
-  </div>
+<font size="7"> 9 + **2** + 4 </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -250px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 4 </font>
+<font size="7"> 3 * 3 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + 5 % 3 + 4 </font>
+<font size="7"> 9 + 5 % 3 + 4 </font>
 
-  <font size="7"> <mark>9 + 2 + 4</mark> </font>
-  
-  </div>
+<font size="7"> <mark>9 + 2 + 4</mark> </font>
+
 </div>
 
 <!--v-->
 
 ## 运算符与优先级：分步示例
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -150px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (1/2) </font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
+<font size="7"> 3 * 3 + 5 % 3 + 16 ** (0.5)</font>
 
-  <font size="7"> 3 * 3 + 5 % 3 + 4 </font>
+<font size="7"> 3 * 3 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + 5 % 3 + 4 </font>
+<font size="7"> 9 + 5 % 3 + 4 </font>
 
-  <font size="7"> 9 + 2 + 4 </font>
+<font size="7"> 9 + 2 + 4 </font>
 
-  <font size="7"> **15** </font>
-  
-  </div>
+<font size="7"> **15** </font>
+
 </div>
 
 <!--v-->
@@ -821,12 +797,10 @@ Python 的布尔运算符就能够这样“偷懒”。
 
 ## 常见运算符优先级
 
-<div class="middle center">
-  <div style="width: 100%; margin-top: -150px;">
+<div style="width: 100%; margin-top: 10px; text-align: center;">
 
-  <font size="6"> 类型转换 > `**` > 正负号 (`+x`, `-x`) > [`*`, `/`, `//`, `%`] > [`+`, `-`] > 比较运算符 (`==`, `!=`, `<`, `<=`, `>`, `>=`) > 布尔运算符 (`and`, `or`, `not`, ...) > ... </font>
+<font size="6"> 类型转换 > `**` > 正负号 (`+x`, `-x`) > [`*`, `/`, `//`, `%`] > [`+`, `-`] > 比较运算符 (`==`, `!=`, `<`, `<=`, `>`, `>=`) > 布尔运算符 (`and`, `or`, `not`, ...) > ... </font>
   
-  </div>
 </div>
 
 <!--s-->
