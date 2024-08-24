@@ -1,11 +1,11 @@
-@import url(https://registry.npmmirror.com/firacode/latest/files/distr/fira_code.css);
+@import url(https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono-nl.css);
 @import url(https://cdn.jsdelivr.net/npm/cn-fontsource-source-han-sans-sc-vf@1.0.10/font.min.css);
 /* 我真的很想用霞鹜文楷。 */
 
 :root {
   --r-main-font: "Helvetica", "Source Han Sans SC VF", sans-serif;
   --r-heading-font: "Helvetica" , "Source Han Sans SC VF", sans-serif;
-  --r-code-font: "Fira Code", sans-serif;
+  --r-code-font: "JetBrains Mono NL", sans-serif;
 }
 
 .reveal .slide-number {
