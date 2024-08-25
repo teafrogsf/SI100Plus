@@ -85,14 +85,14 @@ print(*args, sep=' ', end='\n', file=None, flush=False)
 	- 另一个叫 `more` 的工具虽然能打开，但是不能向回翻<small>（现在似乎有了）</small>
 - `less` = `vi` 的操作模式 + `more` 的文件支持 的“查看器” （文件分页器）
 
-<split even>
+<div style="column-count: 2; padding-left: 20vh; padding-right: 20vh">
+
+<img src="https://www.globalnerdy.com/wp-content/uploads/2012/04/geeks-and-repetitive-tasks.jpg" width=300/>
 
 - 极客的浪漫莫过于此
 - 编程：重复事情上制胜的法宝
 
-![GRT|300](https://www.globalnerdy.com/wp-content/uploads/2012/04/geeks-and-repetitive-tasks.jpg)
-
-</split>
+</div>
 
 <!--v-->
 
@@ -178,16 +178,13 @@ Type:      builtin_function_or_method
 
 **演示** `"ABC123".isupper()"`
 
-+ 为什么是 False?
-+ `help("ABC123".isupper)` 一下？
+- <span>为什么是 False?</span> <!-- .element: class="fragment" data-fragment-index="1" -->
+- <span>`help("ABC123".isupper)` 一下？</span> <!-- .element: class="fragment" data-fragment-index="2" -->
 
-<!--v-->
-
-> [!warning]
-> 
 > 尽管我们用简短的文字介绍了他们，但是还有很多细节是我们忽略了的
 > 
 > 使用函数的时候切记不可以 **望文生义**，遇到行为奇怪的函数，应该查文档和它的 Docstring
+<!-- .element: class="fragment" data-fragment-index="3" -->
 
 <!--s-->
 
