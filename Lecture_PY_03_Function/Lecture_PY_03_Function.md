@@ -1,13 +1,16 @@
 ---
-title: Lecture_PY_02_Var_Operator_Expr
+title: Lecture_PY_03_Function
+separator: <!--s-->
+verticalSeparator: <!--v-->
 theme: simple
-highlightTheme: css/github.css
-css: css/custom.css
+highlightTheme: github
+css: assets/custom.css
 revealOptions:
     transition: 'slide'
     transitionSpeed: fast
     center: false
     slideNumber: "c/t"
+    width: 1000
 ---
 
 
@@ -19,11 +22,11 @@ revealOptions:
   </div>
 </div>
 
----
+<!--s-->
 
 # 00. 在开始之前
 
---
+<!--v-->
 
 ## 如何查询已有函数的用法
 
@@ -31,7 +34,7 @@ revealOptions:
 - 但是 Python 还有很多函数，即使是 `print`, `input` 也有很多用法
 - 如何查询？
 
---
+<!--v-->
 
 ## `help()`
 
@@ -45,7 +48,7 @@ revealOptions:
 		- 如果 `x` 是某个类型的字面值 / 变量，那么则是对于这个类型的帮助
 - 在其他情况下，`help()` 就相当于 "`print(帮助内容)` "
 
---
+<!--v-->
 
 在交互式控制台（打开 Anaconda Prompt / Terminal，输入 Python 并回车后）
 
@@ -71,7 +74,7 @@ print(*args, sep=' ', end='\n', file=None, flush=False)
 
 + ***怎么退出啊啊啊啊啊啊！！！**
 
---
+<!--v-->
 
 ## \[番外\] `less` ：只是为了看长长的报错
 
@@ -91,7 +94,7 @@ print(*args, sep=' ', end='\n', file=None, flush=False)
 
 </split>
 
---
+<!--v-->
 
 ## 代码提示：VSCode 为什么比记事本好
 
@@ -116,7 +119,7 @@ def print(
 ) -> None: ...
 ```
 
---
+<!--v-->
 
 ## 代码提示 (cont' d)
 
@@ -128,7 +131,7 @@ def print(
 print("Hello", end="!")
 ```
 
---
+<!--v-->
 
 ## IPython 的小问号 `?`
 
@@ -153,7 +156,7 @@ flush
 Type:      builtin_function_or_method
 ```
 
---
+<!--v-->
 
 ## 内置函数(?)初探
 
@@ -171,14 +174,14 @@ Type:      builtin_function_or_method
 - `str.isalpha()` `str` 是否全是字母（布尔类型）
 - `str.isalnum()` `str` 是否全是数字或字母（布尔类型）
 
---
+<!--v-->
 
 **演示** `"ABC123".isupper()"`
 
 + 为什么是 False?
 + `help("ABC123".isupper)` 一下？
 
---
+<!--v-->
 
 > [!warning]
 > 
@@ -186,11 +189,11 @@ Type:      builtin_function_or_method
 > 
 > 使用函数的时候切记不可以 **望文生义**，遇到行为奇怪的函数，应该查文档和它的 Docstring
 
----
+<!--s-->
 
 # 01. 函数与方法
 
---
+<!--v-->
 
 ## 函数 (function)
 
@@ -201,7 +204,7 @@ Type:      builtin_function_or_method
 	- 独立的代码块，通过名称调用
 	- 通俗理解，函数就是大段代码的“替身”
 
---
+<!--v-->
 
 ## 方法 (method)
 
@@ -217,7 +220,7 @@ print("123".isdigit())
 print(123.isdigit())
 ```
 
---
+<!--v-->
 
 ## 方法 (method) (cont'd)
 
@@ -227,7 +230,7 @@ print(123.isdigit())
 		- 但可以直接 `help(变量/字面值.方法名)` 和悬浮
 - 我们并不会在这次课程中涉及到怎么写 **方法**，因为还需要很多面向对象的前置知识，在 SI 100B 正课里面（也许会）涉及
 
---
+<!--v-->
 
 ## Re: 内置函数和方法初探
 
@@ -245,11 +248,11 @@ print(123.isdigit())
 - `str.isalpha()` `str` 是否全是字母（布尔类型）
 - `str.isalnum()` `str` 是否全是数字或字母（布尔类型）
 
---
+<!--v-->
 
 # 太酷了，还有更多吗
 
---
+<!--v-->
 
 ## 引入库 (Import Packages)
 
@@ -269,11 +272,11 @@ print(random.random()) # 输出在 0.0 <= x < 1.0 之间的随机小数
 
 - 也有些强大的库需要额外安装，这些将会在之后涉及
 
----
+<!--s-->
 
-# 02. 定义函数、调用函数
+# 02. 定义函数、调用函数、返回值
 
---
+<!--v-->
 
 ## 先尝试自己理解
 
@@ -288,7 +291,7 @@ def f(x):
 - 尝试运行
 + **无事发生。。。**
 
---
+<!--v-->
 
 ## 先尝试自己理解 (cont'd)
 
@@ -308,7 +311,7 @@ print(f(2))
 
 **Magic!**
 
---
+<!--v-->
 
 ## `def` - 定义函数
 
@@ -327,7 +330,7 @@ def f(x):
 	- 具体多长那就是靠**缩进**解决，冒号后面跟的是有 4 个空格的代码，那下面紧挨着的所有 4 个空格开始的代码都是函数“内容”~
 - **定义不一定会被执行**（目前理解为不会执行就好）
 
---
+<!--v-->
 
 **函数定义的格式**
 
@@ -350,7 +353,7 @@ fun()
 print("我当然也不在函数内部")
 ```
 
---
+<!--v-->
 
 那如果我们换一个顺序呢？
 
@@ -377,7 +380,7 @@ NameError: name 'g' is not defined
 
 - 换回来呢
 
---
+<!--v-->
 
 ## 为什么动漫里要先喊技能名
 
@@ -386,9 +389,9 @@ NameError: name 'g' is not defined
 
 ![declaration|400](../res/Pasted image 20240825112850.png)
 
---
+<!--v-->
 
-## `return` 函数终结者
+## `return`：返回计算的结果
 
 ```py[3]
 def f(x):
@@ -400,9 +403,11 @@ def f(x):
 	- 执行某些代码
 	- 计算某些值
 - `return` 就是用来 **返回** 这个计算的值，倘若一个函数始终没有 `return` 执行完成后相当于返回了一个 `None` (代表什么都没有)
-- 倘若计算完成，那使命也就完成了！也就没有继续运行的意义了！
+- 倘若计算完成，那使命也就完成了！也就没有继续运行的意义了！（函数终结者）
 
---
+<!--v-->
+
+## `return`：返回计算的结果 (cont'd)
 
 **演示** 有返回值和无返回值
 
@@ -420,7 +425,7 @@ def calc3(x):
 print(calc1(2), calc2(2), calc3(2))
 ```
 
---
+<!--v-->
 
 **演示** `return` 之后不会继续运行函数
 
@@ -441,17 +446,167 @@ print(ChuanShanJia())
 	- 某些情况是更简单地，可以用更简单的方法计算并返回
 - 以上的 **某些情况** 都代表了一种“只有特定条件才会触发”的含义，我们会在下一节课（控制流）中学会它！
 
----
+<!--s-->
 
 # 03. 参数
 
---
+<!--v-->
 
 ## 参数：函数沟通的桥梁
 
 - 刚才的例子中我们探索了如何传递参数，现在我们来看看参数到底是什么
-- 参数分为形式参数和实际参数
+- 参数按照**出现位置**可以简单分为形式参数 (Parameter) 和实际参数 (Argument)
 	- 形式参数：就是写在定义处的参数 `def f(x1, x2):...`
 		- 除了会作为变量使用之外，还能规定函数的形式（长什么样）
 	- 实际参数：就是调用处的参数 `f(1, 2)`
 		- 这里的参数具有实际意义，是真实拿来运算的值
+- 除了上述分类方法，我们还有一些别的类型的参数
+
+<!--v-->
+
+## 可选的参数
+
+- 还记得 `print` 吗，我们可以加上 `, end=""` 来去除默认的结尾换行
+- 但是如果我们定义了一个 `my_print(var, end)` 而不写 end 会如何呢
+
+**演示** my_print
+
+- 我们会发现，在第二个语句中发生了错误
+
+```py
+TypeError: my_print() missing 1 required positional argument: 'end'
+```
+
+- 什么是 `positional argument`?
+
+<!--v-->
+
+## 可选的参数 (cont'd)
+
+**演示** 可选参数
+
+- Python 函数支持的参数按照**调用时的要求**可以有四种，我们只简单介绍两种
+- 注意，我们这里都在说**调用时**参数的要求，所以这里的参数都是指调用时的实际参数 (argument)
+	- 位置 (positional) 参数：我们之前写的都是位置参数，顾名思义，依靠**出现的先后顺序**来决定是哪个参数
+	- 关键字 (keyword) 参数：直接按照**形参的名字**来确定参数
+	- 默认 (default) 参数：也就是可以省略的参数
+		- 如果要使用，需要在定义的时候给形参指定**默认值**，从而可以在调用中省略，也可以覆盖，适合大量重复的参数
+- 他们很多也可以混合使用，这体现了 Python 的灵活性
+- 但是，某些情况是不允许的！
+
+<!--v-->
+
+## 可选的参数 (cont'd)
+
+```py []
+# 假设定义了 def key_func2(x, y, z, a, b, c)
+key_func(1, z=3, 2, x=1, b=3, 4) # 这是不允许的
+```
+
+- 思考：为什么不允许位置参数出现在关键字参数后面？
+	- 实际上是为了防止 **歧义**，同时提高代码 **可读性**，例如，上面的例子就非常混乱，如何分配 `1, 2, 4`？人类都得找很多遍才能排除已有的关键字，计算机代码就更复杂了，这是不必要的，会带来不必要的计算复杂性。
+
+<!--s-->
+
+# 04. 作用域
+
+<!--v-->
+
+## 作用域：发挥作用的区域
+
+**演示** 下面代码有一点点小迷惑，因为他有三个相同名字的变量，而且输出了五次
+
+```py [1,4,8|5,9,11,13,15]
+ans = 0
+
+def scope1():
+	# ans = 1
+	print(ans)
+
+def scope2():
+	ans = 2
+	print(ans)
+	scope1()
+	print(ans)
+
+print(ans)
+scope2()
+print(ans)
+```
+
+<!--v-->
+
+- 我们看到，输出分别为 `0, 2, 0, 2, 0`，由于我们没有对任何变量进行过其他更改，那么我们可以通过这个值来判断到底输出的那一块的值
+- 接下来，大家跟随高亮来探究是怎么完成输出的吧
+
+```py [0|1,13|7-11,14|8,9|3-5,10|1,5|8,11|1,15|0]
+ans = 0
+
+def scope1():
+	# ans = 1
+	print(ans)
+
+def scope2():
+	ans = 2
+	print(ans)
+	scope1()
+	print(ans)
+
+print(ans)
+scope2()
+print(ans)
+```
+
+<!--v-->
+
+## 作用域：发挥作用的区域
+
+- 作用域(Scope)：发挥作用的区域，与缩进的代码块紧密相连
+	- 我们定义的变量、函数等等都有它发挥作用的区域，目前你可以简单地认为
+		- 定义在最外层的（无缩进）就是全局变量，作用范围为全局
+		- 定义在有缩进的区域就是局部变量，作用范围为当前代码块
+	- 全局变量和局部变量之间如果重名，优先使用局部变量（前提是**先**定义了局部变量）
+
+**演示** 错误的优先局部变量
+
+- 变量的作用域和作用域的查找是非常复杂的，这里由于时间问题只简单的提了一嘴，大家可以在 SI 100B 正课学到完整的作用域知识，目前大家在编写代码的过程中只需要尽可能避免复杂的重名即可
+
+<!--s-->
+
+## 05. 上手写！圆的周长面积计算器～
+
+```py
+>>> r = 
+<<< 5
+>>> Area of circle: 78.53981633974483
+>>> Circumference of circle: 31.41592653589793
+```
+
+<!--v-->
+
+## 05. 上手写！圆的周长面积计算器～  (cont'd)
+
+```py []
+import math # 导入 math 库，可以使用 math.pi
+
+def area_of_circle(radius=1): # 默认半径为 1
+    return math.pi * radius ** 2
+
+def circumference_of_circle(radius=1): # 默认半径为 1
+    return 2 * math.pi * radius
+
+r = int(input("r = "))
+area = area_of_circle(r) # 通过位置参数传入半径
+circumference = circumference_of_circle(radius=r) # 通过关键字参数传入半径
+
+print("Area of circle: ", area)
+print("Circumference of circle: ", circumference)
+```
+
+<!--s-->
+
+## Takeaway Message
+
+<!--s-->
+
+# End
