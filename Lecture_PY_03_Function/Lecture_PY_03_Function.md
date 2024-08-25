@@ -511,47 +511,48 @@ key_func(1, z=3, 2, x=1, b=3, 4) # 这是不允许的
 
 ## 作用域：发挥作用的区域
 
-**演示** 下面代码有一点点小迷惑，因为他有三个相同名字的变量，而且输出了五次
+**演示** 下面代码有一点点小迷惑，因为他有两个相同名字的变量，而且输出了四次
 
-```py [1,4,8|5,9,11,13,15]
-ans = 0
+```py [1,6|7,10,13,16]
+which_li_hua = "高考英语卷中"
+# 我们都知道，李华是一个很有名的人物，他在高考英语卷中出现了很多次
+# 我们看看不同人提到李华时会想到什么
 
-def scope1():
-	# ans = 1
-	print(ans)
+def ShanghaiTech(): # 假设上海科技大学里来了一个李华（假设上科大人尽皆知）
+    which_li_hua = "上海科技大学"
+    print("上科大的", which_li_hua) # 上科大的人第一反应肯定是上科大的李华
 
-def scope2():
-	ans = 2
-	print(ans)
-	scope1()
-	print(ans)
+def SUSTech(): # 假设隔壁大学没有李华
+    print("隔壁大学", which_li_hua) # 隔壁大学人的第一反应肯定是高考英语卷中的李华
 
-print(ans)
-scope2()
-print(ans)
+# 外面的人（最外层）没有听说过别的李华
+print("外面的人", which_li_hua) # 自然会认为这个李华是高考英语卷中的李华
+ShanghaiTech() # 调用 ShanghaiTech 函数
+SUSTech() # 调用 SUSTech 函数
+print("外面的人", which_li_hua) # ShanghaiTech 的李华不会影响外面的人心中的李华
 ```
 
 <!--v-->
 
-- 我们看到，输出分别为 `0, 2, 0, 2, 0`，由于我们没有对任何变量进行过其他更改，那么我们可以通过这个值来判断到底输出的那一块的值
-- 接下来，大家跟随高亮来探究是怎么完成输出的吧
+但是我们可以完全用我们日常生活来理解输出的逻辑
 
-```py [0|1,13|7-11,14|8,9|3-5,10|1,5|8,11|1,15|0]
-ans = 0
+```py [0|1,12-13|14,5-7|15,9-10|16|0]
+which_li_hua = "高考英语卷中"
+# 我们都知道，李华是一个很有名的人物，他在高考英语卷中出现了很多次
+# 我们看看不同人提到李华时会想到什么
 
-def scope1():
-	# ans = 1
-	print(ans)
+def ShanghaiTech(): # 假设上海科技大学里来了一个李华（假设上科大人尽皆知）
+    which_li_hua = "上海科技大学"
+    print("上科大的", which_li_hua) # 上科大的人第一反应肯定是上科大的李华
 
-def scope2():
-	ans = 2
-	print(ans)
-	scope1()
-	print(ans)
+def SUSTech(): # 假设隔壁大学没有李华
+    print("隔壁大学", which_li_hua) # 隔壁大学人的第一反应肯定是高考英语卷中的李华
 
-print(ans)
-scope2()
-print(ans)
+# 外面的人（最外层）没有听说过别的李华
+print("外面的人", which_li_hua) # 自然会认为这个李华是高考英语卷中的李华
+ShanghaiTech() # 调用 ShanghaiTech 函数
+SUSTech() # 调用 SUSTech 函数
+print("外面的人", which_li_hua) # ShanghaiTech 的李华不会影响外面的人心中的李华
 ```
 
 <!--v-->
