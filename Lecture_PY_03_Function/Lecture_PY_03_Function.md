@@ -375,7 +375,7 @@ Cell In[?], line 1
 NameError: name 'g' is not defined
 ```
 
-- 换回来呢
+- 换回来呢 <span>好了</span> <!-- .element: class="fragment" data-fragment-index="1" -->
 
 <!--v-->
 
@@ -384,7 +384,7 @@ NameError: name 'g' is not defined
 - 函数必须先声明才能调用
 	- 什么是声明？就是从 `def` 一直到代码块结束！
 
-![declaration|400](../res/Pasted image 20240825112850.png)
+> <img src="images/define.jpg" width="45%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
