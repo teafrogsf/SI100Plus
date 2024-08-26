@@ -65,18 +65,15 @@ math: mathjax
 ### List 的常用操作
 
 * Slides（切片）: `li[start:stop:step]` 获得列表中的某一部分子列表。
-  - `start`：切片起始索引（**含**该索引的元素），默认为第一个元素（索引 `0`）。
+  - 此处的 `start`, `stop`, `step` 与内置函数 `range(start, stop[, step])` 中的含义相同。
+  <!-- - `start`：切片起始索引（**含**该索引的元素），默认为第一个元素（索引 `0`）。
   - `stop`：切片结束索引（**不含**该索引的元素），默认为最后一个元素（索引 `-1`）的下一个（虽然最后一个元素没有“下一个”，但这样能够默认包括最后一个元素）。
   - `step`：步长：用于指定取一个元素后，应该往后多少个去取下一元素。
     - 可以理解为“每隔 `step-1` 个元素取一个”。默认为 1，即连续取元素。
       - 如果下一元素的索引超过了 `stop` 则不会包含下一元素。
-    - 如果是正数，切片会从左到右取值；如果是负数，则从右到左取值。
-  - 切片时， 必须给出 `start` *或* `stop` 两者之一，`step` 则是可选的。
+    - 如果是正数，切片会从左到右取值；如果是负数，则从右到左取值。 -->
+  - 切片时需要给出 `start` *或* `stop` 两者之一，`step` 则是可选的。
   - 例如：`li[1:-1:2]` 意为从第二个元素（含）起，到倒数第一个元素（不含）结束，且每隔一个元素取一个。
-
----
-
-### List 的常用操作 (cont'd)
 
 * Length（长度）：`len(li)` 
   * 获取列表中元素的个数。
@@ -209,9 +206,11 @@ tinydict = {'Alice': '2341',
 - ...... 还有很多！
 
 ---
+**TODO:** Google 了一下发现运行终端指令已经不用 `os.system` 了（现在多用 `subprocess` 模块），而且进程管理还得看是什么操作系统，我的建议是把这块删了然后把相对绝对路径挪到上一页的文件路径管理去讲（毕竟文件路径管理用到相对路径了）
+
 ## OS 库之文件进程管理
 - OS 库的进程管理最基本的执行方式是 `os.system`
-- `os.system(command)` 相当于在命令行（Windows：Powershell；Linux：Bash 或其他终端）中执行特定指令。
+- `os.system(command)` 相当于在命令行（Windows 为 `Powershell`，macOS 为 `zsh`，Linux 则可能为 `bash`, `zsh`, `fish` 等 shell）中执行特定指令。
   - 例如：`os.system("Genshin.exe")`：原神，启动！
     - 这是用的相对路径！
   - 再比如：`os.system("C:\\Windows\\System32\\calc.exe")`
@@ -220,11 +219,11 @@ tinydict = {'Alice': '2341',
 
 ---
 ## OS 库之文件环境参数管理
-- `os.chdir(path)`: 修改当前程序操作的路径
-- `os.getcwd()`: 返回程序的当前路径
-- `os.getlogin()`: 获得当前系统登录用户名称
-- `os.cpu count()`: 获得当前系统的 CPU 数量
-- `os.urandom(n)`: 获得n个字节长度的随机字符串，通常用于加解密运算
+- `os.chdir(path)`: 修改程序当前所操作的路径
+- `os.getcwd()`: 获取程序当前所操作的路径（`cwd` 全称为 current working directory，意为当前工作目录）
+- `os.getlogin()`: 获取当前系统登录用户名称
+- `os.cpu_count()`: 获取当前系统的 CPU 数量
+- `os.urandom(n)`: 获取 n 个字节长度的随机字符串，通常用于加解密运算
 
 ---
 # Part 03：如何安装第三方库？`pip install` 与 `conda install`
@@ -287,7 +286,7 @@ list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
 ```python
 list(map(int, input().split()))
 ```
-- 这里 `split` 是字符串的一个方法，把字符串按空格分割
+- 这里 `split` 是字符串的一个方法，把字符串按空格分割并以列表形式返回分割结果
 - 想一想，这个操作是如何实现读取并分割的？
 
 ---
