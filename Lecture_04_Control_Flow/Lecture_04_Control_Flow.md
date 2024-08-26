@@ -1,80 +1,126 @@
 ---
-marp: true
+title: Lecture_04_Control_Flow
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: simple
+highlightTheme: github
+css: assets/custom.css
+revealOptions:
+    transition: 'slide'
+    transitionSpeed: fast
+    center: false
+    slideNumber: "c/t"
+    width: 1000
 ---
 
-# 控制流(Control Flow)——条件判断与循环
 
----
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
+  <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Python Lecture 4</h1>
+    <p style="font-size: 24px; color: #666;">控制流</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024  Staff | 2024-08-26</p>
+  </div>
+</div>
 
-# 目录
+<!--s-->
 
-* **条件语句**
+# 00. 控制流
 
-* **列表，元组与字典**
+<!--v-->
 
-* **循环语句**
+## 控制流 (Control Flow) 到底是什么？
 
-* **列表推导式**
+- 控制流是指在一个程序中，决定程序执行顺序的过程。
 
----
+- 一般的程序都是从上到下逐行代码执行，这是顺序结构 (Sequential Flow)
 
-## 控制流(Control Flow)到底是什么？
+- 通过使用**条件语句**（如 `if-else`）和**循环语句**（如`for`、`while`），我们可以实现 条件结构 (Conditional Flow) 和 循环结构 (Looping Flow)
 
-* 控制流是指在一个程序中，决定程序执行顺序的过程。
+- 我们之前学过函数的运行逻辑，也就是当你调用一个函数时，会从入口处“跳”到函数处，在执行完后再“跳”回来，这是 分支结构 (Branching Flow)
 
-* 控制流是通过使用**条件语句**（如if-else）和**循环语句**（如for、while）来实现的。
+- 这节课我们将主要介绍 条件结构 和 循环结构
 
----
+<!--s-->
 
-# 条件语句
+# 01. 条件结构
 
----
+<!--v-->
 
 ## 条件语句
 
-* 在Python中，我们使用 **if，elif** 和 **else** 关键字来编写条件语句。
+- 假设你遇到了这样一个场景
+    - 中午吃饭的时候，你会检查卡有没有钱
+        - 如果有钱，你就自己去吃饭
+        - 如果没钱了，你就会~~和朋友一起去吃饭~~
 
----
+我们简化一下： 
+
+```txt
+如果 卡里有钱 那么 自己去吃饭
+否则 和朋友一起去吃饭
+``` 
+
+<!--v-->
+
+## 条件语句 (cont'd)
+
+我们将简化的内容翻译成 Python “代码”
+
+```txt
+如果 卡里有钱 那么 自己去吃饭
+否则 和朋友一起去吃饭
+```
+
+```py []
+if 卡里有钱:
+    自己去吃饭
+else:
+    和朋友一起去吃饭
+```
+
+很显然，`if` 就相当于中文的 如果，`else` 相当于 否则，而冒号和我们之前在《函数》的课程中遇见的一样，是用来标识一个代码块的。
+
+接下来我们来正式看看 Python 中条件语句的用法
+
+<!--v-->
 
 ## if 语句
 
-if语句的基本语法如下：
+- `if` 语句的基本语法如下：
 
 ```python
 if condition: 
-    statement
+    statements
+    statements
+    ...
 ```
 
-这里的condition是一个布尔表达式，如果其值为True，那么statement会被执行,例如：
+- 这里的 `condition` 是一个 **布尔表达式**，显然，如果其值为 `True`，那么` statements` 就会被执行
+- 举个例子，在这个例子中，如果 `x` 大于 `0`，那么就会打印出 `x is a positive number`
 
-```python
+```py [0|1|2|3]
 x = 10
 if x > 0:
     print("x is a positive number")
 ```
 
-在这个例子中，如果x大于0，那么就会打印出 "x is a positive number"
+<!--v-->
 
----
+- 当然，我们也可以用程序流程图来表示
 
-## if 语句
-
-```python
+```py
 x = 10
 if x > 0:
     print("x is a positive number")
 ```
 
-* 在这个例子中，如果x大于0，那么就会打印出 "x is a positive number"
+<img src="./images/if.png" width="50%" style="display: block; margin: 0 auto;"/>
 
-<img src='./if.png' height="400" width="500"/>
+<!--v-->
 
----
+## `if-else` 语句
 
-
-## if-else 语句
-
-if-else语句的基本语法如下：
+- `if-else` 语句的基本语法如下：
 
 ```python
 if condition:
@@ -83,9 +129,10 @@ else:
     statement2
 ```
 
-如果condition为True，那么执行statement1，否则执行statement2。例如：
+- 如果 `condition` 为 `True`，那么执行 `statement1`，否则执行 `statement2`。
+- 例如，下面这个例子，因为 `x`不大于 `0`，所以会打印出 `x is not a positive number`
 
-```python
+```py [0|1|2|4|5]
 x = -10
 if x > 0:
     print("x is a positive number")
@@ -93,13 +140,11 @@ else:
     print("x is not a positive number")
 ```
 
-在这个例子中，因为x不大于0，所以会打印出 "x is not a positive number"
+<!--v-->
 
----
+- 同样也可以用流程图表示
 
-## if-else 语句
-
-```python
+```py []
 x = -10
 if x > 0:
     print("x is a positive number")
@@ -107,33 +152,61 @@ else:
     print("x is not a positive number")
 ```
 
-* 在这个例子中，因为x不大于0，所以会打印出 "x is not a positive number"
+<img src="./images/if_else.png" width="80%" style="display: block; margin: 0 auto;"/>
 
-<img src='./if_else.png' height="500" width="600"/>
+<!--v-->
 
----
+- 倘若别的情况需要考虑呢？畅想一下下列情况
 
+```py
+如果 学生卡有钱 那么
+    自己去食堂吃饭
+或者 虽然卡里没钱，但有现金
+    去全家买个方便面
+否则
+    找个同学一起吃
+```
 
-## if-elif-else 语句
+我们同样可以写出这样的代码：
 
-if-elif-else语句的基本语法如下：
+```py []
+if 学生卡有钱:
+    去食堂吃饭
+elif 有现金:
+    去全家买方便面
+else:
+    找个同学一起吃
+```
 
-```python
+可见，这个 `elif` 蕴含了一个 “如果上面的（都）不满足，但是满足紧挨着的这个条件” 的意思，那我们来介绍一下 `if-elif-else` 语句吧
+
+<!--v-->
+
+## `if-elif-else` 语句
+
+- `if-elif-else` 语句的基本语法如下：
+
+```py
 if condition1:
     statement1
 elif condition2:
     statement2
-else:
+elif condition3:
     statement3
+...
+else:
+    statementN
 ```
 
-**这里可以有多个elif部分**，每个elif后面都跟着一个条件和相应的语句。如果condition1为True，执行statement1；否则，检查condition2，如果为True，执行statement2；如果所有的条件都不为True，执行statement3.
+注意，**可以有多个 `elif` 部分，也可以不包含 `else` 部分**
 
----
+每个 `elif` 后面都跟着一个条件和相应的语句。如果 `condition1` 为 `True`，执行 `statement1`；否则，检查 `condition2`，如果为 `True`，执行 `statement2`；同理，直到最后，如果所有的条件都不为 `True`，执行 `statementN`.
 
-## if-elif-else 语句
+<!--v-->
 
-```python
+- 举个例子
+
+```py [0|1|2|4|6|7|0]
 x = 0
 if x > 0:
     print("x is a positive number")
@@ -143,40 +216,117 @@ else:
     print("x is zero")
 ```
 
-在这个例子中，因为 x 等于0，所以会打印出"x is zero".
+- 如果中间的条件被满足，则不会进行接下来的比较了（哪怕条件满足）
 
----
+```py [0|1|2|4|5|0]
+x = 0
+if x > 1:
+    print("x > 1")
+elif x < 1:
+    print("x < 1")
+elif x == 0:
+    print("x is zero")
+```
 
-## Nested if-statements 嵌套
+- 是不是有点类似 布尔表达式 中的 短路？
 
-* if、elif和else主体中的所有语句也可以是条件语句
+<!--v-->
 
-<img src="./image.png" height="450" width="500"/>
+## Nested `if`-statements 嵌套
 
----
+- `if`、`elif` 和 `else` 主体中的所有语句也可以是条件语句，他们可以层层叠加，组成非常复杂的 `if` 网络（但是千万不要在实践中这么做！！！）
 
-## Nested if-statements 嵌套
+<img src="./images/image.png" width="70%" style="display: block; margin: 0 auto;"/>
 
-* if、elif和else主体中的所有语句也可以是条件语句，例如：
+<!--v-->
 
-<center class="half">
-<img src="./image-2.png" height="450"width="600"/>
-<img src="./image-4.png" height="450"width="400"/>
-</center>
+- 下面来看一个简单的例子
 
----
+<div style="column-count: 2">
 
-## Nested if-statements 嵌套
+```py [0|1|2|4|5|7|9|10|0]
+x = 50
+if x < 2:
+    print('Small')
+else:
+    if x < 10:
+        print('Medium')
+    elif x < 20:
+        print('Big')
+    elif x < 100:
+        print('Huge')
+    else:
+        print('Ginormous')
+```
 
-* if、elif和else主体中的所有语句也可以是条件语句，例如：
 
-![alt text](image-2.png) ![alt text](image-3.png)
+<img src="./images/image-4.png" width="100%" style="display: block; margin: 0 auto;"/>
 
----
+</div>
 
-## Example：写一个funtion判断是否能登机
+<!--v-->
 
-```python
+- 但是并不建议你这么写，我们完全可以让他变得更加简单 (`else + if => elif`)
+
+<div style="display: flex; align-items: center; justify-content: center;margin: 2vh;">
+
+```py [0|3-4]
+if x < 2:
+    print('Small')
+else:
+    if x < 10:
+        print('Medium')
+    elif x < 20:
+        print('Big')
+    elif x < 100:
+        print('Huge')
+    else:
+        print('Ginormous')
+``` 
+<!-- .element: style="margin: 1vh" -->
+
+```py [0|3]
+if x < 2:
+    print('Small')
+elif x < 10:
+    print('Medium')
+elif x < 20:
+    print('Big')
+elif x < 100:
+    print('Huge')
+else:
+    print('Ginormous')
+```
+<!-- .element: style="margin: 1vh" -->
+
+</div>
+
+<!--v-->
+
+## Example:
+
+- 【2024 四川内江高三一模】如图是一个电子元件在处理数据时的流程图：
+
+<img src="./images/image-10.png" width="70%" style="display: block; margin: 0 auto;"/>
+
+```py []
+def f(x):
+    if x >= 1:
+        y1 = x + 2
+        return y1 ** 2
+    else: # 写成 elif x < 1: 也可以，但没必要
+        y2 = x ** 2
+        return y2 + 2
+
+x = int(input("请输入 x"))
+print(f(x))
+```
+
+<!--v-->
+
+## Example: 登机判断
+
+```py []
 def fly():
     ticket = int(input("是否购买机票（0-未购买 1-购买）"))
     safety = int(input("是否通过安检（0-未通过 1-通过）"))
@@ -189,63 +339,62 @@ def fly():
         print("没有机票不能登机")
 ```
 
----
+<!--s-->
 
-# 列表，元组与字典
+# 02. 更多类型！列表、元组与字典
 
-* 列表、元组和字典是Python中常用的数据结构，它们各自有不同的特点和使用场景
+<!--v-->
 
----
+## 列表 (`list`)
 
-## List（列表）
+- 创建列表
+    - `empty_list = []`
+    - `fruits = ['apple', 'banana', 'cherry']`
+    - 元素用 `,` 分隔
 
-* construct(构造) : li = [1, 2, 3]
+- 访问列表中的元素
+    - 列表中可能有多个元素，我们用 **下标/索引** (index) 来访问
+    - `fruits[1] = ?`: 索引从 `0` 开始
 
-  * 元素之间用逗号分隔
+- 修改特定元素
+    - `fruits[1] = 'blueberry'`
 
-* visit(访问) : li[index]
+- 追加元素
+    - 在末尾添加：`fruits.append('date')`
 
-  * **与字符串的索引一样，列表索引从0开始**
+<!--v-->
+## 列表 (`list`) (cont'd)
 
-* change(改变): li[index] = ...
+- 删除元素
+    - 删除指定元素 `fruits.remove('banana')`
+    - 删除指定索引的元素 `del fruits[1]`
+    - 移除（并返回）最后一个元素 `last_fruit = fruits.pop()`
 
-* slide(切片): li[from:to:step]
+- 切片 (slide)
+    - `fruits[from:to:step]`
 
-* length(长度)
-
-  * len(li) 获取列表中元素个数
+- 长度
+    - 获取列表中元素个数 `length = len(fruits)`
 
 * operator运算符
 
-  * '+' 可以连接两个list
+  * '+' 可以连接两个 list `fruits + ['apple', 'banana']`
 
----
 
-## List
+<!--v-->
 
-### Methods
-
-* append $~~~~~~~$li.append(item) $~~~~~~~~~~~~~~~~$结尾追加一个元素
-* insert $~~~~~~~~~~$li.insert(index, item) $~~~~~~~~~$在指定位置插入一个元素
-* remove $~~~~~~~$li.remove(item) $~~~~~~~~~~~~~~~~$删除指定值的元素
-* pop $~~~~~~~~~~~$ item = li.pop(index) $~~~~~~~~~$删除指定位置的元素, 并返回删除的元素的值
-* index $~~~~~~~~~$ obj = li.index(item) $~~~~~~~~~$从列表中找出某个值第一个匹配项的索引位置
-* sort $~~~~~~~~~~~$ li.sort() $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$排序，默认从小到大
-* reverse$~~~~~~~$ li.reverse() $~~~~~~~~~~~~~~~~~~~~~~~~$将列表反向
-
----
 
 ## List
 
 ### Nested list 嵌套列表
 
-* 我们可以在list中嵌套其他list
+* 我们可以在 `list` 中嵌套其他 `list`
 
-* matrix = [[1, 2, 3], [4, 5, 6]] (二维列表)
+* `matrix = [[1, 2, 3], [4, 5, 6]]` (二维列表)
 
----
+<!--v-->
 
-## Tuple（元组）
+## 元组 (`Tuple`)
 
 * Python 的元组与列表类似，**不同之处在于元组的元素不能修改**。
 
@@ -253,78 +402,34 @@ def fly():
 
 * 元组创建很简单，只需要在括号中添加元素，并使用逗号隔开即可。
 
-```python
+```python []
 tup1 = ('physics', 'chemistry', 1997, 2000)
 tup2 = (1, 2, 3, 4, 5 )
-tup3 = (50,) #元组中只包含一个元素时，需要在元素后面添加逗号
+tup3 = (50,) # 元组中只包含一个元素时，需要在元素后面添加逗号
 ```
 
 * 访问方法和list相同，只是元组中的元素值是不允许修改的。
 
----
+<!--v-->
 
-## Set（集合）
+## 集合 (`Set`)
 
-* 集合（set）是一个无序的不重复元素序列。
+* 集合是一个无序的不重复元素序列。
 
 * 集合中的元素不会重复，并且可以进行交集、并集、差集等常见的集合操作
 
-* 可以使用大括号 { } 创建集合，元素之间用逗号 , 分隔， 或者也可以使用 set() 函数创建集合
+* 可以使用大括号 { } 创建集合，元素之间用逗号 , 分隔， 或者也可以使用 `set()` 函数创建集合
 
-```python
+```python []
 set1 = {1, 2, 3, 4}            # 直接使用大括号创建集合
 set2 = set([4, 5, 6, 7])      # 使用 set() 函数从列表创建集合
 ```
 
----
+<!--v-->
 
-## Dict（字典）
+## 区分python中的四种集合数据类型
 
-* 字典的每个键值 **key:value** 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示：
-* 就像我们查《新华字典》，字就是``key``，字的释义就是``value``
-
-```python
-d = {key1 : value1, key2 : value2 }
-```
-
-* 键一般是唯一的、不可变的，如果重复最后的一个键值对会替换前面的，值不需要唯一。
-
-```python
-tinydict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
-```
-
-* 其中``Alice,Beth,Cecil``是``key``，``2341,9102,3258``是``value``,
-形如``Alice:2341``的我们称之为**键值对** (key-value pairs)
-
----
-
-## Dict（字典）
-
-* construct(构造): di = {'a': 1, 'b': 2, 'b': '3'}
-
-* visit(访问): print(di[‘a’])
-
-* change(改变): di[‘a’] = 100
-
-* delete(删除): del di[‘a’]
-
-**Attention：对dict几乎所有的操作都是通过键来实现的**
-
----
-
-## Example
-
-```python
->>> tinydict = {'a': 1, 'b': 2, 'b': '3'}
->>> tinydict['b']
-'3'
->>> tinydict
-{'a': 1, 'b': '3'}
-```
-
----
-
-## 区分python中的四种集合数据类型（列表，元组，集合，字典）
+### （列表，元组，集合，字典）
 
 1. 列表（List）：有序，可更改，可以有重复的成员
 
@@ -332,229 +437,247 @@ tinydict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
 
 3. 集合（set）：无序，无索引，没有重复的成员。
 
-4. 字典 （Dictionary）：无序，可更改，有索引，没有重复的成员
+4. 字典 （Dictionary）：无序，可更改，有索引，没有重复的成员(见末尾)
 
----
+<!--s-->
 
-# 循环语句
+# 03.循环语句
 
-* 简单来说，循环语句就是让代码反复执行某个操作，直到满足某个条件为止。
-* 在Python中，最常用的循环语句就是for和while
+<!--v-->
 
----
+## 循环
 
-## While 循环
+- 简单来说，循环语句就是让代码 **反复执行** 某个操作， **直到** 满足某个条件为止。
+- 在 Python 中，最常用的循环语句就是 `for` 和 `while`
+
+<!--v-->
+
+## `while` - 很内向，吃饱了也不说话 
+
+```py []
+hungry = 10 # 如饱
+print("很内向，吃饱了也不说话，就一直", end="")
+
+while hungry > 0:
+    print("吃", end="")
+    hungry = hungry - 1
+
+print()
+print("吃饱了")
+```
+
+<!--v-->
+
+## `while` 循环
 
 ```python
 while condition：
     statements
 ```
 
-* 判断条件(condition)可以是任何表达式，任何非零、或非空（null）的值均为true
-* 当判断条件为 false 时，循环结束，否则一直循环
+<div style="column-count:2">
 
-<img src="./while.png" height="400" width="400"/>
+- 判断条件 (`condition`) 可以是任何表达式
+- 当判断条件为 `False` 时，循环结束，否则一直循环
+- 为了保证不会进入死循环 (infinite loop)，我们需要在 **循环体** （也就是循环要做的事情）中对先前的判断条件 **有所改变**
 
----
+<img src="./while.png" width="80%"/>
 
-## While 循环
+</div>
 
-* example
+<!--v-->
 
-```python
-x = input("enter x")
-x = float(x)
-while x < 0:
-    print("please try again")
-    x = float(input("enter x"))
-print("Yes,it's non-negative!")
+## Example: 猜数字
+
+```py []
+ans = 25
+guess = input("请猜测: ")
+
+while(ans != guess):
+    if(ans < guess):
+        print("大了")
+    else:
+        print("小了")
+    guess = input("请重猜: ")
+
+print("猜对了")
 ```
 
----
+<!--v-->
 
-## While 循环
-![alt text](image-5.png)
+## `break`, `continue`
 
----
+- `break` 用于立即终止循环。无论循环条件是否为真，执行到 `break` 语句时，循环都会 **立刻结束**，跳出循环。
+- `continue` 用于跳过 **当前的迭代**，并立即进行下一次迭代。后面的语句会被跳过，并直接进入下一次循环的条件判断。
 
-## While 循环
+<div style="display: flex; align-items: center; justify-content: center;margin: 2vh;">
 
-![alt text](image-6.png)
-
----
-
-## While 循环
-
-![alt text](image-7.png)
-
-* **To avoid infinite loops, make sure something will/can eventually happen in the body to change the condition.**
-
----
-
-## While 循环
-
-* **break 与 continue**
-
-* 如果使用 break 语句，即使 while 条件为真，我们也可以停止循环
-
-```python
-i = 1
-while i < 7:
+```py [0|5|6|8|0]
+i = 0
+while i < 5:
+    i += 1 # i += 1 就是 i = i + 1
     print(i)
-     if i == 3:
+    if i == 3:
         break
     print(i)
-    i += 1
+print("end.")
+# Output: 1 1 2 2 3 end.
 ```
+<!-- .element: style="margin:1vh"-->
 
----
-
-## While 循环
-
-* **break 与 continue**
-
-* 如果使用 continue 语句，我们可以停止当前的迭代，并继续下一个：
-
-```python
+```py [0|5|6|2|0]
 i = 0
-while i < 7:
-    i += 1 
+while i < 5:
+    i += 1
+    print(i)
     if i == 3:
         continue
     print(i)
+print("end.")
+# Output: 1 1 2 2 3 4 4 5 5 end.
 ```
+<!-- .element: style="margin:1vh"-->
 
----
+</div>
 
-## Example：进制转换
+<!--v-->
 
-* 我们尝试将一个十进制数转换为一个二进制数
+## Example: 进制转换 (HARD)
 
-* 思考一下：我们如何要将十进制的数字10转换为二进制？
+- 还记得我们在扫盲课中介绍的，如何将十进制整数转换为二进制整数吗？
+- 短除法！**每次** 除以 `2`， **直到** 商为 `0`，把结果从下往上读
 
----
+```txt
+将 10 转换为二进制 => 1010
+10/2=5  ......0
+5/2=2   ......1
+2/2=1   ......0
+1/2=0   ......1
+```
+<!--v-->
 
-## Example：进制转换
+## Example: 进制转换 (HARD)
 
-* 我们尝试将一个十进制数转换为一个二进制数
+- 还记得我们在扫盲课中介绍的，如何将十进制整数转换为二进制整数吗？
+- 短除法！**每次** 除以 `2`， **直到** 商为 `0`，把结果从下往上读
 
-* 思考一下：我们如何要将十进制的数字10转换为二进制？
-
-* 有很多种方法，我们这里介绍一种方法：**短除法**
-
-* 短除法运算方法是先用一个除数除以能被它除尽的一个质数，以此类推，除到商是质数为止。
-
----
-
-## 短除法
-
-* 短除法运算方法是先用一个除数除以能被它除尽的一个质数，以此类推，除到商是质数为止。
-
-![alt text](image-8.png)
-
----
-
-## Example：进制转换
-
-* 在这样的灵感下，我们尝试用while循环去实现这一过程
-
-```python
+```py []
 def decimal_to_binary(n):  
     binary_num = ''  
     while n > 0:  
         remainder = n % 2  
-        binary_num = str(remainder) + binary_num  
-        n = n // 2  
+        binary_num = str(remainder) + binary_num # 不能写成 +=, 顺序不对
+        n //= 2 # n = n // 2
     return binary_num  
-# 示例  
-decimal_number = 10  
+
+decimal_number = 10
 binary_number = decimal_to_binary(decimal_number)  
-print(f"十进制数 {decimal_number} 转换为二进制数是: {binary_number}")
+print(decimal_number, "的二进制是", binary_number)
 ```
 
-* 请注意：这里最后的**binary_num**事实上是**string**类型的
+- 请注意：这里最后的**binary_num**事实上是**string**类型的
 
----
+<!--v-->
 
-## For 循环
+## `for` - 让你练习时长两年半
 
-* for循环可以遍历任何序列的项目，如一个列表或者一个字符串
+```py []
+skills = ['唱', '跳', 'rap', '篮球']
 
-```python
-for iterating_var in sequence:
-   statement(s)
+print("前面忘了，喜欢")
+
+for skill in skills:
+    print(skill, end=", ")
+
+print("Music!")
 ```
 
-![alt text](image-9.png)
+<!--v-->
 
----
+## `for ... in` - 遍历
 
-## For 循环
+- `for` 循环可以 **遍历** 任何序列的项目，如一个列表或者一个字符串
 
-### Example1：遍历列表
-
-```python
-for i in [5, 4, 3, 2, 1]: # (a five-element sequence)
-print(i)
-# 在这种情况下，the iteration（即i）有序地接受列表[5,4,3,2,1]中的元素
-# 首先 i = 5，并且print出来
-# 然后 i = 4, print...以此类推，直到i = 1 然后再 print
-# 在那之后，列表中的所有元素都被遍历，循环结束
+```py []
+for char in "123456":
+    print(char, end="!")
+print()
+print(char) # char 在循环后仍然可用！写代码的时候小心变量名重名带来隐晦的错误！
 ```
 
----
-
-### Example2：遍历字典
-
-```python
-dic = {'name':'teafrogsf','age':22,'gender':'male'}
-for k in dic:  # for 循环默认取的是字典的key赋值给变量名k
-    print(k,dic[k])
-# name teafrogsf
-# age 22
-# gender male
+```txt
+1!2!3!4!5!6!
+6
 ```
 
----
+```py []
+for fruit in ["apple", "banana", "cherry"]:
+    print(fruit, end=", ")
+```
 
-### Example3
+```txt
+apple, banana, cherry, 
+```
 
-```python
+<!--v-->
+
+## `for` 中的 `break`, `continue`
+
+- 行为和 `while` 一样，你还记得吗？
+
+```py []
+for fruit in ["apple", "banana", "cherry"]:
+    if fruit == "banana": # 当遇到 banana 时结束循环
+        break
+    print(fruit, end=", ")
+print("end.")
+```
+
+```py []
+for fruit in ["apple", "banana", "cherry"]:
+    if fruit == "banana": # 当遇到 banana 时跳过本轮循环
+        continue
+    print(fruit, end=", ")
+print("end.")
+```
+
+<!--v-->
+
+## 提一嘴：字符串 VS 列表
+
+- 列表可以靠 `list1[i]` 获取单个元素，通过 `list1[start:end:step]` 切片
+- 字符串可以靠 `str1[i]` 获取单个字符，通过 `str1[start:end:step]` 切片
+
+- - -
+
+- 列表的下标从 `0` 开始
+- 字符串的下标从 `0` 开始
+
+- - -
+
+- 列表可以靠 `list1.append(item)` 添加
+- 字符串可以靠 `str1 = str1 + "..."` 添加
+
+- - -
+
+- 两个列表可以通过 `+` 有序连接
+- 两个字符串可以通过 `+` 有序连接
+
+<!--v-->
+
+## 来看一个奇怪的例子
+
+```py []
 li = [1, 3, 5, 7, 9, 11]
-for i in li: # It's dangerous to modify a list when you're iterating it.
-if i == 5:
-    li.remove(i)
-print(i, end=' ')
+for i in li: # 一边迭代一边修改很危险！
+    if i == 5:
+        li.remove(i)
+    print(i, end=' ')
 ```
 
-Output:
+<!--v-->
 
-```python
-1 3 5 9 11
-```
-
-* **在迭代一个列表时，修改它是很危险的！！！**
-
----
-
-## Nested for statement 循环嵌套
-
-```python
-for variable in sequence:
-    outer_loop_statement_1
-    outer_loop_statement_2
-    …
-    for variable in sequence:
-        inner_loop_statement_1
-            …
-        inner_loop_statement_N
-    outer_loop_statement_N
-statements_after_all_for_loops
-```
-
----
-
-### Example4
+## Nested `for` statement 循环嵌套
 
 ```python
 for i in [1, 2, 3]:
@@ -564,7 +687,7 @@ for i in [1, 2, 3]:
 print('Bingo')
 ```
 
-Output:
+输出如下：
 
 ```python
 1 2 3
@@ -573,332 +696,190 @@ Output:
 Bingo
 ```
 
----
+<!--v-->
 
-## for循环控制循环次数：**range()**
+## 太小了，我要一个 100 的循环 - `range`
 
-* Type **range** 表示不可变的数字序列，通常用于循环中的特定次数
-
-```python
-range(start, stop, step)
+```py
+range(stop), range(start, stop), range(start, stop, step)
 ```
 
-* 计数从start开始(**包含start**)，到stop结束(**不包含stop**)，step表示步长（**默认为1**）
+- `range` 能生成从 `start` 到 `stop` **而不包含 `stop`** 的“一列数”
 
-```python
->>> range(10)
-range(0, 10)
->>> type(range(0, 10))
-<class 'range'>
+```py []
+>>> type(range(0, 10))       # range's type is `range`
+<class 'range'>              # but we can convert it to list
 >>> list(range(4))
-[0, 1, 2, 3]                        # range(m) range from zero to m-1
+[0, 1, 2, 3]                 # range(m) range from zero to m-1
 >>> list(range(3, 9))
-[3, 4, 5, 6, 7, 8]                  # range(x, y) range from x to y-1
+[3, 4, 5, 6, 7, 8]           # range(x, y) range from x to y-1
 >>> list(range(3, 9, 2))
 [3, 5, 7]
->>> list(range(7, 2, -1))           # range(x,y,-1) range form x to y+1
+>>> list(range(7, 2, -1))    # range(x,y,-1) range form x to y+1
 [7, 6, 5, 4, 3]
 # range(x, y, step_size)
 >>> list(range(4, 1))
-[]                                  # if x>y, it will be an empty object
+[]                           # if x>y, it will be an empty object
 ```
 
----
+<!--v-->
 
-### Example of the range type
+## Example: 判断奇数、偶数
+
+- 这里涉及到了一点关于 [格式化输出](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html) 的用法，RTFM
 
 ```python
 for i in range(1, 11):
     if i % 2 == 0:
-        print(f'{i:2}: even')
+        print(f'Num:{i:2}: even')
     else:
-        print(f'{i:2}: odd')
+        print(f'Num:{i:2}: odd')
 ```
 
-Output:
+<!--v-->
 
-```python
-1: odd
-2: even
-3: odd
-4: even
-5: odd
-6: even
-7: odd
-8: even
-9: odd
-10: even
-```
+## 刚刚提过的小问题
 
----
+```py []
+num = 2
+print("num =", num)
 
-# 循环变量的作用域问题
-
----
-
-### 从一个例子开始
-
-```python
-for num in [1, 5, 10]:
+for num in [1, 5, 10]: # num 将覆盖外层的变量
     print(num,end=' ')
 
-print(f"=== after for:{num}")
+print()
+print("num =", num) # 循环用的变量会被遗留下来，即使 num 也是由循环创建的
 ```
 
-Output:
+```txt
+num = 2
+1 5 10 
+num = 10
+```
+
+- 编程习惯很重要，干净和有区分度的命名会避免小 bug
+- 循环中，旧时通常使用 `i`, `j`, `k` 作为循环变量
+
+<!--v-->
+
+## Example: 判断质数
+
+```py []
+def is_prime(num):
+    # 思路：默认输入的是一个素数，除非我们找到了一个因子
+    if num < 2:
+        return False # 0 和 1 不是素数！可以提前结束！
+    for i in range(2, num):
+        if num % i == 0:
+            return False # 找到了一个因子，不是素数，函数提前结束！
+    return True # 没有找到因子，是素数！
+
+input_num = int(input("Input a number:"))
+
+print(is_prime(input_num))
+```
+
+<!--s-->
+
+## Takeaway Message
+
+- 控制流是什么？
+    - 条件结构
+        - `if` ——如果
+        - `if-else` ——如果，否则
+        - `if-elif-else` —— `elif = else + if`
+        - Nested-`if` 及正确化简
+    - 循环结构
+        - `while` ——满足条件一直做！
+        - `for` ——遍历！逐个访问！
+        - `break`, `continue` ——停下还是跳过
+        - `range`：`for`的好帮手
+        - 循环的嵌套
+
+<!--s-->
+
+## Takeaway Message (cont'd)
+
+- 新学到的类型
+    - `list` ——无序、什么都装的下的列表
+    - `tuple` ——无法改变的“列表”
+    - `set` ——集合，永远没有重复！
+
+<!--s-->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;" id="canvas">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>
+
+
+<!--v-->
+
+# ??. 附加部分
+
+由于各种原因，不确定是否有充足的时间，这一部分不一定会在上课中讲到～
+
+但是我们会在 Notebook 中正常提供，供大家自行阅读～
+
+**如果大家对某个内容呼声很高，可以在 Piazza 上发帖，也可以拉朋友来给你点赞（点 Good Notes / Good Question）！我们会做更多 Notebook / 视频带大家了解！**
+
+<!--s-->
+
+## 字典 (Dict)
+
+* 字典的每个键值 **`key:value`** 用冒号 `:` 分割，每个键值对之间用逗号 `,` 分割，整个字典包括在花括号 `{}` 中 ,格式如下所示：
+* 就像我们查《新华字典》，字就是 `key`，字的释义就是 `value`
 
 ```python
-1 5 10 === after for:10
+d = { key1 : value1, key2 : value2 }
 ```
 
-* ``num`` 这个变量 在 for 循环代码块结束后，仍然有效。
-
-* 也就是说在 for 循环 迭代一个可迭代对象的时候，离开for循环的代码段，这个循环变量``num``依然有效!
-
-* 如果迭代是对象没有值的话，``num`` 就不会赋值. 这个时候，for 循环就不能进入，此时``num`` 也没有赋值，即没有``num`` 这个变量.
-
----
-
-## 循环变量覆盖外层变量
+* 键一般是唯一的、不可变的，如果重复最后的一个键值对会替换前面的，值不需要唯一。
 
 ```python
-num =100
-for num in [1,2,3]:
-    print(num,end=' ')
-
-print(f"=== after for:{num}")
+my_info = { # 这里用了一个比较美观的换行写法，适用于长文本排版
+    "course_name": "SI 100+",
+    "semester": "2023 Summer", # 这个逗号可选
+}
 ```
 
-Output:
+形如 `"name": "ZAMBAR"` 的我们称之为**键值对** (key-value pairs)
 
-```python
-1 2 3 === after for:3
-```
+<!--v-->
 
-* 从结果可以看出 ``num`` 的值是3 ，说明 经过 for 循环后 ，``num`` 最后赋值为3， 和 上面``num =100`` 有冲突，直接 把 ``num``的值覆盖了
+## 字典 (Dict) (cont'd)
 
----
+更多请看即将 Release 的 Python 进阶 课程！
 
-* **请注意，在嵌套循环时不要使用相同的变量！**
+<!--v-->
 
----
+## 简单的调试：追踪你的代码运行
 
-### Find the maximum value in a sequence 找最大值
+- 注意到资料的**猜数字**代码左侧有一个小红点了吗？这个点的名字叫断点 (breakpoint)
+- 鼠标悬浮在当前行的最左侧，就可以启用/禁用该断点
+- 使用**调试**模式启动（代码块旁边有一个 ▶️ 的下拉菜单里，有一个 调试该代码块）时
+    - 代码会自动在此处停止
+    - 上面会多出一个执行的小方框
+        - 我们暂时只需要无脑点 步入 (Step into) 就可以一步一步执行了
+        - 上面小方框里的 ▶️ 代表继续，继续执行到下一次遇见断点或结束
+    - 左侧会切换到 运行与调试 的菜单
+        - 最上面写了一些探测到的变量，你可以实时观察他们
+        - 中间是 监视，点击 + 可以输入一个 **表达式** 进行观测，就像实时 `print` 一样，非常方便
+        - **小任务: 尝试观察 guess, 和 guess + 1**
+    - 代码会有一行亮着的行，代表 **下一步** 将执行的代码
 
-```python
-largest_so_far = -1
-li = [3, 5, 4, 7, 9, 2]
-for i in li:
-    if i > largest_so_far:
-        largest_so_far = i
-print(largest_so_far)
-```
+<!--v-->
 
-Output
+## 格式化输出：让输出更美，字符串不分家！
 
-```python
-9
-```
-
----
-
-### Judge prime number 判断是否是质数
-
-```python
-num = 17
-is_prime = True
-for i in range(2, num):
-    if num % i == 0:
-        is_prime = False
-print(is_prime)
-```
-
-Output:
-
-```python
-True
-```
-
----
-
-### Iterate through a dictionary by its keys 按键(key)遍历字典
-
-* Method 1: 直接遍历key
-
-```python
-# iterate through keys directly
-a_dict = {'name' : 'lyx', 'age' : 18, 'address' : 'ShangHai'}
-for key in a_dict:
-    print(key, ":", a_dict[key])
-```
-
-* Method 2: 使用``.keys()`` 函数 create a list of the keys
-
-```python
-# iterate through a list made up of keys
-a_dict = {'name' : 'lyx', 'age' : 18, 'address' : 'ShangHai'}
-for key in a_dict.keys():
-    print(key, ":", a_dict[key])
-```
-
-Output:
-
-```python
-name : lyx
-age : 18
-address : ShangHai
-```
-
----
-
-### Iterate through a dictionary by its value 按值遍历字典
-
-* 使用``.values()``函数create a list made up of its values
-
-```python
-a_dict = {'name' : 'lyx', 'age' : 18, 'address' : 'ShangHai'}
-for val in a_dict.values():
-    print(val)
-# Note that we can't find a key through a value, since that different keys may have the same value.
-```
-
-Output:
-
-```python
-lyx
-18
-ShangHai
-```
-
-* **Warning : 用value去查找对应的key是不可行的**
-
----
-
-### Iterate through a dictionary by both its key and corresponding value 
-
-### 通过键值对去遍历字典
-
-* 使用``.item()``函数create a list made up of  key-value pairs（键值对）
-
-```python
-a_dict = {'name': 'lyx', 'age': 18, 'address': 'ShangHai'}
-for key, val in a_dict.items():
-    print(key, ":", val)
-```
-
-Output:
-
-```python
-name : lyx
-age : 18
-address : ShangHai
-```
-
----
-
-## for循环的跳出
-
-* for+break: 同while循环一样，只要运行到break就会立刻中止本层循环
-
----
-
-# 列表推导式(List Comprehensions)
-
----
-
-## List Comprehensions 列表推导式
-
-* 列表推导式是一个用于生成新列表的表达式，其基本形式如下：
-
-```python
-[expression for item in iterable]
-```
-
-* 这里，``expression`` 是基于 ``item``的某种表达式，``iterable`` 是任何可以遍历的对象。
-
----
-
-### Example :创建一个包含前10个正整数平方的列表
-
-```python
-squares = [x**2 for x in range(1, 11)]
-print(squares)
-```
-
-Output:
-
-```python
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-```
-
----
-
-### 列表推导式中的条件过滤
-
-* 列表推导式还可以包含一个可选的条件子句，用于过滤出满足特定条件的项。其形式如下：
-
-```python
-[expression for item in iterable if condition]
-```
-
-* 在先前的例子中，如果我们只要偶数的平方，可以这样做：
-
-```python
-squares_of_evens = [x**2 for x in range(1, 11) if x % 2 == 0]
-print(squares_of_evens)
-```
-
-Output:
-
-```python
-[4, 16, 36, 64, 100]
-```
-
----
-
-### 嵌套的列表推导式
-
-* 列表推导式可以嵌套使用，即在一个列表推导式中包含另一个列表推导式。这在处理多维数据时非常有用。
-
-* Example：我们有一个二维列表（即列表的列表），并想要将其扁平化为一个一维列表。可以使用嵌套的列表推导式：
-
-```python
-nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-flattened_list = [x for sublist in nested_list for x in sublist]
-print(flattened_list)
-```
-
-Output:
-
-```python
-[1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
-
-* 这里，外部的列表推导式遍历 nested_list 的每一个子列表，内部的列表推导式则遍历每个子列表的元素
-
----
-
-## 列表推导式
-
-* 总的来说，Python 的列表推导式是一种非常强大的工具，可以使我们的代码更简洁、更直观。
-* 但是，需要注意的是，当列表推导式变得过于复杂时，可能会使代码的可读性降低。在这种情况下，可能需要考虑使用传统的循环结构或函数来替代。
-
----
-
-# Summary
-
-本节课我们学习了：
-
-* 条件语句
-  * if-elif-else 语句
-  * Nested if-statements
-* List,tuple and dict的概念和简单操作
-* 循环语句
-  * While 循环
-  * For 循环
-* 列表推导式基础
-
----
-
-# Thanks for your listening!
-
+- **判断奇偶的代码**里涉及到了一点关于 [格式化输出](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html) 的用法，RTFM
+    - 字符串前的 `f` 是什么意思？
+    - 字符串里的 `{i:2}` 是什么意思？运行的时候被替换成了什么？
+    - 如果去掉 `:2` 输出是什么？你能明白 `:2` 的意思了吗？
+    - 输出的格式是否更美观了？字符串是否可以从分割的变成一个整体了？
+    - 你能理解格式化输出的意义了吗？
+- 其实观察就可以发现，就是“让数字占据两位，用空格补齐”，那如果数字有三位呢？修改代码，观察结果。
