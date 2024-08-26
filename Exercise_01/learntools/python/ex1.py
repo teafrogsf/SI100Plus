@@ -3,7 +3,7 @@ from learntools.core.problem import injected
 
 class ExerciseFormatTutorial(CodingProblem):
     _var = 'color'
-    _hint = "他喜欢的颜色和 VSCode 图标差不多..."
+    _hint = "他喜欢的颜色和 VSCode 图标颜色差不多... 可能你只需要一个赋值语句，赋值一个单词就够了？"
     _solution = CS('color = "blue"')
     def check(self, color):
         assert color.lower() == "blue"
@@ -12,9 +12,9 @@ class ExerciseFormatTutorial(CodingProblem):
     def _correct_message(self):
         history = self._view.interactions
         if history['hint'] == 0 and history['solution'] == 0:
-            return ("哇！你已经成功做出来第一道题了！"
-                    "emm……居然还没有依靠提示和答案完成的！真厉害"
-                    "可以前往下一个题目了！"
+            return ("哇！你是怎么猜对的？！"
+                    "emm……居然还没有依靠提示和答案完成的！真厉害！"
+                    "相信你一定能够完成下一个题目！"
                     )
         return ''
 
