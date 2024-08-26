@@ -1,5 +1,5 @@
 ---
-title: Lecture_00_Environments
+title: Lecture_00_Environment
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
