@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
+          <textarea data-template>
+            Issues
+------
+- Globals binding statefulness (see comment in `globals_binder.py`)
+
+Feature requests / Nice-to-haves
+-----
+- add some tests to learntools.core
+- rework `bind_exercises`. Add overarching "Exercise" objects for containing Problems. See comments in `utils.py`.
+- Helpers for exploiting a canonically correct implementation of a function for `FunctionProblem`s.
+- add "abstract attribute" enforcement (see comment at top of problem.py)
+- more factory syntax conveniences for problem creation
+- Some kernel support for automagically running standard setup code in learn notebooks
+- Some convenience for initializing an exercise module with standard boilerplate (imports at top, `bind_exercises` stuff at the bottom)
+- Make ProblemViews (and Problems?) aware of their canonical `bind_exercises` name for more helpful messages. (See Hint "coda" for example)
+- revive/complete scripts for autogenerating (/autotesting) exercise notebook skeleton 
+- convenient syntax for per-variable custom checking
+- some helper for testing notebooks to exec a problem's CodeSolution source and verify that checking passes?
+- in RichText, replace angle brackets with html entities (this is a frequent problem when passing in strings that include the result of calling `type()` on something, which gives you something like `"<class 'str'>"`
+- would be nice to extract the 'check whether empty function body has been touched as proxy for attemptedness' logic out of `FunctionProblem`. See embeddings course ex2 `RecommendFunction` for an example where this would be useful (a sort of function problem not amenable to basic test cases, need custom check fn).
+    - similarly for extracting out logic for checking whether variable has its default value from static equality checking problems. 
+        - could take out the stuff around _expected, and check_whether_attempted in `EqualityCheckProblem` and turn it into some kind of mixin
+    - like, maybe some declarative way to specify attemptedness-checking logic as like, "all these variables have non-default values", "any of these variables have non-default values", "this function is non-empty", etc.
+    - and/or some easy way to raise unattempted inside a custom checking fn? (I think, as the code is currently structured, the check function is somehow past the point of no return for declaring unattempted)
+- Unified handling of effect of PlaceholderValues on `check_whether_attempted` outcome.
+- For CodingProblem and its subclasses, I really like the idea of some declarative API around the variables of interest to be injected from the calling runtime.
+    - Goals:
+        - Abolish ugliness of parallel `_vars`, and `_default_values` attributes (and `_expected_values` any other per-var list attrs)
+        - Plug holes in attemptedness-checking logic (see previous top-level bullet)
+        - Right now any CodingProblem which isn't an `EqualityCheckProblem` or `FunctionProblem` requires custom `check()` method logic. And there are a lot of problems in this bucket. Would like to be rare for problem implementer to implement `check()`, because it's kind of tedious and error-prone.
+    - For a given variable, could potentially specify...
+        - Its default value (including unset)
+        - Whether it's the user's responsibility to set the value appropriately in order to solve this problem vs. this is some auxiliary variable that's expected to have been created in the setup code or in a previous problem (in which case, if this var doesn't exist or has the wrong type or something, our reaction shouldn't be "incorrect", but rather "omg what did you do?")
+        - Expected type (maybe in most cases the conditions described below will be a sufficient form of duck typing)
+        - Conditions for correctness (specified in 'CNF' form - i.e. a list of clauses to be ANDed together, where a clause is either one of these conditions, or a disjunction of them, expressed via fancy or overloading). e.g.
+            - this dataframe has a column named x
+            - this df/array has shape x
+            - this thing is equal to x (subsuming `EqualityCheckProblem`)
+            - this thing is equal to one of {x, y, z}
+            - fallback: some lambda to be applied to this thing, which, say, returns either True or (False, err msg)?
+- emit warning when `tutorial_id` not set in `bind_exercises`
+- `show_solution_on_correct` should be opt-in (rather than defaulting on for questions with non-CodeSolution solns)
+    - related opt-in behaviour that would be useful: echo *value* on correct (for `EqualityCheckProblem`s)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"_":["./Exercise_01/learntools/core/ISSUES.md"],"static":"static/ISSUES"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
