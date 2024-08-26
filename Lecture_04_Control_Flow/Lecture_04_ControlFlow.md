@@ -42,7 +42,7 @@ revealOptions:
 
 <!--s-->
 
-# 01. 条件语句
+# 01. 条件结构
 
 <!--v-->
 
@@ -318,7 +318,7 @@ def f(x):
         y2 = x ** 2
         return y2 + 2
 
-x = input("请输入 x")
+x = int(input("请输入 x"))
 print(f(x))
 ```
 
@@ -468,7 +468,7 @@ print("吃饱了")
 
 <!--v-->
 
-## While 循环
+## `while` 循环
 
 ```python
 while condition：
@@ -621,6 +621,28 @@ apple, banana, cherry,
 
 <!--v-->
 
+## `for` 中的 `break`, `continue`
+
+- 行为和 `while` 一样，你还记得吗？
+
+```py []
+for fruit in ["apple", "banana", "cherry"]:
+    if fruit == "banana": # 当遇到 banana 时结束循环
+        break
+    print(fruit, end=", ")
+print("end.")
+```
+
+```py []
+for fruit in ["apple", "banana", "cherry"]:
+    if fruit == "banana": # 当遇到 banana 时跳过本轮循环
+        continue
+    print(fruit, end=", ")
+print("end.")
+```
+
+<!--v-->
+
 ## 提一嘴：字符串 VS 列表
 
 - 列表可以靠 `list1[i]` 获取单个元素，通过 `list1[start:end:step]` 切片
@@ -679,7 +701,7 @@ Bingo
 ## 太小了，我要一个 100 的循环 - `range`
 
 ```py
-range(start, stop, step=1)
+range(stop), range(start, stop), range(start, stop, step)
 ```
 
 - `range` 能生成从 `start` 到 `stop` **而不包含 `stop`** 的“一列数”
@@ -702,25 +724,16 @@ range(start, stop, step=1)
 
 <!--v-->
 
+## Example: 判断奇数、偶数
+
+- 这里涉及到了一点关于 [格式化输出](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html) 的用法，RTFM
+
 ```python
 for i in range(1, 11):
     if i % 2 == 0:
-        print(f'{i:2}: even')
+        print(f'Num:{i:2}: even')
     else:
-        print(f'{i:2}: odd')
-```
-
-```txt
-1: odd
-2: even
-3: odd
-4: even
-5: odd
-6: even
-7: odd
-8: even
-9: odd
-10: even
+        print(f'Num:{i:2}: odd')
 ```
 
 <!--v-->
@@ -752,29 +765,67 @@ num = 10
 ## Example: 判断质数
 
 ```py []
-num = int(input("Input a number:"))
-is_prime = True
-for i in range(2, num):
-    if num % i == 0:
-        is_prime = False
-print(is_prime)
+def is_prime(num):
+    # 思路：默认输入的是一个素数，除非我们找到了一个因子
+    if num < 2:
+        return False # 0 和 1 不是素数！可以提前结束！
+    for i in range(2, num):
+        if num % i == 0:
+            return False # 找到了一个因子，不是素数，函数提前结束！
+    return True # 没有找到因子，是素数！
+
+input_num = int(input("Input a number:"))
+
+print(is_prime(input_num))
 ```
 
 <!--s-->
 
 ## Takeaway Message
 
+- 控制流是什么？
+    - 条件结构
+        - `if` ——如果
+        - `if-else` ——如果，否则
+        - `if-elif-else` —— `elif = else + if`
+        - Nested-`if` 及正确化简
+    - 循环结构
+        - `while` ——满足条件一直做！
+        - `for` ——遍历！逐个访问！
+        - `break`, `continue` ——停下还是跳过
+        - `range`：`for`的好帮手
+        - 循环的嵌套
+
 <!--s-->
 
-Thanks for listening
+## Takeaway Message (cont'd)
+
+- 新学到的类型
+    - `list` ——无序、什么都装的下的列表
+    - `tuple` ——无法改变的“列表”
+    - `set` ——集合，永远没有重复！
+
+<!--s-->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>
+
 
 <!--v-->
 
 # ??. 附加部分
 
-由于不确定因为各种原因是否有充足的时间，这一部分不一定会在上课中讲到～
+由于各种原因，不确定是否有充足的时间，这一部分不一定会在上课中讲到～
 
-但是我们会在 Slides 和 Notebook 中正常提供，供大家自行阅读～
+但是我们会在 Notebook 中正常提供，供大家自行阅读～
+
+**如果大家对某个内容呼声很高，可以在 Piazza 上发帖，也可以拉朋友来给你点赞（点 Good Notes / Good Question）！我们会做更多 Notebook / 视频带大家了解！**
 
 <!--s-->
 
@@ -784,40 +835,51 @@ Thanks for listening
 * 就像我们查《新华字典》，字就是 `key`，字的释义就是 `value`
 
 ```python
-d = {key1 : value1, key2 : value2 }
+d = { key1 : value1, key2 : value2 }
 ```
 
 * 键一般是唯一的、不可变的，如果重复最后的一个键值对会替换前面的，值不需要唯一。
 
 ```python
-tinydict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
+my_info = { # 这里用了一个比较美观的换行写法，适用于长文本排版
+    "course_name": "SI 100+",
+    "semester": "2023 Summer", # 这个逗号可选
+}
 ```
 
-* 其中``Alice,Beth,Cecil``是``key``，``2341,9102,3258``是``value``,
-形如``Alice:2341``的我们称之为**键值对** (key-value pairs)
+形如 `"name": "ZAMBAR"` 的我们称之为**键值对** (key-value pairs)
 
 <!--v-->
 
 ## 字典 (Dict) (cont'd)
 
-* construct(构造): di = {'a': 1, 'b': 2, 'b': '3'}
-
-* visit(访问): print(di[‘a’])
-
-* change(改变): di[‘a’] = 100
-
-* delete(删除): del di[‘a’]
-
-**Attention：对dict几乎所有的操作都是通过键来实现的**
+更多请看即将 Release 的 Python 进阶 课程！
 
 <!--v-->
 
-## Example
+## 简单的调试：追踪你的代码运行
 
-```python
->>> tinydict = {'a': 1, 'b': 2, 'b': '3'}
->>> tinydict['b']
-'3'
->>> tinydict
-{'a': 1, 'b': '3'}
-```
+- 注意到资料的**猜数字**代码左侧有一个小红点了吗？这个点的名字叫断点 (breakpoint)
+- 鼠标悬浮在当前行的最左侧，就可以启用/禁用该断点
+- 使用**调试**模式启动（代码块旁边有一个 ▶️ 的下拉菜单里，有一个 调试该代码块）时
+    - 代码会自动在此处停止
+    - 上面会多出一个执行的小方框
+        - 我们暂时只需要无脑点 步入 (Step into) 就可以一步一步执行了
+        - 上面小方框里的 ▶️ 代表继续，继续执行到下一次遇见断点或结束
+    - 左侧会切换到 运行与调试 的菜单
+        - 最上面写了一些探测到的变量，你可以实时观察他们
+        - 中间是 监视，点击 + 可以输入一个 **表达式** 进行观测，就像实时 `print` 一样，非常方便
+        - **小任务: 尝试观察 guess, 和 guess + 1**
+    - 代码会有一行亮着的行，代表 **下一步** 将执行的代码
+
+<!--v-->
+
+## 格式化输出：让输出更美，字符串不分家！
+
+- [**判断奇偶的代码**]()里涉及到了一点关于 [格式化输出](https://docs.python.org/zh-cn/3/tutorial/inputoutput.html) 的用法，RTFM
+    - 字符串前的 `f` 是什么意思？
+    - 字符串里的 `{i:2}` 是什么意思？运行的时候被替换成了什么？
+    - 如果去掉 `:2` 输出是什么？你能明白 `:2` 的意思了吗？
+    - 输出的格式是否更美观了？字符串是否可以从分割的变成一个整体了？
+    - 你能理解格式化输出的意义了吗？
+- 其实观察就可以发现，就是“让数字占据两位，用空格补齐”，那如果数字有三位呢？修改代码，观察结果。
