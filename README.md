@@ -1,4 +1,32 @@
-# SI 100+ Repo
+# SI 100+ Summer 2024
+
+## 课件
+
+### 线上课件
+
+[Lecture 0: 环境配置](https://teafrogsf.github.io/SI100Plus/Lecture_00_Environment/)
+
+[Lecture 1: 编程语言和 Python 简介](https://teafrogsf.github.io/SI100Plus/Lecture_01_Python_Intro/)
+
+[Lecture 2: 变量、运算符、表达式](https://teafrogsf.github.io/SI100Plus/Lecture_02_Var_Operator_Expr/)
+
+[Lecture 3: 函数](https://teafrogsf.github.io/SI100Plus/Lecture_03_Function/)
+
+[Lecture 4: 控制流](https://teafrogsf.github.io/SI100Plus/Lecture_04_Control_Flow/)
+
+去掉链接末尾可能出现的 `/#/` 部分，加上 `?print-pdf`，然后使用浏览器的打印功能，可以将网页保存为 PDF 文件。
+
+### 线下预览
+
+```bash
+git clone https://github.com/teafrogsf/SI100Plus.git
+cd SI100Plus
+npm install -g reveal-md
+reveal-md Lecture_01_Python_Intro/Lecture_01_Python_Intro.md -w
+# 更改上面的路径即可预览其他课件
+```
+
+打开命令行中提示的链接，即可在浏览器中预览课件。
 
 ## 教学计划
 
