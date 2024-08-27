@@ -26,15 +26,38 @@ jobs:
       - name: Build slides
         run: |
             mkdir -p ./static
-            for file in $(find . -name '*.md' ! -name 'README.md'); do
+
+            touch index.md
+            echo "---" > index.md
+            echo "title: 欢迎来到 SI 100+" >> index.md
+            echo "theme: simple" >> index.md
+            echo "highlightTheme: github" >> index.md
+            echo "css: assets/custom.css" >> index.md
+            echo "---" >> index.md
+            echo "## SI 100+: 信息科学入门指南 Slides 页" >> index.md
+            echo >> index.md
+
+            find . -name '*.md' \
+                ! -name 'README.md' \
+                ! -name 'ISSUES.md' \
+                ! -name 'index.md' \
+                ! -exec grep -q 'marp: true' {} \; \
+                -print | sort | while read -r file; do
+
                 output_dir="static/$(basename ${file%.md})"
-                echo $output_dir
+                echo "Processing $output_dir"
+
+                echo "- [$(basename ${file%.md})](./$(basename ${file%.md}))" >> index.md
+
                 reveal-md $file --static $output_dir
                 file_dir=$(dirname $file)
                 if [ -d "$file_dir/images" ]; then
                     cp -r $file_dir/images $output_dir
                 fi
             done
+
+            reveal-md index.md --static static
+            rm index.md
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
