@@ -77,7 +77,7 @@ revealOptions:
 
 <!--v-->
 
-## Chatbot的现在：<img src="image-3.png" width="5%"> ChatGPT   
+## Chatbot的现在：<img src="images/image-3.png" width="5%"> ChatGPT   
 
 - 2022 年 11 月 30 日，OpenAI 发布了一个名为 ChatGPT 的自然语言生成式模型，它以对话方式进行交互。
 - 不同于前两种模型，ChatGPT是一种基于自然语言处理技术的对话生成模型，它通过学习大量的语言数据和预测下一个单词的能力，可以自动地生成人类可读的自然语言文本，从而实现自然、流畅的对话生成。
