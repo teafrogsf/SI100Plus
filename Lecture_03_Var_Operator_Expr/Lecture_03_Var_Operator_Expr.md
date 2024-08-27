@@ -1,5 +1,5 @@
 ---
-title: Lecture_PY_02_Var_Operator_Expr
+title: Lecture_03_Var_Operator_Expr
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -15,7 +15,7 @@ revealOptions:
 
 <div style="display: flex; justify-content: center; align-items: center; height: 700px;">
   <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Python Lecture 2</h1>
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Python Lecture 3</h1>
     <p style="font-size: 24px; color: #666;">变量、运算符和表达式</p>
     <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-24</p>
   </div>
