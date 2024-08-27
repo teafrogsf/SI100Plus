@@ -43,52 +43,66 @@
 
 ## Chatbot
 
-- 什么是Chatbot？
-- Chatbot（聊天机器人）是经由对话或文字进行交谈的计算机程序，现在我们熟知的苹果的 Siri，华为的小艺以及 ChatGPT 都是 Chatbot.
+不陌生对吧？
 
-<img src="images/image.png" width="80%" style="display: block; margin: 0 auto;">
+- Siri
+- 小爱同学
+- 以及ChatGPT
 
 <!--v-->
 
 ## Chatbot的起源：ELIZA
 
-- ELIZA是第一个聊天机器人，由 Joseph Weizenbaum 于 1966 年创建，它使用模式匹配和替换方法来模拟对话，最初的目的是帮助心理咨询医生来解决患者的精神问题。
-- ELIZA的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”）。
+- 第一个聊天机器人！
+- 1966 年诞生，已经 58 岁了
+- 使用模式匹配和替换方法来模拟对话（看不懂也没关系）
+- 诞生最初的目的并不是当聊天机器人
+- https://arxiv.org/pdf/2406.17650
+- ELIZA 的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”）
 
-<img src="images/image-1.png" width="55%" style="display: block; margin: 0 auto;">
+<!--v-->
+
+## Chatbot的起源：ELIZA
+
+<img src="images/image-1.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
 ## Chatbot的发展：ALICE
 
-- 从 20 世纪 60 年代快进到 90 年代，第一个人们熟知的能在线交流的聊天机器人——ALICE出现了
-- 但就像 ELIZA 一样，ALICE 也是一个根据规则建构起来的计算机程序，接收输入并产出输出。事实上，ALICE 在以下三个方面优于 ELIZA：
+- 摘抄自互联网：从20世纪60年代快进到90年代，第一个人们熟知的能在线交流的聊天机器人——ALICE出现了。（真的熟知吗）
+- 但就像 ELIZA 一样，ALICE 也是一个根据规则建构起来的计算机程序，接收输入并产出输出。不过，ALICE 在以下三个方面优于 ELIZA：
 
 </br>
 
-1. 它以一种被称为人工智能标记语言（AIML）的编程语言编写，这种语言类似于 XML，它允许 ALICE 在更为抽象的层面上做出回应；
-2. 它拥有成千上万种可能的回应；
-3. 它会存储之前与用户的对话，并将对话存储在数据库中。
-
-</br>
-
-虽然 ALICE 相比 ELIZA 更为先进，但它的输出依然是由人写成的，算法只是来挑选什么样的输出更适合某一输入。从根本上说，**人们写出了回答，也写出了用来挑选什么回答合适的算法**，这都是为了模仿一场真实的对话。
+1. 它以一种被称为人工智能标记语言（AIML）的编程语言编写，也就是说它更抽象了
+2. 它拥有成千上万种可能的回应
+3. 它会存储之前与用户的对话，并将对话存储在数据库中
 
 <!--v-->
 
 ## Chatbot的发展：ALICE
 
-该程序模拟通过 Internet 与真人聊天。Alice被定义为一位年轻的人类女性，她会告诉用户她的年龄、爱好和其他有趣的事实，并回答用户的对话。
+- 通过互联网与真人聊天~~当时的互联网还是高科技~~
+- Alice 被定义为一位年轻的人类女性，她会告诉用户她的年龄、爱好和其他有趣的事实，并回答用户的对话
 
 <img src="images/image-2.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
-## Chatbot的现在：<img src="images/image-3.png" width="5%"> ChatGPT   
+## Chatbot的变迁
 
-- 2022 年 11 月 30 日，OpenAI 发布了一个名为 ChatGPT 的自然语言生成式模型，它以对话方式进行交互。
-- 不同于前两种模型，ChatGPT是一种基于自然语言处理技术的对话生成模型，它通过学习大量的语言数据和预测下一个单词的能力，可以自动地生成人类可读的自然语言文本，从而实现自然、流畅的对话生成。
+<img src="images/image.png" width="90%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## Chatbot的现在：<img src="images/image-3.png" width="5%"> ChatGPT
+
+- 2022 年 11 月 30 日，它出生了
+- 彼时还是算法与数据结构助教的我马上拿它来测试我出的算法题
+- ~~发现它不会做我就放心了~~
 - 简单来说，ChatGPT 是一种**生成式人工智能**，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
+- 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明）
 
 <div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
 
@@ -102,32 +116,55 @@
 
 <!--v-->
 
-## 什么是AI?
+## 所以这个引入是想说什么？
 
-- 好的，讲到现在，你可能仍然对AI没有一个很清晰的概念
-- 但事实上，上述所有的Chatbot都是一种AI，而且只是AI应用的一个方向
+你觉得哪个 ChatBot 是 AI？
 
 </br>
 
-> 一个经典的AI定义是：“智能主体可以理解数据及从中学习，并利用知识实现特定目标和任务的能力。”
-> 
-> A system’s ability to correctly interpret external data, to learn from such data, and to use those learnings to achieve specific goals and tasks through flexible adaptation
+- ChatGPT 肯定是 AI
+- ALICE 是 AI 吗？
+- ELIZA 是 AI 吗？
+- Siri 是 AI 吗？小爱同学是 AI 吗？
+
+</br>
+
+在回答这个问题之前，因为引子已经结束了，让我们开始故事的第一章。
+
+~~就卖关子就卖关子~~
 
 <!--s-->
 
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.2 AI是什么？——从算法说起
+  # Part.2 Introduction to Introduction to AI 课程介绍
   
   </div>
 </div>
 
 <!--v-->
 
-## 算法是什么？
+<div class="middle center">
+  <div style="width: 100%">
 
-- 例子：寻路算法
+  # 接下来，我们先...
+  
+  </div>
+</div>
+
+<!--v-->
+
+## 从算法说起
+
+- 为什么会说这个？
+- 你理解的算法是什么？
+
+<!--v-->
+
+## 举个栗子
+
+如果大家玩过一些人物能右键点击走路的游戏，你会发现人物会沿着一条路径走到目标地点。
 
 <div style="display: flex; align-items: center; justify-content: center;">
   <img src="images/LOL.gif" width="40%" style="margin-right: 30px;">
@@ -135,37 +172,41 @@
 </div>
 <div style="text-align: center;">
 
-  游戏《英雄联盟》中的寻路
+  问题来了：游戏如何计算角色到指定地点的路线呢？
 </div>
 
 <!--v-->
 
-## 寻路算法
+## 游戏设计入门
 
-- 在英雄联盟（LOL），我们可以通过鼠标点击的方法让英雄寻路到指定地点
-- LOL 是如何计算英雄到指定地点的路线的？
+* 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面
+* 计算机的存储空间是有限的
+* 那我们就把地图看成一个网格图好了
 
 </br>
 
 只要走就能到！
 
+- 我们能怎么走？
+  - 网格图，四个方向走
+  - 每个位置能选的走法有限
 - **穷举法**
   - 遍历地图内的所有能走的路
   - 总有一条是能到达终点的 $\to$ 选取这条让英雄从当前位置到终点的路径
 
 <!--v-->
 
-## 更高效的寻路算法
+## 遍历太低效了，能不能优化一下？
 
-- 地图很大，也很复杂 $\to$ 遍历太低效了，能不能**优化**？
+- 如何相对高效地寻找到一条相对短的路径呢？
   - 我们总是希望距离越短越好，所以……
   - 每次走一段距离，就从重新计算当前位置和目标位置之间的距离，然后再重新规划路线，尽量遵循两点之间线段最短的原则
 
-没错，这就是一个简单的算法
+是不是比穷举法好得多？没错，这就是一个简单的算法
 
 > An algorithm is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.
 >
-> **算法是一系列有限的、清晰定义的、可实现的计算机指令，并用以解决一类问题或进行计算**
+> 算法是一系列有限的、清晰定义的、可实现的计算机指令，并用以解决一类问题或进行计算
 >
 > --Wikipedia
 
