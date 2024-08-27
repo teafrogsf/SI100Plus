@@ -24,7 +24,7 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 700px;">
   <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
     <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 7</h1>
-    <p style="font-size: 24px; color: #666;">计量世界的奇妙——算法，这也是人工智能？</p>
+    <p style="font-size: 24px; color: #666;">计算世界的奇妙——算法，这也是人工智能？</p>
     <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-28</p>
   </div>
 </div>
@@ -34,81 +34,92 @@
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.1 你听说过 Chatbot 吗？
+  # Part.0 你听说过 Chatbot 吗？
   
   </div>
 </div>
 
 <!--v-->
 
-## Chatbot
+## 今天将有很多互动环节！
+
+为了让课程变得更有意思，今天的课准备了很多小问题给大家！
+
+欢迎开麦发言！打字也可以！
+
+每个小问题都会至少选择一位回答的同学倾情赠送~~可能没什么用的~~小礼物！
+
+那接下来，我们的故事就将开始......
+
+<!--v-->
+
+## 众所周知在故事的开始之前要有一个引子
+
+等等等等还没开始呢。
+
+今天我们引子的主角是——聊天机器人（Chatbot）！
+
+<!--v-->
+
+## 什么是 Chatbot？
 
 不陌生对吧？
 
-- Siri
-- 小爱同学
-- 以及ChatGPT
+- Siri <!-- .element: class="fragment" -->
+- 小爱同学 <!-- .element: class="fragment" -->
+- 以及ChatGPT <!-- .element: class="fragment" -->
+- ......
+
+猜猜 Chatbot 是哪一年诞生的？ <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## Chatbot的起源：ELIZA
+## Chatbot 的起源：ELIZA
 
-- 第一个聊天机器人！
-- 1966 年诞生，已经 58 岁了
-- 使用模式匹配和替换方法来模拟对话（看不懂也没关系）
-- 诞生最初的目的并不是当聊天机器人
-- https://arxiv.org/pdf/2406.17650
-- ELIZA 的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”）
+- 第一个聊天机器人！ <!-- .element: class="fragment" -->
+- 1966 年诞生，已经 58 岁了 <!-- .element: class="fragment" -->
+- 使用模式匹配和替换方法来模拟对话（看不懂也没关系） <!-- .element: class="fragment" -->
+- 诞生最初的目的并不是当聊天机器人 <!-- .element: class="fragment" -->
+- https://arxiv.org/pdf/2406.17650 <!-- .element: class="fragment" -->
+- ELIZA 的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”） <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## Chatbot的起源：ELIZA
+## Chatbot 的起源：ELIZA
 
 <img src="images/image-1.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
-## Chatbot的发展：ALICE
-
-- 摘抄自互联网：从20世纪60年代快进到90年代，第一个人们熟知的能在线交流的聊天机器人——ALICE出现了。（真的熟知吗）
-- 但就像 ELIZA 一样，ALICE 也是一个根据规则建构起来的计算机程序，接收输入并产出输出。不过，ALICE 在以下三个方面优于 ELIZA：
-
-</br>
-
-1. 它以一种被称为人工智能标记语言（AIML）的编程语言编写，也就是说它更抽象了
-2. 它拥有成千上万种可能的回应
-3. 它会存储之前与用户的对话，并将对话存储在数据库中
+## Chatbot 的发展：微软小冰
 
 <!--v-->
-
-## Chatbot的发展：ALICE
-
-- 通过互联网与真人聊天~~当时的互联网还是高科技~~
-- Alice 被定义为一位年轻的人类女性，她会告诉用户她的年龄、爱好和其他有趣的事实，并回答用户的对话
-
-<img src="images/image-2.png" width="85%" style="display: block; margin: 0 auto;">
-
+## Chatbot 的发展：微软小冰
+<!--v-->
+## Chatbot 的发展：微软小冰
+<!--v-->
+## Chatbot 的发展：微软小冰
 <!--v-->
 
-## Chatbot的变迁
+## Chatbot 的变迁
 
 <img src="images/image.png" width="90%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
-## Chatbot的现在：<img src="images/image-3.png" width="5%"> ChatGPT
+## Chatbot 的现在：<img src="images/image-3.png" width="5%"> ChatGPT
 
 - 2022 年 11 月 30 日，它出生了
 - 彼时还是算法与数据结构助教的我马上拿它来测试我出的算法题
 - ~~发现它不会做我就放心了~~
-- 简单来说，ChatGPT 是一种**生成式人工智能**，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
+- 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
 - 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明）
 
 <div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
 
 <img src="images/illusion.png" width="50%" style="float: right; margin-right: 100px;">
 
-<br/>
+</br>
 
 并没有《枇杷行》这首诗 $\to$
 
@@ -122,49 +133,85 @@
 
 </br>
 
-- ChatGPT 肯定是 AI
-- ALICE 是 AI 吗？
-- ELIZA 是 AI 吗？
-- Siri 是 AI 吗？小爱同学是 AI 吗？
+- ChatGPT 肯定是 AI <!-- .element: class="fragment" -->
+- Eliza 是 AI 吗？ <!-- .element: class="fragment" -->
+- 微软小冰是 AI 吗？ <!-- .element: class="fragment" -->
+- Siri 是 AI 吗？小爱同学是 AI 吗？ <!-- .element: class="fragment" -->
 
 </br>
 
-在回答这个问题之前，因为引子已经结束了，让我们开始故事的第一章。
+在回答这个问题之前，因为引子已经结束了，让我们开始故事的第一章。 <!-- .element: class="fragment" -->
 
-~~就卖关子就卖关子~~
+~~就卖关子就卖关子~~ 
 
 <!--s-->
 
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.2 Introduction to Introduction to AI 课程介绍
+  # Part.1 Introduction to Introduction to AI 课程介绍
   
   </div>
 </div>
 
 <!--v-->
 
+## 这几节课想给大家讲什么？
+
+- 不会讲太多AI技术 <!-- .element: class="fragment" -->
+- 不会讲太多数学 <!-- .element: class="fragment" -->
+- 可能会讲故事 <!-- .element: class="fragment" -->
+
+## 是给文科生上的AI课吗？
+
+~~首先，你真的有文科生会用ChatGPT吗？~~ <!-- .element: class="fragment" -->
+
+- 这门课的课时有限，且没有考核 <!-- .element: class="fragment" -->
+- 在没有数学基础直接开始讲所谓的“Intro to AI”很容易囫囵吞枣 <!-- .element: class="fragment" -->
+- 理解到底什么是“AI”对初学者非常重要
+
+<!--v-->
+
+## 接下来上什么
+
+- Lecture 8：传统机器学习，以及机器学习中最重要的核心概念
+- Lecture 9：人工智能的转变与现代人工智能的基本结构
+- Lecture 10 & 11：生成式人工智能与GPT
+- Lecture 12：并不那么典型的人工智能
+- Lecture 13：现代人工智能在各个领域的应用、争议与价值
+
+还有什么想听的吗？~~现在加还来得及~~
+
+<!--v-->
+
+<!--s-->
+
 <div class="middle center">
   <div style="width: 100%">
 
-  # 接下来，我们先...
+  # Part.2 本slides的大标题终于出现了，有点像关底BOSS
   
   </div>
 </div>
+
+<!--v-->
+
+接下来，我们终于可以...
 
 <!--v-->
 
 ## 从算法说起
 
 - 为什么会说这个？
-- 你理解的算法是什么？
+- 你理解的算法是什么？ <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 举个栗子
 
-如果大家玩过一些人物能右键点击走路的游戏，你会发现人物会沿着一条路径走到目标地点。
+如果大家玩过一些人物能右键点击走路的游戏，你会发现人物会沿着一条路径走到目标位置。
+
+比如英雄联盟。
 
 <div style="display: flex; align-items: center; justify-content: center;">
   <img src="images/LOL.gif" width="40%" style="margin-right: 30px;">
@@ -179,20 +226,23 @@
 
 ## 游戏设计入门
 
-* 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面
-* 计算机的存储空间是有限的
-* 那我们就把地图看成一个网格图好了
+- 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面
+- 计算机的存储空间是有限的
+- 那我们就把地图看成一张**有限的网格图**好了
+- ~~其他的内容我们就不教了，欢迎选修游戏设计~~
 
 </br>
+
+## 有限的网格图有什么好处？
 
 只要走就能到！
 
 - 我们能怎么走？
-  - 网格图，四个方向走
+  - 网格图，四个方向走，不走回头路
   - 每个位置能选的走法有限
 - **穷举法**
-  - 遍历地图内的所有能走的路
-  - 总有一条是能到达终点的 $\to$ 选取这条让英雄从当前位置到终点的路径
+  - 遍历（traverse）地图内的所有能走的路
+  - 总有一条是最快到达终点的 $\to$ 选取这条成为角色从当前位置到目标位置的路径
 
 <!--v-->
 
@@ -202,7 +252,12 @@
   - 我们总是希望距离越短越好，所以……
   - 每次走一段距离，就从重新计算当前位置和目标位置之间的距离，然后再重新规划路线，尽量遵循两点之间线段最短的原则
 
-是不是比穷举法好得多？没错，这就是一个简单的算法
+是不是比穷举法好得多？没错，这就是一个简单的算法。
+
+
+<!--v-->
+
+## 算法是什么？
 
 > An algorithm is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.
 >
@@ -210,9 +265,9 @@
 >
 > --Wikipedia
 
-<!--v-->
+~~好的听起来等于没说。~~
 
-## 算法是什么？
+怎么翻译成人话？
 
 - **算法是为了解决特定问题而规定的一系列操作**
 - 算法与函数类似，都能接受输入产生输出
@@ -243,36 +298,18 @@
 
 <!--v-->
 
-## 算法与 AI
-
 说了这么多，算法与AI到底有什么关系？
+
+<!--v--> 
+
+## 人机（困难）
+
+我们再回到游戏的例子。
 
 - 早期的人工智能
   - 大多是通过固定指令，执行特定问题
   - 并不具备真正的学习、思考能力
 - **AI在很大程度上是算法设计的结果**
-
-<!--v-->
-
-## 算法与 AI
-
-传统AI的典型：图灵机
-
-<!--我觉得图灵机不应该作为传统AI的典型，这不计算理论的模型吗（）-->
-
-- 图灵机由图灵于 1936 年提出的一种抽象的计算模型，即将人们使用纸笔进行数学运算的过程进行抽象，由一个虚拟的机器替代人类进行数学运算
-- 图灵把这样的过程看作下列两种简单的动作：
-
-1. 在纸上写上或擦除某个符号；
-2. 读写头从纸的一个位置移动到另一个位置。
-
-* 而在每个阶段，人要决定下一步的动作，依赖于 (1) 此人当前所关注的纸上某个位置的符号和(2) 此人当前思维的状态。
-
-<div style="display: flex; align-items: center; justify-content: center;">
-  <img src="images/image-7.png" width="40%" style="margin-right: 30px;">
-  <img src="images/image-8.png" width="50%" style="margin-left: 30px;">
-</div>
-<div style="text-align: center;">
 
 <!--v-->
 
@@ -288,7 +325,7 @@ AI在很大程度上是算法设计的结果
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.3 传统 AI 与机器学习
+  # Part.3 从传统算法走向机器学习
   
   </div>
 </div>
