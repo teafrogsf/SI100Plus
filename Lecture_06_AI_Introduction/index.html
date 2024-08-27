@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Lecture_06_AI_Introduction</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+    <link rel="stylesheet" href="./_assets/assets/custom.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="<!--s-->" data-separator-vertical="<!--v-->">
+          <textarea data-template>
+            
+
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
+  <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 6</h1>
+    <p style="font-size: 24px; color: #666;">计量世界的奇妙——算法，这也是人工智能？</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-28</p>
+  </div>
+</div>
+
+<!--s-->
+
+<div class="middle center">
+  <div style="width: 100%">
+
+  # Part.1 你听说过 Chatbot 吗？
+  
+  </div>
+</div>
+
+<!--v-->
+
+## Chatbot
+
+- 什么是Chatbot？
+- Chatbot（聊天机器人）是经由对话或文字进行交谈的计算机程序，现在我们熟知的苹果的 Siri，华为的小艺以及 ChatGPT 都是 Chatbot.
+
+<img src="images/image.png" width="80%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## Chatbot的起源：ELIZA
+
+- ELIZA是第一个聊天机器人，由 Joseph Weizenbaum 于 1966 年创建，它使用模式匹配和替换方法来模拟对话，最初的目的是帮助心理咨询医生来解决患者的精神问题。
+- ELIZA的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”）。
+
+<img src="images/image-1.png" width="55%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## Chatbot的发展：ALICE
+
+- 从 20 世纪 60 年代快进到 90 年代，第一个人们熟知的能在线交流的聊天机器人——ALICE出现了
+- 但就像 ELIZA 一样，ALICE 也是一个根据规则建构起来的计算机程序，接收输入并产出输出。事实上，ALICE 在以下三个方面优于 ELIZA：
+
+</br>
+
+1. 它以一种被称为人工智能标记语言（AIML）的编程语言编写，这种语言类似于 XML，它允许 ALICE 在更为抽象的层面上做出回应；
+2. 它拥有成千上万种可能的回应；
+3. 它会存储之前与用户的对话，并将对话存储在数据库中。
+
+</br>
+
+虽然 ALICE 相比 ELIZA 更为先进，但它的输出依然是由人写成的，算法只是来挑选什么样的输出更适合某一输入。从根本上说，**人们写出了回答，也写出了用来挑选什么回答合适的算法**，这都是为了模仿一场真实的对话。
+
+<!--v-->
+
+## Chatbot的发展：ALICE
+
+该程序模拟通过 Internet 与真人聊天。Alice被定义为一位年轻的人类女性，她会告诉用户她的年龄、爱好和其他有趣的事实，并回答用户的对话。
+
+<img src="images/image-2.png" width="85%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## Chatbot的现在：<img src="image-3.png" width="5%"> ChatGPT   
+
+- 2022 年 11 月 30 日，OpenAI 发布了一个名为 ChatGPT 的自然语言生成式模型，它以对话方式进行交互。
+- 不同于前两种模型，ChatGPT是一种基于自然语言处理技术的对话生成模型，它通过学习大量的语言数据和预测下一个单词的能力，可以自动地生成人类可读的自然语言文本，从而实现自然、流畅的对话生成。
+- 简单来说，ChatGPT 是一种**生成式人工智能**，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
+
+<div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
+
+<img src="images/illusion.png" width="50%" style="float: right; margin-right: 100px;">
+
+<br/>
+
+并没有《枇杷行》这首诗 $\to$
+
+</div>
+
+<!--v-->
+
+## 什么是AI?
+
+- 好的，讲到现在，你可能仍然对AI没有一个很清晰的概念
+- 但事实上，上述所有的Chatbot都是一种AI，而且只是AI应用的一个方向
+
+</br>
+
+> 一个经典的AI定义是：“智能主体可以理解数据及从中学习，并利用知识实现特定目标和任务的能力。”
+> 
+> A system’s ability to correctly interpret external data, to learn from such data, and to use those learnings to achieve specific goals and tasks through flexible adaptation
+
+<!--s-->
+
+<div class="middle center">
+  <div style="width: 100%">
+
+  # Part.2 AI是什么？——从算法说起
+  
+  </div>
+</div>
+
+<!--v-->
+
+## 算法是什么？
+
+- 例子：寻路算法
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="images/LOL.gif" width="40%" style="margin-right: 30px;">
+  <img src="images/LOL_.gif" width="50%" style="margin-left: 30px;">
+</div>
+<div style="text-align: center;">
+
+  游戏《英雄联盟》中的寻路
+</div>
+
+<!--v-->
+
+## 寻路算法
+
+- 在英雄联盟（LOL），我们可以通过鼠标点击的方法让英雄寻路到指定地点
+- LOL 是如何计算英雄到指定地点的路线的？
+
+</br>
+
+只要走就能到！
+
+- **穷举法**
+  - 遍历地图内的所有能走的路
+  - 总有一条是能到达终点的 $\to$ 选取这条让英雄从当前位置到终点的路径
+
+<!--v-->
+
+## 更高效的寻路算法
+
+- 地图很大，也很复杂 $\to$ 遍历太低效了，能不能**优化**？
+  - 我们总是希望距离越短越好，所以……
+  - 每次走一段距离，就从重新计算当前位置和目标位置之间的距离，然后再重新规划路线，尽量遵循两点之间线段最短的原则
+
+没错，这就是一个简单的算法
+
+> An algorithm is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.
+>
+> **算法是一系列有限的、清晰定义的、可实现的计算机指令，并用以解决一类问题或进行计算**
+>
+> --Wikipedia
+
+<!--v-->
+
+## 算法是什么？
+
+- **算法是为了解决特定问题而规定的一系列操作**
+- 算法与函数类似，都能接受输入产生输出
+
+</br>
+
+- 有简单的算法，也有复杂的算法
+- 有时候我们需要快速的得到结果
+- 该怎么判断哪个算法更好？
+
+<img src="images/complexity.png" width="65%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## 算法的复杂度
+
+- 优秀的算法能够在较短的时间内找到问题的解，或者在相同的时间内处理更多的数据。
+- 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法）
+  - 随着问题规模的增长，算法执行时间或所需资源的增长趋势
+  - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现
+- 算法的时间复杂度只是评判算法优劣的一个相对指标
+  - 算法的具体实现细节
+  - 计算机硬件的性能
+  - 数据的实际分布
+  - ......
+
+因此，在实际应用中，我们通常会通过实验来测试算法在特定条件下的性能表现，并选择一个在大多数情况下都能表现良好的算法
+
+<!--v-->
+
+## 算法与 AI
+
+说了这么多，算法与AI到底有什么关系？
+
+- 早期的人工智能
+  - 大多是通过固定指令，执行特定问题
+  - 并不具备真正的学习、思考能力
+- **AI在很大程度上是算法设计的结果**
+
+<!--v-->
+
+## 算法与 AI
+
+传统AI的典型：图灵机
+
+<!--我觉得图灵机不应该作为传统AI的典型，这不计算理论的模型吗（）-->
+
+- 图灵机由图灵于 1936 年提出的一种抽象的计算模型，即将人们使用纸笔进行数学运算的过程进行抽象，由一个虚拟的机器替代人类进行数学运算
+- 图灵把这样的过程看作下列两种简单的动作：
+
+1. 在纸上写上或擦除某个符号；
+2. 读写头从纸的一个位置移动到另一个位置。
+
+* 而在每个阶段，人要决定下一步的动作，依赖于 (1) 此人当前所关注的纸上某个位置的符号和(2) 此人当前思维的状态。
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="images/image-7.png" width="40%" style="margin-right: 30px;">
+  <img src="images/image-8.png" width="50%" style="margin-left: 30px;">
+</div>
+<div style="text-align: center;">
+
+<!--v-->
+
+## 算法与 AI
+
+AI在很大程度上是算法设计的结果
+
+- 早期的 AI 其实就是人机，在人工设计的算法下能够简单的执行一些命令
+- 那它就不是我们现在常说的 AI 吗？
+
+<!--s-->
+
+<div class="middle center">
+  <div style="width: 100%">
+
+  # Part.3 传统 AI 与机器学习
+  
+  </div>
+</div>
+
+<!--v-->
+
+## 传统AI
+
+- 需要一些输入和一些代码形式的逻辑，并提供输出
+
+<img src="images/image-9.png" width="85%" style="display: block; margin: 0 auto;">
+
+- 传统算法基于算法中描述的步骤产生输出。给出算法输入，它根据人给出的硬编码的规则和参数生成输出。
+
+<!--v-->
+
+## 机器学习
+
+<!-- 我去，这是 GPT 写的吧 -->
+
+- 机器学习是一门关于数据学习的科学技术，它能帮助机器从现有的复杂数据中学习规律，以预测未来的行为结果和趋势。
+- 例如：当我们在淘宝购物时，机器学习算法会根据我们的购买历史来推荐可能会喜欢的其他产品，以提升购买概率
+
+<img src="image-12.png" width="85%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## 机器学习的简单原理
+
+教小朋友识字
+
+- 拿出3张卡片
+- 在小朋友看着卡片的时候，说 “一条横线的是一、两条横线的是二、三条横线的是三”
+
+</br>
+
+<img src="images/image-13.png" width="85%" style="display: block; margin: 0 auto;">
+
+</br>
+
+- 不断重复上面的过程，小朋友的大脑就在不停的学习：
+- 当重复的次数足够多时，小朋友就学会了一个新技能——认识汉字：一、二、三
+
+<!--v-->
+
+## 机器学习的简单原理
+
+- 类比人类的学习过程，在机器学习中：
+  - 认字的卡片：训练集(training set)
+  - “一条横线，两条横线”，区分不同汉字的属性：特征(feature)
+  - 学会了识字后总结出来的规律：模型(model)
+- 通过训练集，不断识别特征，不断建模，最后形成有效的模型，这个过程就叫“机器学习”
+
+<!--v-->
+
+## 机器学习
+
+- 需要输入和输出，并会根据输入和输出生成一些逻辑，然后可以使用这个新逻辑来处理新输入以提供输出。
+
+<img src="images/image-10.png" width="85%" style="display: block; margin: 0 auto;">
+
+- ML 算法基于通过提供给它的输入进行学习来预测输出。通过输入进行的学习称为训练过程。
+- 给出要学习的算法数据，并调整参数来解释数据。然后可以使用这些参数集来解释/预测新数据
+
+<!--s-->
+
+## Takeaway Message
+
+- 需要什么加什么
+
+<!--s-->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_06_AI_Introduction/Lecture_06_AI_Introduction.md"],"static":"static/Lecture_06_AI_Introduction"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
