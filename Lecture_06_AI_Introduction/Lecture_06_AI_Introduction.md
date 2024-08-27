@@ -264,7 +264,7 @@ AI在很大程度上是算法设计的结果
 - 机器学习是一门关于数据学习的科学技术，它能帮助机器从现有的复杂数据中学习规律，以预测未来的行为结果和趋势。
 - 例如：当我们在淘宝购物时，机器学习算法会根据我们的购买历史来推荐可能会喜欢的其他产品，以提升购买概率
 
-<img src="image-12.png" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/image-12.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
