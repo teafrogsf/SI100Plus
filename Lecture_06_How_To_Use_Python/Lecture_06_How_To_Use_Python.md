@@ -83,7 +83,7 @@ revealOptions:
 
 <!--v-->
 
-### List 的常用操作
+## List 的常用操作
 
 * Slides（切片）: `li[start:stop:step]` 获得列表中的某一部分子列表。
   - 此处的 `start`, `stop`, `step` 与内置函数 `range(start, stop[, step])` 中的含义相同。
