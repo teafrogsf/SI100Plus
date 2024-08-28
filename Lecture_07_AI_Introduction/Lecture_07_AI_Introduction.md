@@ -437,7 +437,9 @@ revealOptions:
   - 学会了识字后总结出来的规律就是模型（model） <!-- .element: class="fragment" -->
 - 通过训练集，不断识别特征，不断优化，最后形成有效的模型，这个过程就叫“机器学习” <!-- .element: class="fragment" -->
 
-机器学习诞生的意义就是，一些以前看起来很复杂的问题中难以建模、难以捕捉的特征可以被让模型根据ground truth自我纠错的方式所解决 <!-- .element: class="fragment" -->
+</br>
+
+机器学习诞生的意义就是，一些以前看起来很复杂的问题中难以建模、难以捕捉的特征可以被让模型根据ground truth**自我纠错**的方式所解决 <!-- .element: class="fragment" -->
 
 <!--v-->
 
