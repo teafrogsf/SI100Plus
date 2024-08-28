@@ -97,7 +97,7 @@ revealOptions:
 
 ## Chatbot 的发展：微软小冰
 
-<img src="images/xiaoice.jjpg" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/xiaoice.jpg" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
