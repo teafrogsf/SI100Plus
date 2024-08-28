@@ -319,7 +319,7 @@ revealOptions:
 - 优秀的算法能够在较短的时间内找到问题的解，或者在相同的时间内处理更多的数据。 <!-- .element: class="fragment" -->
 - <span> 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法） </span> <!-- .element: class="fragment" -->
   - 随着问题规模的增长，算法执行时间或所需资源的增长趋势 <!-- .element: class="fragment" -->
-  - 人话：数据量超级大的时候算法会不会卡死 <!-- .element: class="fragment" -->
+  - 人话：数据量超级大的时候算法会不会超级慢甚至卡死 <!-- .element: class="fragment" -->
   - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现 <!-- .element: class="fragment" -->
 <!--v-->
 
@@ -441,8 +441,8 @@ revealOptions:
 
 </br>
 
-机器学习诞生的意义就是，一些以前看起来很复杂的问题中难以建模、难以捕捉的特征可以被让模型根据ground truth**自我纠错**的方式所解决 <!-- .element: class="fragment" -->
-
+<span> 机器学习诞生的意义就是，一些以前看起来很复杂的问题中难以建模、难以捕捉的特征可以被让模型根据ground truth**自我纠错**的方式所解决 </span> <!-- .element: class="fragment" -->
+`
 <!--v-->
 
 ## 回到魔法盒子
