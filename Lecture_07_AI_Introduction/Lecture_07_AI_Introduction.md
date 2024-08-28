@@ -475,7 +475,13 @@ revealOptions:
 
 <!--s-->
 
-# Part 4. 总结
+<div class="middle center">
+  <div style="width: 100%">
+
+  # Part.4 这是总结和倒数第三页slides
+  
+  </div>
+</div>
 
 <!--v-->
 
