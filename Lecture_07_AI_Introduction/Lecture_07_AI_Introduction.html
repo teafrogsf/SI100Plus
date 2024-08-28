@@ -246,7 +246,7 @@
 
 - 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面 <!-- .element: class="fragment" -->
 - 计算机的存储空间是有限的 <!-- .element: class="fragment" -->
-- 那我们就把地图看成一张**有限的网格图**好了 <!-- .element: class="fragment" -->
+- <span> 那我们就把地图看成一张**有限的网格图**好了 </span> <!-- .element: class="fragment" -->
 - ~~其他的内容我们就不教了，欢迎选修游戏设计~~ <!-- .element: class="fragment" -->
 
 <!--v-->
@@ -276,6 +276,8 @@
   - 所以我们不用枚举完所有路径，而是在枚举到一定程度的时候停止，并输出当前的最优结果 <!-- .element: class="fragment" -->
   - 又快又好！ <!-- .element: class="fragment" -->
 
+<!--v-->
+
 ## 遍历太低效了，能不能优化一下？
 
 是不是比穷举法好得多？没错，这就是一个简单但有效的算法。 <!-- .element: class="fragment" -->
@@ -295,6 +297,8 @@
 
 ~~好的听起来等于没说。~~ <!-- .element: class="fragment" -->
 
+<!--v-->
+
 ## 那么，算法是什么？
 
 怎么翻译成人话？ <!-- .element: class="fragment" -->
@@ -302,6 +306,8 @@
 - 算法就是解决问题的方法 <!-- .element: class="fragment" -->
 - 一般是解决一个特定的问题；输入一般是有限的 <!-- .element: class="fragment" -->
 - 可以与函数作类比：都能接受输入产生输出 <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 那么，算法是什么？
 
@@ -320,6 +326,8 @@
   - 随着问题规模的增长，算法执行时间或所需资源的增长趋势 <!-- .element: class="fragment" -->
   - 人话：数据量超级大的时候算法会不会卡死 <!-- .element: class="fragment" -->
   - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现 <!-- .element: class="fragment" -->
+<!--v-->
+
 ## 算法的复杂度
 
 算法的时间复杂度只是评判算法优劣的一个相对指标 <!-- .element: class="fragment" -->
@@ -366,7 +374,7 @@
 - 其实也可以！ <!-- .element: class="fragment" -->
 - 不是只有神经网络才叫人工智能 <!-- .element: class="fragment" -->
 - Lecture 12会有更多的例子 <!-- .element: class="fragment" -->
-- 但是，人机可能确实不太算AI——这主要是因为它还是不够智能~~不够聪明我们看不起~~ <!-- .element: class="fragment" -->
+- <span> 但是，人机可能确实不太算AI——这主要是因为它还是不够智能~~不够聪明我们看不起~~ </span> <!-- .element: class="fragment" -->
 - 无论如何，你需要理解这些叫做“AI”的东西之间的区别 <!-- .element: class="fragment" -->
 
 > 关于游戏里的“AI”是如何实现的，如果感兴趣的话可以了解一下状态机（finite-state machine）。 <!-- .element: class="fragment" -->
@@ -391,6 +399,8 @@
 - 魔法盒子里有输入数据和算法 <!-- .element: class="fragment" -->
 - 魔法盒子根据它们输出结果 <!-- .element: class="fragment" -->
 
+<!--v-->
+
 ## 为什么要有机器学习？
 
 - 算法设计是需要脑洞的 <!-- .element: class="fragment" -->
@@ -405,15 +415,13 @@
 好，现在请深呼吸，然后唤醒你幼儿园的记忆 <!-- .element: class="fragment" -->
 
 - 拿出3张卡片 <!-- .element: class="fragment" -->
-- 在你看着卡片的时候，你的老师对你说“一条横线的是一、两条横线的是二、三条横线的是三”
+- 在你看着卡片的时候，你的老师对你说“一条横线的是一、两条横线的是二、三条横线的是三” <!-- .element: class="fragment" -->
 
 </br>
 
-<img src="images/image-13.png" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/image-13.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-</br>
-
-- 不断重复上面的过程，你的大脑就在不停地学习~~升级~~： <!-- .element: class="fragment" -->
+- <span> 不断重复上面的过程，你的大脑就在不停地学习~~升级~~： </span> <!-- .element: class="fragment" -->
 - 当重复的次数足够多时，你就学会了一个新技能——认识汉字：一、二、三 <!-- .element: class="fragment" -->
 
 <!--v-->
@@ -425,6 +433,8 @@
 - 在刚刚的学习过程中，你的学习和一个传统的算法相比，多了什么？ <!-- .element: class="fragment" -->
 - <span> **输入的答案**（ground truth） </span> <!-- .element: class="fragment" -->
 - 这就是机器学习需要的东西 <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 稍微形式化一点点
 
@@ -455,6 +465,8 @@
 - 传统算法：完全由人类经验得出的理论 <!-- .element: class="fragment" -->
 - <span> **机器学习：人类经验被用来构建让机器学习经验的理论** </span> <!-- .element: class="fragment" -->
 
+<!--v-->
+
 ## 普通算法 VS 传统机器学习 VS 深度学习
 
 最后，希望这个对比能够帮助你更好地理解它们：
@@ -469,6 +481,8 @@
 <!--s-->
 
 # Part 4. 总结
+
+<!--v-->
 
 ## 倒数第二页了
 
