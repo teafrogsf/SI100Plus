@@ -112,18 +112,18 @@ revealOptions:
 - 2022 年 11 月 30 日，它出生了 <!-- .element: class="fragment" -->
 - 彼时还是算法与数据结构助教的我马上拿它来测试我出的算法题 <!-- .element: class="fragment" -->
 - ~~发现它不会做我就放心了~~ <!-- .element: class="fragment" -->
-- 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子 <!-- .element: class="fragment" -->
+- <span> 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子 </span> <!-- .element: class="fragment" -->
 - 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明） <!-- .element: class="fragment" -->
 - GPT-3 技术报告：<!-- .element: class="fragment" --> https://arxiv.org/pdf/2005.14165 <!-- .element: class="fragment" -->
 - ~~GPT-4的技术报告几乎没有技术，我们CloseAI是这样的~~ <!-- .element: class="fragment" -->
 
 <div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
 
-<img src="images/illusion.png" width="50%" style="float: right; margin-right: 100px;">
+<img src="images/illusion.png" width="50%" style="float: right; margin-right: 100px;"> <!-- .element: class="fragment" -->
 
 </br>
 
-并没有《枇杷行》这首诗 $\to$
+并没有《枇杷行》这首诗 $\to$ <!-- .element: class="fragment" -->
 
 </div>
 
@@ -132,8 +132,6 @@ revealOptions:
 ## 所以这个引入是想说什么？
 
 你觉得哪个 ChatBot 是 AI？
-
-</br>
 
 - ChatGPT 肯定是 AI <!-- .element: class="fragment" -->
 - Eliza 是 AI 吗？ <!-- .element: class="fragment" -->
@@ -188,7 +186,7 @@ revealOptions:
 
 <!--v-->
 
-## 这部分课程的目的是什么
+## 这六节课程的目的是什么
 
 我们希望能帮助你获得以下能力：
 
