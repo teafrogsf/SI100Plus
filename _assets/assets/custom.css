@@ -275,5 +275,19 @@ html.print-pdf .reveal pre code {
 .reveal blockquote {
   width: 80%;
   font-style: normal;
-  background-color: #eef4ff;
+  /* background-color: #eef4ff; */
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: #0002 0 2px 6px;
+  border-left-width: 5px;
+  border-left-color: #007bff;
+  border-left-style: outset;
+}
+
+div {
+  border-radius: 7px;
+}
+
+del {
+  text-decoration-thickness: 8%;
 }
