@@ -38,11 +38,11 @@ revealOptions:
 
 为了让课程变得更有意思，今天的课准备了很多小问题给大家！
 
-欢迎开麦发言！打字也可以！
+欢迎开麦发言！打字也可以！ <!-- .element: class="fragment" -->
 
-每个小问题都会至少选择一位回答的同学倾情赠送~~可能没什么用的~~小礼物！
+每个小问题都会至少选择一位回答的同学倾情赠送~~可能没什么用的~~小礼物！ <!-- .element: class="fragment" -->
 
-那接下来，我们的故事就将开始......
+那接下来，我们的故事就将开始...... <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -61,7 +61,7 @@ revealOptions:
 - Siri <!-- .element: class="fragment" -->
 - 小爱同学 <!-- .element: class="fragment" -->
 - 以及ChatGPT <!-- .element: class="fragment" -->
-- ......
+- ...... <!-- .element: class="fragment" -->
 
 猜猜 Chatbot 是哪一年诞生的？ <!-- .element: class="fragment" -->
 
@@ -73,7 +73,7 @@ revealOptions:
 - 1966 年诞生，已经 58 岁了 <!-- .element: class="fragment" -->
 - 使用模式匹配和替换方法来模拟对话（看不懂也没关系） <!-- .element: class="fragment" -->
 - 诞生最初的目的并不是当聊天机器人 <!-- .element: class="fragment" -->
-- https://arxiv.org/pdf/2406.17650 <!-- .element: class="fragment" -->
+- 追根溯源：https://arxiv.org/pdf/2406.17650 <!-- .element: class="fragment" -->
 - ELIZA 的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”） <!-- .element: class="fragment" -->
 
 <!--v-->
@@ -86,12 +86,19 @@ revealOptions:
 
 ## Chatbot 的发展：微软小冰
 
+- 2014 年诞生 <!-- .element: class="fragment" -->
+- 当年震惊我初中幼小的心灵 <!-- .element: class="fragment" -->
+- 智能聊天机器人，很会讲笑话~~爆粗口~~ <!-- .element: class="fragment" -->
+- 接入了很多第三方平台，如微信微博QQ等 <!-- .element: class="fragment" -->
+- 看起来已经有点智能，只是逻辑能力还比较弱~~智商高达50~~ <!-- .element: class="fragment" -->
+- 第六代小冰技术报告：https://arxiv.org/pdf/1812.08989
+
 <!--v-->
+
 ## Chatbot 的发展：微软小冰
-<!--v-->
-## Chatbot 的发展：微软小冰
-<!--v-->
-## Chatbot 的发展：微软小冰
+
+<img src="images/xiaoice.jjpg" width="85%" style="display: block; margin: 0 auto;">
+
 <!--v-->
 
 ## Chatbot 的变迁
@@ -107,6 +114,8 @@ revealOptions:
 - ~~发现它不会做我就放心了~~
 - 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
 - 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明）
+- GPT-3 技术报告：https://arxiv.org/pdf/2005.14165
+- ~~GPT-4的技术报告几乎没有技术，我们CloseAI是这样的~~
 
 <div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
 
@@ -128,7 +137,7 @@ revealOptions:
 
 - ChatGPT 肯定是 AI <!-- .element: class="fragment" -->
 - Eliza 是 AI 吗？ <!-- .element: class="fragment" -->
-- 微软小冰是 AI 吗？ <!-- .element: class="fragment" -->
+- 微软小冰是 AI 吗？它和ChatGPT的区别是什么？ <!-- .element: class="fragment" -->
 - Siri 是 AI 吗？小爱同学是 AI 吗？ <!-- .element: class="fragment" -->
 
 </br>
@@ -161,7 +170,7 @@ revealOptions:
 
 - 这门课的课时有限，且没有考核 <!-- .element: class="fragment" -->
 - 在没有数学基础之前直接开始讲所谓的“Intro to AI”很容易囫囵吞枣 <!-- .element: class="fragment" -->
-- 理解到底什么是“AI”对初学者非常重要
+- 理解到底什么是“AI”对初学者非常重要 <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -181,12 +190,12 @@ revealOptions:
 
 我们希望能帮助你获得以下能力：
 
-- 知道自然语言中不同场景下被滥用的“AI”这个称呼分别对应什么
-- 了解不同时代不同类型人工智能的理念
-- 学会辨别知识水平较低的自媒体~~营销号~~为了流量编造的谎言
-- ~~在你的家人和其他学校的朋友面前炫耀你已经完全了解AI了~~
+- 知道自然语言中不同场景下被滥用的“AI”这个称呼分别对应什么 <!-- .element: class="fragment" -->
+- 了解不同时代不同类型人工智能的理念 <!-- .element: class="fragment" -->
+- 学会辨别知识水平较低的自媒体~~营销号~~为了流量编造的谎言 <!-- .element: class="fragment" -->
+- ~~在你的家人和其他学校的朋友面前炫耀你已经完全了解AI了~~ <!-- .element: class="fragment" -->
 
-能做到这些的话你已经很厉害啦。至于AI的专业知识，未来还有许许多多的专业课等着你们去攻略。~~前面的区域以后再来探索吧~~
+能做到这些的话你已经很厉害啦。至于AI的专业知识，未来还有许许多多的专业课等着你们去攻略。~~前面的区域以后再来探索吧~~ <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -225,17 +234,17 @@ revealOptions:
 </div>
 <div style="text-align: center;">
 
-  问题来了：游戏如何计算角色到指定地点的路线呢？
+  问题来了：游戏如何计算角色到指定地点的路线呢？ <!-- .element: class="fragment" -->
 </div>
 
 <!--v-->
 
 ## 游戏设计入门
 
-- 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面
-- 计算机的存储空间是有限的
-- 那我们就把地图看成一张**有限的网格图**好了
-- ~~其他的内容我们就不教了，欢迎选修游戏设计~~
+- 首先我们得对地图有一个基本的预期：它大概不是连续的二维平面 <!-- .element: class="fragment" -->
+- 计算机的存储空间是有限的 <!-- .element: class="fragment" -->
+- 那我们就把地图看成一张**有限的网格图**好了 <!-- .element: class="fragment" -->
+- ~~其他的内容我们就不教了，欢迎选修游戏设计~~ <!-- .element: class="fragment" -->
 
 </br>
 
@@ -243,29 +252,30 @@ revealOptions:
 
 只要走就能到！
 
-- 我们能怎么走？
-  - 网格图，四个方向选一个，不走回头路
-  - 每个位置能选的走法有限
-- **穷举法**
-  - 遍历（traverse）地图内的所有能走的路
-  - 总有一条是最快到达终点的 $\to$ 选取这条成为角色从当前位置到目标位置的路径
+- 我们能怎么走？ <!-- .element: class="fragment" -->
+  - 网格图，四个方向选一个，不走回头路 <!-- .element: class="fragment" -->
+  - 每个位置能选的走法有限 <!-- .element: class="fragment" -->
+- **穷举法** <!-- .element: class="fragment" -->
+  - 遍历（traverse）地图内的所有能走的路 <!-- .element: class="fragment" -->
+  - 总有一条是最快到达终点的 $\to$ 选取这条成为角色从当前位置到目标位置的路径 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 遍历太低效了，能不能优化一下？
 
 - 如何相对高效地寻找到一条相对短的路径呢？
-  - 我们总是希望距离越短越好，所以……
-  - 我们可以**优化**我们的选择
-  - 在决定下一次走的方向之前，我们看一下在能走的点中，哪个点离目标位置的距离最近
-  - 先走这个点，探索这个点的后续所有能走的路
-  - 如果这个点的后续情况探索完了，我们再走一下第二近的点，继续进行类似的搜索
-- 但如果这样枚举完所有路径的话，和之前的方法又有什么区别呢？
-  - 
+  - 我们总是希望距离越短越好，所以…… <!-- .element: class="fragment" -->
+  - 我们可以**优化**我们的选择 <!-- .element: class="fragment" -->
+  - 在决定下一次走的方向之前，我们看一下在能走的点中，哪个点离目标位置的距离最近 <!-- .element: class="fragment" -->
+  - 先走这个点，探索这个点的后续所有能走的路 <!-- .element: class="fragment" -->
+  - 如果这个点的后续情况探索完了，我们再走一下第二近的点，继续进行类似的搜索 <!-- .element: class="fragment" -->
+- 但如果这样枚举完所有路径的话，和之前的方法又有什么区别呢？ <!-- .element: class="fragment" -->
+  - 所以我们不用枚举完所有路径，而是在枚举到一定程度的时候停止，并输出当前的最优结果 <!-- .element: class="fragment" -->
+  - 又快又好！ <!-- .element: class="fragment" -->
 
-是不是比穷举法好得多？没错，这就是一个简单但有效的算法。
+是不是比穷举法好得多？没错，这就是一个简单但有效的算法。 <!-- .element: class="fragment" -->
 
-> 事实上，上述算法涉及到了一个程序设计中非常重要的概念，叫做递归（recursion）。具体的分析比较复杂，我们这里不作过多探讨。
+> 事实上，上述算法涉及到了一个程序设计中非常重要的概念，叫做递归（recursion）。具体的分析比较复杂，我们这里不作过多探讨。 <!-- .element: class="fragment" -->
 
 
 <!--v-->
@@ -274,21 +284,22 @@ revealOptions:
 
 > An algorithm is a finite sequence of well-defined, computer-implementable instructions, typically to solve a class of problems or to perform a computation.
 >
-> 算法是一系列有限的、清晰定义的、可实现的计算机指令，并用以解决一类问题或进行计算
+> 算法是一系列有限的、清晰定义的、可实现的计算机指令，并用以解决一类问题或进行计算。
 >
 > --Wikipedia
 
-~~好的听起来等于没说。~~
+~~好的听起来等于没说。~~ <!-- .element: class="fragment" -->
 
-怎么翻译成人话？
+怎么翻译成人话？ <!-- .element: class="fragment" -->
 
-- **算法是为了解决特定问题而规定的一系列操作**
-- 算法与函数类似，都能接受输入产生输出
+- 算法就是解决问题的方法 <!-- .element: class="fragment" -->
+- 一般是解决一个特定的问题；输入一般是有限的 <!-- .element: class="fragment" -->
+- 可以与函数作类比：都能接受输入产生输出 <!-- .element: class="fragment" -->
 
 </br>
 
-- 有简单的算法，也有复杂的算法
-- 有时候我们需要快速的得到结果
+- 算法那么多，有简单的算法，也有复杂的算法
+- 有时候我们需要比较快速地得到好的结果
 - 该怎么判断哪个算法更好？
 
 <img src="images/complexity.png" width="65%" style="display: block; margin: 0 auto;">
@@ -297,17 +308,22 @@ revealOptions:
 
 ## 算法的复杂度
 
-- 优秀的算法能够在较短的时间内找到问题的解，或者在相同的时间内处理更多的数据。
-- 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法）
-  - 随着问题规模的增长，算法执行时间或所需资源的增长趋势
-  - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现
-- 算法的时间复杂度只是评判算法优劣的一个相对指标
-  - 算法的具体实现细节
-  - 计算机硬件的性能
-  - 数据的实际分布
-  - ......
+- 优秀的算法能够在较短的时间内找到问题的解，或者在相同的时间内处理更多的数据。 <!-- .element: class="fragment" -->
+- 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法） <!-- .element: class="fragment" -->
+  - 随着问题规模的增长，算法执行时间或所需资源的增长趋势 <!-- .element: class="fragment" -->
+  - 人话：数据量超级大的时候算法会不会卡死 <!-- .element: class="fragment" -->
+  - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现 <!-- .element: class="fragment" -->
+- 算法的时间复杂度只是评判算法优劣的一个相对指标 <!-- .element: class="fragment" -->
+- 实际上还需要考虑以下很多问题：
+  - 算法的具体实现细节 <!-- .element: class="fragment" -->
+  - 计算机硬件的性能 <!-- .element: class="fragment" -->
+  - 数据的实际分布 <!-- .element: class="fragment" -->
+  - ...... <!-- .element: class="fragment" -->
 
-因此，在实际应用中，我们通常会通过实验来测试算法在特定条件下的性能表现，并选择一个在大多数情况下都能表现良好的算法
+在实际应用中，我们通常会通过实验来测试算法在特定条件下的性能表现，并选择一个在大多数情况下都能表现良好的算法。 <!-- .element: class="fragment" -->
+
+今天这节课你只需要知道：写两个循环通常会比一个慢，因此写代码的时候不要疯狂堆循环 <!-- .element: class="fragment" -->
+- 这一点在之后的信导以及日常代码中困难有帮助 <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -317,21 +333,32 @@ revealOptions:
 
 ## 人机（困难）
 
-我们再回到游戏的例子。
+我们再回到游戏的例子。 <!-- .element: class="fragment" -->
 
-- 早期的人工智能
-  - 大多是通过固定指令，执行特定问题
-  - 并不具备真正的学习、思考能力
-- **AI在很大程度上是算法设计的结果**
+你是不是在很多地方都听说过“AI”这个名字被用在人机上？ <!-- .element: class="fragment" -->
 
-<!--v-->
+- 这个BOSS的“AI”不太聪明 <!-- .element: class="fragment" -->
+- 困难人机“AI”好强 <!-- .element: class="fragment" -->
+- 不是我这“AI”宠物怎么不帮我种地啊 <!-- .element: class="fragment" -->
 
-## 算法与 AI
+这种时候我们说的“AI”是什么？ <!-- .element: class="fragment" -->
+- 诶，是不是......就是算法？<!-- .element: class="fragment" -->
 
-AI在很大程度上是算法设计的结果
+## 人机（困难）
 
-- 早期的 AI 其实就是人机，在人工设计的算法下能够简单的执行一些命令
-- 那它就不是我们现在常说的 AI 吗？
+这些所谓的“AI”其实就是算法设计的结果 <!-- .element: class="fragment" -->
+- 可能包含了相当多的人类智慧设计的程序逻辑 <!-- .element: class="fragment" -->
+- 它们可能和我们将要学的“AI”没什么关系 <!-- .element: class="fragment" -->
+
+但是......我们能叫它们“AI”吗？ <!-- .element: class="fragment" -->
+- 其实也可以！ <!-- .element: class="fragment" -->
+- 不是只有神经网络才叫人工智能 <!-- .element: class="fragment" -->
+- Lecture 12会有更多的例子 <!-- .element: class="fragment" -->
+- 但是，人机可能确实不太算AI——这主要是因为它还是不够智能~~不够聪明我们看不起~~ <!-- .element: class="fragment" -->
+- 无论如何，你需要理解这些叫做“AI”的东西之间的区别 <!-- .element: class="fragment" -->
+
+> 关于游戏里的“AI”是如何实现的，如果感兴趣的话可以了解一下状态机（finite-state machine）。 <!-- .element: class="fragment" -->
+
 
 <!--s-->
 
@@ -345,33 +372,28 @@ AI在很大程度上是算法设计的结果
 
 <!--v-->
 
-## 传统AI
-
-- 需要一些输入和一些代码形式的逻辑，并提供输出
+## 总结一下算法
 
 <img src="images/image-9.png" width="85%" style="display: block; margin: 0 auto;">
 
-- 传统算法基于算法中描述的步骤产生输出。给出算法输入，它根据人给出的硬编码的规则和参数生成输出。
+- 魔法盒子里有输入数据和算法 <!-- .element: class="fragment" -->
+- 魔法盒子根据它们输出结果 <!-- .element: class="fragment" -->
+
+## 为什么要有机器学习？
+
+- 算法设计是需要脑洞的 <!-- .element: class="fragment" -->
+- 人类的脑洞是有极限的 <!-- .element: class="fragment" -->
+- 但是有一天人类突然想到：能不能让机器自己学会怎么做？ <!-- .element: class="fragment" -->
+- 如果要让机器去学的话，需要什么呢？ <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## 机器学习
+## 现在请出我们幼儿园中班就学过的机器学习
 
-<!-- 我去，这是 GPT 写的吧 -->
+好，现在请深呼吸，然后唤醒你幼儿园的记忆 <!-- .element: class="fragment" -->
 
-- 机器学习是一门关于数据学习的科学技术，它能帮助机器从现有的复杂数据中学习规律，以预测未来的行为结果和趋势。
-- 例如：当我们在淘宝购物时，机器学习算法会根据我们的购买历史来推荐可能会喜欢的其他产品，以提升购买概率
-
-<img src="images/image-12.png" width="85%" style="display: block; margin: 0 auto;">
-
-<!--v-->
-
-## 机器学习的简单原理
-
-教小朋友识字
-
-- 拿出3张卡片
-- 在小朋友看着卡片的时候，说 “一条横线的是一、两条横线的是二、三条横线的是三”
+- 拿出3张卡片 <!-- .element: class="fragment" -->
+- 在你看着卡片的时候，你的老师对你说“一条横线的是一、两条横线的是二、三条横线的是三”
 
 </br>
 
@@ -379,46 +401,58 @@ AI在很大程度上是算法设计的结果
 
 </br>
 
-- 不断重复上面的过程，小朋友的大脑就在不停的学习：
-- 当重复的次数足够多时，小朋友就学会了一个新技能——认识汉字：一、二、三
+- 不断重复上面的过程，你的大脑就在不停地学习~~升级~~： <!-- .element: class="fragment" -->
+- 当重复的次数足够多时，你就学会了一个新技能——认识汉字：一、二、三 <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## 机器学习的简单原理
+## 现在请出我们幼儿园中班就学过的机器学习
+
+回到2024年的现在，你发现现在你已经学会机器学习了！ <!-- .element: class="fragment" -->
+- 什么？你说你还不会？ <!-- .element: class="fragment" -->
+- 在刚刚的学习过程中，你的学习和一个传统的算法相比，多了什么？ <!-- .element: class="fragment" -->
+- **输入的答案**（ground truth） <!-- .element: class="fragment" -->
+- 这就是机器学习需要的东西 <!-- .element: class="fragment" -->
+
+## 稍微形式化一点点
 
 - 类比人类的学习过程，在机器学习中：
-  - 认字的卡片：训练集(training set)
-  - “一条横线，两条横线”，区分不同汉字的属性：特征(feature)
-  - 学会了识字后总结出来的规律：模型(model)
-- 通过训练集，不断识别特征，不断建模，最后形成有效的模型，这个过程就叫“机器学习”
+  - 认字的卡片就是训练集（training set）
+  - “一条横线，两条横线”，区分不同汉字的属性就是特征（feature）
+  - 学会了识字后总结出来的规律就是模型（model）
+- 通过训练集，不断识别特征，不断优化，最后形成有效的模型，这个过程就叫“机器学习”
+
+机器学习诞生的意义就是，一些以前看起来很复杂的问题中难以建模、难以捕捉的特征可以被让模型根据ground truth自我纠错的方式所解决
 
 <!--v-->
 
-## 机器学习
-
-- 需要输入和输出，并会根据输入和输出生成一些逻辑，然后可以使用这个新逻辑来处理新输入以提供输出。
+## 回到魔法盒子
 
 <img src="images/image-10.png" width="85%" style="display: block; margin: 0 auto;">
 
-- ML 算法基于通过提供给它的输入进行学习来预测输出。通过输入进行的学习称为训练过程。
-- 给出要学习的算法数据，并调整参数来解释数据。然后可以使用这些参数集来解释/预测新数据
-
-<!--v-->
-
-## “机器学习”和“人工智能”有什么区别？
+- 第一个魔法盒子里有一部分输入数据、对应的输出数据 <!-- .element: class="fragment" -->
+- 这个魔法盒子根据它们输出模型 <!-- .element: class="fragment" -->
+- 第二个魔法盒子根据模型和另一部分输入数据输出结果 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 传统算法 VS 机器学习
 
-- 普通算法：
-- 传统机器学习：
+最后，希望这个对比能够帮助你更好地理解它们：<!-- .element: class="fragment" -->
+
+- 传统算法：完全由人类经验得出的理论 <!-- .element: class="fragment" -->
+- **机器学习：人类经验被用来构建让机器学习经验的理论** <!-- .element: class="fragment" -->
 
 ## 普通算法 VS 传统机器学习 VS 深度学习
 
-- 普通算法：
-- 传统机器学习：
-- 现代人工智能：
+最后，希望这个对比能够帮助你更好地理解它们：
+
+- 传统算法：完全由人类经验得出的理论
+- 传统机器学习：人类经验被用来构建**让机器学习经验**的理论
+- **深度学习（当代的人工智能）：人类经验与机器学习的经验逐渐失去直接关联**，即机器学习到的经验随着参数与网络的增加使得人类逐渐无法理解它们~~变成了真正的魔法~~ <!-- .element: class="fragment" -->
+- 人类或许可以观察一个古早机器学习算法学出来的参数，但很难理解GPT这种模型一层的参数是什么意思 <!-- .element: class="fragment" -->
+
+这就是我们下节课的内容了！ <!-- .element: class="fragment" -->
 
 <!--s-->
 
@@ -426,12 +460,13 @@ AI在很大程度上是算法设计的结果
 
 ## 倒数第二页了
 
-我们今天讲了什么？
+我们今天讲了什么？ <!-- .element: class="fragment" -->
 
-- 一个故意挖坑的引子
-- 一个课程大纲的详细版
-- 算法
-- 从算法走向机器学习
+- 一个故意挖坑的引子 <!-- .element: class="fragment" -->
+- 一个课程大纲的详细版 <!-- .element: class="fragment" -->
+- 算法的基本概念 <!-- .element: class="fragment" -->
+- 从传统算法走向机器学习 <!-- .element: class="fragment" -->
+- ~~下集预告~~ <!-- .element: class="fragment" -->
 
 <!--s-->
 
