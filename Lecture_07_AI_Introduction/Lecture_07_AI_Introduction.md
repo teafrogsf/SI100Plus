@@ -88,16 +88,16 @@ revealOptions:
 
 - 2014 年诞生 <!-- .element: class="fragment" -->
 - 当年震惊我初中幼小的心灵 <!-- .element: class="fragment" -->
-- 智能聊天机器人，很会讲笑话 <!-- .element: class="fragment" --> ~~爆粗口~~ <!-- .element: class="fragment" -->
+- <span> 智能聊天机器人，很会讲笑话~~爆粗口~~ </span> <!-- .element: class="fragment" -->
 - 接入了很多第三方平台，如微信微博QQ等 <!-- .element: class="fragment" -->
-- 看起来已经有点智能，只是逻辑能力还比较弱 <!-- .element: class="fragment" --> ~~智商高达50~~ <!-- .element: class="fragment" -->
+- <span>看起来已经有点智能，只是逻辑能力还比较弱~~智商高达50~~ </span> <!-- .element: class="fragment" -->
 - 第六代小冰技术报告：<!-- .element: class="fragment" --> https://arxiv.org/pdf/1812.08989 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## Chatbot 的发展：微软小冰
 
-<img src="images/xiaoice.jpg" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/xiaoice.jpg" width="55%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
