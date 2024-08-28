@@ -38,9 +38,9 @@ revealOptions:
 
 为了让课程变得更有意思，今天的课准备了很多小问题给大家！
 
-欢迎开麦发言！打字也可以！ <!-- .element: class="fragment" -->
+欢迎开麦发言！打字也可以
 
-每个小问题都会至少选择一位回答的同学倾情赠送~~可能没什么用的~~小礼物！ <!-- .element: class="fragment" -->
+每个小问题都会至少选择一位回答的同学倾情赠送~~可能没什么用的~~小礼物！
 
 那接下来，我们的故事就将开始...... <!-- .element: class="fragment" -->
 
@@ -73,7 +73,7 @@ revealOptions:
 - 1966 年诞生，已经 58 岁了 <!-- .element: class="fragment" -->
 - 使用模式匹配和替换方法来模拟对话（看不懂也没关系） <!-- .element: class="fragment" -->
 - 诞生最初的目的并不是当聊天机器人 <!-- .element: class="fragment" -->
-- 追根溯源：https://arxiv.org/pdf/2406.17650 <!-- .element: class="fragment" -->
+- 追根溯源：<!-- .element: class="fragment" --> https://arxiv.org/pdf/2406.17650 <!-- .element: class="fragment" -->
 - ELIZA 的关键方法涉及认出输入里的提示字词，并且找出相关的、预先设定的回答，在显然有意义的方式下，让谈话继续下去（例如，输入里有“母亲”，回答是“多说一点你的家庭”） <!-- .element: class="fragment" -->
 
 <!--v-->
@@ -88,16 +88,16 @@ revealOptions:
 
 - 2014 年诞生 <!-- .element: class="fragment" -->
 - 当年震惊我初中幼小的心灵 <!-- .element: class="fragment" -->
-- 智能聊天机器人，很会讲笑话~~爆粗口~~ <!-- .element: class="fragment" -->
+- 智能聊天机器人，很会讲笑话 <!-- .element: class="fragment" --> ~~爆粗口~~ <!-- .element: class="fragment" -->
 - 接入了很多第三方平台，如微信微博QQ等 <!-- .element: class="fragment" -->
-- 看起来已经有点智能，只是逻辑能力还比较弱~~智商高达50~~ <!-- .element: class="fragment" -->
-- 第六代小冰技术报告：https://arxiv.org/pdf/1812.08989
+- 看起来已经有点智能，只是逻辑能力还比较弱 <!-- .element: class="fragment" --> ~~智商高达50~~ <!-- .element: class="fragment" -->
+- 第六代小冰技术报告：<!-- .element: class="fragment" --> https://arxiv.org/pdf/1812.08989 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## Chatbot 的发展：微软小冰
 
-<img src="images/xiaoice.jjpg" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/xiaoice.jpg" width="85%" style="display: block; margin: 0 auto;">
 
 <!--v-->
 
@@ -109,13 +109,13 @@ revealOptions:
 
 ## Chatbot 的现在：<img src="images/image-3.png" width="5%" style="margin: 0px"> ChatGPT
 
-- 2022 年 11 月 30 日，它出生了
-- 彼时还是算法与数据结构助教的我马上拿它来测试我出的算法题
-- ~~发现它不会做我就放心了~~
-- 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子
-- 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明）
-- GPT-3 技术报告：https://arxiv.org/pdf/2005.14165
-- ~~GPT-4的技术报告几乎没有技术，我们CloseAI是这样的~~
+- 2022 年 11 月 30 日，它出生了 <!-- .element: class="fragment" -->
+- 彼时还是算法与数据结构助教的我马上拿它来测试我出的算法题 <!-- .element: class="fragment" -->
+- ~~发现它不会做我就放心了~~ <!-- .element: class="fragment" -->
+- 简单来说，ChatGPT 是一种**生成式**人工智能，回复的有可能是从未在语料库中出现的、由聊天机器人自己“创造”出来的句子 <!-- .element: class="fragment" -->
+- 注意：ChatGPT $\neq$ GPT（后续的教学内容中我们会详细说明） <!-- .element: class="fragment" -->
+- GPT-3 技术报告：<!-- .element: class="fragment" --> https://arxiv.org/pdf/2005.14165 <!-- .element: class="fragment" -->
+- ~~GPT-4的技术报告几乎没有技术，我们CloseAI是这样的~~ <!-- .element: class="fragment" -->
 
 <div style=" margin-top: 10px; margin-right: 100px;" markdown="1">
 
@@ -144,7 +144,7 @@ revealOptions:
 
 在回答这个问题之前，因为引子已经结束了，让我们开始故事的第一章。 <!-- .element: class="fragment" -->
 
-~~就卖关子就卖关子~~ 
+~~就卖关子就卖关子~~ <!-- .element: class="fragment" -->
 
 <!--s-->
 
@@ -163,6 +163,8 @@ revealOptions:
 - 不会讲太多AI技术 <!-- .element: class="fragment" -->
 - 不会讲太多数学 <!-- .element: class="fragment" -->
 - 可能会讲故事 <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 是给文科生上的AI课吗？
 
@@ -192,12 +194,10 @@ revealOptions:
 
 - 知道自然语言中不同场景下被滥用的“AI”这个称呼分别对应什么 <!-- .element: class="fragment" -->
 - 了解不同时代不同类型人工智能的理念 <!-- .element: class="fragment" -->
-- 学会辨别知识水平较低的自媒体~~营销号~~为了流量编造的谎言 <!-- .element: class="fragment" -->
-- ~~在你的家人和其他学校的朋友面前炫耀你已经完全了解AI了~~ <!-- .element: class="fragment" -->
+<span> - 学会辨别知识水平较低的自媒体~~营销号~~为了流量编造的谎言 </span> <!-- .element: class="fragment" -->
+<span> - ~~在你的家人和其他学校的朋友面前炫耀你已经完全了解AI了~~ <!-- .element: class="fragment" -->
 
-能做到这些的话你已经很厉害啦。至于AI的专业知识，未来还有许许多多的专业课等着你们去攻略。~~前面的区域以后再来探索吧~~ <!-- .element: class="fragment" -->
-
-<!--v-->
+<span> 能做到这些的话你已经很厉害啦。至于AI的专业知识，未来还有许许多多的专业课等着你们去攻略。~~前面的区域以后再来探索吧~~ </span> <!-- .element: class="fragment" -->
 
 <!--s-->
 
@@ -224,9 +224,7 @@ revealOptions:
 
 ## 举个栗子
 
-如果大家玩过一些人物能右键点击走路的游戏，你会发现人物会沿着一条路径走到目标位置。
-
-比如英雄联盟。
+如果大家玩过一些人物能右键点击走路的游戏，你会发现人物会沿着一条路径走到目标位置。比如英雄联盟。
 
 <div style="display: flex; align-items: center; justify-content: center;">
   <img src="images/LOL.gif" width="40%" style="margin-right: 30px;">
@@ -246,7 +244,7 @@ revealOptions:
 - 那我们就把地图看成一张**有限的网格图**好了 <!-- .element: class="fragment" -->
 - ~~其他的内容我们就不教了，欢迎选修游戏设计~~ <!-- .element: class="fragment" -->
 
-</br>
+<!--v-->
 
 ## 有限的网格图有什么好处？
 
@@ -255,7 +253,7 @@ revealOptions:
 - 我们能怎么走？ <!-- .element: class="fragment" -->
   - 网格图，四个方向选一个，不走回头路 <!-- .element: class="fragment" -->
   - 每个位置能选的走法有限 <!-- .element: class="fragment" -->
-- **穷举法** <!-- .element: class="fragment" -->
+- <span> **穷举法** </span> <!-- .element: class="fragment" -->
   - 遍历（traverse）地图内的所有能走的路 <!-- .element: class="fragment" -->
   - 总有一条是最快到达终点的 $\to$ 选取这条成为角色从当前位置到目标位置的路径 <!-- .element: class="fragment" -->
 
@@ -265,13 +263,15 @@ revealOptions:
 
 - 如何相对高效地寻找到一条相对短的路径呢？
   - 我们总是希望距离越短越好，所以…… <!-- .element: class="fragment" -->
-  - 我们可以**优化**我们的选择 <!-- .element: class="fragment" -->
+  <span> - 我们可以**优化**我们的选择 </span> <!-- .element: class="fragment" -->
   - 在决定下一次走的方向之前，我们看一下在能走的点中，哪个点离目标位置的距离最近 <!-- .element: class="fragment" -->
   - 先走这个点，探索这个点的后续所有能走的路 <!-- .element: class="fragment" -->
   - 如果这个点的后续情况探索完了，我们再走一下第二近的点，继续进行类似的搜索 <!-- .element: class="fragment" -->
 - 但如果这样枚举完所有路径的话，和之前的方法又有什么区别呢？ <!-- .element: class="fragment" -->
   - 所以我们不用枚举完所有路径，而是在枚举到一定程度的时候停止，并输出当前的最优结果 <!-- .element: class="fragment" -->
   - 又快又好！ <!-- .element: class="fragment" -->
+
+## 遍历太低效了，能不能优化一下？
 
 是不是比穷举法好得多？没错，这就是一个简单但有效的算法。 <!-- .element: class="fragment" -->
 
@@ -290,13 +290,15 @@ revealOptions:
 
 ~~好的听起来等于没说。~~ <!-- .element: class="fragment" -->
 
+## 那么，算法是什么？
+
 怎么翻译成人话？ <!-- .element: class="fragment" -->
 
 - 算法就是解决问题的方法 <!-- .element: class="fragment" -->
 - 一般是解决一个特定的问题；输入一般是有限的 <!-- .element: class="fragment" -->
 - 可以与函数作类比：都能接受输入产生输出 <!-- .element: class="fragment" -->
 
-</br>
+## 那么，算法是什么？
 
 - 算法那么多，有简单的算法，也有复杂的算法
 - 有时候我们需要比较快速地得到好的结果
@@ -309,12 +311,15 @@ revealOptions:
 ## 算法的复杂度
 
 - 优秀的算法能够在较短的时间内找到问题的解，或者在相同的时间内处理更多的数据。 <!-- .element: class="fragment" -->
-- 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法） <!-- .element: class="fragment" -->
+<span> - 算法研究者们更关注算法的**渐进时间复杂度**（Big O 表示法） </span> <!-- .element: class="fragment" -->
   - 随着问题规模的增长，算法执行时间或所需资源的增长趋势 <!-- .element: class="fragment" -->
   - 人话：数据量超级大的时候算法会不会卡死 <!-- .element: class="fragment" -->
   - 实际应用中，问题规模往往很大，渐进时间复杂度能够反映算法在大规模问题上的性能表现 <!-- .element: class="fragment" -->
-- 算法的时间复杂度只是评判算法优劣的一个相对指标 <!-- .element: class="fragment" -->
-- 实际上还需要考虑以下很多问题：
+## 算法的复杂度
+
+算法的时间复杂度只是评判算法优劣的一个相对指标 <!-- .element: class="fragment" -->
+
+- 实际上还需要考虑以下很多问题： <!-- .element: class="fragment" -->
   - 算法的具体实现细节 <!-- .element: class="fragment" -->
   - 计算机硬件的性能 <!-- .element: class="fragment" -->
   - 数据的实际分布 <!-- .element: class="fragment" -->
@@ -343,6 +348,8 @@ revealOptions:
 
 这种时候我们说的“AI”是什么？ <!-- .element: class="fragment" -->
 - 诶，是不是......就是算法？<!-- .element: class="fragment" -->
+
+<!--v--> 
 
 ## 人机（困难）
 
