@@ -56,6 +56,18 @@ jobs:
                 fi
             done
 
+            echo >> index.md
+            echo "---" >> index.md
+            echo "## SI 100+ Notebook 页" >> index.md
+
+            find . -name "*.ipynb" | sort | while read -r file; do
+
+                echo "Processing $file"
+                pure_path="${file//.\//\/}"
+                echo "- [$(basename ${file%.md})](https://nbviewer.org/github/teafrogsf/SI100Plus/blob/main$pure_path)" >> index.md
+
+            done
+
             reveal-md index.md --static static
             rm index.md
 
