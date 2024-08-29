@@ -15,14 +15,32 @@ marp: true
 
 ---
 
-## Intro：AI，一个黑盒子？
+## 回到回到魔法盒子
 
-* 说起AI，你可能会第一个想到Chatgpt，智谱清言等大模型（Large Language Model，LLM）
+<img src="images/image-10.png" width="85%" style="display: block; margin: 0 auto;">
 
-* 它们可能在你眼里是非常神奇的，无论问它什么问题，它都能迅速给出一连串完整的解答，看起来大模型似乎有了自己的逻辑思维（Logical thinking）
-* 这就像是一个“黑盒子”，给它一个输入，就能获得一个理想的输出，然而现在的你可能完全无法了解其内部工作机制和原理
+- 第一个魔法盒子里有一部分输入数据、对应的输出数据 <!-- .element: class="fragment" -->
+- 这个魔法盒子根据它们输出模型 <!-- .element: class="fragment" -->
+- 第二个魔法盒子根据模型和另一部分输入数据（也就是测试集，test set）输出结果 <!-- .element: class="fragment" -->
 
-本节课我们将探索机器学习的发展史，看看机器学习是怎么从一个简单的线性模型一步步发展到如今的庞然大物
+--- 
+
+## 魔法？
+
+你可能在各路营销号或有技术的~~营销号~~公众号等自媒体见到过一些AI笑话
+
+- “AI就是魔法”
+- “随便动了一个超参数模型就跑起来了”
+- ~~我的空间~~
+
+<img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;">
+
+## 魔法！
+
+然而，在机器学习的数据量还未飞升的年代，理论计算机科学家与数学家曾经也有过理论化的机器学习的美好愿望
+
+- 机器学习理论（machine learning theory）最先研究的对象也是比较传统的机器学习算法
+- 我们的第二章也将从这里开始
 
 ---
 
