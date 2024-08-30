@@ -11,6 +11,7 @@ revealOptions:
     center: false
     slideNumber: "c/t"
     width: 1000
+    pdfSeparateFragments: false
 ---
 
 
