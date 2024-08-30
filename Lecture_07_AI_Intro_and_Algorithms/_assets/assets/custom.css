@@ -21,6 +21,11 @@
   font-weight: 400;
 }
 
+html.reveal-print .reveal .slides {
+	border: none !important;
+  border-radius: 0 !important;
+}
+
 .reveal section {
   padding: 20px 0;
 }
