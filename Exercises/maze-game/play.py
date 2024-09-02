@@ -7,7 +7,6 @@ manager = GameManager()
 
 # Main Loop
 while True:
-    pygame.display.set_caption(f"Maze Game - FPS: {round(manager.clock.get_fps(), 2)}")
 
     for event in pygame.event.get():
             if event.type == pygame.QUIT:
