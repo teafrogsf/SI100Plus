@@ -1,16 +1,9 @@
 import pygame
 import random
-from typing import List
-from enum import Enum
-# import objs
+from . import objs
 
 # Player direction
-class Direction(Enum):
-    UP = 0
-    RIGHT = 1
-    DOWN = 2
-    LEFT = 3
-    
+from .statics import Direction, MapSettings
 move_directions = [
     (0, -1), # UP
     (1, 0), # RIGHT
@@ -49,7 +42,8 @@ class Maze:
         self.player_dir = Direction.LEFT
         self.exit_pos = (self.row - 1, 0)
         self.generate_maze()
-        # self.initialize_gui()
+        self.blocks = pygame.sprite.Group()
+        self.initialize_gui()
         
     def generate_maze(self):
         self.grid = [[False for x in range(self.column)] for y in range(self.row)]
@@ -122,7 +116,7 @@ class Maze:
             for j in range(self.column):
                 s += " " if self.grid[i][j] else "#"
             s += "#\n"
-        s += "#" * (self.heigth + 2)
+        s += "#" * (self.column + 2)
         return s
     
     def __repr__(self) -> str:
@@ -141,19 +135,42 @@ class Maze:
         return s
         
     def initialize_gui(self):
-        # IDK what should be done here
-        self.walls = pygame.sprite.Group()
-        self.player = None
-        self.exit = None
-        # Add the player and exit to the maze
-        pass
-        # Add the walls to the maze
-        pass
+        # # IDK what should be done here
+        # self.walls = pygame.sprite.Group()
+        # self.player = None
+        # self.exit = None
+        # # Add the player and exit to the maze
+        # pass
+        # # Add the walls to the maze
+        # pass
+
+        # I think maze should only be responsible for the maze generation
+        # and the game manager should be responsible for the GUI
+
+        
+        # Gen the maze center
+        for i in range(self.row):
+            for j in range(self.column):
+                if not self.grid[i][j]:
+                    self.blocks.add(objs.Block(objs.BlockType.WALL, (j + 1) * MapSettings.blockSize, (i + 1) * MapSettings.blockSize))
+                else:
+                    self.blocks.add(objs.Block(objs.BlockType.GROUND, (j + 1) * MapSettings.blockSize, (i + 1) * MapSettings.blockSize))
+        # Gen the maze border
+        for i in range(self.column + 2):
+            self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, 0))
+            self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, (self.row + 1) * MapSettings.blockSize))
+        for j in range(self.row):
+            self.blocks.add(objs.Block(objs.BlockType.WALL, 0, (j + 1) * MapSettings.blockSize))
+            self.blocks.add(objs.Block(objs.BlockType.WALL, (self.column + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
     
     def update(self):
-        self.player.update()
-        self.walls.update()
-        self.exit.update()
+        self.blocks.update()
+        # self.player.update()
+        # self.walls.update()
+        # self.exit.update()
+
+    def draw(self, screen):
+        self.blocks.draw(screen)
         
     def check_front(self) -> bool:
         x, y = self.player_pos

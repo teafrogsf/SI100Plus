@@ -1,30 +1,19 @@
 import pygame
-from .maze import Maze, Direction
-
-class GameManager:
-    """
-    Singleton class for the game manager.
-    Update and draw the game.
-    """
-    _instance = None    
-    
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(GameManager, cls).__new__(cls)
-        return cls._instance
-
-    def __init__(self):
-        self.maze = Maze(25, 25)
-        self.clock = pygame.time.Clock()
-        self.screen = pygame.display.set_mode((800, 600))
+from .statics import *
 
 class Block(pygame.sprite.Sprite):
-    def __init__(self, image, x: int, y: int):
+    def __init__(self, blockType: BlockType, x: int, y: int):
         super().__init__()
-        self.image = image
+        self.type = blockType
+        self.image = pygame.transform.scale(
+            pygame.image.load(ResourcePath.block[self.type.value]), 
+                (MapSettings.blockSize, MapSettings.blockSize))
         self.x, self.y = x, y
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
+
+    def draw(self, screen):
+        screen.blit(self.image, (self.x, self.y))
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, image, x: int, y: int):
