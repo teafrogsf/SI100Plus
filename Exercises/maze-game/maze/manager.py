@@ -44,8 +44,9 @@ class GameManager:
         dx, dy = MoveDirections.get_direction(self.player.direction)
         x += dx
         y += dy
+        if(x < 1 or x > MapSettings.blockXNum or y < 1 or y > MapSettings.blockYNum):
+            return BlockType.WALL
         return BlockType(self.maze.grid[x - 1][y - 1]) # TODO: Change single bool to multi BlockType
-        # TODO: Fix grid: add border!!!
     
     def turn_left(self):
         self.player.direction = Direction((self.player.direction.value - 1) % 4)
