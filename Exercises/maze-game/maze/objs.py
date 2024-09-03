@@ -52,3 +52,47 @@ class Exit(pygame.sprite.Sprite):
         self.x, self.y = x, y
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
+
+class CodeText:
+    def __init__(self, x: int, y: int, text: list[str], textSize: int = 20, vDist: int = 3):
+        self._fontColor = (255, 255, 255)
+        self.x, self.y = x, y
+        self.width, self.height = GameSettings.WindowWidth - x, GameSettings.WindowHeight - y
+        self._bg = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
+        self._bg.fill((0, 0, 0, 100))
+        self.highlightLine = -1
+        self.text = text
+        self.totalLines = len(self.text)
+        self.font = pygame.font.Font(ResourcePath.font, textSize)
+        self._vDist = vDist
+        self._textSize = textSize
+        self._highlightMask = pygame.Surface((self.width, self._textSize + self._vDist), pygame.SRCALPHA)
+        self._highlightMask.fill((255, 255, 255, 100))
+        self._highlightRect = self._highlightMask.get_rect()
+
+    def draw(self, screen: pygame.Surface):
+        screen.blit(self._bg, (self.x, self.y))
+
+        offset = 0
+        for line in self.text:
+            assert isinstance(line, str)
+            screen.blit(self.font.render(line, True, self._fontColor),
+                        (self.x, self.y + offset))
+            offset += self._textSize + self._vDist
+        if self.highlightLine != -1:
+            screen.blit(self._highlightMask, 
+                        (self.x, self.y + self.highlightLine * (self._textSize + self._vDist)))
+    
+    def setHighlightLine(self, line: int, screen: pygame.Surface):
+        # restore the previous line
+        self._highlightMask.fill((0, 0, 0, 255))
+        screen.blit(self._highlightMask, 
+                    (self.x, self.y + self.highlightLine * (self._textSize + self._vDist)))
+        screen.blit(self.font.render(self.text[self.highlightLine], True, self._fontColor),
+                    (self.x, self.y + self.highlightLine * (self._textSize + self._vDist)))
+
+        # highlight the current line
+        self.highlightLine = line - 1
+        self._highlightMask.fill((255, 255, 255, 100))
+        screen.blit(self._highlightMask, 
+                    (self.x, self.y + self.highlightLine * (self._textSize + self._vDist)))
