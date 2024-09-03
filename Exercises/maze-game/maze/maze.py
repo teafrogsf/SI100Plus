@@ -114,7 +114,12 @@ class Maze:
         for i in range(self.row):
             s += "#"
             for j in range(self.column):
-                s += " " if self.grid[i][j] else "#"
+                if(self.exit_pos == (i, j)):
+                    s += "E"
+                elif (self.player_pos == (i, j)):
+                    s += "P"
+                else:    
+                    s += " " if self.grid[i][j] else "#"
             s += "#\n"
         s += "#" * (self.column + 2)
         return s
@@ -152,9 +157,9 @@ class Maze:
         for i in range(self.row):
             for j in range(self.column):
                 if not self.grid[i][j]:
-                    self.blocks.add(objs.Block(objs.BlockType.WALL, (j + 1) * MapSettings.blockSize, (i + 1) * MapSettings.blockSize))
+                    self.blocks.add(objs.Block(objs.BlockType.WALL, (i + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
                 else:
-                    self.blocks.add(objs.Block(objs.BlockType.GROUND, (j + 1) * MapSettings.blockSize, (i + 1) * MapSettings.blockSize))
+                    self.blocks.add(objs.Block(objs.BlockType.GROUND, (i + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
         # Gen the maze border
         for i in range(self.column + 2):
             self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, 0))

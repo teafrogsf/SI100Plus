@@ -24,7 +24,7 @@ class Player(pygame.sprite.Sprite):
         self.x, self.y = x, y
         self.direction = Direction.LEFT
         self.rect = self.image[self.direction.value].get_rect()
-        self.rect.topleft = (y * MapSettings.blockSize, x * MapSettings.blockSize) # x, y: x'th row, y'th column; topleft: x'th column, y'th row
+        self.rect.topleft = (x * MapSettings.blockSize, y * MapSettings.blockSize) # x, y: x'th row, y'th column; topleft: x'th column, y'th row
         self.moving = False
         self.speed = 0
         self.move_tick = 0
