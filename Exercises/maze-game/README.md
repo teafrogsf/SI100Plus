@@ -26,3 +26,15 @@ Collecting pygame
 Installing collected packages: pygame
 Successfully installed pygame-2.6.0
 ```
+
+## Credits
+
+美术素材：
+
+[Sokoban Free Tileset - DANI MACCARI](https://dani-maccari.itch.io/sokoban-tileset)
+
+[Small 8-direction Characters - AxulArt](https://axulart.itch.io/small-8-direction-characters)
+
+字体：
+
+[Caskaydia Cove Nerd Font - Nerd Fonts](https://www.nerdfonts.com/)
