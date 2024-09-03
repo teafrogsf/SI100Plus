@@ -1,5 +1,4 @@
 import pygame, sys
-from maze import Maze
 from maze.statics import *
 from maze.manager import GameManager
 
@@ -25,9 +24,6 @@ while True:
                 else:
                     print(manager.player.x, manager.player.y)
                     print(manager.maze.exit_pos)
-    
-    keys = pygame.key.get_pressed()
-
 
     manager.update()
     manager.draw()
