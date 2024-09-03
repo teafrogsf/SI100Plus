@@ -1,6 +1,6 @@
 import pygame
 from maze.maze import Maze
-from maze.statics import BlockType, Direction, GameSettings, MapSettings, MoveDirections
+from maze.statics import BlockType, Direction, GameSettings, MapSettings, MoveDirections, ResourcePath
 from maze.objs import Player
 
 class GameManager:
@@ -38,7 +38,34 @@ class GameManager:
         self.maze.draw(self.screen)
         self.player.draw(self.screen)
 
-    
+    def move_draw(self):
+        # Incremental Draw for Move
+        player_direction = self.player.direction
+        player_x, player_y = self.player.x, self.player.y
+        # Last position = player_current - player_direction
+        last_x, last_y = \
+            player_x - MoveDirections.get_direction(player_direction)[0], \
+            player_y - MoveDirections.get_direction(player_direction)[1]
+        # Draw last position
+        image = pygame.transform.scale(
+            pygame.image.load(ResourcePath.block[BlockType.GROUND.value]), 
+                (MapSettings.blockSize, MapSettings.blockSize))
+        self.screen.blit(image,  # ResourcePath.block[BlockType.WALL.value],
+                         (last_x * MapSettings.blockSize, last_y * MapSettings.blockSize))
+        self.player.draw(self.screen)
+
+    def turn_draw(self):
+        # Incremental Draw for Turn
+        player_x, player_y = self.player.x, self.player.y
+        image = pygame.transform.scale(
+            pygame.image.load(ResourcePath.block[BlockType.GROUND.value]), 
+                (MapSettings.blockSize, MapSettings.blockSize))
+        self.screen.blit(image,
+                        (player_x * MapSettings.blockSize, player_y * MapSettings.blockSize))
+        self.player.draw(self.screen)
+
+
+
     def check_front(self) -> BlockType:
         x, y = self.player.x, self.player.y
         dx, dy = MoveDirections.get_direction(self.player.direction)
