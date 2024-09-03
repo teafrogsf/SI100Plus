@@ -72,31 +72,21 @@ class DebuggerCLI(cmd.Cmd):
         print(f'Unknown command: {line}')
 
 def turn_left():
-    manager.turn_left()
-    manager.update()
-    manager.turn_draw()
-    # pygame.display.flip()
+    command_queue.put("TURN_LEFT")
 
 def turn_right():
-    manager.turn_right()
-    manager.update()
-    manager.turn_draw()
-    # pygame.display.flip()
+    command_queue.put("TURN_RIGHT")
 
 def move_forward():
-    manager.try_move()
-    manager.update()
-    manager.move_draw()
-    # pygame.display.flip()
+    command_queue.put("MOVE_FORWARD")
 
 def try_exit():
-    if(manager.try_exit()):
-        print("WIN")
-        time.sleep(1)
-        sys.exit()
+    command_queue.put("TRY_EXIT")
 
 def check_front():
-    return manager.check_front()
+    command_queue.put("CHECK_FRONT")
+    result = result_queue.get()
+    return result
 
 
 def _operation():
@@ -110,6 +100,7 @@ def main():
     manager.draw()
     pygame.display.flip()
     thread = threading.Thread(target=_operation)
+    thread.daemon = True
     thread.start()
     
     while True:
@@ -117,11 +108,37 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-        manager.clock.tick(60)
-        if thread.is_alive():
-            pygame.display.flip()
-        else:
-            break
+        while not command_queue.empty():
+            command = command_queue.get()
+            if command == "CHECK_FRONT":
+                result_queue.put(manager.check_front())
+            elif command == "TURN_LEFT":
+                manager.turn_left()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
+            elif command == "TURN_RIGHT":
+                manager.turn_right()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
+            elif command == "MOVE_FORWARD":
+                manager.try_move()
+                manager.update()
+                manager.move_draw()
+                pygame.display.flip()
+            elif command == "TRY_EXIT":
+                if manager.try_exit():
+                    print("WIN")
+                    pygame.quit()
+                    sys.exit()
+        manager.update()
+        pygame.display.flip()
+        manager.clock.tick(30)
+        if not thread.is_alive():
+            print("Operation finished without reaching the exit.")
+            pygame.quit()
+            sys.exit()
 
 if __name__ == "__main__":
     print("Run this file in logic.py")

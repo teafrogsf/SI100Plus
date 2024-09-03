@@ -14,4 +14,3 @@ def operation():
             turn_right()
         move_forward()
         try_exit()
-        time.sleep(0.01)
