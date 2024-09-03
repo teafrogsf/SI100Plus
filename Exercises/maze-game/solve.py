@@ -1,51 +1,66 @@
-import pygame, sys
+import pygame, sys, threading, queue
 from maze.manager import GameManager
 from maze.statics import BlockType
 
 manager = GameManager()
+command_queue = queue.Queue()
+result_queue = queue.Queue()
 
 def turn_left():
-    manager.turn_left()
-    manager.update()
-    manager.turn_draw()
-    pygame.display.flip()
+    command_queue.put("TURN_LEFT")
 
 def turn_right():
-    manager.turn_right()
-    manager.update()
-    manager.turn_draw()
-    pygame.display.flip()
+    command_queue.put("TURN_RIGHT")
 
 def move_forward():
-    manager.try_move()
-    manager.update()
-    manager.move_draw()
-    pygame.display.flip()
+    command_queue.put("MOVE_FORWARD")
 
 def try_exit():
-    if(manager.try_exit()):
-        print("WIN")
-        manager.clock.tick(0.25)
-        pygame.quit()
-        sys.exit()
+    command_queue.put("TRY_EXIT")
 
 def check_front():
-    return manager.check_front()
-
-def _operation():
-    from logic import operation
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-    operation()
+    command_queue.put("CHECK_FRONT")
+    result = result_queue.get()
+    return result
 
 def main():
+    from logic import operation
     # Initial Draw
     manager.draw()
     pygame.display.flip()
+    solve_thread = threading.Thread(target=operation)
+    solve_thread.daemon = True
+    solve_thread.start()
     while True:
-        _operation()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        while not command_queue.empty():
+            command = command_queue.get()
+            if command == "CHECK_FRONT":
+                result_queue.put(manager.check_front())
+            elif command == "TURN_LEFT":
+                manager.turn_left()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
+            elif command == "TURN_RIGHT":
+                manager.turn_right()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
+            elif command == "MOVE_FORWARD":
+                manager.try_move()
+                manager.update()
+                manager.move_draw()
+                pygame.display.flip()
+            elif command == "TRY_EXIT":
+                if manager.try_exit():
+                    print("WIN")
+                    pygame.quit()
+                    sys.exit()
+        manager.clock.tick(30)
 
 if __name__ == "__main__":
     print("Run this file in logic.py")

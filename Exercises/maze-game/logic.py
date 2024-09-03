@@ -8,8 +8,16 @@ if __name__ == "__main__":
 
 def operation():
     # Your code here.
-    turn_left()
-    while(check_front() == BlockType.WALL):
+    while True:
         turn_right()
-    move_forward()
-    try_exit()
+        if check_front() == BlockType.GROUND:
+            move_forward()
+            try_exit()
+            continue
+        turn_left()
+        if check_front() == BlockType.GROUND:
+            move_forward()
+            try_exit()
+            continue
+        turn_left()
+    
