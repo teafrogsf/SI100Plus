@@ -60,4 +60,5 @@ class GameManager:
             self.player.move_forward()
             
     def try_exit(self) -> bool:
-        return (self.player.x, self.player.y) == self.maze.exit_pos
+        # return (self.player.x, self.player.y) == self.maze.exit_pos
+        return (self.player.x - 1, self.player.y - 1) == self.maze.exit_pos

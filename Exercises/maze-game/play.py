@@ -20,7 +20,11 @@ while True:
             elif event.key == pygame.K_d:
                 manager.turn_right()
             elif event.key == pygame.K_RETURN:
-                manager.try_exit()
+                if(manager.try_exit()):
+                    print("WIN")
+                else:
+                    print(manager.player.x, manager.player.y)
+                    print(manager.maze.exit_pos)
     
     keys = pygame.key.get_pressed()
 

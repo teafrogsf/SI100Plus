@@ -44,9 +44,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.topleft = (x * MapSettings.blockSize, y * MapSettings.blockSize)
 
 class Exit(pygame.sprite.Sprite):
-    def __init__(self, image, x: int, y: int):
+    def __init__(self, x: int, y: int):
         super().__init__()
-        self.image = image
+        self.image = pygame.transform.scale(
+            pygame.image.load(ResourcePath.exit), 
+                (MapSettings.blockSize, MapSettings.blockSize))
         self.x, self.y = x, y
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)

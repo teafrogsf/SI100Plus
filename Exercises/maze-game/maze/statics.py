@@ -9,6 +9,7 @@ class BlockType(Enum):
 class ResourcePath:
     player = [r"./assets/facing_up.png", r"./assets/facing_right.png", r"./assets/facing_down.png", r"./assets/facing_left.png"]
     block = [r"./assets/con_wall.png", r"./assets/ground.png", r"./assets/arrow.png", r"./assets/arrow_dark.png"]
+    exit = r"./assets/arrow.png"
 
 class MapSettings:
     blockSize = 32

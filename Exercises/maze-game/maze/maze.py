@@ -167,6 +167,8 @@ class Maze:
         for j in range(self.row):
             self.blocks.add(objs.Block(objs.BlockType.WALL, 0, (j + 1) * MapSettings.blockSize))
             self.blocks.add(objs.Block(objs.BlockType.WALL, (self.column + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
+        # Gen Exit
+        self.blocks.add(objs.Exit((self.exit_pos[0] + 1) * MapSettings.blockSize, (self.exit_pos[1] + 1) * MapSettings.blockSize))
     
     def update(self):
         self.blocks.update()
