@@ -10,6 +10,7 @@ class ResourcePath:
     player = [r"./assets/facing_up.png", r"./assets/facing_right.png", r"./assets/facing_down.png", r"./assets/facing_left.png"]
     block = [r"./assets/con_wall.png", r"./assets/ground.png", r"./assets/arrow.png", r"./assets/arrow_dark.png"]
     exit = r"./assets/arrow.png"
+    font = r"./assets/CaskaydiaCoveNerdFont-SemiLight.ttf"
 
 class MapSettings:
     blockSize = 32
@@ -20,7 +21,8 @@ class GameSettings:
     FPS = 30
     Title = "Maze Game"
     WindowHeight = MapSettings.blockSize * (MapSettings.blockYNum + 2)
-    WindowWidth = MapSettings.blockSize * (MapSettings.blockXNum + 2)
+    WindowWidth = MapSettings.blockSize * (MapSettings.blockXNum + 2) + 500
+    CodePaddingLeft = MapSettings.blockSize * (MapSettings.blockXNum + 2) + 10
 
 class Direction(Enum):
     UP = 0

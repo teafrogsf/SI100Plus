@@ -11,17 +11,34 @@ class MyDebugger(bdb.Bdb):
         filename = frame.f_code.co_filename
         lineno = frame.f_lineno
         line = linecache.getline(filename, lineno).strip()
-        print(f'Paused at {filename}:{lineno} - {line}')
-        pygame.display.set_caption(f"{line}")
         if("logic.py" not in filename):
             self.set_step()
         else:
+            print(f'Paused at {filename}:{lineno} - {line}')
+            pygame.display.set_caption(f"Maze Game - Paused at {line}")
+            manager.highlightCode(lineno)
             self.interaction(frame)
 
     def interaction(self, frame):
         self.frame = frame
-        DebuggerCLI(self).cmdloop()
+        # DebuggerCLI(self).cmdloop()
+        flag = True
+        while flag:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_n:
+                        self.set_next(debugger.frame)
+                        flag = False
+                        break
+                    elif event.key == pygame.K_c:
+                        self.set_continue()
+                        flag = False
+                        break
 
+debugger = MyDebugger()
 class DebuggerCLI(cmd.Cmd):
     prompt = '(maze-debugger) '
 
@@ -73,8 +90,7 @@ def move_forward():
 def try_exit():
     if(manager.try_exit()):
         print("WIN")
-        manager.clock.tick(0.25)
-        pygame.quit()
+        time.sleep(1)
         sys.exit()
 
 def check_front():
@@ -83,11 +99,7 @@ def check_front():
 
 def _operation():
     from logic import operation
-    debugger = MyDebugger()
-    while True:
-        debugger.run('operation()', globals=globals(), locals=locals())
-        time.sleep(0.01)
-        # operation()
+    debugger.run('operation()', globals=globals(), locals=locals())
 
 def main():
     # Initial Draw
@@ -101,9 +113,10 @@ def main():
                 pygame.quit()
                 sys.exit()
         manager.clock.tick(60)
-        pygame.display.flip()
-
-    
+        if thread.is_alive():
+            pygame.display.flip()
+        else:
+            break
 
 if __name__ == "__main__":
     print("Run this file in logic.py")

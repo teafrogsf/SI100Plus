@@ -1,15 +1,17 @@
 from solve import \
     turn_left, turn_right, move_forward, try_exit, check_front, BlockType, main
+import time
 
 if __name__ == "__main__":
     main()
 
-####################### DO NOT MODIFY ABOVE THIS LINE ##########################
-
 def operation():
+####################### DO NOT MODIFY ABOVE THIS LINE ##########################
     # Your code here.
-    turn_left()
-    while(check_front() == BlockType.WALL):
-        turn_right()
-    move_forward()
-    try_exit()
+    while True:
+        turn_left()
+        while(check_front() == BlockType.WALL):
+            turn_right()
+        move_forward()
+        try_exit()
+        time.sleep(0.01)

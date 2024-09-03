@@ -1,7 +1,7 @@
 import pygame
 from maze.maze import Maze
 from maze.statics import BlockType, Direction, GameSettings, MapSettings, MoveDirections, ResourcePath
-from maze.objs import Player
+from maze.objs import CodeText, Player
 
 class GameManager:
     """
@@ -18,12 +18,15 @@ class GameManager:
 
     def __init__(self):
         self.maze = Maze(MapSettings.blockXNum, MapSettings.blockYNum)
-        print(self.maze)
+        # print(self.maze)
         self.clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode(
             (GameSettings.WindowWidth, GameSettings.WindowHeight))
         # self.player = Player(1, self.maze.column)
         self.player = Player(self.maze.player_pos[0] + 1, self.maze.player_pos[1] + 1)
+        with open("./logic.py", "r") as f:
+            file = [line.replace("\n", "").replace("    ", "  ") for line in f.readlines()]
+            self.codeText = CodeText(GameSettings.CodePaddingLeft, 0, file)
         
 
     def update(self):
@@ -37,6 +40,10 @@ class GameManager:
     def draw(self):
         self.maze.draw(self.screen)
         self.player.draw(self.screen)
+        self.codeText.draw(self.screen)
+
+    def highlightCode(self, line: int):
+        self.codeText.setHighlightLine(line, self.screen)
 
     def move_draw(self):
         # Incremental Draw for Move
