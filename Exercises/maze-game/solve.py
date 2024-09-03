@@ -1,10 +1,12 @@
-import pygame, sys
+import pygame, sys, threading, queue
 from maze.manager import GameManager
 from maze.statics import BlockType
 import threading, time
 import bdb, cmd, linecache
 
 manager = GameManager()
+command_queue = queue.Queue()
+result_queue = queue.Queue()
 
 class MyDebugger(bdb.Bdb):
     def user_line(self, frame):
@@ -101,12 +103,15 @@ def _operation():
     from logic import operation
     debugger.run('operation()', globals=globals(), locals=locals())
 
+
 def main():
+    from logic import operation
     # Initial Draw
     manager.draw()
     pygame.display.flip()
     thread = threading.Thread(target=_operation)
     thread.start()
+    
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
