@@ -32,19 +32,20 @@ def try_exit():
 def check_front():
     return manager.check_front()
 
-def operation():
+def _operation():
+    from logic import operation
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    turn_left()
-    while(check_front() == BlockType.WALL):
-        turn_right()
-    move_forward()
-    try_exit()
-
-# Initial Draw
-manager.draw()
-pygame.display.flip()
-while True:
     operation()
+
+def main():
+    # Initial Draw
+    manager.draw()
+    pygame.display.flip()
+    while True:
+        _operation()
+
+if __name__ == "__main__":
+    print("Run this file in logic.py")
