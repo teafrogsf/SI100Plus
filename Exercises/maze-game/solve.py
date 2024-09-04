@@ -42,7 +42,6 @@ def main():
 
         def interaction(self, frame):
             self.frame = frame
-            # DebuggerCLI(self).cmdloop()
             flag = True
             while flag:
                 for event in pygame.event.get():
@@ -56,6 +55,10 @@ def main():
                             break
                         elif event.key == pygame.K_c:
                             self.set_continue()
+                            flag = False
+                            break
+                        elif event.key == pygame.K_q:
+                            self.set_quit()
                             flag = False
                             break
 
