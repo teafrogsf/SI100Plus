@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 from maze.maze import Maze
 from maze.statics import BlockType, Direction, GameSettings, MapSettings, MoveDirections, ResourcePath, GameMode
 from maze.objs import CodeText, Player
@@ -52,9 +53,21 @@ class GameManager:
         """
         Check mode initialization.
         No code display, various maze sizes, auto execution.
-        20 test cases.
+        5 test cases.
         """
-        pass
+        self.clock = pygame.time.Clock()
+    
+    def generate_test_case(self):
+        if self.mode != GameMode.CHECK:
+            return
+        self.ended = False
+        blockXNum = randint(MapSettings.minBlockNum, MapSettings.maxBlockNum)
+        blockYNum = randint(MapSettings.minBlockNum, MapSettings.maxBlockNum)
+        self.maze = Maze(blockXNum, blockYNum)
+        self.screen = pygame.display.set_mode(
+            (MapSettings.blockSize * (self.maze.row + 2), MapSettings.blockSize * (self.maze.column + 2)))
+        self.player = Player(
+            self.maze.player_pos[0] + 1, self.maze.player_pos[1] + 1)
 
     def __init__(self, mode: GameMode):
         self.mode = mode
@@ -110,7 +123,7 @@ class GameManager:
         dx, dy = MoveDirections.get_direction(self.player.direction)
         x += dx
         y += dy
-        if (x < 1 or x > MapSettings.blockXNum or y < 1 or y > MapSettings.blockYNum):
+        if (x < 1 or x > self.maze.row or y < 1 or y > self.maze.column):
             return BlockType.WALL
         # TODO: Change single bool to multi BlockType
         return BlockType(self.maze.grid[x - 1][y - 1])
@@ -134,8 +147,8 @@ class GameManager:
 
     def end_game(self, message: str = ""):
         if self.mode == GameMode.CHECK:
-            # TODO: to next test case
-            pass
+            self.ended = True
+            print(message)
         else:
             print(message)
             pygame.quit()

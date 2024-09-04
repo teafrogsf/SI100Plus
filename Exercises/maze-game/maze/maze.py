@@ -157,12 +157,12 @@ class Maze:
                 else:
                     self.blocks.add(objs.Block(objs.BlockType.GROUND, (i + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
         # Gen the maze border
-        for i in range(self.column + 2):
+        for i in range(self.row + 2):
             self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, 0))
-            self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, (self.row + 1) * MapSettings.blockSize))
-        for j in range(self.row):
+            self.blocks.add(objs.Block(objs.BlockType.WALL, i * MapSettings.blockSize, (self.column + 1) * MapSettings.blockSize))
+        for j in range(self.column):
             self.blocks.add(objs.Block(objs.BlockType.WALL, 0, (j + 1) * MapSettings.blockSize))
-            self.blocks.add(objs.Block(objs.BlockType.WALL, (self.column + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
+            self.blocks.add(objs.Block(objs.BlockType.WALL, (self.row + 1) * MapSettings.blockSize, (j + 1) * MapSettings.blockSize))
         # Gen Exit
         self.blocks.add(objs.Exit((self.exit_pos[0] + 1) * MapSettings.blockSize, (self.exit_pos[1] + 1) * MapSettings.blockSize))
     
