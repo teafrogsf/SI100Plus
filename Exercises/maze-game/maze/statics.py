@@ -16,6 +16,8 @@ class MapSettings:
     blockSize = 32
     blockXNum = 25
     blockYNum = 25
+    playModeBlockXNum = 13
+    playModeBlockYNum = 13
 
 class GameSettings:
     FPS = 30
@@ -23,6 +25,11 @@ class GameSettings:
     WindowHeight = MapSettings.blockSize * (MapSettings.blockYNum + 2)
     WindowWidth = MapSettings.blockSize * (MapSettings.blockXNum + 2) + 500
     CodePaddingLeft = MapSettings.blockSize * (MapSettings.blockXNum + 2) + 10
+    
+class GameMode(Enum):
+    PLAY = 0
+    DEBUG = 1
+    CHECK = 2
 
 class Direction(Enum):
     UP = 0

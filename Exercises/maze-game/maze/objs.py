@@ -22,6 +22,7 @@ class Player(pygame.sprite.Sprite):
             pygame.image.load(ResourcePath.player[i]), 
                 (MapSettings.blockSize, MapSettings.blockSize)) for i in range(4)]
         self.x, self.y = x, y
+        self.prev_x, self.prev_y = x, y
         self.direction = Direction.LEFT
         self.rect = self.image[self.direction.value].get_rect()
         self.rect.topleft = (x * MapSettings.blockSize, y * MapSettings.blockSize) # x, y: x'th row, y'th column; topleft: x'th column, y'th row
@@ -40,6 +41,7 @@ class Player(pygame.sprite.Sprite):
         x, y = self.x, self.y
         x += dx
         y += dy
+        self.prev_x, self.prev_y = self.x, self.y
         self.x, self.y = (x, y)
         self.rect.topleft = (x * MapSettings.blockSize, y * MapSettings.blockSize)
 

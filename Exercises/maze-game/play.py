@@ -1,8 +1,10 @@
 import pygame, sys
-from maze.statics import *
+from maze.statics import GameMode
 from maze.manager import GameManager
 
-manager = GameManager()
+manager = GameManager(GameMode.PLAY)
+manager.draw()
+pygame.display.flip()
 
 # Main Loop
 while True:
@@ -14,18 +16,21 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w:
                 manager.try_move()
+                manager.update()
+                manager.move_draw()
+                pygame.display.flip()
             elif event.key == pygame.K_a:
                 manager.turn_left()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
             elif event.key == pygame.K_d:
                 manager.turn_right()
+                manager.update()
+                manager.turn_draw()
+                pygame.display.flip()
             elif event.key == pygame.K_RETURN:
                 if(manager.try_exit()):
-                    print("WIN")
-                else:
-                    print(manager.player.x, manager.player.y)
-                    print(manager.maze.exit_pos)
+                    manager.end_game("You Win!")
 
-    manager.update()
-    manager.draw()
     manager.clock.tick(30) # Frame 30fps
-    pygame.display.flip()

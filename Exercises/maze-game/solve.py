@@ -1,10 +1,10 @@
 import pygame, sys, threading, queue
 from maze.manager import GameManager
-from maze.statics import BlockType
+from maze.statics import BlockType, GameMode
 import threading, time
 import bdb, cmd, linecache
 
-manager = GameManager()
+manager = GameManager(GameMode.DEBUG)
 command_queue = queue.Queue()
 result_queue = queue.Queue()
 
@@ -129,9 +129,7 @@ def main():
                 pygame.display.flip()
             elif command == "TRY_EXIT":
                 if manager.try_exit():
-                    print("WIN")
-                    pygame.quit()
-                    sys.exit()
+                    manager.end_game("WIN")
         manager.update()
         pygame.display.flip()
         manager.clock.tick(30)
