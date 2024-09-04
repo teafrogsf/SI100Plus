@@ -19,12 +19,8 @@ class Maze:
     use maze = Maze(row, column) to initialize the maze or generate a new maze.
     """
     _instance = None
-    _initialized = False
     
     def __new__(cls, row: int = None, column: int = None):
-        if not cls._initialized:
-            pygame.init()
-            cls._initialized = True
         
         if cls._instance is None:
             cls._instance = super(Maze, cls).__new__(cls)
