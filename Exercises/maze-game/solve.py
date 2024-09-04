@@ -39,6 +39,10 @@ class MyDebugger(bdb.Bdb):
                         self.set_continue()
                         flag = False
                         break
+                    elif event.key == pygame.K_q:
+                        self.set_quit()
+                        flag = False
+                        break
 
 debugger = MyDebugger()
 class DebuggerCLI(cmd.Cmd):
