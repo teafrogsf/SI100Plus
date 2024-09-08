@@ -1,19 +1,38 @@
+---
+title: Lecture_08_The_Birth_of_ML
+separator: <!--s-->
+verticalSeparator: <!--v-->
+theme: simple
+highlightTheme: github
+css: assets/custom.css
+revealOptions:
+    transition: 'slide'
+    transitionSpeed: fast
+    center: false
+    slideNumber: "c/t"
+    width: 1000
+---
+
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
+  <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 7</h1>
+    <p style="font-size: 24px; color: #666;">人类是有极限的！——机器学习的诞生</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-28</p>
+  </div>
+</div>
+
+<!--s-->
+
+<div class="middle center">
+  <div style="width: 100%">
+
+  # Part.0 这是魔法还未诞生的故事...
+  
+  </div>
+</div>
+
 <!--v-->
-
-## “机器学习”和“人工智能”有什么区别？
-
-- 事实上，这两个名词也经常被混用 <!-- .element: class="fragment" -->
-- 很多时候它们会指代相同的意思 <!-- .element: class="fragment" -->
-- 不过，如果有人跟你强调TA在讲“机器学习”（比如名叫“机器学习”）的课程，那总体上重点会放在传统机器学习上 <!-- .element: class="fragment" -->
-
----
-marp: true
----
-
-
-# 人类是有极限的！——机器学习的诞生
-
----
 
 ## 回到回到魔法盒子
 
@@ -23,17 +42,17 @@ marp: true
 - 这个魔法盒子根据它们输出模型 <!-- .element: class="fragment" -->
 - 第二个魔法盒子根据模型和另一部分输入数据（也就是测试集，test set）输出结果 <!-- .element: class="fragment" -->
 
---- 
+<!--v-->
 
 ## 魔法？
 
 你可能在各路营销号或有技术的~~营销号~~公众号等自媒体见到过一些AI笑话
 
-- “AI就是魔法”
-- “随便动了一个超参数模型就跑起来了”
-- ~~我的空间~~
+- “AI就是魔法” <!-- .element: class="fragment" -->
+- “随便动了一个超参数模型就跑起来了” <!-- .element: class="fragment" -->
+- ~~我的空间~~ <!-- .element: class="fragment" -->
 
-<img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 ## 魔法！
 
@@ -42,45 +61,84 @@ marp: true
 - 机器学习理论（machine learning theory）最先研究的对象也是比较传统的机器学习算法
 - 我们的第二章也将从这里开始
 
----
+<!--v-->
 
-## 早期机器学习的典型——感知机（perceptron）
+## “机器学习”和“人工智能”有什么区别？
 
-* 开始的开始，机器学习并不是一个“黑盒子”
+- 事实上，这两个名词也经常被混用 <!-- .element: class="fragment" -->
+- 很多时候它们会指代相同的意思 <!-- .element: class="fragment" -->
+- 不过，如果有人跟你强调TA在讲“机器学习”（比如名叫“机器学习”）的课程，那总体上重点会放在传统机器学习上 <!-- .element: class="fragment" -->
 
-* 数学家和理论计算机科学家们曾试图以非常理论的方式对机器学习进行研究。
-**感知机（perceptron）** 作为机器学习的起源算法之一就是其中的典型。
 
----
+<!--s-->
 
-## 早期机器学习的典型——感知机（perceptron）
+<div class="middle center">
+  <div style="width: 100%">
 
-* 感知机是由美国学者FrankRosenblatt在1957年提出，是一个**二分类的线性分类模型**，其输入为实例的特征向量，输出为实例的类别
+  # Part.1 感知机，神经网络的起源
+  
+  </div>
+</div>
 
-* 回想起我们高中生物学过的知识（相信大家已经忘光了）
+<!--v-->
 
-> 神经细胞结构大致可分为：树突、突触、细胞体及轴突。单个神经细胞可被视为一种只有**两种状态的机器**——激动时为‘是’，而未激动时为‘否’。神经细胞的状态取决于从其它的神经细胞收到的输入信号量，及突触的强度（抑制或加强）。当信号量总和超过了某个阈值时，细胞体就会激动，产生电脉冲。电脉冲沿着轴突并通过突触传递到其它神经元。
+## 回忆一下上节课
 
-<div align=center>  <img src="image.png" width=250> 
+TODO!
 
----
+<!--v-->
 
-## 早期机器学习的典型——感知机（perceptron）
+## 我们已经完全了解机器学习了，能不能来点实战
 
-* 没错，感知机是生物神经细胞的简单抽象，和神经细胞一样，感知机接受多个输入，最终只有一个输出（一般是0或者1）
+我们尝试让盒子不再是魔法。
 
-下图就是一个接收两个输入信号的感知机的例子
+- 上节课举的“学习汉字”的例子中，我们并不知道“纠错”是如何实现的
+- 有没有办法在一个例子中具象化纠错的过程？
 
-<div align=center>  
-<img src="image-1.png" width=250> 
+<!--v-->
 
-<div align=left> 
+## 让我们找一个高中学过的二维平面上的问题
 
-* x<sub>1</sub> 、 x<sub>2</sub> 是输入信号，y是输出信号， w<sub>1</sub>、 w<sub>2</sub>是权重(weight)。
+现在你有一个二维平面，平面上有一个点集$\{(x_i,y_i,\text{label}_i)\}$（如果你还不熟悉这种表述模式的话，请记住形如$\{x_i\}$的记号一般用来表示一个集合），其中$x_i\in\mathcal R,y_i\in\mathcal R,\text{label}_i\in\{0, 1\}$。
 
-* 图中的○称为“神经元”或者“节点”。输入信号被送往神经元时，会被分别乘以固定的权重（w<sub>1</sub> x<sub>1</sub> 、 w<sub>2 </sub> x<sub>2</sub>）。神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活” 。这里将这个界限值称为阈值，用符号``θ``表示。
+现在，我们想找到一条直线，能够尽可能地**分割**$\text{label}_i=1$的点（也可以叫它们正样本）和$\text{label}_i=0$的点（也可以叫它们负样本），使得在直线同一侧的点尽可能都是同一类型。
 
----
+**注意，这里的**$(x,y)$**指的是坐标！**但之后若不加解释的情况下，我们一般用$\boldsymbol X$（它通常是一个矩阵）表示特征集，$\boldsymbol y$表示标签集。我们会在之后说明这里记号的含义，大家现在有个印象就可以了。
+
+<img src="images/perceptron_no_line_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+大家可以思考一下如何用人类智慧或者算法解决这个问题。
+
+<!--v-->
+
+## 人类智慧
+
+用肉眼观察可得：注意到在上面的例子里有一条直线可以完全分开两个类别，用强大的人类大脑可以把这条直线画出来。
+
+<img src="images/perceptron_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+> 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。
+
+<!--v-->
+
+## 算法？
+
+欢迎发挥你的脑洞踊跃抢答。如果你想提出传统算法，请用数据一步到位地输出答案。如果你想提出一个机器学习算法，请描述你是如何实现“纠错”的。
+
+想到答案了吗？没有想到也没关系~~想到了你就是先天机器学习圣体~~，我们来看看1957年的人类是怎么做的。
+
+<!--v-->
+
+## 感知机（Perceptron）
+
+感知机由美国学者Frank Rosenblatt在1957年提出，是一个**二分类的线性分类模型**
+
+## 这部分是描述感知机的算法
+
+TODO!
+<img src="images/perceptron_work_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+
 
 ## 早期机器学习的典型——感知机（perceptron）
 
@@ -138,6 +196,34 @@ $$ y = \left\{\begin{matrix}
 <div align=left> 
 
 * 感知机的局限性就在于它只能表示由一条直线分割的空间。上图这样弯曲的曲线无法用感知机表示。另外，由上图这样的曲线（非线性函数）分割而成的空间称为**非线性空间**，由直线（线性函数）分割而成的空间称为**线性空间**
+
+---
+
+**挪顺序了**
+## 为什么它叫感知机呢？
+
+* 回想起我们高中生物学过的知识（相信大家已经忘光了）
+
+> 神经细胞结构大致可分为：树突、突触、细胞体及轴突。单个神经细胞可被视为一种只有**两种状态的机器**——激动时为‘是’，而未激动时为‘否’。神经细胞的状态取决于从其它的神经细胞收到的输入信号量，及突触的强度（抑制或加强）。当信号量总和超过了某个阈值时，细胞体就会激动，产生电脉冲。电脉冲沿着轴突并通过突触传递到其它神经元。
+
+<div align=center>  <img src="image.png" width=250> 
+
+---
+
+## 早期机器学习的典型——感知机（perceptron）
+
+* 没错，感知机是生物神经细胞的简单抽象，和神经细胞一样，感知机接受多个输入，最终只有一个输出（一般是0或者1）
+
+下图就是一个接收两个输入信号的感知机的例子
+
+<div align=center>  
+<img src="image-1.png" width=250> 
+
+<div align=left> 
+
+* x<sub>1</sub> 、 x<sub>2</sub> 是输入信号，y是输出信号， w<sub>1</sub>、 w<sub>2</sub>是权重(weight)。
+
+* 图中的○称为“神经元”或者“节点”。输入信号被送往神经元时，会被分别乘以固定的权重（w<sub>1</sub> x<sub>1</sub> 、 w<sub>2 </sub> x<sub>2</sub>）。神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活” 。这里将这个界限值称为阈值，用符号``θ``表示。
 
 ---
 
