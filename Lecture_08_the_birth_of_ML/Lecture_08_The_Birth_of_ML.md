@@ -112,7 +112,7 @@ TODO!
 ## 让我们找一个高中学过的二维平面上的问题
 
 
-<img src="images/perceptron_no_line_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="1.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 大家可以思考一下如何用人类智慧或者算法解决这个问题。
 
@@ -126,7 +126,7 @@ TODO!
 
 用肉眼观察可得：注意到在上面的例子里有一条向量可以完全分开两个类别，用强大的人类大脑可以把这条直线画出来。
 
-<img src="images/perceptron_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-10.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 > 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。
 
@@ -151,7 +151,7 @@ TODO!
 
 就这么简单！
 
-<img src="images/perceptron_work_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="perceptron_work.gif" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 > 其实，找向量和找直线并没有本质上的区别，毕竟找到了向量，你总有办法找到一条截距合适的直线。但是，之所以我们用找向量来描述这个任务，也是因为用向量的形式描述感知机的过程非常简便。感兴趣的同学可以试着用上面的思路解决找直线的问题，然后思考一下你得出的算法会不会有什么奇怪的地方......比如我们刚刚提到的截距。
 

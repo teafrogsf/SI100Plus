@@ -137,8 +137,7 @@ class GameManager:
             (self.player.direction.value + 1) % 4)
 
     def try_move(self) -> None:
-        if self.check_front() == BlockType.GROUND or self.check_front() == BlockType.COIN:
-            # TODO: Coin
+        if self.check_front() == BlockType.GROUND:
             self.player.move_forward()
 
     def try_exit(self) -> bool:

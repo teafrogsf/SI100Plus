@@ -7,10 +7,5 @@ if __name__ == "__main__":
 
 def operation():
 ####################### DO NOT MODIFY ABOVE THIS LINE ##########################
-    # Your code here.
-    while True:
-        turn_left()
-        while(check_front() == BlockType.WALL):
-            turn_right()
-        move_forward()
-        try_exit()
+    pass
+    # Your code starts from here.
