@@ -107,3 +107,15 @@ $$ y = \left\{\begin{matrix}
 
 
 梯度下降的时候要提到感知机其实跟梯度下降算出来的一样！
+
+### 回归算法（看看就好）
+
+* 线性(最小二乘)回归（Linear Regression）
+
+* 多项式回归（Polynomial Regression）
+* 逐步回归（Stepwise Regression）
+* 岭回归（Ridge Regression）
+* 套索回归（Lasso Regression）
+* 弹性网回归（ElasticNet Regression）Lasso和Ridge回归技术的混合体
+* XGBoost回归
+* 泊松回归（Poisson Regression）
