@@ -18,7 +18,7 @@ revealOptions:
   <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
     <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 7</h1>
     <p style="font-size: 24px; color: #666;">人类是有极限的！——机器学习的诞生</p>
-    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-28</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-09-09</p>
   </div>
 </div>
 
@@ -36,7 +36,7 @@ revealOptions:
 
 ## 回到回到魔法盒子
 
-<img src="images/image-10.png" width="85%" style="display: block; margin: 0 auto;">
+<img src="images/image-10.png" width="45%" style="display: block; margin: 0 auto;">
 
 - 第一个魔法盒子里有一部分输入数据、对应的输出数据 <!-- .element: class="fragment" -->
 - 这个魔法盒子根据它们输出模型 <!-- .element: class="fragment" -->
@@ -53,6 +53,8 @@ revealOptions:
 - ~~我的空间~~ <!-- .element: class="fragment" -->
 
 <img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 魔法！
 
@@ -105,15 +107,23 @@ TODO!
 
 > 这里我们表示点的方式有些特殊。首先，形如$\{x\}$的记号一般用来表示一个集合。我们在高中表示一个点的形式通常是$(x,y)$，但在这里，点的坐标用$(x_1,x_2)$来表示，而$y$指的是标签。在高中，如果我们想表示第$i$个点，通常会把它写成$(x_i,y_i)$的形式，而在这里下标也变成了上标，还给$i$加上了括号。第一次看见它的时候可能会感觉有点奇怪~~好吧看很多次可能都会感觉很奇怪~~，但这样的表示方式是为了未来的方便。（~~不过加括号是为什么我也不知道~~）
 
+<!--v-->
 
 ## 让我们找一个高中学过的二维平面上的问题
 
+<img src="1.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-<img src="1.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+大家可以思考一下如何用人类智慧或者算法解决这个问题。<!-- .element: class="fragment" -->
+
+<q>上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量分割的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。</q> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## 让我们找一个高中学过的二维平面上的问题
+
+<img src="1.png" width="40%" style="display: block; margin: 0 auto;">
 
 大家可以思考一下如何用人类智慧或者算法解决这个问题。
-
-> 上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量分割的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。
 
 > 如果你在网上查找感知机有关的内容，你可能会发现它们的文章中提到的任务想找到的是一条直线。请思考：这个任务和我们提到的找向量有区别吗？如果有，是什么区别？
 
@@ -123,7 +133,7 @@ TODO!
 
 用肉眼观察可得：注意到在上面的例子里有一条向量可以完全分开两个类别，用强大的人类大脑可以把这条直线画出来。
 
-<img src="image-10.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-10.png" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 > 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。
 
@@ -148,10 +158,13 @@ TODO!
 
 就这么简单！
 
-<img src="perceptron_work.gif" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<!--v-->
+
+## 感知机（Perceptron）
+
+<img src="perceptron_work.gif" width="45%" style="display: block; margin: 0 auto;">
 
 > 其实，找向量和找直线并没有本质上的区别，毕竟找到了向量，你总有办法找到一条截距合适的直线。但是，之所以我们用找向量来描述这个任务，也是因为用向量的形式描述感知机的过程非常简便。感兴趣的同学可以试着用上面的思路解决找直线的问题，然后思考一下你得出的算法会不会有什么奇怪的地方......比如我们刚刚提到的截距。
-
 
 <!--v-->
 
@@ -175,9 +188,7 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 <img src="images/perceptron_non_lin_sep_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-<div align=center>  
-<img src="https://i-blog.csdnimg.cn/blog_migrate/987cd61a7402119b10826f1e4893348f.png#pic_center" width=400> 
-<div align=left> 
+<img src="image-12.png" width="40%" style="display: block; margin: 0 auto;">
 
 我们的感知机会不幸死机。
 
@@ -185,9 +196,12 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 怎么办呢？
 
+<!--v-->
+
 ## 学习率（learning rate）
 
 
+<!--v-->
 
 ## 回顾上述的一整个流程
 
@@ -217,45 +231,37 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 * 回顾一下我们高中学的最小二乘法，其目标就是寻找一个函数，使得所有观测点到该函数的距离的平方和最小（拟合程度最高），从而就可以预测任何一个x所对应的y值
 
-<div align=center>
-<img src="image-3.png" width=400> 
-<div align=left> 
+<img src="image-3.png" width="40%" style="display: block; margin: 0 auto;">
 
 * 类似的，机器学习的本质也是让计算机自己在数据中学习规律，并根据所得到的规律对未来数据进行预测，这种规律我们可以简单地理解为之前感知机里的$w_1,w_2,\theta$等参数
 * 那你可能会有疑问：我们如何让计算机自己去学习规律呢？
 
----
+<!--v-->
 
 ## 机器学习的发展——反向传播
 
 * **我们首先需要知道：学习规律的过程就是一个优化参数的过程**
-
 * 和最小二乘法一样，我们现在有一系列x和它对应的一系列y，这里的y被称为ground_truth（真实的有效值）
-
 * 也许我们可以这样：
   1. 随机初始化参数
   2. 将原有的x输入，得到一系列输出y_pred(即prediction预测)
   3. 计算y_pred和初始y之间的损失(loss)
   4. 根据损失去修改原来的参数，从而降低loss
   5. 重新进行Step 2
-
 * 重复若干次这样的过程（epoch），我们就可以逐渐优化参数，不断降低loss，最终得到一个模型（model）
-
 * 这样不断更新参数的过程就叫做反向传播
 
----
+<!--v-->
 
 ## 分类与回归，离散与连续
 
 > “机器学习是让计算机像人类一样学习和行动的科学，通过以观察和现实世界互动的形式向他们提供数据和信息，以自主的方式改善他们的学习。”
 
 * 事实上，一切机器学习的任务都可以分成**分类 和 回归(Regression)**
-
 * **分类**就是对数据分进行分类（好吧好像是废话~），预测的结果往往是一系列**离散**的数据
-
 * **回归**是一种数学模型，利用数据统计原理，对大量统计数据进行数学处理，建立一个相关性较好的回归方程（函数/映射），预测的事实上是一个**连续**的结果
 
----
+<!--v-->
 
 ## 传统的ML算法（仅做了解）
 
@@ -269,7 +275,7 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 * **K近邻算法（KNN，K-Nearest Neighbors）**
 
----
+<!--v-->
 
 ## 经典的聚类算法——KNN (K-Nearest Neighbors)
 
@@ -278,7 +284,7 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 * **距离度量、k值的选择及分类决策规则**是k近邻法的三个基本要素
 
----
+<!--v-->
 
 ## 经典的聚类算法——KNN (K-Nearest Neighbors)
 
@@ -290,7 +296,7 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 
 * **距离度量、k值的选择及分类决策规则**是k近邻法的三个基本要素
 
----
+<!--v-->
 
 ### 回归算法（看看就好）
 
@@ -304,18 +310,19 @@ Theorem：如果一个点集是线性可分的，那么感知机一定可以在�
 * XGBoost回归
 * 泊松回归（Poisson Regression）
 
----
+<!--v-->
 
 ## 机器学习的学习方式
 
 ### 监督学习
 
 * 在KNN中我们会发现：初始的点是有颜色的，所有的data本质都是一个点以及其颜色的二元组，也就说不同的x对应不同坐标的点，不同的y对应点的颜色，即
+
 $$ (点的坐标，颜色) $$
 
 * 像这种提供**输入数据**（比如KNN里的点坐标）和其对应的**标签数据（label**，KNN的点的颜色），然后搭建一个模型，模型经过训练后准确的找到输入数据和标签数据之间的**最优映射关系**，从而对新的未标记数据进行预测或分类，我们称作**监督学习(supervised learning)**
 
----
+<!--v-->
 
 ## 监督学习
 
@@ -326,7 +333,7 @@ $$ (点的坐标，颜色) $$
     <img src="image-6.png" alt="图片2" width="300">
 </div>
 
----
+<!--v-->
 
 ## 无监督学习（unsupervised learning）
 
@@ -336,7 +343,7 @@ $$ (点的坐标，颜色) $$
 
 * 包装一下：我们只是单纯的将这两种马的照片给机器看，并没有告诉机器哪些是牛马，哪些是草泥马，机器在观察图片后发现马有两类，并能分辨出草原上的马分别属于哪一类
 
----
+<!--v-->
 
 ## 无监督学习（unsupervised learning）
 
@@ -345,10 +352,9 @@ $$ (点的坐标，颜色) $$
 ### 那无监督学习凭啥能把相似的图片认出来？
 
 * 无监督学习会从无标签数据中学习有效的特征或表示，而同一类的图片具有相似的特征
-
 * 特征提取（Feature Extraction）：将任意数据（如文本或图像）转换成机器学习的数学特征
 
----
+<!--v-->
 
 ## 分类与回归的再分类
 
@@ -364,14 +370,13 @@ $$ (点的坐标，颜色) $$
 
 * 现在也有很多文章直接把机器学习的任务直接分为**分类**，**聚类**，**回归**三类，是更好的选择
 
----
+<!--v-->
 
 ## 分类与回归的再分类
 
-<div align="center">
-    <img src="image-8.png" alt="图片1"  height="600">
+<img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
 
----
+<!--v-->
 
 ## 认识到优质数据的稀缺性
 
@@ -383,27 +388,35 @@ $$ (点的坐标，颜色) $$
 
 * 还有一些领域，比如医疗领域，获取足够的数据本身就是一个挑战。
 
----
+<!--v-->
 
 ## 半监督学习（Semi-supervised learning）（仅做了解）
 
 * 顾名思义，半监督学习利用**少量有标签的数据和大量无标签**的数据来训练模型
 
 * 在数据稀缺条件下的被迫选择
----
 
-# 机器学习的分类
-<div align="center">
-    <img src="image-7.png" alt="图片1"  height="600">
+<!--s-->
 
----
+<div class="middle center">
+  <div style="width: 100%">
 
-<div align="center">
-    <img src="image-8.png" alt="图片1"  height="600" width="4500">
+  # Part.3 机器学习的分类
+  
+  </div>
+</div>
 
----
+<!--v-->
 
-# Summary
+<img src="image-7.png" width="85%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+<img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+## Summary
 
 * 今天我们介绍了：
 
