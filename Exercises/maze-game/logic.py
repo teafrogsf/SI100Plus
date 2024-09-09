@@ -7,4 +7,5 @@ if __name__ == "__main__":
 
 def operation():
 ####################### DO NOT MODIFY ABOVE THIS LINE ##########################
+    pass
     # Your code starts from here.
