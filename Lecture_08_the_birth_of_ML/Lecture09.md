@@ -1,3 +1,25 @@
+## 感知机的缺陷
+
+* 感知机的缺陷非常明显，因为它仅仅是一个线性模型
+
+* 相信聪明的你已经想到了，如果是下图的点要分类，一个简单的感知机模型显然是是无法做到的
+
+<div align=center>  
+<img src="https://i-blog.csdnimg.cn/blog_migrate/987cd61a7402119b10826f1e4893348f.png#pic_center" width=400> 
+<div align=left> 
+
+---
+
+## 感知机的缺陷
+
+* 图中的○和△无法用一条直线分开，但是如果将“直线”这个限制条件去掉，就可以实现了。比如，我们可以像下图那样，作出分开○和△的空间
+
+<div align=center>  
+<img src="https://i-blog.csdnimg.cn/blog_migrate/488a74468ef07fe2e09c675840335418.png#pic_center" width=400> 
+<div align=left> 
+
+* 感知机的局限性就在于它只能表示由一条直线分割的空间。上图这样弯曲的曲线无法用感知机表示。另外，由上图这样的曲线（非线性函数）分割而成的空间称为**非线性空间**，由直线（线性函数）分割而成的空间称为**线性空间**
+
 ## 早期机器学习的典型——感知机（perceptron）
 
 <div align=center>  
@@ -82,3 +104,18 @@ $$ y = \left\{\begin{matrix}
 
 *MLP是不是也可以视为一个模块？*
 *能不能把MLP也作为模块搭起来？*
+
+
+梯度下降的时候要提到感知机其实跟梯度下降算出来的一样！
+
+### 回归算法（看看就好）
+
+* 线性(最小二乘)回归（Linear Regression）
+
+* 多项式回归（Polynomial Regression）
+* 逐步回归（Stepwise Regression）
+* 岭回归（Ridge Regression）
+* 套索回归（Lasso Regression）
+* 弹性网回归（ElasticNet Regression）Lasso和Ridge回归技术的混合体
+* XGBoost回归
+* 泊松回归（Poisson Regression）
