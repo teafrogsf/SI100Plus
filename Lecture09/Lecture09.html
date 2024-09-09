@@ -182,14 +182,14 @@ $$ y = \left\{\begin{matrix}
           RevealHighlight,
           RevealZoom,
           RevealNotes,
-          RevealMath
+          RevealMath.KaTeX,
         ]
       };
 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"_":["./Lecture_08_the_birth_of_ML/Lecture09.md"],"static":"static/Lecture09"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["./Lecture_08_the_birth_of_ML/Lecture09.md"],"static":"static/Lecture09","template":"./assets/reveal.html"}, queryOptions);
     </script>
 
 

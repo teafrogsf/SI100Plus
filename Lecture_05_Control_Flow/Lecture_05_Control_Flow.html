@@ -934,14 +934,14 @@ my_info = { # 这里用了一个比较美观的换行写法，适用于长文本
           RevealHighlight,
           RevealZoom,
           RevealNotes,
-          RevealMath
+          RevealMath.KaTeX,
         ]
       };
 
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_05_Control_Flow/Lecture_05_Control_Flow.md"],"static":"static/Lecture_05_Control_Flow"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_05_Control_Flow/Lecture_05_Control_Flow.md"],"static":"static/Lecture_05_Control_Flow","template":"./assets/reveal.html"}, queryOptions);
     </script>
 
 
