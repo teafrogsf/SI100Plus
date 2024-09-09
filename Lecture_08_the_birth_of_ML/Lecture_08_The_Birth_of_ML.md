@@ -18,7 +18,7 @@ revealOptions:
   <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
     <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 7</h1>
     <p style="font-size: 24px; color: #666;">人类是有极限的！——机器学习的诞生</p>
-    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-28</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-09-09</p>
   </div>
 </div>
 
@@ -52,7 +52,7 @@ revealOptions:
 - “随便动了一个超参数模型就跑起来了” <!-- .element: class="fragment" -->
 - ~~我的空间~~ <!-- .element: class="fragment" -->
 
-<img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="qzone.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -111,12 +111,19 @@ TODO!
 
 ## 让我们找一个高中学过的二维平面上的问题
 
+<img src="1.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-<img src="1.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+大家可以思考一下如何用人类智慧或者算法解决这个问题。<!-- .element: class="fragment" -->
+
+<q>上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量分割的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。</q> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## 让我们找一个高中学过的二维平面上的问题
+
+<img src="1.png" width="40%" style="display: block; margin: 0 auto;">
 
 大家可以思考一下如何用人类智慧或者算法解决这个问题。
-
-> 上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量分割的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。
 
 > 如果你在网上查找感知机有关的内容，你可能会发现它们的文章中提到的任务想找到的是一条直线。请思考：这个任务和我们提到的找向量有区别吗？如果有，是什么区别？
 
@@ -126,7 +133,7 @@ TODO!
 
 用肉眼观察可得：注意到在上面的例子里有一条向量可以完全分开两个类别，用强大的人类大脑可以把这条直线画出来。
 
-<img src="image-10.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-10.png" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 > 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。
 
@@ -151,10 +158,13 @@ TODO!
 
 就这么简单！
 
-<img src="perceptron_work.gif" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<!--v-->
+
+## 感知机（Perceptron）
+
+<img src="perceptron_work.gif" width="45%" style="display: block; margin: 0 auto;">
 
 > 其实，找向量和找直线并没有本质上的区别，毕竟找到了向量，你总有办法找到一条截距合适的直线。但是，之所以我们用找向量来描述这个任务，也是因为用向量的形式描述感知机的过程非常简便。感兴趣的同学可以试着用上面的思路解决找直线的问题，然后思考一下你得出的算法会不会有什么奇怪的地方......比如我们刚刚提到的截距。
-
 
 <!--v-->
 
@@ -180,17 +190,17 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 就像这种情况。肉眼观察可得，肯定不存在一条向量能把这些点按正负分成两半。
 
-<img src="images/perceptron_non_lin_sep_ex.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+ <!-- .element: class="fragment" -->
 
-<div align=center>  
-<img src="https://i-blog.csdnimg.cn/blog_migrate/987cd61a7402119b10826f1e4893348f.png#pic_center" width=400> 
-<div align=left> 
+<img src="image-12.png" width="40%" style="display: block; margin: 0 auto;">
 
 在这种情况下，我们的感知机会不幸死机。
 
 但是，没有人规定机器学习一定要做到100%准确率，哪怕是在训练集上。因此，只要我们保证我们的算法能跑完就好了，至少这样我们能跑出一个结果给我们的甲方爸爸看。换句话说，我们希望我们的机器学习算法能够**收敛（converge）**到一个结果上。
 
 怎么办呢？
+
+<!--v-->
 
 <!--v-->
 
@@ -219,7 +229,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 但是，假如一个机器学习算法每一步令参数变化的量都一直保持不变的话，那么就有可能出现在最优点附近反复横跳的情况。
 
-<img src="images/no_optimum.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-13.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -227,7 +237,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。
 
-<img src="images/optimum.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-14.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 学习率和学习率衰减与机器学习算法的关系是什么？
 - 它们不会被机器学习算法主动更新，却影响着学习的结果
@@ -336,9 +346,15 @@ TODO!
 <img src="image-3.png" width=400> 
 <div align=left> 
 
+<!--v-->
+
+## 如果问题的要求是尽可能地逼近真实值......
+
 这个任务为什么不能被分类概括？它和分类任务有什么区别？
 
 像这样的，目标是让预测结果尽可能接近真实结果的任务，叫做**回归（regression）**。
+
+<!--v-->
 
 ## 分类与回归，离散与连续
 
@@ -355,7 +371,7 @@ TODO!
 
 上面说的不对，分类和回归的唯一区别在于损失函数不同
 
----
+<!--v-->
 
 ## 其他的传统机器学习算法
 
@@ -367,9 +383,11 @@ TODO!
 
 如果，我们的机器学习算法不需要ground-truth？
 
+<!--v-->
+
 ## 疑似逻辑陷阱
 
-
+<!--v-->
 
 ## 经典的聚类算法——KNN (K-Nearest Neighbors)
 
@@ -378,7 +396,7 @@ TODO!
 
 * **距离度量、k值的选择及分类决策规则**是k近邻法的三个基本要素
 
----
+<!--v-->
 
 ## 经典的聚类算法——KNN (K-Nearest Neighbors)
 
@@ -390,21 +408,19 @@ TODO!
 
 * **距离度量、k值的选择及分类决策规则**是k近邻法的三个基本要素
 
----
-
-
----
+<!--v-->
 
 ## 机器学习的学习方式
 
 ### 监督学习
 
 * 在KNN中我们会发现：初始的点是有颜色的，所有的data本质都是一个点以及其颜色的二元组，也就说不同的x对应不同坐标的点，不同的y对应点的颜色，即
+
 $$ (点的坐标，颜色) $$
 
 * 像这种提供**输入数据**（比如KNN里的点坐标）和其对应的**标签数据（label**，KNN的点的颜色），然后搭建一个模型，模型经过训练后准确的找到输入数据和标签数据之间的**最优映射关系**，从而对新的未标记数据进行预测或分类，我们称作**监督学习(supervised learning)**
 
----
+<!--v-->
 
 ## 监督学习
 
@@ -415,7 +431,7 @@ $$ (点的坐标，颜色) $$
     <img src="image-6.png" alt="图片2" width="300">
 </div>
 
----
+<!--v-->
 
 ## 无监督学习（unsupervised learning）
 
@@ -425,7 +441,7 @@ $$ (点的坐标，颜色) $$
 
 * 包装一下：我们只是单纯的将这两种马的照片给机器看，并没有告诉机器哪些是牛马，哪些是草泥马，机器在观察图片后发现马有两类，并能分辨出草原上的马分别属于哪一类
 
----
+<!--v-->
 
 ## 无监督学习（unsupervised learning）
 
@@ -434,10 +450,9 @@ $$ (点的坐标，颜色) $$
 ### 那无监督学习凭啥能把相似的图片认出来？
 
 * 无监督学习会从无标签数据中学习有效的特征或表示，而同一类的图片具有相似的特征
-
 * 特征提取（Feature Extraction）：将任意数据（如文本或图像）转换成机器学习的数学特征
 
----
+<!--v-->
 
 ## 分类与回归的再分类
 
@@ -453,14 +468,13 @@ $$ (点的坐标，颜色) $$
 
 * 现在也有很多文章直接把机器学习的任务直接分为**分类**，**聚类**，**回归**三类，是更好的选择
 
----
+<!--v-->
 
 ## 分类与回归的再分类
 
-<div align="center">
-    <img src="image-8.png" alt="图片1"  height="600">
+<img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
 
----
+<!--v-->
 
 ## 认识到优质数据的稀缺性
 
@@ -472,23 +486,31 @@ $$ (点的坐标，颜色) $$
 
 * 还有一些领域，比如医疗领域，获取足够的数据本身就是一个挑战。
 
----
+<!--v-->
 
 ## 半监督学习（Semi-supervised learning）（仅做了解）
 
 * 顾名思义，半监督学习利用**少量有标签的数据和大量无标签**的数据来训练模型
 
 * 在数据稀缺条件下的被迫选择
----
 
-# 机器学习的分类
-<div align="center">
-    <img src="image-7.png" alt="图片1"  height="600">
+<!--s-->
 
----
+<div class="middle center">
+  <div style="width: 100%">
 
-<div align="center">
-    <img src="image-8.png" alt="图片1"  height="600" width="4500">
+  # Part.3 机器学习的分类
+  
+  </div>
+</div>
+
+<!--v-->
+
+<img src="image-7.png" width="85%" style="display: block; margin: 0 auto;">
+
+<!--v-->
+
+<img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--s-->
 

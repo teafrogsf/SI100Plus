@@ -49,7 +49,7 @@ jobs:
 
                 echo "- [$(basename ${file%.md})](./$(basename ${file%.md}))" >> index.md
 
-                reveal-md $file --static $output_dir
+                reveal-md $file --static $output_dir --template ./assets/reveal.html
                 file_dir=$(dirname $file)
                 if [ -d "$file_dir/images" ]; then
                     cp -r $file_dir/images $output_dir
