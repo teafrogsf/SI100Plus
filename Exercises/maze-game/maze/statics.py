@@ -3,8 +3,7 @@ from enum import Enum
 class BlockType(Enum):
     WALL = 0
     GROUND = 1
-    DOOR = 2
-    COIN = 3
+    EXIT = 2
 
 class ResourcePath:
     player = [r"./assets/facing_up.png", r"./assets/facing_right.png", r"./assets/facing_down.png", r"./assets/facing_left.png"]
