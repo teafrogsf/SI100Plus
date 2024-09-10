@@ -278,9 +278,21 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 <span> 因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。</span> <!-- .element: class="fragment" -->
 
-<img src="images/learning_rate_ex.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<div style="display: flex; align-items: center; justify-content: center;" class="fragment">
+  <img src="images/learning_rate_ex.png" width="45%" style="margin-right: 50px;">
 
-<img src="images/learning_rate_ex_2.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+  <img src="images/learning_rate_ex_2.png" width="45%" style="margin-left: 50px;">
+</div>
+
+<!--v-->
+
+## 学习率（learning rate）和学习率衰减（learning rate decay）
+
+<div style="display: flex; align-items: center; justify-content: center;" class="fragment">
+  <img src="images/learning_rate_ex.png" width="20%" style="margin-right: 50px;">
+
+  <img src="images/learning_rate_ex_2.png" width="20%" style="margin-left: 50px;">
+</div>
 
 学习率和学习率衰减与机器学习算法的关系是什么？ <!-- .element: class="fragment" -->
 - 它们不会被机器学习算法主动更新，却影响着学习的结果 <!-- .element: class="fragment" -->
@@ -349,13 +361,21 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 ## 嗯？嗯？嗯？
 
 - 对于第一个“实时纠错”的问题，这里主要是为了方便大家以后的自学做个简要解释 <!-- .element: class="fragment" -->
-  - 你可能会在阅读理论较多的机器学习算法教学内容时，发现理论中往往会描述成“输入全部数据并计算损失”
-  - 一方面，这意味着每次更新损失函数都能考虑到所有数据的信息，这有助于更准确地更新参数
-  - 另一方面，在理论中用这样的范式去写在表达上也更为方便
-  > 也就是说，其实感知机也可以写成输入全部数据、计算损失、优化参数这样的范式。下一节课我们会介绍怎样写成这样的形式。
-  > 不过，在机器学习的实战过程中，每一次喂给模型的并不一定是全部数据。恰恰相反，可能一次喂给模型的只有极少量的数据。这部分的内容我们会在机器学习实战的录播课中介绍。
+  - 你可能会在阅读理论较多的机器学习算法教学内容时，发现理论中往往会描述成“输入全部数据并计算损失”  <!-- .element: class="fragment" -->
+  - 一方面，这意味着每次更新损失函数都能考虑到所有数据的信息，这有助于更准确地更新参数  <!-- .element: class="fragment" -->
+  - 另一方面，在理论中用这样的范式去写在表达上也更为方便  <!-- .element: class="fragment" -->
+
+<div class="fragment">
+
+> 也就是说，其实感知机也可以写成输入全部数据、计算损失、优化参数这样的范式。下一节课我们会介绍怎样写成这样的形式。 不过，在机器学习的实战过程中，每一次喂给模型的并不一定是全部数据。恰恰相反，可能一次喂给模型的只有极少量的数据。这部分的内容我们会在机器学习实战的录播课中介绍。 
+
+</div>
+
+<div class="fragment">
 
 > 这里涉及到了机器学习实战中epoch和batch的概念
+
+</div>
 
 
 <!--s-->
