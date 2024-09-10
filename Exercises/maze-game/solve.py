@@ -6,6 +6,8 @@ import bdb, cmd, linecache
 
 command_queue = queue.Queue()
 result_queue = queue.Queue()
+event_list = None
+event_key = None
 
 def turn_left():
     command_queue.put("TURN_LEFT")
@@ -35,32 +37,30 @@ def main():
             if("logic.py" not in filename):
                 self.set_step()
             else:
-                print(f'Paused at {filename}:{lineno} - {line}')
-                pygame.display.set_caption(f"Maze Game - Paused at {line}")
                 manager.highlightCode(lineno)
+                print(f'Paused at {filename}:{lineno} - {line}')
                 self.interaction(frame)
+            # self.set_continue()
 
         def interaction(self, frame):
             self.frame = frame
             flag = True
+            global event_key
             while flag:
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        pygame.quit()
-                        sys.exit()
-                    elif event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_n:
-                            self.set_next(debugger.frame)
-                            flag = False
-                            break
-                        elif event.key == pygame.K_c:
-                            self.set_continue()
-                            flag = False
-                            break
-                        elif event.key == pygame.K_q:
-                            self.set_quit()
-                            flag = False
-                            break
+                if event_key == pygame.K_n:
+                    self.set_next(debugger.frame)
+                    print("SETED NEXT")
+                    flag = False
+                    break
+                elif event_key == pygame.K_c:
+                    self.set_continue()
+                    flag = False
+                    break
+                elif event_key == pygame.K_q:
+                    self.set_quit()
+                    flag = False
+                    break
+            event_key = None
 
     debugger = MyDebugger()
 
@@ -68,19 +68,25 @@ def main():
         from logic import operation
         debugger.run('operation()', globals=globals(), locals=locals())
 
-    from logic import operation
+    # from logic import operation
     # Initial Draw
     manager.draw()
     pygame.display.flip()
     thread = threading.Thread(target=_operation)
     thread.daemon = True
+    event_list = pygame.event.get()
+    
     thread.start()
     
     while True:
-        for event in pygame.event.get():
+        for event in event_list:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                print(f"MAIN-KEYDOWN at {time.time()}")
+                global event_key
+                event_key = event.key
         while not command_queue.empty():
             command = command_queue.get()
             if command == "CHECK_FRONT":
@@ -110,6 +116,7 @@ def main():
             print("Operation finished without reaching the exit.")
             pygame.quit()
             sys.exit()
+        event_list = pygame.event.get()
 
 if __name__ == "__main__":
     print("Run this file in logic.py")
