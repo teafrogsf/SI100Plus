@@ -11,6 +11,7 @@ revealOptions:
     center: false
     slideNumber: "c/t"
     width: 1000
+    pdfSeparateFragments: false
 ---
 
 
@@ -101,7 +102,7 @@ revealOptions:
 
 ## 让我们找一个高中学过的二维平面上的问题
 
-现在你有一个二维平面，平面上有一个点集及其标签 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\} $，其中 $x_j^{(i)} \in \mathcal{R} ,y^{(i)}\in \\{ 0, 1 \\}$ <!-- .element: class="fragment" -->
+现在你有一个二维平面，平面上有一个点集及其标签 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\} $，其中 $x_j^{(i)} \in \mathcal{R} ,y^{(i)}\in \\{ -1, 1 \\}$ <!-- .element: class="fragment" -->
 
 根据我们在高中学到的知识，一个点 $x^{(i)}$ 也可以表示一个向量。又根据我们在高中学到的知识，两个向量可以进行点积，点积的正负可以表示它的角度是锐角还是钝角。<!-- .element: class="fragment" -->
 
@@ -214,7 +215,7 @@ revealOptions:
 
 还真是。数学家们证明了，只要一个点集线性可分，那么感知机就一定能在有限步数内找到答案。 <!-- .element: class="fragment" -->
 
-Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分的，假设向量 $\boldsymbol{w}^*$ 可以用来区分这个点集。如果存在 $||\boldsymbol{w}||\leqslant 1$，且满足对任意点 $i$ 均有 $||\boldsymbol{x}^{(i)}|| \leqslant 1$，那么令 $\delta = \min_i |\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} |$，感知机一定可以在不多于 $\frac{1}{\delta^2}$ 的错误次数内找到合法解 $\boldsymbol{w}$。 <!-- .element: class="fragment" -->
+Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分的，假设向量 $\boldsymbol{w}^*$ 可以用来区分这个点集。如果存在 $||\boldsymbol{w}^*||\leqslant 1$，且满足对任意点 $i$ 均有 $||\boldsymbol{x}^{(i)}|| \leqslant 1$，那么令 $\delta = \min_i |\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} |$，感知机一定可以在不多于 $\frac{1}{\delta^2}$ 的错误次数内找到合法解 $\boldsymbol{w}$。 <!-- .element: class="fragment" -->
 
 <div class="fragment">
 
@@ -364,13 +365,6 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 </div>
 
-<div class="fragment">
-
-> 这里涉及到了机器学习实战中epoch和batch的概念
-
-</div>
-
-
 <!--s-->
 
 <div class="middle center">
@@ -471,7 +465,6 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 - Winnow
 - 决策树（Decision Tree）和它的前身 Decision List
-- 
 
 看起来分类和回归已经足够概括所有的机器学习任务了。还有别的漏网之鱼吗？
 
