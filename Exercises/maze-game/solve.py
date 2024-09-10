@@ -1,6 +1,6 @@
 import pygame, sys, threading, queue
 from maze.manager import GameManager
-from maze.statics import GameMode
+from maze.statics import GameMode, BlockType
 import threading
 import bdb, linecache
 
