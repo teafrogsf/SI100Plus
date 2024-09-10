@@ -225,7 +225,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 但是，假如一个机器学习算法每一步令参数变化的量都一直保持不变的话，那么就有可能出现在最优点附近反复横跳的情况。 <!-- .element: class="fragment" -->
 
-<img src="image-13.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-13.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -233,7 +233,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。 <!-- .element: class="fragment" -->
 
-<img src="image-14.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="image-14.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 学习率和学习率衰减与机器学习算法的关系是什么？ <!-- .element: class="fragment" -->
 - 它们不会被机器学习算法主动更新，却影响着学习的结果 <!-- .element: class="fragment" -->
@@ -363,6 +363,8 @@ TODO!
 好像也有那么一点不对——分类希望的是和真实结果*完全一致*——预测和结果是同一个类别。 <!-- .element: class="fragment" -->
 
 找到概括的方法了吗？ <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 分类与回归，离散与连续
 
