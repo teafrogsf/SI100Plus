@@ -1,8 +1,8 @@
 import pygame, sys, threading, queue
 from maze.manager import GameManager
-from maze.statics import BlockType, GameMode
-import threading, time
-import bdb, cmd, linecache
+from maze.statics import GameMode
+import threading
+import bdb, linecache
 
 command_queue = queue.Queue()
 result_queue = queue.Queue()
@@ -40,7 +40,6 @@ def main():
                 manager.highlightCode(lineno)
                 print(f'Paused at {filename}:{lineno} - {line}')
                 self.interaction(frame)
-            # self.set_continue()
 
         def interaction(self, frame):
             self.frame = frame
@@ -84,7 +83,6 @@ def main():
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                print(f"MAIN-KEYDOWN at {time.time()}")
                 global event_key
                 event_key = event.key
         process_command_count = 0
