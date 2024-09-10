@@ -16,7 +16,7 @@ revealOptions:
 
 <div style="display: flex; justify-content: center; align-items: center; height: 700px;">
   <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 7</h1>
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 8</h1>
     <p style="font-size: 24px; color: #666;">人类是有极限的！——机器学习的诞生</p>
     <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-09-09</p>
   </div>
@@ -50,7 +50,7 @@ revealOptions:
 
 - “AI就是魔法” <!-- .element: class="fragment" -->
 - “随便动了一个超参数模型就跑起来了” <!-- .element: class="fragment" -->
-- ~~我的空间~~ <!-- .element: class="fragment" -->
+<li> <del>我的空间</del> </li> <!-- .element: class="fragment" -->
 
 <img src="images/qzone.png" width="85%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
@@ -101,13 +101,21 @@ revealOptions:
 
 ## 让我们找一个高中学过的二维平面上的问题
 
-现在你有一个二维平面，平面上有一个点集及其标签$\{(x_1^{(i)},x_2^{(i)},y^{(i)})\}$，其中$x_j^{(i)}\in\mathcal R,y^{(i)}\in\{0, 1\}$。 <!-- .element: class="fragment" -->
+现在你有一个二维平面，平面上有一个点集及其标签 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\} $，其中 $x_j^{(i)} \in \mathcal{R} ,y^{(i)}\in \\{ 0, 1 \\}$ <!-- .element: class="fragment" -->
 
-根据我们在高中学到的知识，一个点$x^{(i)}$也可以表示一个向量。又根据我们在高中学到的知识，两个向量可以进行点积，点积的正负可以表示它的角度是锐角还是钝角。
+根据我们在高中学到的知识，一个点 $x^{(i)}$ 也可以表示一个向量。又根据我们在高中学到的知识，两个向量可以进行点积，点积的正负可以表示它的角度是锐角还是钝角。<!-- .element: class="fragment" -->
 
-现在，我们想找到一个向量，使得它与所有$y=1$的点（也可以叫它们正样本）的点积都不小于0（或者说“指向”这些点），与所有$y=-1$的点（也可以叫它们负样本）的点积都小于0（或者说“背离”这些点）。换句话说，我们想要找到一条直线（这条直线与该向量的法向量平行），使它能够尽可能地**分割**$y=1$的点和$y=-1$的点，使得在直线同一侧的点尽可能都是同一类型。
+<span> 现在，我们想找到一个向量，使得它与所有 $y = 1$ 的点（也可以叫它们正样本）的点积都不小于 0（或者说“指向”这些点），与所有 $y = -1$ 的点（也可以叫它们负样本）的点积都小于0（或者说“背离”这些点）。换句话说，我们想要找到一条直线（这条直线与该向量的法向量平行），使它能够尽可能地**分割** $y = 1$ 的点和 $y = -1$ 的点，使得在直线同一侧的点尽可能都是同一类型。</span> <!-- .element: class="fragment" -->
 
-> 这里我们表示点的方式有些特殊。首先，形如$\{x\}$的记号一般用来表示一个集合。我们在高中表示一个点的形式通常是$(x,y)$，但在这里，点的坐标用$(x_1,x_2)$来表示，而$y$指的是标签。在高中，如果我们想表示第$i$个点，通常会把它写成$(x_i,y_i)$的形式，而在这里下标也变成了上标，还给$i$加上了括号。第一次看见它的时候可能会感觉有点奇怪~~好吧看很多次可能都会感觉很奇怪~~，但这样的表示方式是为了未来的方便。（~~不过给$i$加括号是为什么我也不知道~~）
+<!--v-->
+
+## 让我们找一个高中学过的二维平面上的问题
+
+现在你有一个二维平面，平面上有一个点集及其标签 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\} $，其中 $x_j^{(i)} \in \mathcal{R} ,y^{(i)}\in \\{ 0, 1 \\}$
+
+根据我们在高中学到的知识，一个点 $x^{(i)}$ 也可以表示一个向量。又根据我们在高中学到的知识，两个向量可以进行点积，点积的正负可以表示它的角度是锐角还是钝角。
+
+ > 这里我们表示点的方式有些特殊。首先，形如 $\{x\}$ 的记号一般用来表示一个集合。我们在高中表示一个点的形式通常是 $(x,y)$，但在这里，点的坐标用 $(x_1,x_2)$ 来表示，而 $y$ 指的是标签。在高中，如果我们想表示第 $i$ 个点，通常会把它写成 $(x_i,y_i)$ 的形式，而在这里下标也变成了上标，还给 $i$ 加上了括号。第一次看见它的时候可能会感觉有点奇怪~~好吧看很多次可能都会感觉很奇怪~~，但这样的表示方式是为了未来的方便。（~~不过给 $i$ 加括号是为什么我也不知道~~）
 
 <!--v-->
 
@@ -117,7 +125,11 @@ revealOptions:
 
 大家可以思考一下如何用人类智慧或者算法解决这个问题。<!-- .element: class="fragment" -->
 
-<q>上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量区分的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。</q> <!-- .element: class="fragment" -->
+<div class="fragment">
+
+> 上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量区分的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。
+
+</div>
 
 <!--v-->
 
@@ -125,11 +137,25 @@ revealOptions:
 
 用肉眼观察可得：注意到在上面的例子里有一条直线可以完全分开两个类别，用强大的人类大脑可以把这条直线和它的法向量（也就是我们要求的那个向量）画出来。 <!-- .element: class="fragment" -->
 
-<img src="images/lin_sep_ex.png" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="images/lin_sep_ex.png" width="60%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-> 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。 <!-- .element: class="fragment" -->
+<!--v-->
 
-> 所以直接用直线描述不是更直观吗？为什么我们之前要用向量的形式描述这个问题？ <!-- .element: class="fragment" -->
+## 人类智慧
+
+<img src="images/lin_sep_ex.png" width="40%" style="display: block; margin: 0 auto;">
+
+<div class="fragment">
+
+> 如果一个点集真的能被证明可以完全分开成两个类别，我们称这样的点集是线性可分的（linear seperable）。 
+
+</div>
+
+<div class="fragment">
+
+> 所以直接用直线描述不是更直观吗？为什么我们之前要用向量的形式描述这个问题？
+
+</div>
 
 <!--v-->
 
@@ -137,17 +163,21 @@ revealOptions:
 
 欢迎发挥你的脑洞踊跃抢答。如果你想提出传统算法，请用数据一步到位地输出答案。如果你想提出一个机器学习算法，请描述你是如何实现“纠错”的。 <!-- .element: class="fragment" -->
 
-想到答案了吗？没有想到也没关系~~想到了你就是先天机器学习圣体~~，我们来看看1957年的人类是怎么做的。 <!-- .element: class="fragment" -->
+<span>想到答案了吗？没有想到也没关系~~想到了你就是先天机器学习圣体~~，我们来看看1957年的人类是怎么做的。 </span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 感知机（Perceptron）
 
-感知机由美国学者Frank Rosenblatt在1957年提出。它是怎么处理上面的问题的呢？其实非常简单： <!-- .element: class="fragment" -->
+感知机由美国学者 Frank Rosenblatt 在1957年提出。它是怎么处理上面的问题的呢？其实非常简单： <!-- .element: class="fragment" -->
 
-- Step 1: 设我们要找的向量$\boldsymbol{w}=(w_1,w_2)$，其中$w_1,w_2$为参数，它们在最开始会初始化为一个随机值。 <!-- .element: class="fragment" -->
-  > 这样的随机初始化在机器学习中非常常见。 <!-- .element: class="fragment" -->
-- Step 2: 遍历每一个点。对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}\ge0$但$y^{(i)}=-1$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}-\boldsymbol{x}$；如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}<0$但$y^{(i)}=1$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}+\boldsymbol{x}$。 <!-- .element: class="fragment" -->
+- Step 1: 设我们要找的向量 $\boldsymbol{w} = (w_1, w_2)$，其中 $w_1,w_2$ 为参数，它们在最开始会初始化为一个随机值。 <!-- .element: class="fragment" -->
+  <div class="fragment"> 
+  
+  > 这样的随机初始化在机器学习中非常常见。
+  
+  </div>
+- Step 2: 遍历每一个点。对于点 $i$，如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} \geqslant 0$ 但 $y^{(i)} = -1$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} - \boldsymbol{x}$；如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} < 0$ 但 $y^{(i)} = 1$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} + \boldsymbol{x}$。 <!-- .element: class="fragment" -->
 - Step 3: 一直重复Step 2，直到无法再更新为止。然后，感知机就会输出$\boldsymbol{w}$，你可以拿着它去测试集看看结果了。 <!-- .element: class="fragment" -->
 
 就这么简单！ <!-- .element: class="fragment" -->
@@ -170,7 +200,11 @@ revealOptions:
 
 <img src="perceptron_work.gif" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
-> 其实，找向量和找直线并没有本质上的区别，毕竟找到了向量，你总有办法找到一条截距合适的直线。但是，之所以我们用找向量来描述这个问题，也是因为用向量的形式描述感知机的过程非常简便。感兴趣的同学可以试着用上面的思路解决找直线的问题，然后思考一下你得出的算法会不会有什么奇怪的地方......比如我们刚刚提到的截距。 <!-- .element: class="fragment" -->
+<div class="fragment">
+
+> 其实，找向量和找直线并没有本质上的区别，毕竟找到了向量，你总有办法找到一条截距合适的直线。但是，之所以我们用找向量来描述这个问题，也是因为用向量的形式描述感知机的过程非常简便。感兴趣的同学可以试着用上面的思路解决找直线的问题，然后思考一下你得出的算法会不会有什么奇怪的地方......比如我们刚刚提到的截距。
+
+</div>
 
 <!--v-->
 
@@ -180,9 +214,13 @@ revealOptions:
 
 还真是。数学家们证明了，只要一个点集线性可分，那么感知机就一定能在有限步数内找到答案。 <!-- .element: class="fragment" -->
 
-Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分的，假设向量$\boldsymbol{w}^*$可以用来区分这个点集。如果存在$||\boldsymbol{w}||\le 1$，且满足对任意点$i$均有$||\boldsymbol{x}^{(i)}||\le 1,$，那么令$\delta=\min_i|\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}|$，感知机一定可以在不多于$\frac1{\delta^2}$的错误次数内找到合法解$\boldsymbol{w}$。 <!-- .element: class="fragment" -->
+Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分的，假设向量 $\boldsymbol{w}^*$ 可以用来区分这个点集。如果存在 $||\boldsymbol{w}||\leqslant 1$，且满足对任意点 $i$ 均有 $||\boldsymbol{x}^{(i)}|| \leqslant 1$，那么令 $\delta = \min_i |\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} |$，感知机一定可以在不多于 $\frac{1}{\delta^2}$ 的错误次数内找到合法解 $\boldsymbol{w}$。 <!-- .element: class="fragment" -->
 
-> 我们将在这节课的扩展部分稍微多聊聊这里的内容。 <!-- .element: class="fragment" -->
+<div class="fragment">
+
+> 我们将在这节课的扩展部分稍微多聊聊这里的内容。
+
+</div>
 
 <!--v-->
 
@@ -190,11 +228,11 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 就像这种情况。肉眼观察可得，肯定不存在一条向量能把这些点按正负分成两半。 <!-- .element: class="fragment" -->
 
-<img src="images/non_lin_sep_ex.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="images/non_lin_sep_ex.png" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 在这种情况下，我们的感知机会不幸死机。 <!-- .element: class="fragment" -->
 
-但是，没有人规定机器学习一定要做到100%准确率，哪怕是在训练集上。因此，只要我们保证我们的算法能跑完就好了，至少这样我们能跑出一个结果给我们的甲方爸爸看。换句话说，我们希望我们的机器学习算法能够**收敛（converge）**到一个结果上。 <!-- .element: class="fragment" -->
+<span> 但是，没有人规定机器学习一定要做到100%准确率，哪怕是在训练集上。因此，只要我们保证我们的算法能跑完就好了，至少这样我们能跑出一个结果给我们的甲方爸爸看。换句话说，我们希望我们的机器学习算法能够**收敛（converge）**到一个结果上。</span> <!-- .element: class="fragment" -->
 
 怎么办呢？ <!-- .element: class="fragment" -->
 
@@ -203,7 +241,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 ## 听这课还摸鱼的人有难了
 
 - 众所周知，在我们日常的学习过程中，不是老师教了什么我们就学会了什么。我们吸收知识的进度和老师的实际教学进度是有差距的。 <!-- .element: class="fragment" -->
-- 更众所周知的是，如果一堂课上的太久，我们学习的效率是要下降的。如果拖得太久，那我们上课可能就会掉线~~开摆~~，完全听不进去了。 <!-- .element: class="fragment" -->
+<li class="fragment">更众所周知的是，如果一堂课上的太久，我们学习的效率是要下降的。如果拖得太久，那我们上课可能就会掉线<del>开摆</del>，完全听不进去了。</li>
 
 但机器不是这样。只要你不停止程序运行，它可以一直学习下去。因此，我们希望机器的学习过程能够慢慢停止到一个合适的结果上。 <!-- .element: class="fragment" -->
 
@@ -231,7 +269,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 ## 学习率（learning rate）和学习率衰减（learning rate decay）
 
-因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。 <!-- .element: class="fragment" -->
+<span> 因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。</span> <!-- .element: class="fragment" -->
 
 <img src="images/learning_rate_ex.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
@@ -241,17 +279,27 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 - 它们不会被机器学习算法主动更新，却影响着学习的结果 <!-- .element: class="fragment" -->
 - 类似这样的参数叫做超参数（hyperparameter） <!-- .element: class="fragment" -->
 
-> 当然，我们收敛的位置也不一定是，或者说，大概率不是完美的最优点。这部分的内容将会在后续进行更多探讨。 <!-- .element: class="fragment" -->
+<div class="fragment">
+
+> 当然，我们收敛的位置也不一定是，或者说，大概率不是完美的最优点。这部分的内容将会在后续进行更多探讨。 
+
+</div>
 
 <!--v-->
 
 ## 改进后的感知机
 
-- Step 1: 设我们要找的向量$\boldsymbol{w}=(w_1,w_2)$，其中$w_1,w_2$为参数，它们在最开始会初始化为一个随机值。初始化一个学习率$\eta$和学习率衰减函数$f(\eta)$。 <!-- .element: class="fragment" -->
-- Step 2: 遍历每一个点，对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}\ge0$但$y^{(i)}<0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}-\eta\boldsymbol{x}$；如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}<0$但$y^{(i)}>0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}+\eta\boldsymbol{x}$。 <!-- .element: class="fragment" -->
+- Step 1: 设我们要找的向量 $\boldsymbol{w} = (w_1,w_2)$，其中 $w_1,w_2$ 为参数，它们在最开始会初始化为一个随机值。初始化一个学习率 $\eta$ 和学习率衰减函数 $f(\eta)$。 <!-- .element: class="fragment" -->
+- Step 2: 遍历每一个点，对于点 $i$，如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} \geqslant 0$ 但 $y^{(i)} < 0$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} - \eta \boldsymbol{x}$；如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} < 0$ 但 $y^{(i)} > 0$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} + \eta \boldsymbol{x}$。 <!-- .element: class="fragment" -->
 - Step 3: 令$\eta\leftarrow f(\eta)$，一直重复Step 2，直到无法再更新或者更新效果低于某个阈值为止。然后，感知机就会输出$\boldsymbol{w}$，你可以拿着它去测试集看看结果了。 <!-- .element: class="fragment" -->
 
-> 其实在现在实际的机器学习训练（可能不适用于感知机的训练）中，$\eta$的取值可能远比你之前想象的要小——$\eta=0.001$甚至$0.0001$都是很有可能的。而$f(\eta)$也是一个有很多选择的东东。一个简单的例子就是$f(\eta)=\alpha\eta$，其中$\alpha$是个很接近但小于1的数比如$0.999$。 <!-- .element: class="fragment" -->
+<div class="fragment">
+
+> 其实在现在实际的机器学习训练（可能不适用于感知机的训练）中，$\eta$ 的取值可能远比你之前想象的要小—— $\eta = 0.001$ 甚至 $0.0001$ 都是很有可能的。
+> 
+> 而 $f(\eta)$ 也是一个有很多选择的东东。一个简单的例子就是 $f(\eta) = \alpha \eta$，其中 $\alpha$ 是个很接近但小于 $1$ 的数，比如 $0.999$ 
+
+</div>
 
 <!--s-->
 
@@ -270,8 +318,8 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 实际上，之前讲过的流程已经基本体现了一个机器学习算法的所有行为。现在我们把它们抽象一下，就得到了一个机器学习算法的完整流程（这个流程会比上节课更加正式）： <!-- .element: class="fragment" -->
 
 - Step 1: 随机初始化参数； <!-- .element: class="fragment" -->
-- Step 2: 给模型输入训练集的数据，得到模型的输出，也就是**预测（prediction）** <!-- .element: class="fragment" -->
-- Step 3: 计算预测与真实结果的差距，也就是**损失（loss）** <!-- .element: class="fragment" -->
+<li class="fragment"> Step 2: 给模型输入训练集的数据，得到模型的输出，也就是<b>预测（prediction）</b> </li>
+<li class="fragment"> Step 3: 计算预测与真实结果的差距，也就是<b>损失（loss）</b> </li> 
 - Step 4: 根据损失优化原来的参数 <!-- .element: class="fragment" -->
 - Step 5: 调整部分超参数，重新回到Step 2，直到满足算法的终止条件 <!-- .element: class="fragment" -->
 
@@ -287,7 +335,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 - 感知机中预测与真实结果的差距就是一个条件判断，损失是什么？优化和损失有关系吗？ <!-- .element: class="fragment" -->
 - 如果你在网上查找感知机，可能会发现对它的描述有不同版本；在有的版本里，它们的感知机也是一次性输入全部数据的 <!-- .element: class="fragment" -->
 - 你可能还会发现它们描述优化参数的过程非常复杂，一点也没有我们上述提到的算法简约 <!-- .element: class="fragment" -->
-- 这其中有什么区别~~本手妙手俗手~~吗？ <!-- .element: class="fragment" -->
+<li class="fragment"> 这其中有什么区别<del>本手妙手俗手</del>吗？</li>
 
 <!--v-->
 
@@ -317,13 +365,17 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 ## 人总是离不开分类学（双关）的
 
-我们已经意识到，机器可以帮我们解决各种各样的问题。作为人类，我们能帮机器做的就是把这些问题，或者说任务分好类，从而面对不同的任务挑出合适的机器来解决。~~或者面对不同的任务掏出相同的GPT~~ <!-- .element: class="fragment" -->
+<span> 我们已经意识到，机器可以帮我们解决各种各样的问题。作为人类，我们能帮机器做的就是把这些问题，或者说任务分好类，从而面对不同的任务挑出合适的机器来解决。~~或者面对不同的任务掏出相同的GPT~~ </span> <!-- .element: class="fragment" -->
 
 感知机用它强大的智慧把一个点集分为了两部分。类似这样把一个点集分成若干个部分的任务，我们是不是可以给它们统一取个名字？ <!-- .element: class="fragment" -->
 
-- **分类（classification）** <!-- .element: class="fragment" -->
-- 具体来说，感知机解决的是**二分类（binary classification）**问题 <!-- .element: class="fragment" -->
-- 分类是机器学习的一大核心任务 <!-- .element: class="fragment" -->
+<ul>
+
+<li class="fragment"> 分类（classification）</li>
+<li class="fragment"> 具体来说，感知机解决的是<b>二分类（binary classification）</b>问题 </li>
+<li class="fragment"> 分类是机器学习的一大核心任务 </li>
+
+</ul>
 
 <!--v-->
 
@@ -331,9 +383,9 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 其实，很多问题的背后都是分类问题。 <!-- .element: class="fragment" -->
 
-- 预测围棋里谁会赢是分类（不考虑和棋的话就是二分类）（注意这里不是预测获胜概率）
-- 人脸识别你是班里的哪一个人是分类（我们一般把这种分类叫做多类别分类（multi-class classification）） <!-- .element: class="fragment" -->
-- 把一个人贴很多社交标签也是分类（我们一般把这种分类叫做多标签分类（multi-label classification）） <!-- .element: class="fragment" -->
+- 预测围棋里谁会赢是分类（不考虑和棋的话就是二分类）（注意这里不是预测获胜概率）<!-- .element: class="fragment" -->
+- 人脸识别你是班里的哪一个人是分类（我们一般把这种分类叫做多类别分类（multi-class classification） <!-- .element: class="fragment" -->
+- 把一个人贴很多社交标签也是分类（我们一般把这种分类叫做多标签分类（multi-label classification） <!-- .element: class="fragment" -->
 
 分类不能解决什么样的问题？ <!-- .element: class="fragment" -->
 
@@ -345,11 +397,13 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 线性回归的目标是寻找一个函数，使得所有观测点到该函数的距离的平方和最小，从而在给定横坐标的情况下预测对应的纵坐标。 <!-- .element: class="fragment" -->
 
-<div align=center>
-<img src="image-3.png" width=400> 
-<div align=left> 
+<img src="images/image-3.png" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+<div class="fragment">
 
 > 这里有一个无数面试经典问题：线性回归的线性是什么意思？
+
+</div>
 
 <!--v-->
 
@@ -357,7 +411,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 这个任务为什么不能被分类概括？它和分类任务有什么区别？ <!-- .element: class="fragment" -->
 
-像这样的，目标是让预测结果尽可能接近真实结果的任务，叫做**回归（regression）**。 <!-- .element: class="fragment" -->
+<span> 像这样的，目标是让预测结果尽可能接近真实结果的任务，叫做**回归（regression）**。</span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -365,9 +419,9 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 如何区分分类和回归呢？ <!-- .element: class="fragment" -->
 
-从人话的角度，其实分类也是在*接近*真实结果对吧？ <!-- .element: class="fragment" -->
+<span> 从人话的角度，其实分类也是在 *接近* 真实结果对吧？</span> <!-- .element: class="fragment" -->
 
-好像也有那么一点不对——分类希望的是和真实结果*完全一致*——预测和结果是同一个类别。 <!-- .element: class="fragment" -->
+<span> 好像也有那么一点不对——分类希望的是和真实结果 *完全一致* ——预测和结果是同一个类别。</span> <!-- .element: class="fragment" -->
 
 找到概括的方法了吗？ <!-- .element: class="fragment" -->
 
@@ -375,15 +429,19 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 ## 分类与回归，离散与连续（cont'd）
 
-实际上，分类任务指的是任务目标**离散（discrete）**的一类问题，而回归任务指的是任务目标**连续（continuous）**的一类问题。 <!-- .element: class="fragment" -->
+<span> 实际上，分类任务指的是任务目标**离散（discrete）**的一类问题，而回归任务指的是任务目标**连续（continuous）**的一类问题。</span> <!-- .element: class="fragment" -->
 
 - 离散与连续的区别大家接触过吗？ <!-- .element: class="fragment" -->
-- 橙子是离散，橙汁是连续（~~并非物理专业学习指导~~） <!-- .element: class="fragment" -->
+<li class="fragment"> 橙子是离散，橙汁是连续（<del>并非物理专业学习指导</del>）</li>
 - 数列是离散，函数是连续 <!-- .element: class="fragment" -->
-- 分类的目标是有限的类别，回归的目标是*无限的*类别。 <!-- .element: class="fragment" -->
+<li class="fragment"> 分类的目标是有限的类别，回归的目标是 <em>无限的</em> 类别。</li>
+
+<div class="fragment">
 
 > 这里的无限可能在数学上定义不一定严密，主要是为了方便大家理解，意会一下就好。之后你们会在离散数学中接触到更多的“无限”。
-> 下一节课我们会讲到如何定义损失，也就是损失函数。从更general~~对不起这个词我实在想不到怎么用中文表示~~的角度来思考，我们甚至可以说分类与回归的**唯一区别**就在于**损失函数不同**。这可能听起来比较amazing，在之后的AI旅程中你可以多多思考。 <!-- .element: class="fragment" -->
+> 下一节课我们会讲到如何定义损失，也就是损失函数。从更general~~对不起这个词我实在想不到怎么用中文表示~~的角度来思考，我们甚至可以说分类与回归的**唯一区别**就在于**损失函数不同**。这可能听起来比较amazing，在之后的AI旅程中你可以多多思考。
+>
+</div>
 
 <!--v-->
 
@@ -392,7 +450,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 这里列举了一些算法，感兴趣的话大家可以去了解：
 
 - Winnow
-- 决策树（Decision Tree）和它的前身Decision List
+- 决策树（Decision Tree）和它的前身 Decision List
 - 
 
 看起来分类和回归已经足够概括所有的机器学习任务了。还有别的漏网之鱼吗？
@@ -429,7 +487,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 - 色泽：青绿？乌黑？浅白？ <!-- .element: class="fragment" -->
 - 根蒂：蜷缩？稍蜷？硬挺？ <!-- .element: class="fragment" -->
 - 敲声：浊响？沉闷？清脆？ <!-- .element: class="fragment" -->
-- ~~一个优秀的贝斯手往往能通过敲声判断西瓜好坏（经典贝斯笑话）~~ <!-- .element: class="fragment" -->
+<li class="fragment"> <del>一个优秀的贝斯手往往能通过敲声判断西瓜好坏（经典贝斯笑话）</del> </li>
 
 
 <!--v-->
@@ -439,9 +497,9 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 - 如果我们希望训练出一个用来预测是“好瓜”还是“坏瓜”的模型，我们就需要 **样例（Example）**
   > 这里的“好瓜”，“坏瓜”是离散的，也就是之前提到的 **分类**，如果想预测成熟度 $0.00 \sim 0.99$ 这样连续的数据，那就是之前提到的 **回归** ，你学会了吗（
 - 样例可能是人们 手动提供的 大量的 经验总结：例如  
-`色泽青绿;根蒂蜷缩;敲声浊响 的是 好瓜`
-- <span>由于我们需要提供样例，也就是对模型要学习的训练数据提前做标记，这样的学习需要人类参与 **监督**</span> <!-- .element: class="fragment" -->
-- <span>像这种提供 **输入数据** 和其对应的 **标签数据（label）** ，然后搭建一个模型，模型经过训练后准确的找到输入数据和标签数据之间的 **最优映射关系** ，从而对新的未标记数据进行预测或分类，我们称作 **监督学习(supervised learning)** ，分类和回归就是监督学习的代表</span>  <!-- .element: class="fragment" -->
+`色泽青绿;根蒂蜷缩;敲声浊响 -> 好瓜`
+<li class="fragment"> 由于我们需要提供样例，也就是对模型要学习的训练数据提前做标记，这样的学习需要人类参与<b>监督</b> </li>
+<li class="fragment"> 像这种提供<b>输入数据</b>和其对应的<b>标签数据（label）</b> ，然后搭建一个模型，模型经过训练后准确的找到输入数据和标签数据之间的<b>最优映射关系</b> ，从而对新的未标记数据进行预测或分类，我们称作<b>监督学习(supervised learning)</b> ，分类和回归就是监督学习的代表</li>
 
 <!--v-->
 
@@ -454,12 +512,12 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 ## `sudo 机器自己学`
 
 - 我们还可以对西瓜做 **聚类 (clustering)** ，只提供输入数据，而不事先标注任何东西，让机器自己学习
-- <span> 例如在机器自己学习探索各种西瓜的过程中，会 **自动地** 把西瓜分成许多组，每一组叫一个 **簇 (cluster)** </span>  <!-- .element: class="fragment" -->
-- <span> 所谓 **物以类聚**，也就是机器会在聚类的过程中把 “类似” 的物体聚在一组 </span>  <!-- .element: class="fragment" -->
-- <span>这些自动形成的簇可能对应一些潜在的概念划分，例如 “浅色瓜” “深色瓜” 甚至 “本地瓜” “外地瓜”，而这些是我们 **事先不知道的** </span>  <!-- .element: class="fragment" -->
-- <span> 像这样**训练数据只包含输入样本，通常没有相应的标签或目标**的学习就是 **无监督学习 (unsupervised learnin)** ，聚类是无监督学习的代表 </span>  <!-- .element: class="fragment" -->
-- <span> 无监督学习目标不是告诉计算机怎么做（没有label），而是让它自己去学习怎样做事情。 </span>  <!-- .element: class="fragment" -->
-- <span> 这样的学习过程有助于我们了解数据内在的规律，能为更深入地分析数据建立基础. </span>  <!-- .element: class="fragment" -->
+<li class="fragment"> 例如在机器自己学习探索各种西瓜的过程中，会<b>自动地</b>把西瓜分成许多组，每一组叫一个<b>簇 (cluster)</b> </li>
+<li class="fragment"> 所谓<b>物以类聚</b>，也就是机器会在聚类的过程中把 “类似” 的物体聚在一组 </li>
+<li class="fragment"> 这些自动形成的簇可能对应一些潜在的概念划分，例如 “浅色瓜” “深色瓜” 甚至 “本地瓜” “外地瓜”，而这些是我们<b>事先不知道的</b> </li>
+<li class="fragment"> 像这样<b>训练数据只包含输入样本，通常没有相应的标签或目标</b>的学习就是<b>无监督学习 (unsupervised learning)</b> ，聚类是无监督学习的代表 </li>
+<li class="fragment"> 无监督学习目标不是告诉计算机怎么做（没有label），而是让它自己去学习怎样做事情。 </li>
+<li class="fragment"> 这样的学习过程有助于我们了解数据内在的规律，能为更深入地分析数据建立基础. </li>
 
 
 <!--
@@ -551,9 +609,11 @@ $$ (点的坐标，颜色) $$
 - 一个课程大纲的详细版 <!-- .element: class="fragment" -->
 - 算法的基本概念 <!-- .element: class="fragment" -->
 - 从传统算法走向机器学习 <!-- .element: class="fragment" -->
-- <span> ~~下下集预告~~ </span> <!-- .element: class="fragment" -->
+<li class="fragment"> <del>下下集预告</del> </li>
 
 ......如果你还愿意听下去的话，那么，接下来是时候来点猛料大杯大脑升级了。 <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 回到感知机（optional）
 
