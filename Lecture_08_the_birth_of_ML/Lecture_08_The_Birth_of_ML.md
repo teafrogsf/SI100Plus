@@ -223,10 +223,9 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 事实上，从更一般的角度去看，我们可以把参数看成自变量，学习效果看成因变量（也就是把它们看成函数），于是机器学习就是通过改变自变量来尝试找到这个函数的最优（optimum）。 <!-- .element: class="fragment" -->
 
-但是，假如一个机器学习算法每一步令参数变化的量都一直保持不变的话，那么就有可能出现在最优点附近反复横跳的情况。 <!-- .element: class="fragment" -->
+但是，假如一个机器学习算法每一步令参数变化的量都一直保持不变的话，那么就有可能出现直接跳过最优点的情况。 <!-- .element: class="fragment" -->
 
-TODO
-<img src="image-13.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="images/miss_min.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -234,7 +233,9 @@ TODO
 
 因此，我们需要给机器学习算法设置一个**学习率**，使其每一步更新参数都受到学习率的约束。同时，这个学习率还有必要逐步降低，从而让机器学习算法逐步走向收敛。 <!-- .element: class="fragment" -->
 
-<img src="image-14.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+<img src="images/learning_rate_ex.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
+
+<img src="images/learning_rate_ex_2.png" width="25%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 学习率和学习率衰减与机器学习算法的关系是什么？ <!-- .element: class="fragment" -->
 - 它们不会被机器学习算法主动更新，却影响着学习的结果 <!-- .element: class="fragment" -->
