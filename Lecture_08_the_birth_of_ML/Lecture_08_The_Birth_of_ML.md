@@ -127,7 +127,7 @@ revealOptions:
 
 <div class="fragment">
 
-> 上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量分割的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。
+> 上述提到的点集都是训练集。在实际应用中，你还需要把找到的向量拿到测试集上进行测试，查看你找到的向量区分的效果如何。你发现了没有？其实这里我们隐含了一个假设，就是训练集和测试集是类似的，或者说，**来源于同一分布**。我们将在这节课的扩展部分稍微多聊聊这里的内容。
 
 </div>
 
@@ -177,8 +177,8 @@ revealOptions:
   > 这样的随机初始化在机器学习中非常常见。
   
   </div>
-- Step 2: 遍历每一个点。对于点 $i$，如果 $\boldsymbol{w} \cdot \boldsymbol{x ^ {(i)}} \geqslant 0$ 但 $y ^{ (i)} < 0$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} - \boldsymbol{x}$；如果 $\boldsymbol{w} \cdot \boldsymbol{x ^ {(i)}} < 0$ 但 $y ^ {(i)} > 0$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} + \boldsymbol{x}$。 <!-- .element: class="fragment" -->
-- Step 3: 一直重复 Step 2，直到无法再更新为止。然后，感知机就会输出 $\boldsymbol{w}$，你可以拿着它去测试集看看结果了。 <!-- .element: class="fragment" -->
+- Step 2: 遍历每一个点。对于点 $i$，如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} \geqslant 0$ 但 $y^{(i)} = -1$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} - \boldsymbol{x}$；如果 $\boldsymbol{w} \cdot \boldsymbol{x^{(i)}} < 0$ 但 $y^{(i)} = 1$，更新 $\boldsymbol{w} \leftarrow \boldsymbol{w} + \boldsymbol{x}$。 <!-- .element: class="fragment" -->
+- Step 3: 一直重复Step 2，直到无法再更新为止。然后，感知机就会输出$\boldsymbol{w}$，你可以拿着它去测试集看看结果了。 <!-- .element: class="fragment" -->
 
 就这么简单！ <!-- .element: class="fragment" -->
 
@@ -188,12 +188,15 @@ revealOptions:
 
 我们再来稍微解释一下然后举个栗子。
 
-- 对于Step 2，
-
+- Step 2是我们提到的“纠错环节” <!-- .element: class="fragment" -->
+  - 我们是怎么更新的呢？ <!-- .element: class="fragment" -->
+  - 对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}\ge0$，说明当前我们的向量会把点$i$看作正样本。但是，如果它实际上是负样本的话（也就是$y^{(o)}=-1$），说明我们的向量的“指向”离它太近了，应该更远离它一点。所以，我们需要让$\boldsymbol{w}\leftarrow\boldsymbol{w}-\boldsymbol{x}$；你可以在脑海里脑补一下向量减法 <!-- .element: class="fragment" -->
+  - 对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}<0$，说明当前我们的向量会把点$i$看作负样本。但是，如果它实际上是正样本的话（也就是$y^{(o)}=1$），说明我们的向量的“指向”离它太远了，应该更靠近它一点。所以，我们需要让$\boldsymbol{w}\leftarrow\boldsymbol{w}+\boldsymbol{x}$；你可以在脑海里脑补一下向量加法 <!-- .element: class="fragment" -->
+- 接下来我们用我灵魂的画图进行几个例子的举。 <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## 感知机（Perceptron）
+## 在很大的点集里跑起来是这样的
 
 <img src="perceptron_work.gif" width="45%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
@@ -207,7 +210,7 @@ revealOptions:
 
 ## 成功抵达终点
 
-不过，你可能会有一个小小的疑问：这个算法真的能找到解而不一直循环吗？ <!-- .element: class="fragment" -->
+不过，你可能会有一个小小的疑问：这个算法真的能找到解而不一直循环吗？
 
 还真是。数学家们证明了，只要一个点集线性可分，那么感知机就一定能在有限步数内找到答案。 <!-- .element: class="fragment" -->
 
@@ -221,7 +224,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 <!--v-->
 
-## 不过，如果点集不是线性可分的话......
+## 但是，如果点集不是线性可分的话......
 
 就像这种情况。肉眼观察可得，肯定不存在一条向量能把这些点按正负分成两半。 <!-- .element: class="fragment" -->
 
