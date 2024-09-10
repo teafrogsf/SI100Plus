@@ -114,7 +114,7 @@ def main():
         manager.update()
         pygame.display.flip()
         manager.clock.tick(30)
-        if not thread.is_alive():
+        if not thread.is_alive() and not manager.ended:
             print("Operation finished without reaching the exit.")
             pygame.quit()
             sys.exit()

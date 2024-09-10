@@ -71,6 +71,7 @@ class GameManager:
 
     def __init__(self, mode: GameMode):
         self.mode = mode
+        self.ended = False
         if mode == GameMode.PLAY:
             self._initalize_play_mode()
         elif mode == GameMode.DEBUG:
@@ -148,8 +149,8 @@ class GameManager:
         return (self.player.x - 1, self.player.y - 1) == self.maze.exit_pos
 
     def end_game(self, message: str = ""):
+        self.ended = True
         if self.mode == GameMode.CHECK:
-            self.ended = True
             print(message)
         else:
             print(message)
