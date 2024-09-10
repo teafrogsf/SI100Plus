@@ -9,10 +9,10 @@ def operation():
 ####################### DO NOT MODIFY ABOVE THIS LINE ##########################
     pass
     # Your code starts from here.
-    while True:
+    while check_front() != BlockType.EXIT:
         turn_left()
         while(check_front() == BlockType.WALL):
             turn_right()
         move_forward()
-        try_exit()
-    
+    move_forward()
+    try_exit()

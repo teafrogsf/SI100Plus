@@ -125,6 +125,8 @@ class GameManager:
         y += dy
         if (x < 1 or x > self.maze.row or y < 1 or y > self.maze.column):
             return BlockType.WALL
+        elif (x - 1, y - 1) == self.maze.exit_pos:
+            return BlockType.EXIT
         # TODO: Change single bool to multi BlockType
         return BlockType(self.maze.grid[x - 1][y - 1])
 
@@ -137,11 +139,12 @@ class GameManager:
             (self.player.direction.value + 1) % 4)
 
     def try_move(self) -> None:
-        if self.check_front() == BlockType.GROUND:
+        if self.check_front() == BlockType.GROUND or self.check_front() == BlockType.EXIT:
             self.player.move_forward()
 
     def try_exit(self) -> bool:
         # return (self.player.x, self.player.y) == self.maze.exit_pos
+        print(self.player.x, self.player.y, self.maze.exit_pos)
         return (self.player.x - 1, self.player.y - 1) == self.maze.exit_pos
 
     def end_game(self, message: str = ""):
