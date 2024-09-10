@@ -4,7 +4,7 @@ from maze.statics import BlockType, GameMode
 from solve import command_queue, result_queue
 
 # time limit (frames)
-time_limit = 120 * 20
+time_limit = 120 * 25
 
 def terminate_thread(thread):
     if not thread.is_alive():
