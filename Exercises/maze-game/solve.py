@@ -87,6 +87,7 @@ def main():
                 print(f"MAIN-KEYDOWN at {time.time()}")
                 global event_key
                 event_key = event.key
+        process_command_count = 0
         while not command_queue.empty():
             command = command_queue.get()
             if command == "CHECK_FRONT":
@@ -109,6 +110,9 @@ def main():
             elif command == "TRY_EXIT":
                 if manager.try_exit():
                     manager.end_game("WIN")
+            process_command_count += 1
+            if process_command_count > 30:
+                break
         manager.update()
         pygame.display.flip()
         manager.clock.tick(30)

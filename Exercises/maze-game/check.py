@@ -51,7 +51,8 @@ def main():
         solve_thread = threading.Thread(target=operation)
         solve_thread.daemon = True
         solve_thread.start()
-    
+        
+        process_command_count = 0
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -81,6 +82,9 @@ def main():
                         terminate_thread(solve_thread)
                         manager.end_game(f"Test Case {i} Passed")
                         score += 1
+                process_command_count += 1
+                if process_command_count > 30:
+                    break
             if not solve_thread.is_alive():
                 if manager.ended:
                     break
