@@ -225,6 +225,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 
 但是，假如一个机器学习算法每一步令参数变化的量都一直保持不变的话，那么就有可能出现在最优点附近反复横跳的情况。 <!-- .element: class="fragment" -->
 
+TODO
 <img src="image-13.png" width="40%" style="display: block; margin: 0 auto;"> <!-- .element: class="fragment" -->
 
 <!--v-->
@@ -246,7 +247,7 @@ Theorem 1 (Perceptron Convergence Theorem)：如果一个点集是线性可分�
 ## 改进后的感知机
 
 - Step 1: 设我们要找的向量$\boldsymbol{w}=(w_1,w_2)$，其中$w_1,w_2$为参数，它们在最开始会初始化为一个随机值。初始化一个学习率$\eta$和学习率衰减函数$f(\eta)$。 <!-- .element: class="fragment" -->
-- Step 2: 对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}\ge0$但$y^{(i)}<0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}-\eta\boldsymbol{x}$；如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}<0$但$y^{(i)}>0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}+\eta\boldsymbol{x}$。 <!-- .element: class="fragment" -->
+- Step 2: 遍历每一个点，对于点$i$，如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}\ge0$但$y^{(i)}<0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}-\eta\boldsymbol{x}$；如果$\boldsymbol{w}\cdot\boldsymbol{x^{(i)}}<0$但$y^{(i)}>0$，更新$\boldsymbol{w}\leftarrow\boldsymbol{w}+\eta\boldsymbol{x}$。 <!-- .element: class="fragment" -->
 - Step 3: 令$\eta\leftarrow f(\eta)$，一直重复Step 2，直到无法再更新或者更新效果低于某个阈值为止。然后，感知机就会输出$\boldsymbol{w}$，你可以拿着它去测试集看看结果了。 <!-- .element: class="fragment" -->
 
 > 其实在现在实际的机器学习训练（可能不适用于感知机的训练）中，$\eta$的取值可能远比你之前想象的要小——$\eta=0.001$甚至$0.0001$都是很有可能的。而$f(\eta)$也是一个有很多选择的东东。一个简单的例子就是$f(\eta)=\alpha\eta$，其中$\alpha$是个很接近但小于1的数比如$0.999$。 <!-- .element: class="fragment" -->
@@ -301,7 +302,7 @@ TODO!
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.3 更多的任务，更多的定义
+  # Part.3 机器学习的
   
   </div>
 </div>
@@ -366,7 +367,7 @@ TODO!
 
 <!--v-->
 
-## 分类与回归，离散与连续
+## 分类与回归，离散与连续（cont'd）
 
 实际上，分类任务指的是任务目标**离散（discrete）**的一类问题，而回归任务指的是任务目标**连续（continuous）**的一类问题。 <!-- .element: class="fragment" -->
 
@@ -430,7 +431,7 @@ TODO!
 ## 监督学习（supervised learning）
 
 - 如果我们希望训练出一个用来预测是“好瓜”还是“坏瓜”的模型，我们就需要 **样例（Example）**
-  - Note: 这里的“好瓜”，“坏瓜”是离散的，也就是之前提到的 **分类**，如果想预测成熟度 $0.00 \sim 0.99$ 这样连续的数据，那就是之前提到的 **回归** ，你学会了吗（
+  > 这里的“好瓜”，“坏瓜”是离散的，也就是之前提到的 **分类**，如果想预测成熟度 $0.00 \sim 0.99$ 这样连续的数据，那就是之前提到的 **回归** ，你学会了吗（
 - 样例可能是人们 手动提供的 大量的 经验总结：例如  
 `色泽青绿;根蒂蜷缩;敲声浊响 的是 好瓜`
 - <span>由于我们需要提供样例，也就是对模型要学习的训练数据提前做标记，这样的学习需要人类参与 **监督**</span> <!-- .element: class="fragment" -->
@@ -512,24 +513,10 @@ $$ (点的坐标，颜色) $$
 
 ## 无监督学习（unsupervised learning）
 
-### 你是否在想，监督学习是因为找到了映射关系才能对西瓜进行分类的
-
-### 那无监督学习凭啥能把相似的西瓜认出来？
+监督学习是因为找到了映射关系才能对西瓜进行分类的，那无监督学习凭啥能把相似的西瓜认出来？
 
 * 无监督学习会从无标签数据中学习有效的特征或表示，而同一类的图片具有相似的特征
-* 特征提取（Feature Extraction）：将任意数据（如文本或图像）转换成机器学习的数学特征
-
-<!--v-->
-
-## 分类与回归的再分类
-
-* 通过上面的描述，聪明的你肯定已经发现**回归任务本质上就是一种监督学习**，因为回归任务实际上是在是在数据和标签的基础上学习一个最优的函数曲线
-
-* 而分类任务则相对复杂，可以细分为 **分类(classification)** 和 **聚类(clustering)** 两种
-  - **分类**是一种**监督学习**，例如判断“好瓜”，“坏瓜”
-  - 而**聚类**是一种**无监督学习**，例如机器自动学习出的“深色瓜”，“浅色瓜”
-
-* 现在也有很多文章直接把机器学习的任务直接分为**分类**，**聚类**，**回归**三类，是更好的选择
+* 特征提取（feature extraction）：将任意数据（如文本或图像）转换成机器学习的数学特征
 
 <!--v-->
 
@@ -537,43 +524,6 @@ $$ (点的坐标，颜色) $$
 
 <img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
 
-<!--v-->
-
-## 认识到优质数据的稀缺性
-
-* 在信息化社会，数据被誉为新的石油然而，与之相反的是，我们却面临着优质数据的严重缺乏。这种现象引发了一系列的问题，特别是在人工智能（AI）和机器学习（ML）领域，这一问题尤为突出。
-
-* 什么是优质数据？
-
-* 优质数据是指具有高度准确性、一致性、完整性和可靠性的数据。这种数据不仅要精确无误，还要对我们要解决的问题有直接的相关性。
-
-* 还有一些领域，比如医疗领域，获取足够的数据本身就是一个挑战。
-
-<!--v-->
-
-## 半监督学习（Semi-supervised learning）（仅做了解）
-
-* 顾名思义，半监督学习利用**少量有标签的数据和大量无标签**的数据来训练模型
-
-* 在数据稀缺条件下的被迫选择
-
-<!--s-->
-
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part.3 机器学习的分类
-  
-  </div>
-</div>
-
-<!--v-->
-
-<img src="image-7.png" width="85%" style="display: block; margin: 0 auto;">
-
-<!--v-->
-
-<img src="image-8.png" width="85%" style="display: block; margin: 0 auto;">
 
 <!--s-->
 
@@ -600,3 +550,5 @@ $$ (点的坐标，颜色) $$
 ......如果你还愿意听下去的话，那么，接下来是时候来点猛料大杯大脑升级了。 <!-- .element: class="fragment" -->
 
 ## 回到感知机（optional）
+
+让我们回到之前提到的Perceptron Convergence Problem。
