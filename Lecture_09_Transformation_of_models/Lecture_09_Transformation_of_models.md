@@ -274,7 +274,7 @@ revealOptions:
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.2 感知机的拓展：从二维到$n$维
+  # Part.2 感知机的拓展：从二维到 $n$ 维
   
   </div>
 </div>
@@ -283,28 +283,28 @@ revealOptions:
 
 ## 再次回到感知机
 
-- 在之前的课程中我们介绍了一个非常简单的感知机模型
-- 我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类
-- 于是我们就能使用这个模型来预测别的点的类别了
-- 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样：
+- 在之前的课程中我们介绍了一个非常简单的感知机模型 <!-- .element: class="fragment" -->
+- 我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类 <!-- .element: class="fragment" -->
+- 于是我们就能使用这个模型来预测别的点的类别了 <!-- .element: class="fragment" -->
+- 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样： <!-- .element: class="fragment" -->
 
-<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- P.S. 看到箭头上的 $w_i$，你可能会对 **权重向量** $\boldsymbol{w}$ 有了更深的理解（权重值越大，该输入越重要）
+<span> P.S. 看到箭头上的 $w_i$，你可能会对 **权重向量** $\boldsymbol{w}$ 有了更深的理解（权重值越大，该输入越重要）</span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 感知机有几层？
 
-<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="30%" style="display: block; margin: 0 auto;"/>
 
-- 一看就是两层：输入层，输出层
-- 输入层用来接受输入信号，并且传递给输出层
-- 输出层干了什么呢？
-  - 我们知道 $\boldsymbol{w} \cdot \boldsymbol{x}$ 不一定是一个整数，但是不会有 “$0.114514$ 好的瓜”
-  - 因此它就像一个开关，将输入的信号 **两极化**，要么是 $1$，要么是 $0$
-  - 输入信号……传递信号……有没有很熟悉？
-  - 兴奋在神经元上的传导！
+- 一看就是两层：输入层，输出层 <!-- .element: class="fragment" -->
+- 输入层用来接受输入信号，并且传递给输出层 <!-- .element: class="fragment" -->
+- 输出层干了什么呢？ <!-- .element: class="fragment" -->
+  - 我们知道 $\boldsymbol{w} \cdot \boldsymbol{x}$ 不一定是一个整数，但是不会有 “$0.114514$ 好的瓜” <!-- .element: class="fragment" -->
+  <li class="fragment"> 因此它就像一个开关，将输入的信号 <b>两极化</b>，要么是 $1$，要么是 $0$ </li>
+  - 输入信号……传递信号……有没有很熟悉？<!-- .element: class="fragment" -->
+  - 兴奋在神经元上的传导！ <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -312,11 +312,11 @@ revealOptions:
 
 <div style="column-count:2">
 
-- 生物神经网络中，每个神经元与其他神经元相连，当它 “兴奋” 时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。
-- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即 “兴奋”起来，向其他神经元发送化学物质.
-- 在刚刚的图中，每一个 `○→` 都是一个神经元 (neuron)，接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋”
-- 这就是 “M-P 神经元模型” (1943)
-- 基于这个模型，感知机得以诞生
+- 生物神经网络中，每个神经元与其他神经元相连，当它 “兴奋” 时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
+- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即 “兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
+- 在刚刚的图中，每一个 ○→ 都是一个神经元 (neuron)，接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
+- 这就是 “M-P 神经元模型” (1943) <!-- .element: class="fragment" -->
+- 基于这个模型，感知机得以诞生 <!-- .element: class="fragment" -->
 
 <img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
 
@@ -326,16 +326,21 @@ revealOptions:
 
 ## 还可不可以更劲爆点？
 
-- 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个（三维，四维到 $n$ 维）呢？
+- 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个（三维，四维到 $n$ 维）呢？ <!-- .element: class="fragment" -->
 
-<img src="assets/image-16.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-16.png" width="47%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <div style="column-count:2">
 
-- 这里的 $f$ 是一个 **激活函数**，顾名思义，**理想中** 用来将传入的总输入值与阈值的差映射到 $0$, $1$ ，用来判断是否激活，如右图左的 **阶跃函数**。
-- 但其实它并不常见，因为它的函数不连续也不光滑，更常见的是如右图右的Sigmoid函数，我们不多做介绍
+<ul>
 
-<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/>
+<li class="fragment"> 这里的 $f$ 是一个 <b>激活函数</b>，顾名思义，<b>理想中</b>用来将传入的总输入值与阈值的差映射到 $0$, $1$ ，用来判断是否激活，如右图左的<b>阶跃函数</b>。</li>
+
+<li class="fragment"> 但其实它并不常见，因为它的函数不连续也不光滑，更常见的是如右图右的 Sigmoid 函数，我们不多做介绍 </li>
+
+</ul>
+
+<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 </div>
 
@@ -353,96 +358,135 @@ revealOptions:
 
 ## 可以更广，也可以更深！
 
-- 刚刚我们在输入层面拓展了感知机模型，使之可以接受若干个输入
-- 那我们是否也可以给感知机堆叠层数使之更加复杂呢？
-- 在生物学上非常容易理解：我们让多个神经元头尾相接！就可以构成一个有更多功能的神经网络！
-- 为此，我们引入**多层感知机**（Multi-Layer Perception）
+- 刚刚我们在输入层面拓展了感知机模型，使之可以接受若干个输入 <!-- .element: class="fragment" -->
+- 那我们是否也可以给感知机堆叠层数使之更加复杂呢？ <!-- .element: class="fragment" -->
+- 在生物学上非常容易理解：我们让多个神经元头尾相接！就可以构成一个有更多功能的神经网络！ <!-- .element: class="fragment" -->
+<li class="fragment"> 为此，我们引入<b>多层感知机</b>（Multi-Layer Perception）</li>
 
 <!--v-->
 
 ## 多层感知机
 
-- 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的 **异或 (XOR)**
+<span> 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的 **异或 (XOR)** </span> <!-- .element: class="fragment" -->
 
-<img src="assets/image-18.png" width="300" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-18.png" width="25%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- 这不是线性可分的问题！也就是我们无法画一条线分开所有的正点和负点！
-- 但是，再加一层神经元就可以 😉
+- 这不是线性可分的问题！也就是我们无法画一条线分开所有的正点和负点！ <!-- .element: class="fragment" -->
+- 但是，再加一层神经元就可以 😉 <!-- .element: class="fragment" -->
 
-<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 太神奇了！
 
-- 我们只添加了一层就解决了这个问题
+- 我们只添加了一层就解决了这个问题 <!-- .element: class="fragment" -->
 
-<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- 添加的这一层叫做**隐藏层（hidden layer）** 
-  - 它既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了一样
-- 隐含层和输出层神经元都是拥有 **激活函数** 的功能神经元
-  - 输入层神经元仅是接受输入，不进行函数处理，因此在计算层数的时候通常忽略输入层
+<ul>
+
+<li class="fragment"> 添加的这一层叫做<b>隐藏层（hidden layer）</b> </li>
+
+<ul>
+
+<li class="fragment"> 它既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了一样 </li>
+
+</ul>
+
+<li class="fragment"> 隐含层和输出层神经元都是拥有<b>激活函数</b>的功能神经元</li>
+
+- 输入层神经元仅是接受输入，不进行函数处理，因此在计算层数的时候通常忽略输入层 <!-- .element: class="fragment" -->
+
+</ul>
 
 <!--v-->
 
 ## 层级结构
 
-- 更一般的，常见的神经网络是下图所示的层级结构
-- 每层神经元与下一层神经元 **全互连**，神经元之间 **不存在同层连接**，也 **不存在跨层连接**
-- 输入层神经元接收外界输入，隐层与输出层神经元对信号进行
-加工，最终结果由输出层神经元输出
+- 更一般的，常见的神经网络是下图所示的层级结构 <!-- .element: class="fragment" -->
+<li class="fragment"> 每层神经元与下一层神经元<b>全互连</b>，神经元之间<b>不存在同层连接</b>，也<b>不存在跨层连接</b> </li>
+- 输入层神经元接收外界输入，隐层与输出层神经元对信号进行加工，最终结果由输出层神经元输出 <!-- .element: class="fragment" -->
 
-<p align = "center">    
-<img  src="assets/image-11.png" width="350" />
-</p>
+<img src="assets/image-11.png" width="45%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 神经网络学习的本质
 
+<div class="fragment">
+
 > 神经网络的学习过程，就是根据训练数据来调整神经元之间的
  **“连接权重”（connection weight）** 以及每个功能神经元的 **阈值** ；换言之，神经网络 “学” 到的东西，蕴涵在 **连接权与阈值中**
 
+ </div>
 
-- 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程
+
+<span> 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程 </span> <!-- .element: class="fragment" -->
 
 <!-- - 首先它与输入层是全连接的，类似于简单的感知机结构，假设输入层用向量 $X$ 表示，则隐藏层的输出就是 $f (W_1X+b_1)$，$W_1$是权重（也叫连接系数），$b_1$ 是偏置， -->
 <!-- 函数 $f$ 可以是 **激活函数** (常用的sigmoid函数，tanh函数，RELU函数等) -->
-- 激活函数？解决了感知机只能进行线性分类的问题
-    - 不使用激活函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。
-    - 使用激活函数，能够给神经元引入非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以利用到更多的非线性模型中。
+- 激活函数？解决了感知机只能进行线性分类的问题 <!-- .element: class="fragment" -->
+    - 不使用激活函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。 <!-- .element: class="fragment" -->
+    - 使用激活函数，能够给神经元引入非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以利用到更多的非线性模型中。 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## MLP 的简单训练过程
 
+<div class="fragment">
+
 > 训练的过程就是一个优化参数的过程
 
-- 刚刚我们看到的都是数据单向地从输入不断流向下一层，最终流向输出，没有任何循环。这样的网络叫做 **前馈神经网络 (Feedforward Neural Network, FNN)**，它的基础训练方式是 **前向传播 (Forward Propagation, FP)**
-  - 前向传播：输入层数据开始从前向后，数据逐步传递至输出层
-- 但是现代的 FNN 还会有另外一个步骤：**反向传播 (Backpropagation, BP)**
-  <!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
+</div>
 
-  - 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
+<ul>
+
+<li class="fragment"> 刚刚我们看到的都是数据单向地从输入不断流向下一层，最终流向输出，没有任何循环。这样的网络叫做<b>前馈神经网络 (Feedforward Neural Network, FNN)</b>，它的基础训练方式是<b>前向传播 (Forward Propagation, FP)</b> </li>
+
+- 前向传播：输入层数据开始从前向后，数据逐步传递至输出层 <!-- .element: class="fragment" -->
+
+<li class="fragment"> 但是现代的 FNN 还会有另外一个步骤：<b>反向传播 (Backpropagation, BP)</b> </li>
+
+<!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
+
+- 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
+
+</ul>
 
 <!--v-->
 
 ## 反向传播的步骤
 
-- 反向传播主要由两个阶段组成：激励传播与权重更新。
-- 激励传播中，**每次迭代** 将会
-  1. （前向传播阶段）将训练输入送入网络以获得预测结果
-  2. （反向传播阶段）对预测结果同训练目标求差 (损失函数)
-- 权重更新时，会对每个突触 (连接) 上的权重
-  1. （获取梯度）将输入激励和响应误差相乘，从而获得权重的梯度
-  2. （更新权重）将这个梯度乘上一个比例 (训练因子) 并取反后加到权重上
+反向传播主要由两个阶段组成：激励传播与权重更新。 <!-- .element: class="fragment" -->
+<ul>
 
-- 有点抽象？再次类比一下我们下山的问题
-  - 前向传播 = 往当前的方向走一步
-  - 反向传播 = 看看海拔离目标海拔的差距
-  - 获取梯度 = 看看往哪里走差距下降的最快
-  - 更新权重 = 调整方向
+<li class="fragment"> 激励传播中，<b>每次迭代</b>将会 </li>
+
+1. （前向传播阶段）将训练输入送入网络以获得预测结果 <!-- .element: class="fragment" -->
+2. （反向传播阶段）对预测结果同训练目标求差 (损失函数) <!-- .element: class="fragment" -->
+
+</ul>
+
+<ul>
+
+<li class="fragment"> 权重更新时，会对每个突触 (连接) 上的权重 </li>
+
+1. （获取梯度）将输入激励和响应误差相乘，从而获得权重的梯度 <!-- .element: class="fragment" -->
+2. （更新权重）将这个梯度乘上一个比例 (训练因子) 并取反后加到权重上 <!-- .element: class="fragment" -->
+
+</ul>
+
+<ul>
+
+<li class="fragment"> 有点抽象？再次类比一下我们下山的问题 </li>
+
+- 前向传播 = 往当前的方向走一步 <!-- .element: class="fragment" -->
+- 反向传播 = 看看海拔离目标海拔的差距 <!-- .element: class="fragment" -->
+- 获取梯度 = 看看往哪里走差距下降的最快 <!-- .element: class="fragment" -->
+- 更新权重 = 调整方向 <!-- .element: class="fragment" -->
+
+</ul>
 
 <!--s-->
 
