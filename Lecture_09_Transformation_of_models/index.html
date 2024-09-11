@@ -30,11 +30,20 @@
 
 <!--s-->
 
+<div class="middle center">
+  <div style="width: 100%">
+
+# Intro：GPT模型参数爆炸式增长
+      
+  </div>
+</div>
+
+<!--v-->
 ## Intro：GPT模型参数爆炸式增长
 
 从2018年起，OpenAI就开始发布**生成式预训练语言模型GPT**（Generative Pre-trained Transformer），可用于生成文章、代码、机器翻译、问答等各类内容。每一代GPT模型的参数量都爆炸式增长，堪称“越大越好”。2019年2月发布的GPT-2参数量为15亿，而2020年5月的GPT-3，参数量达到了1750亿。从下面的参数量可以看出，这是个多么恐怖的模型。
 
-![alt text](image.png)
+<img src="assets/image.png" style="display: block; margin: 0 auto;"/>
 
 - 最新的GPT-4在120层中总共包含了1.8万亿参数，规模是GPT-3的10倍以上
 - 这里有 [一个神奇的网站](https://bbycroft.net/llm) ，可视化地告诉了我们这个庞大的差距
@@ -50,6 +59,16 @@
 
 <!--s-->
 
+<div class="middle center">
+  <div style="width: 100%">
+
+# Re：从零开始的ML学习
+      
+  </div>
+</div>
+
+<!--v-->
+
 ## Re：从零开始的ML学习
 
 - 上节课我们简单介绍了一些ML的基础知识，包括它的分类，任务以及简单原理。
@@ -60,7 +79,7 @@
 - 如何找到最小？这对于学过了三年高中数学的你可能非常简单：只需要 **求导** 就好了
 - 最小二乘法的求导一定能有解（不然高中提供的计算公式怎么来的呢）
 
-<img  src="image-2.png" width="400" style="display: block; margin: 0 auto;"/>
+<img  src="assets/image-2.png" width="400" style="display: block; margin: 0 auto;"/>
 
 <!--v-->
 
@@ -106,13 +125,13 @@
 - 假设一个这样的场景，一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)，但此时山上的浓雾很大，导致可视度很低。因此，下山的路径就无法确定，他必须利用自己周围的信息去找到下山的路径。
 - 如果采用梯度下降算法，就是**以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着山的高度下降的方向走**，然后每走一段距离，都反复采用同一个方法，最后就能成功的抵达山谷
 
-<img src="image-5.png" width="700" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-5.png" width="700" style="display: block; margin: 0 auto;"/>
 
 <!--v-->
 
 ## 梯度下降法
  
-<img  src="image-5.png" width="500" style="display: block; margin: 0 auto;"/>
+<img  src="assets/image-5.png" width="500" style="display: block; margin: 0 auto;"/>
 
 按照梯度下降法：
 
@@ -124,20 +143,20 @@
 <!-- ## 数学上的解释
 
 <p align = "center">    
-<img  src="image-6.png" width="500" />
+<img  src="assets/image-6.png" width="500" />
 </p>
 
 定义如上图的公式，J是关于Θ的一个函数，我们在山林里当前所处的位置为$Θ^0$点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度$\bigtriangledown J(\theta )$的反向，然后走一段距离的步长，也就是α，走完这个段步长，就到达了$Θ^1$这个点。
 
 <p align = "center">    
-<img  src="image-5.png" width="500" />
+<img  src="assets/image-5.png" width="500" />
 </p>
 
 
 ## 学习率 $\alpha$
 
 <p align = "center">    
-<img  src="image-7.png" width="400" />
+<img  src="assets/image-7.png" width="400" />
 </p>
 
 * α在梯度下降算法中被称作为**学习率**，意味着我们可以通过α来控制每一步走的距离，以保证不要步子跨的太大，其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。
@@ -145,14 +164,20 @@
 * 所以**α的选择在梯度下降法中往往是很重要的**！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！
 
 <p align = "center">    
-<img  src="image-8.png" width="400" />
+<img  src="assets/image-8.png" width="400" />
 </p>
 
 -->
 
 <!--s-->
 
-## 感知机的拓展：从二维到 $n$ 维
+<div class="middle center">
+  <div style="width: 100%">
+
+# 感知机的拓展：从二维到 $n$ 维
+  
+  </div>
+</div>
 
 <!--v-->
 
@@ -163,7 +188,7 @@
 - 于是我们就能使用这个模型来预测别的点的类别了
 - 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样：
 
-<img src="image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
 
 - P.S. 看到箭头上的 $w_i$，你可能会对 **权重向量** $\boldsymbol{w}$ 有了更深的理解(权重值越大，该输入越重要)
 
@@ -171,7 +196,7 @@
 
 ## 感知机有几层？
 
-<img src="image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
 
 - 一看就是两层：输入层，输出层
 - 输入层用来接受输入信号，并且传递给输出层
@@ -192,7 +217,7 @@
 - 在刚刚的图中，每一个 `○→` 都是一个神经元 (neuron)，接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋”
 - 这就是 “M-P 神经元模型” (1943)
 
-<img src="image-15.png" width="400" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
 
 </div>
 
@@ -203,20 +228,26 @@
 
 - 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个（三维，四维到 $n$ 维）呢？
 
-<img src="image-16.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-16.png" width="500" style="display: block; margin: 0 auto;"/>
 
 <div style="column-count:2">
 
 - 这里的 $f$ 是一个 **激活函数**，顾名思义，**理想中** 用来将传入的总输入值与阈值的差映射到 $0$, $1$ ，用来判断是否激活，如右图左的 **阶跃函数**。
 - 但其实它并不常见，因为它的函数不连续也不光滑，更常见的是如右图右的 Sigmoid 函数，我们不多做介绍
 
-<img src="image-17.png" width="800" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/>
 
 </div>
 
 <!--s-->
 
-## 深度神经网络的诞生：多层感知机（MLP）
+<div class="middle center">
+  <div style="width: 100%">
+
+# 深度神经网络的诞生：多层感知机（MLP）
+  
+  </div>
+</div>
 
 <!--v-->
 
@@ -233,12 +264,12 @@
 
 - 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的 **异或 (XOR)**
 
-<img src="image-18.png" width="300" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-18.png" width="300" style="display: block; margin: 0 auto;"/>
 
 - 这不是线性可分的问题！也就是我们无法画一条线分开所有的正点和负点！
 - 但是，再加一层神经元就可以 😉
 
-<img src="image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
 
 <!--v-->
 
@@ -246,7 +277,7 @@
 
 - 我们只添加了一层就解决了这个问题
 
-<img src="image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
 
 - 添加的这一层叫做 **隐层 或 隐含层(hidden layer)** 
   - 既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了
@@ -263,7 +294,7 @@
 加工，最终结果由输出层神经元输出
 
 <p align = "center">    
-<img  src="image-11.png" width="350" />
+<img  src="assets/image-11.png" width="350" />
 </p>
 
 <!--v-->
@@ -315,7 +346,13 @@
 
 <!--s-->
 
+<div class="middle center">
+  <div style="width: 100%">
+
 # 走向模块化的神经网络
+  
+  </div>
+</div>
 
 <!--v-->
 
@@ -340,7 +377,7 @@
 * 整个模型接受原始输入（特征），生成输出（预测）， 并包含一些参数（所有组成层的参数集合）。 同样，每个单独的层接收输入（由前一层提供）， 生成输出（到下一层的输入），并且具有一组可调参数， 这些参数根据从下一层反向传播的信号进行更新。
 
 <p align = "center">    
-<img  src="https://zh.d2l.ai/_images/blocks.svg" width="700" />
+<img  src="assets/https://zh.d2l.ai/_images/blocks.svg" width="700" />
 </p> -->
 
 <!--v-->
@@ -356,18 +393,23 @@
 
 <!--v-->
 
-## 模块的力量
+## 让模型更好：一味的加大？
 
-- `PyTorch` 的 `TorchVision` 项目，包含了一些表现优异的、关于计算机视觉的神经网络架构，我们介绍一下其中两个代表性的
-- AlexNext: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。
-- ResNet(残差网络): 它在 2015 年的 ILSVRC 中获胜。目前ResNet架构仍然是许多视觉任务的首选架构。
-  - ResNet101 有 101 层，这些层是由层组（groups of layers）的重复模式组成，我们可以把每一层当作一个模块
-- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。
-- 我们做了一个[小的演示](https://www.kaggle.com/code/zambar/si100-pretrained-models)，让大家体验一下预训练好的一个图像识别的 ResNet101 模型
+- 还记得[之前的分类问题吗](https://playground.tensorflow.org/#activation=tanh&batchSize=12&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.08309&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+- [多加几个神经元](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.21815&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+- [多来几层](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2,2&seed=0.21815&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+- 早期大家的思路和大家一样，力大砖飞！
 
 <!--s-->
 
+
+<div class="middle center">
+  <div style="width: 100%">
+
 # 深度学习的发展：研究方向的细分和新模型的提出
+  
+  </div>
+</div>
 
 <!--v-->
 
@@ -378,30 +420,41 @@
   - 除了一些训练技巧之外，能不能从模型本身解决问题？
 - 研究领域出现细分
   - 随着深度学习的发展和研究方向的细化，CV（计算机视觉，computer vision）和 NLP（自然语言处理，Natuarl Language Processing）成为深度学习发展最迅速、最具前景的两大分支
-- 需要新的东西出现了！
+- 需要新的架构出现了！
 
 <!--v-->
 
-## 新的模型架构：CNN 网络架构
+## CNN 网络架构：有感受野、可并行
 
 - CNN，即卷积神经网络（Convolutional Neural Networks），是一种专门用于处理具有类似网格结构数据（比如图像）的深度学习模型。
-  - 刚刚展示的 `ResNet101` 就是经典的 CNN 网络模型
 
 - 图片通常需要 **整体理解**，CNN 利用卷积核（也称为滤波器或 kernel）在输入图像上进行滑动窗口操作，来获取 **“感受野”** 范围内数据之间的关系特征。一张图片里，相邻的像素显然是有更强的相关性，相比于 MLP，CNN 突出了这种 **相邻的关系特征**，因而更加准确的获取了图片内的有用信息。
 
-<img src="kernel.gif" width="400" style="display: block; margin: 0 auto;"/>
+<img src="assets/kernel.gif" width="400" style="display: block; margin: 0 auto;"/>
 
 <!--v-->
 
-## NLP 与 RNN 网络架构
+## RNN 网络架构：长距离特征的提取
 
-- RNN，即循环神经网络（Recurrent Neural Networks），是一种用于处理序列数据（如语言）的深度学习模型。
+- RNN，即循环神经网络/递归神经网络（Recurrent Neural Networks），是一种用于处理序列数据（如语言）的深度学习模型。
 
 - 理解句子需要 **结合上下文**，而普通的神经网络缺乏 **记忆能力**，因此在处理序列数据时表现不佳。例如，你要预测句子的下一个单词是什么，一般需要用到前面的单词，因为一个句子中前后单词并不是独立的。
 
 - RNN 之所以称为循环神经网路，即一个序列当前的输出与前面的输出也有关。具体的表现形式为网络会对前面的信息进行记忆并应用于当前输出的计算中。
 
-<img src="image-13.png" width="400"  style="display: block; margin: 0 auto;"/>
+<img src="assets/image-13.png" width="400"  style="display: block; margin: 0 auto;"/>
+
+<!--v-->
+
+## 成功的模型们
+
+- `PyTorch` 的 `TorchVision` 项目，包含了一些表现优异的、关于计算机视觉的神经网络架构，我们介绍一下其中两个代表性的 CNN 模型
+- AlexNet: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。
+- ResNet(残差网络): 它在 2015 年的 ILSVRC 中获胜。目前ResNet架构仍然是许多视觉任务的首选架构。
+  - ResNet101 有 101 层，这些层是由层组（groups of layers）的重复模式组成，我们可以把每一层当作一个模块
+- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。
+- 我们做了一个[小的演示](https://www.kaggle.com/code/zambar/si100-pretrained-models)，让大家体验一下预训练好的一个图像识别的 ResNet101 模型
+
 
 <!--v-->
 
@@ -409,19 +462,101 @@
 
 - 算力突飞猛进
 - 金钱开始涌入 AI 市场
-- 回到我们的主题，这是一个 **力大砖飞** 的时代
+- 回到我们的主题，这仍然是一个 **力大砖飞** 的时代
 
 <!--s-->
+<div class="middle center">
+  <div style="width: 100%">
+
+# 力大砖飞：深度的增加与堆叠
+  
+  </div>
+</div>
+
+<!--v-->
+
+## 梯度爆炸：阻挡深度增加的乌云
+
+- 其实阻挡深度学习“做大做强”的阻碍有很多，最常见的就是 梯度爆炸 (其实也有梯度消失)
+- **梯度爆炸 (Gradient Explosion)** 发生在反向传播过程中，当计算梯度的链式法则持续作用于深层网络时，小的误差会被不断放大。
+- 数学上，当计算梯度时，如果层与层之间的权重值绝对值较大，通过链式法则反向传播的梯度，会因为多次的乘法，呈 **指数级增长**，从而导致梯度爆炸。
+- 例如，NLP 中使用的 RNN 网络，由于其循环的特点，是一个经典遇到梯度爆炸问题的网络架构。在网络深度（即时间步长 T）较大时，梯度爆炸问题尤为严重。这会导致：
+  - 参数更新过大：参数在一次梯度下降中的更新幅度过大，导致模型发散。
+  - 损失函数溢出：损失函数因梯度值过大而超过计算机的存储能力，变成 `NaN`
+- 怎么办？
+
+<!--v-->
+
+## 人类群星闪耀时
+
+- 梯度裁剪（Gradient Clipping）：梯度的范数超过阈值就缩放到阈值大小
+- 调整初始化：调整权重初始值的分布，保持前向传播过程中激活值的方差在合理范围内。
+- 还有正则化等等
+- [Scaling Law 的提出](https://arxiv.org/abs/2001.08361)
+  - 通过经验公式描述了模型性能（通常是误差或损失函数）与模型规模之间的关系
+    - 可以确定在特定数据量或计算资源下最优的模型规模
+    - 可以为梯度裁剪等技术的应用提供指导
+  - **奠定了 Transformer 的产生**
+
+<!--v-->
+
+## 可恶……是幻术吗？什么时候……
+
+- **BERT（2018）**：BERT 模型通过双向Transformer结构，在自然语言处理任务中取得了显著的进展。其成功表明在大规模数据和计算资源下，**增大模型规模可以大幅度提升性能**。
+- **GPT-2（2019）和 GPT-3（2020）**：OpenAI 的GPT系列模型进一步验证了Scaling Law 的有效性。特别是GPT-3，通过扩展到1750亿参数，在许多任务上表现出色。
+
+<!--v-->
+
+## 另一方面：神经网络的堆叠
+
+- 除了可以单方面增强某个神经网络框架，我们还可以让神经网络“多功能”
+- 如果我们将整个神经网络视作一个块，然后将几个已知的功能模块化的神经网络堆叠在一起，就可以处理更复杂的任务
+- 例如：大家都在用的语音转文本，就一般包括以下模块
+  - 卷积神经网络（CNN）模块：从语音信号中提取特征
+  - 循环神经网络（RNN）模块：序列建模，利用之前的记忆来帮助理解当前的发言，捕捉整个语音序列中的时间依赖关系
+  - 连接时序分类（CTC）模块：处理序列对齐问题（音频帧数和对应的字符数并不相同），将RNN输出序列映射到最终的文本序列。
+
+<!--v-->
 
 ## 现在的神经网络发展：从功能化的堆叠到纯粹的暴力堆层
 
-* 我们可以把一个神经网络视作一个块，将几个已知的拥有不同功能的神经网络堆叠在一起，就可以实现不同的下游任务
+- 现在的网络已经回归到了纯粹的堆叠上，不断重复相同的块，在猛堆参数量的条件下，依靠暴力依旧能取得很好的效果（如GPT，LLAMA等架构）
+  - 回到[课堂开始给出的网站](https://bbycroft.net/llm)，仔细看，GPT 就是在暴力堆叠一个一个相同的模块。
 
-* 现在的网络已经回归到了纯粹的堆叠上，不断重复相同的块，在猛堆参数量的条件下，依靠暴力依旧能取得很好的效果（如GPT，LLAMA等架构）
+<img src="assets/LLAMA.png" height="350" style="display: block; margin: 0 auto;"/>
 
-<p align = "center">    
-<img  src="LLAMA.png" height="400" />
-</p>
+<!--s-->
+
+<div class="middle center">
+  <div style="width: 100%">
+
+  # 一点碎碎念
+  
+  </div>
+</div>
+
+<!--v-->
+
+## 一点碎碎念
+
+<!-- - 梯度爆炸与梯度消失 -->
+- atrous convolution <-> dilated convolution?
+- Fisher Yu，研究与人
+  - [新闻链接](https://new.qq.com/rain/a/20230920A0AHY100)
+  - <img src="assets/image-20.png" width="400" style="display: block; margin: 0 auto;"/>
+
+<!--s-->
+
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>
+
           </textarea>
         </section>
       </div>
