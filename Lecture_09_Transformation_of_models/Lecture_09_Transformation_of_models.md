@@ -314,7 +314,8 @@ revealOptions:
 
 - 生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
 - 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
-- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
+- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->\
+  > 这里的“阈值”相当于直线的截距。后续我们可能会用偏置（bias）来指代它。
 - 这就是 “M-P 神经元模型” (1943，M和P是两个人名) <!-- .element: class="fragment" -->
 - 基于这个模型，感知机得以诞生 <!-- .element: class="fragment" -->
 
@@ -422,7 +423,9 @@ revealOptions:
 
 <div class="fragment">
 
-神经网络的学习过程，就是根据训练数据来调整神经元之间连接的**权重（weight，也可以说是参数）**。
+神经网络的学习过程，就是根据训练数据来调整神经元之间连接的**权重（weight，也可以说是参数）**（和偏置（bias，其实也算是参数的一部分））。
+
+> 机器学习里经常有一些名词混用，比如权重和参数混用，这里大家意会就好。
 
 <span> 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程 </span> <!-- .element: class="fragment" -->
 
@@ -443,45 +446,12 @@ revealOptions:
 - 刚刚我们看到的都是数据单向地从输入不断流向下一层，最终流向输出。
 - 这个过程叫做**前向传播 (Forward Propagation, FP)**：输入层数据开始从前向后，数据逐步传递至输出层
 - 为了优化我们的权重，现代的神经网络还会有另外一个步骤：**反向传播 (Backpropagation, BP)**
+  - 怎么优化权重？
+  - **梯度下降**
+  - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
 
 > 不过，如果有人跟你介绍反向传播算法，它可能指的是包含了前向传播和反向传播两个过程的算法。~~我们自然语言是这样的~~
-  <!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
-
-- 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
-
-</ul>
-
-<!--v-->
-
-## 反向传播的步骤
-
-反向传播主要由两个阶段组成：激励传播与权重更新。 <!-- .element: class="fragment" -->
-<ul>
-
-<li class="fragment"> 激励传播中，<b>每次迭代</b>将会 </li>
-
-1. （前向传播阶段）将训练输入送入网络以获得预测结果 <!-- .element: class="fragment" -->
-2. （反向传播阶段）对预测结果同训练目标求差 (损失函数) <!-- .element: class="fragment" -->
-
-</ul>
-
-<ul>
-
-<li class="fragment"> 权重更新时，会对每个突触 (连接) 上的权重 </li>
-
-1. （获取梯度）将输入激励和响应误差相乘，从而获得权重的梯度 <!-- .element: class="fragment" -->
-2. （更新权重）将这个梯度乘上一个比例 (训练因子) 并取反后加到权重上 <!-- .element: class="fragment" -->
-
-</ul>
-
-<ul>
-
-<li class="fragment"> 有点抽象？再次类比一下我们下山的问题 </li>
-
-- 前向传播 = 往当前的方向走一步 <!-- .element: class="fragment" -->
-- 反向传播 = 看看海拔离目标海拔的差距 <!-- .element: class="fragment" -->
-- 获取梯度 = 看看往哪里走差距下降的最快 <!-- .element: class="fragment" -->
-- 更新权重 = 调整方向 <!-- .element: class="fragment" -->
+<!-- - 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
 
 </ul>
 
