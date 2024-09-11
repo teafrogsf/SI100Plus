@@ -487,21 +487,25 @@ revealOptions:
 
 ## 成功的模型们
 
-- `PyTorch` 的 `TorchVision` 项目，包含了一些表现优异的、关于计算机视觉的神经网络架构，我们介绍一下其中两个代表性的 CNN 模型
-- AlexNet: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。
-- ResNet(残差网络): 它在 2015 年的 ILSVRC 中获胜。目前ResNet架构仍然是许多视觉任务的首选架构。
-  - ResNet101 有 101 层，这些层是由层组（groups of layers）的重复模式组成，我们可以把每一层当作一个模块
-- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。
+<ul>
+
+-  `PyTorch` 的 `TorchVision` 项目，包含了一些表现优异的、关于计算机视觉的神经网络架构，我们介绍一下其中两个代表性的 CNN 模型 <!-- .element: class="fragment" -->
+- AlexNet: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。<br> <!-- .element: class="fragment" -->
+- ResNet(残差网络): 它在 2015 年的 ILSVRC 中获胜。目前ResNet架构仍然是许多视觉任务的首选架构。<!-- .element: class="fragment" -->
+  - ResNet101 有 101 层，这些层是由层组（groups of layers）的重复模式组成，我们可以把每一层当作一个模块 <!-- .element: class="fragment" -->
+- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。<br> <!-- .element: class="fragment" -->
 - 我们做了一个[小的演示](https://www.kaggle.com/code/zambar/si100-pretrained-models)，让大家体验一下预训练好的一个图像识别的 ResNet101 模型
 
+
+</ul>
 
 <!--v-->
 
 ## 可惜，好景不长
 
-- 算力突飞猛进
-- 金钱开始涌入 AI 市场
-- 回到我们的主题，这仍然是一个 **力大砖飞** 的时代
+- 算力突飞猛进 <!-- .element: class="fragment" -->
+- 金钱开始涌入 AI 市场 <!-- .element: class="fragment" -->
+<li class="fragment"> 回到我们的主题，这仍然是一个<b>力大砖飞</b>的时代 </li>
 
 <!--s-->
 <div class="middle center">
@@ -516,53 +520,73 @@ revealOptions:
 
 ## 梯度爆炸：阻挡深度增加的乌云
 
-- 其实阻挡深度学习“做大做强”的阻碍有很多，最常见的就是 梯度爆炸 (其实也有梯度消失)
-- **梯度爆炸 (Gradient Explosion)** 发生在反向传播过程中，当计算梯度的链式法则持续作用于深层网络时，小的误差会被不断放大。
-- 数学上，当计算梯度时，如果层与层之间的权重值绝对值较大，通过链式法则反向传播的梯度，会因为多次的乘法，呈 **指数级增长**，从而导致梯度爆炸。
-- 例如，NLP 中使用的 RNN 网络，由于其循环的特点，是一个经典遇到梯度爆炸问题的网络架构。在网络深度（即时间步长 T）较大时，梯度爆炸问题尤为严重。这会导致：
-  - 参数更新过大：参数在一次梯度下降中的更新幅度过大，导致模型发散。
-  - 损失函数溢出：损失函数因梯度值过大而超过计算机的存储能力，变成 `NaN`
-- 怎么办？
+- 其实阻挡深度学习“做大做强”的阻碍有很多，最常见的就是梯度爆炸 (其实也有梯度消失) <!-- .element: class="fragment" -->
+<li class="fragment"> <b>梯度爆炸 (Gradient Explosion)</b>发生在反向传播过程中，当计算梯度的链式法则持续作用于深层网络时，小的误差会被不断放大。</li>
+<li class="fragment"> 数学上，当计算梯度时，如果层与层之间的权重值绝对值较大，通过链式法则反向传播的梯度，会因为多次的乘法，呈<b>指数级增长</b>，从而导致梯度爆炸。</li>
+<li class="fragment"> 例如，NLP 中使用的 RNN 网络，由于其循环的特点，是一个经典遇到梯度爆炸问题的网络架构。在网络深度（即时间步长 T）较大时，梯度爆炸问题尤为严重。这会导致：</li>
+  <ul>
+
+  <li class="fragment"> 参数更新过大：参数在一次梯度下降中的更新幅度过大，导致模型发散。</li>
+  <li class="fragment"> 损失函数溢出：损失函数因梯度值过大而超过计算机的存储能力，变成 <code>NaN</code> </li>
+  
+  </ul>
+
+- 怎么办？<!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 人类群星闪耀时
 
-- 梯度裁剪（Gradient Clipping）：梯度的范数超过阈值就缩放到阈值大小
-- 调整初始化：调整权重初始值的分布，保持前向传播过程中激活值的方差在合理范围内。
-- 还有正则化等等
-- [Scaling Law 的提出](https://arxiv.org/abs/2001.08361)
-  - 通过经验公式描述了模型性能（通常是误差或损失函数）与模型规模之间的关系
-    - 可以确定在特定数据量或计算资源下最优的模型规模
-    - 可以为梯度裁剪等技术的应用提供指导
-  - **奠定了 Transformer 的产生**
+- 梯度裁剪（Gradient Clipping）：梯度的范数超过阈值就缩放到阈值大小 <!-- .element: class="fragment" -->
+- 调整初始化：调整权重初始值的分布，保持前向传播过程中激活值的方差在合理范围内。 <!-- .element: class="fragment" -->
+- 还有正则化等等 <!-- .element: class="fragment" -->
+
+<ul>
+
+<li class="fragment"> <a href="https://arxiv.org/abs/2001.08361">Scaling Law 的提出</a> </li>
+  <ul>
+
+  <li class="fragment"> 通过经验公式描述了模型性能（通常是误差或损失函数）与模型规模之间的关系 </li>
+
+  - 可以确定在特定数据量或计算资源下最优的模型规模 <!-- .element: class="fragment" -->
+  - 可以为梯度裁剪等技术的应用提供指导 <!-- .element: class="fragment" -->
+  
+  <li class="fragment"> <b>奠定了 Transformer 的产生</b> </li>
+
+  </ul>
+
+</ul>
 
 <!--v-->
 
 ## 可恶……是幻术吗？什么时候……
 
-- **BERT（2018）**：BERT 模型通过双向Transformer结构，在自然语言处理任务中取得了显著的进展。其成功表明在大规模数据和计算资源下，**增大模型规模可以大幅度提升性能**。
-- **GPT-2（2019）和 GPT-3（2020）**：OpenAI 的GPT系列模型进一步验证了Scaling Law 的有效性。特别是GPT-3，通过扩展到1750亿参数，在许多任务上表现出色。
+<ul>
+
+<li class="fragment"> <b>BERT（2018）</b>：BERT 模型通过双向Transformer结构，在自然语言处理任务中取得了显著的进展。其成功表明在大规模数据和计算资源下，<b>增大模型规模可以大幅度提升性能</b>。</li>
+<li class="fragment"> <b>GPT-2（2019）和 GPT-3（2020）</b>：OpenAI 的GPT系列模型进一步验证了Scaling Law 的有效性。特别是GPT-3，通过扩展到1750亿参数，在许多任务上表现出色。</li>
+
+</ul>
 
 <!--v-->
 
 ## 另一方面：神经网络的堆叠
 
-- 除了可以单方面增强某个神经网络框架，我们还可以让神经网络“多功能”
-- 如果我们将整个神经网络视作一个块，然后将几个已知的功能模块化的神经网络堆叠在一起，就可以处理更复杂的任务
-- 例如：大家都在用的语音转文本，就一般包括以下模块
-  - 卷积神经网络（CNN）模块：从语音信号中提取特征
-  - 循环神经网络（RNN）模块：序列建模，利用之前的记忆来帮助理解当前的发言，捕捉整个语音序列中的时间依赖关系
-  - 连接时序分类（CTC）模块：处理序列对齐问题（音频帧数和对应的字符数并不相同），将RNN输出序列映射到最终的文本序列。
+- 除了可以单方面增强某个神经网络框架，我们还可以让神经网络“多功能” <!-- .element: class="fragment" -->
+- 如果我们将整个神经网络视作一个块，然后将几个已知的功能模块化的神经网络堆叠在一起，就可以处理更复杂的任务 <!-- .element: class="fragment" -->
+- 例如：大家都在用的语音转文本，就一般包括以下模块 <!-- .element: class="fragment" -->
+  - 卷积神经网络（CNN）模块：从语音信号中提取特征 <!-- .element: class="fragment" -->
+  - 循环神经网络（RNN）模块：序列建模，利用之前的记忆来帮助理解当前的发言，捕捉整个语音序列中的时间依赖关系 <!-- .element: class="fragment" -->
+  - 连接时序分类（CTC）模块：处理序列对齐问题（音频帧数和对应的字符数并不相同），将RNN输出序列映射到最终的文本序列。 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 现在的神经网络发展：从功能化的堆叠到纯粹的暴力堆层
 
-- 现在的网络已经回归到了纯粹的堆叠上，不断重复相同的块，在猛堆参数量的条件下，依靠暴力依旧能取得很好的效果（如GPT，LLAMA等架构）
-  - 回到[课堂开始给出的网站](https://bbycroft.net/llm)，仔细看，GPT 就是在暴力堆叠一个一个相同的模块。
+- 现在的网络已经回归到了纯粹的堆叠上，不断重复相同的块，在猛堆参数量的条件下，依靠暴力依旧能取得很好的效果（如GPT，LLAMA等架构） <!-- .element: class="fragment" -->
+<li class="fragment"> 回到 <a href="https://bbycroft.net/llm">课堂开始给出的网站 </a>，仔细看，GPT 就是在暴力堆叠一个一个相同的模块。</li>
 
-<img src="assets/LLAMA.png" height="350" style="display: block; margin: 0 auto;"/>
+<img src="assets/LLAMA.png" height="350" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--s-->
 
@@ -579,10 +603,16 @@ revealOptions:
 ## 一点碎碎念
 
 <!-- - 梯度爆炸与梯度消失 -->
-- atrous convolution <-> dilated convolution?
+- atrous convolution $\leftrightarrow$ dilated convolution? <!-- .element: class="fragment" -->
+  
+<div class="fragment">
+
 - Fisher Yu，研究与人
   - [新闻链接](https://new.qq.com/rain/a/20230920A0AHY100)
-  - <img src="assets/image-20.png" width="400" style="display: block; margin: 0 auto;"/>
+
+</div>
+
+<img src="assets/image-20.png" width="45%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--s-->
 
