@@ -36,31 +36,35 @@ revealOptions:
 
 ## GPT的诞生
 
-正如我们第一节课所说，ChatGPT是2022年末出生的。
+正如我们第一节课所说，ChatGPT 是 2022 年末出生的。 <!-- .element: class="fragment" -->
 
-但是，GPT可不是。第一代GPT是2018年发布的，那时你们中的大部分人应该在小学六年级。
+但是，GPT 可不是。第一代 GPT 是 2018 年发布的，那时你们中的大部分人应该在小学六年级。 <!-- .element: class="fragment" -->
 
-六年之后，GPT已经变成了当初的它完全不敢想象的样子~~免责声明：本人不是GPT，不保证了解它的内心想法~~。每一代GPT模型的参数量都爆炸式增长，堪称“越大越好”。2019年2月发布的GPT-2参数量为15亿，而2020年5月的GPT-3，参数量达到了1750亿。从下面的参数量可以看出，这是个多么恐怖的模型。
+<div class="fragment">
+
+六年之后，GPT 已经变成了当初的它完全不敢想象的样子~~免责声明：本人不是 GPT，不保证了解它的内心想法~~。每一代GPT模型的参数量都爆炸式增长，堪称“越大越好”。2019 年 2 月发布的 GPT-2 参数量为 15 亿，而 2020 年 5 月的 GPT-3，参数量达到了 1750 亿。从下面的参数量可以看出，这是个多么恐怖的模型。
 
 <img src="assets/image.png" style="display: block; margin: 0 auto;"/>
 
-- 最新的GPT-4在120层中总共包含了1.8万亿参数，规模是GPT-3的10倍以上
-- 这里有 [一个神奇的网站](https://bbycroft.net/llm) ，可视化地告诉了我们这个庞大的差距
+</div>
+
+- 最新的 GPT-4 在 120 层中总共包含了 1.8 万亿参数，规模是 GPT-3 的 10 倍以上 <!-- .element: class="fragment" -->
+<li class="fragment"> 这里有 <a href="https://bbycroft.net/llm">一个神奇的网站</a>，可视化地告诉了我们这个庞大的差距 </li>
 
 <!--v-->
 
 ## 问题来了
 
-- 模型真的是参数越多越好吗？
-- 如果真是这样，我们的感知机能不能也变得更好？
-- 第三章开始，我们将正式进入21~~生物学的~~世纪。
+- 模型真的是参数越多越好吗？ <!-- .element: class="fragment" -->
+- 如果真是这样，我们的感知机能不能也变得更好？ <!-- .element: class="fragment" -->
+<li class="fragment"> 第三章开始，我们将正式进入21<del>生物学的</del>世纪。</li>
 
 <!--s-->
 
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.1 Re：从零开始的ML学习
+  # Part.1 Re：从零开始的 ML 学习
       
   </div>
 </div>
@@ -69,39 +73,64 @@ revealOptions:
 
 ## 回到线性回归
 
-- 在上一节课中我们提到了线性回归，并用它引入了回归这一机器学习任务
-- 我们还是考虑简单的单变量（也就是x只有一维）的线性回归，
-  > 需要注意的是，虽然我们都把问题画在二维平面上，但是感知机问题中的变量有两个，我们之前提到的线性回归的变量只有一个。因为画线性回归的时候，$y$轴表示的实际上是因变量也就是结果。
-- 还记得高中的线性回归如何求解吗？最小二乘法求出经验回归方程: $\hat{y} = \hat{b} x + \hat{a}$
-- 为什么叫做最小二乘法？二乘：（残差的）平方；最小：使……最小
-  - 即 $L = \frac{1}{2n} \sum_{i=1}^{n} (\hat{y}_i-f(x_i))^2$，求 $\min(L)$
+- 在上一节课中我们提到了线性回归，并用它引入了回归这一机器学习任务 <!-- .element: class="fragment" -->
+- 我们还是考虑简单的单变量（也就是 $x$ 只有一维）的线性回归， <!-- .element: class="fragment" -->
+  <div class="fragment">
+
+  > 需要注意的是，虽然我们都把问题画在二维平面上，但是感知机问题中的变量有两个，我们之前提到的线性回归的变量只有一个。因为画线性回归的时候，$y$ 轴表示的实际上是因变量也就是结果。
+  
+  </div>
+- 还记得高中的线性回归如何求解吗？最小二乘法求出经验回归方程: $\hat{y} = \hat{b} x + \hat{a}$ <!-- .element: class="fragment" -->
+- 为什么叫做最小二乘法？二乘：（残差的）平方；最小：使……最小 <!-- .element: class="fragment" -->
+  - 即 $L = \frac{1}{2n} \sum_{i=1}^{n} (\hat{y}_i-f(x_i))^2$，求 $\min(L)$ <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 度量损失的价值
 
-- 我们再回顾一下机器学习的范式：
+我们再回顾一下机器学习的范式：
 
 - Step 1: 随机初始化参数； <!-- .element: class="fragment" -->
 <li class="fragment"> Step 2: 给模型输入训练集的数据，得到模型的输出，也就是<b>预测（prediction）</b> </li>
 <li class="fragment"> Step 3: 计算预测与真实结果的差距，也就是<b>损失（loss）</b> </li> 
 - Step 4: 根据损失优化原来的参数 <!-- .element: class="fragment" -->
-- Step 5: 调整部分超参数，重新回到Step 2，直到满足算法的终止条件 <!-- .element: class="fragment" -->
+- Step 5: 调整部分超参数，重新回到 Step 2，直到满足算法的终止条件 <!-- .element: class="fragment" -->
 
-在线性回归这个问题中，损失是什么？
-  - 我们的目的是**最小化损失**
-  - 那损失是不是就可以定义为$L$？
-  - $L$是一个与真实值$y$和预测值$\hat{y}$都有关的函数
-  - 这样的用来表示损失的函数，我们就称其为**损失函数（loss function）**
+在线性回归这个问题中，损失是什么？<!-- .element: class="fragment" -->
+
+<ul>
+
+<li class="fragment"> 我们的目的是<b>最小化损失</b> </li>
+
+<li class="fragment"> 那损失是不是就可以定义为$L$？</li>
+
+<li class="fragment"> $L$是一个与真实值$y$和预测值$\hat{y}$都有关的函数 </li>
+
+<li class="fragment"> 这样的用来表示损失的函数，我们就称其为<b>损失函数（loss function）</b> </li>
+
+</ul>
+
+<!--v-->
 
 ## 度量损失的价值（cont'd）
 
-问题来了，如何找到最小的$L$？
-- 这对于学过了三年高中数学的你可能非常简单：只需要**求导**就好了
-- 最小二乘法的求导一定能有解（不然高中提供的计算公式怎么来的呢）
-- 对于类似这样的，因变量的解能被与自变量有关的初等函数直接表示的解，我们称之为**解析解/闭式解（analytic solution/closed-form solution）**。
-  > 闭式解的名字来源于初等函数的运算总是获得初等函数，也就是说初等函数的运算集满足闭包（closure）。
-  > 在计算机的世界里，如果能用非初等函数表示一个解，或许也可以称之为解析解，因为对于计算机来说大多数时候初等函数与否都是直接用数值法去计算的。我们这里不作概念辨析~~辩经~~。
+问题来了，如何找到最小的 $L$？<!-- .element: class="fragment" -->
 
-<img  src="assets/image-2.png" width="400" style="display: block; margin: 0 auto;"/>
+<ul>
+
+<li class="fragment"> 这对于学过了三年高中数学的你可能非常简单：只需要<b>求导</b>就好了 </li>
+<li class="fragment"> 最小二乘法的求导一定能有解（不然高中提供的计算公式怎么来的呢）</li>
+<li class="fragment"> 对于类似这样的，因变量的解能被与自变量有关的初等函数直接表示的解，我们称之为<b>解析解/闭式解（analytic solution/closed-form solution）</b> </li>
+
+</ul>
+
+<div class="fragment">
+
+> 闭式解的名字来源于初等函数的运算总是获得初等函数，也就是说初等函数的运算集满足闭包（closure）。
+>
+> 在计算机的世界里，如果能用非初等函数表示一个解，或许也可以称之为解析解，因为对于计算机来说大多数时候初等函数与否都是直接用数值法去计算的。我们这里不作概念辨析~~辩经~~。
+
+</div>
 
 <!--v-->
 
@@ -109,75 +138,107 @@ revealOptions:
 
 ## 当然了，魔法世界里解析解是一种愿望
 
-- 并不是所有的ML问题都有解析解，甚至大部分回归问题都没有准确的解析解
-- 事实上，高中的数学题里也可能没有解析解
+- 并不是所有的 ML 问题都有解析解，甚至大部分回归问题都没有准确的解析解 <!-- .element: class="fragment" -->
+- 事实上，高中的数学题里也可能没有解析解 <!-- .element: class="fragment" -->
+
+<div class="fragment">
+
 > 例：（2017 年全国 II 卷）21. $f(x) = x^2 -x -x \ln x$.  
 > 证明：$f(x)$ 存在唯一的极大值 $x_0$，且 $e^{-2}<f(x_0)<2^{-2}$
 
-- 经常做导数题的大家想必都知道，这是一道经典的隐零点问题
-- 求个导，令 $f'(x) = 2x - 2 - \ln x$，求解 $f'(x_0) = 0$ ，这里的 $x_0$ 显然是无法直接写成一个由初等函数表示的表达式的。
-- 怎么办呢？
+</div>
+
+- 经常做导数题的大家想必都知道，这是一道经典的隐零点问题 <!-- .element: class="fragment" -->
+- 求个导，令 $f'(x) = 2x - 2 - \ln x$，求解 $f'(x_0) = 0$ ，这里的 $x_0$ 显然是无法直接写成一个由初等函数表示的表达式的。 <!-- .element: class="fragment" -->
+- 怎么办呢？<!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 数值永远不会背叛你
 
-- 当解析解不存在时，一个问题就只能用数值分析的方法求解近似值。这样找到的解被称为**数值解（numerical solution）**。
+<ul>
+
+<li class="fragment"> 当解析解不存在时，一个问题就只能用数值分析的方法求解近似值。这样找到的解被称为<b>数值解（numerical solution）</b>。</li>
+
+<div class="fragment">
+
   > 比如五次以及更高次的代数方程，大多数偏微分方程，尤其是非线性偏微分方程。~~我复读资料不代表我懂这些方程~~
-- 求数值解的目的不在求出正确的答案，而是在其误差在一合理范围的条件下找到近似解。
-- 有什么方法可以越来越逼近呢？
-  - 中学常见的有二分法、牛顿迭代法~~真的常见吗~~
-  - 他们有什么共同点？
+
+</div>
+
+<li class="fragment"> 求数值解的目的不在求出正确的答案，而是在其误差在一合理范围的条件下找到近似解。</li>
+<li class="fragment"> 有什么方法可以越来越逼近呢？</li>
+
+<ul>
+
+<li class="fragment"> 中学常见的有二分法、牛顿迭代法<del>真的常见吗</del> </li>
+
+<li class="fragment"> 他们有什么共同点？</li>
+
+</ul>
+
+</ul>
 
 <!--v-->
 
 ## 梯度下降法
 
 想象一个这样的场景：
-- 一个人~~房石阳明~~被困在山上，需要从山上下来
-- 他需要找到山的最低点，也就是山谷
-- 但此时山上的浓雾很大，导致可视度很低（~~休水的迷雾啊~~）
-- 因此，下山的路径就无法确定
-- 怎么办？
+
+<ul>
+
+<li class="fragment"> 一个人<del>房石阳明</del>被困在山上，需要从山上下来 </li>
+<li class="fragment"> 他需要找到山的最低点，也就是山谷 </li>
+<li class="fragment"> 但此时山上的浓雾很大，导致可视度很低，无法纵览整个下山路径（<del>休水的迷雾啊</del>）</li>
+<li class="fragment"> 因此，下山的路径就无法确定 </li>
+<li class="fragment"> 怎么办？</li>
+
+</ul>
+
+<!--v-->
 
 ## 梯度下降法 (cont'd)
 
-- 这个人决定利用自己周围的信息去找到下山的路径
-- 他尝试这么走：**以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着山的高度下降的方向走**
-- 然后每走一段距离，都反复采用同一个方法
-- 最后或许就能成功的抵达山谷~~离开休水~~
-- ~~另一种方式是多死几次找到正确的世界线~~
+- 这个人决定利用自己周围的信息去找到下山的路径 <!-- .element: class="fragment" -->
+<li class="fragment"> 他尝试这么走：<b>以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着山的高度下降的方向走</b> </li>
+- 然后每走一段距离，再看一看当前所处位置，反复采用同一个方法 <!-- .element: class="fragment" -->
+<li class="fragment"> 最后或许就能成功的抵达山谷<del>离开休水</del> </li>
+<li class="fragment"> <del>另一种方式是多死几次找到正确的世界线</del> </li>
 
 <!--v-->
 
 ## 我们求导也可以不求解析解
 
-这样一个听起来非常简单直接的思路，就是大名鼎鼎的梯度下降法。
+这样一个听起来非常简单直接的思路，就是大名鼎鼎的梯度下降法（Gradient Descent） <!-- .element: class="fragment" -->
 
-- **梯度就是导数**
-- “沿着梯度方向”就是函数变化趋势最快的方向
+- 模型的“好坏”（损失函数）是我们现在考虑的函数 <!-- .element: class="fragment" -->
+<li class="fragment"> <b>梯度就是函数的导数</b> </li>
+- “沿着梯度方向”就是函数变化趋势最快的方向 <!-- .element: class="fragment" -->
 
-<img src="assets/image-5.png" width="700" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-5.png" width="85%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 梯度下降法（cont'd）
  
-<img  src="assets/image-5.png" width="500" style="display: block; margin: 0 auto;"/>
+<img  src="assets/image-5.png" width="70%" style="display: block; margin: 0 auto;"/>
 
 稍微总结一下：
-- Step 1: 明确自己现在所处的位置
-- Step 2: 找到相对于该位置而言下降最快的方向
-- Step 3: 沿着Step 2找到的方向走一小步，到达一个新的位置，此时的位置肯定比原来低
-- Step 4: 回到Step 1，如此循环往复，直到终止于最低点
+
+- Step 1: 明确自己现在所处的位置 <!-- .element: class="fragment" -->
+- Step 2: 找到相对于该位置而言下降最快的方向 <!-- .element: class="fragment" -->
+- Step 3: 沿着 Step 2 找到的方向走一小步，到达一个新的位置，此时的位置肯定比原来低 <!-- .element: class="fragment" -->
+- Step 4: 回到 Step 1，如此循环往复，直到终止于最低点 <!-- .element: class="fragment" -->
+
+<!--v-->
 
 ## 成为井底之蛙
 
-- 梯度下降法一定能找到最优解吗？
-- 有没有一种可能，我们找到了一个“最低点”并且停止移动
-- 但是，有比我们当前遇到的“最低点”更低的，真正的最低点，但我们因为已经动不了了无法到达那边
-- 所以，梯度下降找到的是**局部最优（local optimum）**而非**全局最优（global optimum）**
-- 在机器学习的实战中，我们往往需要调整超参数使模型找到更好的局部最优
+- 梯度下降法一定能找到最优解吗？ <!-- .element: class="fragment" -->
+- 有没有一种可能，我们找到了一个“最低点”并且停止移动 <!-- .element: class="fragment" -->
+- 但是，有比我们当前遇到的“最低点”更低的，真正的最低点，但我们因为已经动不了了无法到达那边 <!-- .element: class="fragment" -->
+<li class="fragment"> 所以，梯度下降找到的是<b>局部最优（local optimum）</b>而非<b>全局最优（global optimum）</b> </li>
+- 在机器学习的实战中，我们往往需要调整超参数使模型找到更好的局部最优 <!-- .element: class="fragment" -->
 
 <!-- ## 数学上的解释
 
@@ -213,7 +274,7 @@ revealOptions:
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.2 感知机的拓展：从二维到$n$维
+  # Part.2 感知机的拓展：从二维到 $n$ 维
   
   </div>
 </div>
@@ -222,28 +283,28 @@ revealOptions:
 
 ## 再次回到感知机
 
-- 在之前的课程中我们介绍了一个非常简单的感知机模型
-- 我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类
-- 于是我们就能使用这个模型来预测别的点的类别了
-- 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样：
+- 在之前的课程中我们介绍了一个非常简单的感知机模型 <!-- .element: class="fragment" -->
+- 我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类 <!-- .element: class="fragment" -->
+- 于是我们就能使用这个模型来预测别的点的类别了 <!-- .element: class="fragment" -->
+- 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样： <!-- .element: class="fragment" -->
 
-<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- P.S. 看到箭头上的 $w_i$，你可能会对 **权重向量** $\boldsymbol{w}$ 有了更深的理解（权重值越大，该输入越重要）
+<span> P.S. 看到箭头上的 $w_i$，你可能会对 **权重向量** $\boldsymbol{w}$ 有了更深的理解（权重值越大，该输入越重要）</span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 感知机有几层？
 
-<img src="assets/image-14.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-14.png" width="30%" style="display: block; margin: 0 auto;"/>
 
-- 一看就是两层：输入层，输出层
-- 输入层用来接受输入信号，并且传递给输出层
-- 输出层干了什么呢？
-  - 我们知道 $\boldsymbol{w} \cdot \boldsymbol{x}$ 不一定是一个整数，但是不会有 “$0.114514$ 好的瓜”
-  - 因此它就像一个开关，将输入的信号 **两极化**，要么是 $1$，要么是 $0$
-  - 输入信号……传递信号……有没有很熟悉？
-  - 兴奋在神经元上的传导！
+- 一看就是两层：输入层，输出层 <!-- .element: class="fragment" -->
+- 输入层用来接受输入信号，并且传递给输出层 <!-- .element: class="fragment" -->
+- 输出层干了什么呢？ <!-- .element: class="fragment" -->
+  - 我们知道 $\boldsymbol{w} \cdot \boldsymbol{x}$ 不一定是一个整数，但是不会有 “$0.114514$ 好的瓜” <!-- .element: class="fragment" -->
+  <li class="fragment"> 因此它就像一个开关，将输入的信号 <b>两极化</b>，要么是 $1$，要么是 $0$ </li>
+  - 输入信号……传递信号……有没有很熟悉？<!-- .element: class="fragment" -->
+  - 兴奋在神经元上的传导！ <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -251,11 +312,11 @@ revealOptions:
 
 <div style="column-count:2">
 
-- 生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。
-- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质.
-- 在刚刚的图中，每一个 `○→` 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋”
-- 这就是 “M-P 神经元模型” (1943，M和P是两个人名)
-- 基于这个模型，感知机得以诞生
+- 生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
+- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
+- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
+- 这就是 “M-P 神经元模型” (1943，M和P是两个人名) <!-- .element: class="fragment" -->
+- 基于这个模型，感知机得以诞生 <!-- .element: class="fragment" -->
 
 <img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
 
@@ -268,14 +329,19 @@ revealOptions:
 - 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个呢？
   > 也就是说，三维，四维到 $n$ 维
 
-<img src="assets/image-16.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-16.png" width="47%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <div style="column-count:2">
 
-- 这里的 $f$ 是一个 **激活函数**，顾名思义，**理想中** 用来将传入的总输入值与阈值的差映射到 $0$, $1$ ，用来判断是否激活，如右图左的 **阶跃函数**。
-- 但其实它并不常见，因为它的函数不连续也不光滑，更常见的是如右图右的Sigmoid函数，我们不多做介绍
+<ul>
 
-<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/>
+<li class="fragment"> 这里的 $f$ 是一个 <b>激活函数</b>，顾名思义，<b>理想中</b>用来将传入的总输入值与阈值的差映射到 $0$, $1$ ，用来判断是否激活，如右图左的<b>阶跃函数</b>。</li>
+
+<li class="fragment"> 但其实它并不常见，因为它的函数不连续也不光滑，更常见的是如右图右的 Sigmoid 函数，我们不多做介绍 </li>
+
+</ul>
+
+<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 </div>
 
@@ -293,10 +359,10 @@ revealOptions:
 
 ## 可以更广，也可以更深！
 
-- 刚刚我们在输入层面拓展了感知机模型，使之可以接受若干个输入
-- 那我们是否也可以给感知机堆叠层数使之更加复杂呢？
-- 在生物学上非常容易理解：我们让多个神经元头尾相接！就可以构成一个有更多功能的神经网络！
-- 为此，我们引入**多层感知机**（Multi-Layer Perception）
+- 刚刚我们在输入层面拓展了感知机模型，使之可以接受若干个输入 <!-- .element: class="fragment" -->
+- 那我们是否也可以给感知机堆叠层数使之更加复杂呢？ <!-- .element: class="fragment" -->
+- 在生物学上非常容易理解：我们让多个神经元头尾相接！就可以构成一个有更多功能的神经网络！ <!-- .element: class="fragment" -->
+<li class="fragment"> 为此，我们引入<b>多层感知机</b>（Multi-Layer Perception）</li>
 
 <!--v-->
 
@@ -304,25 +370,36 @@ revealOptions:
 
 - 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的**异或（XOR）**~~真的大名鼎鼎吗，鉴定为学编程学的~~
 
-<img src="assets/image-18.png" width="300" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-18.png" width="25%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- 这不是线性可分的问题！也就是我们无法画一条线分开所有的正点和负点！
-- 但是，再加一层神经元就可以 😉
+- 这不是线性可分的问题！也就是我们无法画一条线分开所有的正点和负点！ <!-- .element: class="fragment" -->
+- 但是，再加一层神经元就可以 😉 <!-- .element: class="fragment" -->
 
-<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 太神奇了！
 
-- 我们只添加了一层就解决了这个问题
+- 我们只添加了一层就解决了这个问题 <!-- .element: class="fragment" -->
 
-<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
+<img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-- 添加的这一层叫做**隐藏层（hidden layer）** 
-  - 它既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了一样
-- 隐含层和输出层神经元都是拥有 **激活函数** 的功能神经元
-  - 输入层神经元仅是接受输入，不进行函数处理，因此在计算层数的时候通常忽略输入层
+<ul>
+
+<li class="fragment"> 添加的这一层叫做<b>隐藏层（hidden layer）</b> </li>
+
+<ul>
+
+<li class="fragment"> 它既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了一样 </li>
+
+</ul>
+
+<li class="fragment"> 隐含层和输出层神经元都是拥有<b>激活函数</b>的功能神经元</li>
+
+- 输入层神经元仅是接受输入，不进行函数处理，因此在计算层数的时候通常忽略输入层 <!-- .element: class="fragment" -->
+
+</ul>
 
 <!--v-->
 
@@ -343,19 +420,23 @@ revealOptions:
 
 ## 神经网络学习的本质
 
+<div class="fragment">
+
 神经网络的学习过程，就是根据训练数据来调整神经元之间连接的**权重（weight，也可以说是参数）**。
 
-- 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程
+<span> 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程 </span> <!-- .element: class="fragment" -->
 
 <!-- - 首先它与输入层是全连接的，类似于简单的感知机结构，假设输入层用向量 $X$ 表示，则隐藏层的输出就是 $f (W_1X+b_1)$，$W_1$是权重（也叫连接系数），$b_1$ 是偏置， -->
 <!-- 函数 $f$ 可以是 **激活函数** (常用的sigmoid函数，tanh函数，RELU函数等) -->
-- 激活函数？解决了感知机只能进行线性分类的问题
-    - 不使用激活函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。
-    - 使用激活函数，能够给神经元引入非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以利用到更多的非线性模型中。
+- 激活函数？解决了感知机只能进行线性分类的问题 <!-- .element: class="fragment" -->
+    - 不使用激活函数，每一层输出都是上层输入的线性函数，无论神经网络有多少层，输出都是输入的线性组合。 <!-- .element: class="fragment" -->
+    - 使用激活函数，能够给神经元引入非线性因素，使得神经网络可以任意逼近任何非线性函数，这样神经网络就可以利用到更多的非线性模型中。 <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## MLP 的简单训练过程
+
+<div class="fragment">
 
 训练的过程就是一个优化参数的过程。
 
@@ -366,25 +447,43 @@ revealOptions:
 > 不过，如果有人跟你介绍反向传播算法，它可能指的是包含了前向传播和反向传播两个过程的算法。~~我们自然语言是这样的~~
   <!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
 
-  - 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
+- 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
+
+</ul>
 
 <!--v-->
 
 ## 反向传播的步骤
 
-- 反向传播主要由两个阶段组成：激励传播与权重更新。
-- 激励传播中，**每次迭代** 将会
-  1. （前向传播阶段）将训练输入送入网络以获得预测结果
-  2. （反向传播阶段）对预测结果同训练目标求差 (损失函数)
-- 权重更新时，会对每个突触 (连接) 上的权重
-  1. （获取梯度）将输入激励和响应误差相乘，从而获得权重的梯度
-  2. （更新权重）将这个梯度乘上一个比例 (训练因子) 并取反后加到权重上
+反向传播主要由两个阶段组成：激励传播与权重更新。 <!-- .element: class="fragment" -->
+<ul>
 
-- 有点抽象？再次类比一下我们下山的问题
-  - 前向传播 = 往当前的方向走一步
-  - 反向传播 = 看看海拔离目标海拔的差距
-  - 获取梯度 = 看看往哪里走差距下降的最快
-  - 更新权重 = 调整方向
+<li class="fragment"> 激励传播中，<b>每次迭代</b>将会 </li>
+
+1. （前向传播阶段）将训练输入送入网络以获得预测结果 <!-- .element: class="fragment" -->
+2. （反向传播阶段）对预测结果同训练目标求差 (损失函数) <!-- .element: class="fragment" -->
+
+</ul>
+
+<ul>
+
+<li class="fragment"> 权重更新时，会对每个突触 (连接) 上的权重 </li>
+
+1. （获取梯度）将输入激励和响应误差相乘，从而获得权重的梯度 <!-- .element: class="fragment" -->
+2. （更新权重）将这个梯度乘上一个比例 (训练因子) 并取反后加到权重上 <!-- .element: class="fragment" -->
+
+</ul>
+
+<ul>
+
+<li class="fragment"> 有点抽象？再次类比一下我们下山的问题 </li>
+
+- 前向传播 = 往当前的方向走一步 <!-- .element: class="fragment" -->
+- 反向传播 = 看看海拔离目标海拔的差距 <!-- .element: class="fragment" -->
+- 获取梯度 = 看看往哪里走差距下降的最快 <!-- .element: class="fragment" -->
+- 更新权重 = 调整方向 <!-- .element: class="fragment" -->
+
+</ul>
 
 <!--s-->
 
@@ -493,10 +592,10 @@ revealOptions:
 <ul>
 
 -  `PyTorch` 的 `TorchVision` 项目，包含了一些表现优异的、关于计算机视觉的神经网络架构，我们介绍一下其中两个代表性的 CNN 模型 <!-- .element: class="fragment" -->
-- AlexNet: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。<br> <!-- .element: class="fragment" -->
+- AlexNet: 它是在图像识别方面早期具有突破性的网络之一。在 2012 年的 ILSVRC 中以较大的优势胜出，前 5 名的测试错误率（也就是说，正确的标签必须在前 5 名中）为 15.4%。相比之下，没有深度网络的次好作品仅占 26.2%。这是计算机视觉历史上的一个关键时刻：此刻，社区开始意识到深度学习在视觉任务中的潜力。随之而来的是不断的改进，更现代的架构和训练方法使得前 5 名的错误率低至 3%。<!-- .element: class="fragment" -->
 - ResNet(残差网络): 它在 2015 年的 ILSVRC 中获胜。目前ResNet架构仍然是许多视觉任务的首选架构。<!-- .element: class="fragment" -->
   - ResNet101 有 101 层，这些层是由层组（groups of layers）的重复模式组成，我们可以把每一层当作一个模块 <!-- .element: class="fragment" -->
-- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。<br> <!-- .element: class="fragment" -->
+- 在其他的领域，如自然语言处理和语音， 层组以各种重复模式排列的类似架构现在也是普遍存在。这些层组都可以看成一个一个模块。 <!-- .element: class="fragment" -->
 - 我们做了一个[小的演示](https://www.kaggle.com/code/zambar/si100-pretrained-models)，让大家体验一下预训练好的一个图像识别的 ResNet101 模型
 
 
