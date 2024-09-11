@@ -318,10 +318,10 @@
 
 <div style="column-count:2">
 
-- 生物神经网络中，每个神经元与其他神经元相连，当它 “兴奋” 时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
-- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即 “兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
-- 在刚刚的图中，每一个 ○→ 都是一个神经元 (neuron)，接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
-- 这就是 “M-P 神经元模型” (1943) <!-- .element: class="fragment" -->
+- 生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
+- 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
+- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
+- 这就是 “M-P 神经元模型” (1943，M和P是两个人名) <!-- .element: class="fragment" -->
 - 基于这个模型，感知机得以诞生 <!-- .element: class="fragment" -->
 
 <img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
@@ -332,7 +332,8 @@
 
 ## 还可不可以更劲爆点？
 
-- 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个（三维，四维到 $n$ 维）呢？ <!-- .element: class="fragment" -->
+- 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个呢？
+  > 也就是说，三维，四维到 $n$ 维
 
 <img src="assets/image-16.png" width="47%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
@@ -373,7 +374,7 @@
 
 ## 多层感知机
 
-<span> 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的 **异或 (XOR)** </span> <!-- .element: class="fragment" -->
+- 还记得我们的最开始的感知机不能解决的问题吗，这其实是计算机界大名鼎鼎的**异或（XOR）**~~真的大名鼎鼎吗，鉴定为学编程学的~~
 
 <img src="assets/image-18.png" width="25%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
@@ -410,11 +411,16 @@
 
 ## 层级结构
 
-- 更一般的，常见的神经网络是下图所示的层级结构 <!-- .element: class="fragment" -->
-<li class="fragment"> 每层神经元与下一层神经元<b>全互连</b>，神经元之间<b>不存在同层连接</b>，也<b>不存在跨层连接</b> </li>
-- 输入层神经元接收外界输入，隐层与输出层神经元对信号进行加工，最终结果由输出层神经元输出 <!-- .element: class="fragment" -->
+- 当我们把层堆起来时，这个模型看起来就跟网络一样
+- 所以我们通常会叫它**神经网络（neural network）**
+- 在神经网络发展的早期，它通常是下图所示的层级结构
+- 每层神经元与下一层神经元 **全互连**，神经元之间**不存在同层连接**，也**不存在跨层连接**
+  > 以后的神经网络可能会打破一些限制。
+- 输入层神经元接收外界输入，隐藏层与输出层神经元对信号进行加工，最终结果由输出层神经元输出
 
-<img src="assets/image-11.png" width="45%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
+<p align = "center">    
+<img  src="assets/image-11.png" width="350" />
+</p>
 
 <!--v-->
 
@@ -422,11 +428,7 @@
 
 <div class="fragment">
 
-> 神经网络的学习过程，就是根据训练数据来调整神经元之间的
- **“连接权重”（connection weight）** 以及每个功能神经元的 **阈值** ；换言之，神经网络 “学” 到的东西，蕴涵在 **连接权与阈值中**
-
- </div>
-
+神经网络的学习过程，就是根据训练数据来调整神经元之间连接的**权重（weight，也可以说是参数）**。
 
 <span> 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程 </span> <!-- .element: class="fragment" -->
 
@@ -442,19 +444,14 @@
 
 <div class="fragment">
 
-> 训练的过程就是一个优化参数的过程
+训练的过程就是一个优化参数的过程。
 
-</div>
+- 刚刚我们看到的都是数据单向地从输入不断流向下一层，最终流向输出。
+- 这个过程叫做**前向传播 (Forward Propagation, FP)**：输入层数据开始从前向后，数据逐步传递至输出层
+- 为了优化我们的权重，现代的神经网络还会有另外一个步骤：**反向传播 (Backpropagation, BP)**
 
-<ul>
-
-<li class="fragment"> 刚刚我们看到的都是数据单向地从输入不断流向下一层，最终流向输出，没有任何循环。这样的网络叫做<b>前馈神经网络 (Feedforward Neural Network, FNN)</b>，它的基础训练方式是<b>前向传播 (Forward Propagation, FP)</b> </li>
-
-- 前向传播：输入层数据开始从前向后，数据逐步传递至输出层 <!-- .element: class="fragment" -->
-
-<li class="fragment"> 但是现代的 FNN 还会有另外一个步骤：<b>反向传播 (Backpropagation, BP)</b> </li>
-
-<!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
+> 不过，如果有人跟你介绍反向传播算法，它可能指的是包含了前向传播和反向传播两个过程的算法。~~我们自然语言是这样的~~
+  <!-- - 反向传播：损失函数开始从后向前，梯度逐步传递至第一层。反向传播用于权重更新，使网络输出更接近标签
 
 - 在反向传播中，会使用**梯度下降法**更新参数以减小损失函数的值 -->
 
