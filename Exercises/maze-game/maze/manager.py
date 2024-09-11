@@ -72,6 +72,13 @@ class GameManager:
     def __init__(self, mode: GameMode):
         self.mode = mode
         self.ended = False
+        import sys
+        if sys.platform == 'win32':
+            import ctypes
+            try:
+                ctypes.windll.user32.SetProcessDPIAware()
+            except AttributeError:
+                pass
         if mode == GameMode.PLAY:
             self._initalize_play_mode()
         elif mode == GameMode.DEBUG:
