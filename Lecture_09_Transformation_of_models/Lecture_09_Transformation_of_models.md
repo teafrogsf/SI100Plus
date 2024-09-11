@@ -314,12 +314,11 @@ revealOptions:
 
 - 生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会向相连的神经元释放神经递质，从而改变这些神经元内的电位。 <!-- .element: class="fragment" -->
 - 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即“兴奋”起来，向其他神经元发送化学物质. <!-- .element: class="fragment" -->
-- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->\
-  > 这里的“阈值”相当于直线的截距。后续我们可能会用偏置（bias）来指代它。
+- 在刚刚的图中，每一个 ○→ 都是一个神经元（neuron），接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋” <!-- .element: class="fragment" -->
+
 - 这就是 “M-P 神经元模型” (1943，M和P是两个人名) <!-- .element: class="fragment" -->
 - 基于这个模型，感知机得以诞生 <!-- .element: class="fragment" -->
-
-<img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
+  > 这里的“阈值”相当于直线的截距。后续我们可能会用偏置（bias）来指代它。
 
 </div>
 
@@ -330,7 +329,7 @@ revealOptions:
 - 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个呢？
   > 也就是说，三维，四维到 $n$ 维
 
-<img src="assets/image-16.png" width="47%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
+<img src="assets/image-16.png" width="30%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 <div style="column-count:2">
 
@@ -342,7 +341,7 @@ revealOptions:
 
 </ul>
 
-<img src="assets/image-17.png" width="800" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
+<img src="assets/image-17.png" width="75%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
 </div>
 
