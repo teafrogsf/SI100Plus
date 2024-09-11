@@ -213,7 +213,7 @@ revealOptions:
 <div class="middle center">
   <div style="width: 100%">
 
-  # Part.2 感知机的拓展：从二维到 $n$ 维
+  # Part.2 感知机的拓展：从二维到$n$维
   
   </div>
 </div>
@@ -223,7 +223,7 @@ revealOptions:
 ## 再次回到感知机
 
 - 在之前的课程中我们介绍了一个非常简单的感知机模型
-- 在之前的例子中，我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类
+- 我们构造了一个“模型”来对一系列带有标记 $y$ 的点 $(x_1, x_2)$ 的集合 $\left\\{ (x_1^{(i)}, x_2^{(i)},y^{(i)}) \right\\}$ 进行二分类
 - 于是我们就能使用这个模型来预测别的点的类别了
 - 这个模型能接受两个输入（$x_1$ 和 $x_2$），并且提供一个输出 $y$，那么它就可以长这样：
 
@@ -255,6 +255,7 @@ revealOptions:
 - 如果某神经元的电位超过了一个“阈值”,那么它就会被激活，即 “兴奋”起来，向其他神经元发送化学物质.
 - 在刚刚的图中，每一个 `○→` 都是一个神经元 (neuron)，接收别的神经元的信号，这些输入信号通过带权重的连接 (connection) 进行传递，总输入值超过该神经元的阈值 (threshold) 就会 “兴奋”
 - 这就是 “M-P 神经元模型” (1943)
+- 基于这个模型，感知机得以诞生
 
 <img src="assets/image-15.png" width="400" style="display: block; margin: 0 auto;"/>
 
@@ -263,7 +264,6 @@ revealOptions:
 <!--v-->
 
 ## 还可不可以更劲爆点？
-
 
 - 这个模型只接受二维 $(x_1,x_2)$ 的输入，思考一下，如果输入是三个，四个，乃至 $n$ 个（三维，四维到 $n$ 维）呢？
 
@@ -318,8 +318,8 @@ revealOptions:
 
 <img src="assets/image-19.png" width="500" style="display: block; margin: 0 auto;"/>
 
-- 添加的这一层叫做 **隐层 或 隐含层(hidden layer)** 
-  - 既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了
+- 添加的这一层叫做**隐藏层（hidden layer）** 
+  - 它既不是输入也不是输出，我们没有办法直接观测到，就像被藏起来了一样
 - 隐含层和输出层神经元都是拥有 **激活函数** 的功能神经元
   - 输入层神经元仅是接受输入，不进行函数处理，因此在计算层数的时候通常忽略输入层
 
@@ -341,7 +341,7 @@ revealOptions:
 ## 神经网络学习的本质
 
 > 神经网络的学习过程，就是根据训练数据来调整神经元之间的
- **“连接权重”(connection weight)** 以及每个功能神经元的 **阈值** ；换言之，神经网络 “学” 到的东西，蕴涵在 **连接权与阈值中**
+ **“连接权重”（connection weight）** 以及每个功能神经元的 **阈值** ；换言之，神经网络 “学” 到的东西，蕴涵在 **连接权与阈值中**
 
 
 - 这里有一个[小的在线演示](https://playground.tensorflow.org/#activation=tanh&batchSize=29&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=2,1&seed=0.54302&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)，我们可以感性且直观地理解一下训练模型的过程
@@ -369,7 +369,7 @@ revealOptions:
 
 ## 反向传播的步骤
 
-- 反向传播算法（BP 算法）主要由两个阶段组成：激励传播与权重更新。
+- 反向传播主要由两个阶段组成：激励传播与权重更新。
 - 激励传播中，**每次迭代** 将会
   1. （前向传播阶段）将训练输入送入网络以获得预测结果
   2. （反向传播阶段）对预测结果同训练目标求差 (损失函数)
