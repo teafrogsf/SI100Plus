@@ -18,21 +18,35 @@
       <div class="slides">
         <section data-markdown data-separator="<!--s-->" data-separator-vertical="<!--v-->">
           <textarea data-template>
-            ---
-title: Lecture_10_NLP
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: simple
-highlightTheme: github
-css: assets/custom.css
-revealOptions:
-    transition: 'slide'
-    transitionSpeed: fast
-    center: false
-    slideNumber: "c/t"
-    width: 1000
-    pdfSeparateFragments: false
----
+            
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
+  <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 10</h1>
+    <p style="font-size: 24px; color: #666;">用文字回应你的期待——自然语言处理</p>
+    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-09-13</p>
+  </div>
+</div>
+
+<!--s-->
+
+
+
+<div class="middle center"><div style="width: 100%">
+
+# Intro: ChatGPT 的诞生
+
+</div></div>
+
+<!--v-->
+
+## ChatGPT
+
+- <span> ChatGPT: Chat Generative Pre-trained Transformer </span> <!-- .element: class="fragment" -->
+- <span> 2022 年 11 月 30 日，ChatGPT 横空出世，短短5天，注册用户数就超过100万。 </span> <!-- .element: class="fragment" -->
+- <span> 2023 年一月末，ChatGPT的月活用户已突破1亿，成为史上增长最快的消费者应用。 </span> <!-- .element: class="fragment" -->
+- <span> 笔者当时拿它做疫情期间的英语试卷，比我分还高 /TwT/ </span> <!-- .element: class="fragment" -->
+- <span> 引发了一火车 **新闻学乱象** </span> <!-- .element: class="fragment" -->
+    - <span> ![img|123](image.png) </span> <!-- .element: class="fragment" -->
           </textarea>
         </section>
       </div>
@@ -84,7 +98,7 @@ revealOptions:
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"pdfSeparateFragments":false,"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"pdfSeparateFragments":false,"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js"}, queryOptions);
     </script>
 
 
