@@ -667,16 +667,6 @@ revealOptions:
 
 <img src="assets/LLAMA.png" height="350" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
 
-<!--s-->
-
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part. 7 Gazing up to the Darkness
-  
-  </div>
-</div>
-
 <!--v-->
 
 <!--## 一点碎碎念

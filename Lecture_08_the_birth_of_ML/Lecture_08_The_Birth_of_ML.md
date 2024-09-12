@@ -618,11 +618,11 @@ $$ (点的坐标，颜色) $$
 
 我们今天讲了什么？ <!-- .element: class="fragment" -->
 
-- 一个故意挖坑的引子 <!-- .element: class="fragment" -->
-- 一个课程大纲的详细版 <!-- .element: class="fragment" -->
-- 算法的基本概念 <!-- .element: class="fragment" -->
-- 从传统算法走向机器学习 <!-- .element: class="fragment" -->
-<li class="fragment"> <del>下下集预告</del> </li>
+- 感知机 <!-- .element: class="fragment" -->
+- 更多的感知机 <!-- .element: class="fragment" -->
+- 机器学习的基本范式 <!-- .element: class="fragment" -->
+- 分类与回归 <!-- .element: class="fragment" -->
+- 有监督与无监督 <!-- .element: class="fragment" -->
 
 ......如果你还愿意听下去的话，那么，接下来是时候来点猛料大杯大脑升级了。 <!-- .element: class="fragment" -->
 
