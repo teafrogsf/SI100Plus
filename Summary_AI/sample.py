@@ -78,10 +78,10 @@ class TwoTransforms(Scene):
 
 class TextRender(Scene):
     def construct(self):
-        text = Tex("Bias")
-        self.play(Create(text))
+        text = Text("Bias")
+        self.play(Write(text))
         self.wait(0.5)
-        formula = Tex(r"$\frac{1}{2} \int_{-\infty}^{\infty} x^2 dx$").shift(DOWN)
+        formula = MathTex(r"\frac{1}{2} \int_{-\infty}^{\infty} x^2 dx").shift(DOWN)
         self.play(ReplacementTransform(text, formula))
         self.wait(0.5)
         self.play(FadeOut(formula))
@@ -113,3 +113,14 @@ class VectorTest(VectorScene):
         self.play(ReplacementTransform(ax, axn))
         # self.show_ghost_movement((1,1))
         # self.play(self.camera.frame.animate.move_to(s))
+
+class VectorArrow(Scene):
+    def construct(self):
+        dot = Dot(ORIGIN)
+        arrow = Arrow(ORIGIN, [2, 2, 0], buff=0)
+        numberplane = NumberPlane()
+        origin_text = Text('(0, 0)').next_to(dot, DOWN)
+        tip_text = Text('(2, 2)').next_to(arrow.get_end(), RIGHT)
+        self.play(Create(numberplane, run_time=3, lag_ratio=0.1), Create(dot))
+        self.wait(0.5)
+        self.play(Create(arrow), Write(origin_text), Write(tip_text))
