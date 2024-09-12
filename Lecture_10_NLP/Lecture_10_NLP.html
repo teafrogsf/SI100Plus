@@ -63,34 +63,37 @@
 ## 自然语言处理（NLP, Natural Language Processing）
 
 - <span> 顾名思义：关注如何让计算机理解、解释和生成人类语言。 </span> <!-- .element: class="fragment" -->
-- <span> 特点： </span> <!-- .element: class="fragment" -->
-    - <span> 离散（Discrete）： 处理的文本数据是离散的字符和词汇。 </span> <!-- .element: class="fragment" -->
-    - <span> 长上下文依赖（Long Context Dependency）： 理解和生成文本需要长距离的上下文信息。 </span> <!-- .element: class="fragment" -->
-    - <span> 线性结构（Linear）： 语言数据可以看作是线性序列，如语句中的单词顺序。 </span> <!-- .element: class="fragment" -->
-- <span> 主要任务： </span> <!-- .element: class="fragment" -->
-    - <span> 语言模型（Language Modeling）： 预测下一个词汇。 </span> <!-- .element: class="fragment" -->
-    - <span> 机器翻译（Machine Translation）： 将一种自然语言翻译成另一种。 </span> <!-- .element: class="fragment" -->
-    - <span> 情感分析（Sentiment Analysis）： 分析文本中的情感倾向。 </span> <!-- .element: class="fragment" -->
-    - <span> 文本生成（Text Generation）： 生成有意义的文本段落。 </span> <!-- .element: class="fragment" -->
+- <span> 早在人工智能兴起之前，NLP就是计算机科学的重要研究方向之一。我们很多熟知的技术，如搜索引擎、机器翻译、语音识别、人声合成等，都是NLP的应用。 </span> <!-- .element: class="fragment" -->
+- <span> NLP的目标是让计算机能够像人类一样理解和处理自然语言，从而实现更智能的人机交互。 </span> <!-- .element: class="fragment" -->
+- <span> 在 ChatGPT 出现以前，人们通过特定的基于规则的算法来实现对文本的理解。例如，在中英文翻译中，人们会编写大量的规则来处理不同的语法结构和词汇，通过将句子拆分成词语、短语等基本单元，然后逐步翻译。 </span> <!-- .element: class="fragment" -->
+<!-- FIXME: 
 
-<!--v-->
+Reference: 
+Google
+from
+PBMT(phrase-based machine translation) 
+to
+GNMT(Google Neural Machine Translation)
+-->
+
+- <span> 很多翻译软件中也自带了朗读功能，这就是语音合成技术的应用。对于语音合成，一个简单直接的方法是将文本逐字（单词）地拆分，然后通过查表的方式找到对应的音素（音位）或音频片段，最后将这些音素或音频片段拼接起来，形成连贯的语音。但这种方法的效果并不好，因为不同的语气（例如疑问句、陈述句）和语境会导致句子中的音调、语速等发生变化，而这些变化是通过简单的查表方式无法捕捉到的。 汉字存在的多音字，也让规则变得极为复杂。 </span> <!-- .element: class="fragment" -->
+
+
 
 ## 计算机视觉（CV, Computer Vision）
 
-
 - <span> 让计算机能够像人类一样理解和解析视觉世界。 </span> <!-- .element: class="fragment" -->
-- <span> 特点 </span> <!-- .element: class="fragment" -->
-    - <span> 连续（Continuous）： 处理的图像和视频数据是连续的。 </span> <!-- .element: class="fragment" -->
-    - <span> 局部性（Locality）： 图像中每个像素的位置和邻域关系非常重要。 </span> <!-- .element: class="fragment" -->
-- <span> 主要任务 </span> <!-- .element: class="fragment" -->
+- <span> NLP 聚焦的是人类语言，而 CV 则是人类视觉。这两个领域都是 AI 的重要分支，他们在面对的任务和处理方式迥然不同，但在发展的过程之中又相辅相成。 </span> <!-- .element: class="fragment" -->
+- <span> 日常生活中，上班刷脸打卡、美颜相机、体感游戏、自动驾驶等等，都在应用计算机视觉技术。 </span> <!-- .element: class="fragment" -->
+- <span> 这些应用就对应了 CV 中的几个主要任务 </span> <!-- .element: class="fragment" -->
     - <span> 图像分类（Image Classification）： 识别图像所属的类别。 </span> <!-- .element: class="fragment" -->
-    - <span> 目标检测（Object Detection）： 找出图像中的目标及其位置。 </span> <!-- .element: class="fragment" -->
-    - <span> 语义分割（Semantic Segmentation）： 将图像划分为具有不同语义的区域。 </span> <!-- .element: class="fragment" -->
     - <span> 人脸识别（Face Recognition）： 识别并确认图像或视频中的人脸。 </span> <!-- .element: class="fragment" -->
+    - <span> 目标检测/追踪（Object Detection&Tracking）： 找出图像中的目标及其位置。 </span> <!-- .element: class="fragment" -->
+    - <span> 语义分割（Semantic Segmentation）： 将图像划分为具有不同语义的区域。 </span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
-## 其他流派
+<!-- ## 其他流派
 
 - <span> 语音识别: 将口语转换为书面文本 </span> <!-- .element: class="fragment" -->
     - <span> 任务: 语音转文本、语音分析、语音生成 </span> <!-- .element: class="fragment" -->
@@ -100,7 +103,7 @@
     - <span> 应用: 游戏AI、机器人控制、自动化交易系统 </span> <!-- .element: class="fragment" -->
 - <span> 生成对抗网络（Generative Adversarial Networks, GANs）: 由生成器和判别器组成的模型框架，用于生成接近真实数据的假数据。 </span> <!-- .element: class="fragment" -->
     - <span> 任务： 图像生成、图像超分辨率、数据增强。 </span> <!-- .element: class="fragment" -->
-    - <span> 应用： 图像合成、虚拟现实、艺术创作。 </span> <!-- .element: class="fragment" -->
+    - <span> 应用： 图像合成、虚拟现实、艺术创作。 --> </span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
@@ -141,30 +144,6 @@
 
 <!--v-->
 
-## NLP 的主要任务
-
-- <span> 基础任务: </span> <!-- .element: class="fragment" -->
-    - <span> 分词（Tokenization） </span> <!-- .element: class="fragment" -->
-    - <span> 词性标注（Part-of-Speech Tagging） </span> <!-- .element: class="fragment" -->
-    - <span> 命名实体识别（Named Entity Recognition） </span> <!-- .element: class="fragment" -->
-    - <span> 句法解析（Syntactic Parsing） </span> <!-- .element: class="fragment" -->
-- <span> 高级任务: </span> <!-- .element: class="fragment" -->
-    - <span> 机器翻译（Machine Translation） </span> <!-- .element: class="fragment" -->
-    - <span> 文本摘要（Text Summarization） </span> <!-- .element: class="fragment" -->
-    - <span> 情感分析（Sentiment Analysis） </span> <!-- .element: class="fragment" -->
-    - <span> 问答系统（Question Answering） </span> <!-- .element: class="fragment" -->
-
-<!--v-->
-
-## NLP 的研究
-
-- <span> 模型研究（基础任务研究）： </span> <!-- .element: class="fragment" -->
-    - <span> 这类研究主要关注开发新的算法或模型，目标是提升对自然语言理解的基本能力。比如开发新的分词算法、改进词性标注器等。这些研究类似于创造新的“积木块”。 </span> <!-- .element: class="fragment" -->
-- <span> 下游任务研究： </span> <!-- .element: class="fragment" -->
-    - <span> 这部分研究关注如何将已有的模型应用于特定的实际任务，如机器翻译、文本生成等。它们相当于利用基础研究中创造的积木块，来构建复杂的系统或解决具体的问题。 </span> <!-- .element: class="fragment" -->
-
-<!--v-->
-
 ## NLP 研究的思维方式
 
 - <span> 传统的NLP研究主要依赖于 </span> <!-- .element: class="fragment" -->
@@ -176,23 +155,36 @@
 
 <!--v-->
 
-## 线性代数基础
+## NLP 的研究
 
-- <span> 在理解现代NLP（尤其是神经网络方法）时，线性代数是一个重要的工具。关键概念包括： </span> <!-- .element: class="fragment" -->
-    - <span> 向量（Vectors）：用于表示单词、句子等的数值表示。 </span> <!-- .element: class="fragment" -->
-    - <span> 矩阵（Matrices）：代表操作向量的线性变换。 </span> <!-- .element: class="fragment" -->
-    - <span> 奇异值分解（SVD）和特征值分解（Eigendecomposition）：用于降维和抽取数据的主要特征。 </span> <!-- .element: class="fragment" -->
-
+- <span> 模型研究（基础任务研究）： </span> <!-- .element: class="fragment" -->
+    - <span> 这类研究主要关注开发新的算法或模型，目标是提升对自然语言理解的基本能力。比如 Attention 机制、AlexNet，RNN 等，都是提出新的网络结构，从而给 NLP 领域解锁了新的可能性。每一个新的模型都相当于一个新的积木块，可以用来构建更复杂的系统。 </span> <!-- .element: class="fragment" -->
+- <span> 下游任务研究： </span> <!-- .element: class="fragment" -->
+    - <span> 这部分研究关注如何将已有的模型应用于特定的实际任务，如机器翻译、文本生成等。它们相当于利用基础研究中创造的积木块，来构建复杂的系统或解决具体的问题。 </span> <!-- .element: class="fragment" -->
 <!--v-->
 
-## word2vec（连接主义的胜利）
+## 一些数学...
 
-- <span> word2vec是Google提出的一种用于生成词向量（词嵌入）的算法，并且展示了连接主义方法在NLP领域的巨大成功。它的核心想法是： </span> <!-- .element: class="fragment" -->
+- <span> 在理解现代NLP（尤其是神经网络方法）时，线性代数是一个重要的工具，因为想要借助神经网络或者概率模型来处理自然语言，就必须要把一个一个的文字转化成可以被计算的数字。就像我们可以用 1 到 26 来表示字母，将文字转化为数字，就是 NLP 的第一步。 </span> <!-- .element: class="fragment" -->
 
-    - <span> 通过扫描大规模的文本数据，word2vec学习到每个单词的向量表示（embedding），使得语义上相近的词在向量空间中彼此接近。 </span> <!-- .element: class="fragment" -->
-    - <span> 它利用两个模型框架：Skip-Gram和**Continuous Bag of Words（CBOW）**来高效地学到这些嵌入。 </span> <!-- .element: class="fragment" -->
+- <span> 但是，这样 1 到 26 的表示方法是不够的，因为我们的文字是有意义的，而这种表示方法只是一种符号，即使是现在最庞大的神经网络，也难以用这样的符号来学习到文字的意义。所以，我们需要一种更加有语意的表示方法，这就是向量。 </span> <!-- .element: class="fragment" -->
 
-- <span> word2vec的成功标志着数据驱动方法（连接主义）在NLP中的巨大潜力，从而推动了基于神经网络的深度学习方法成为主流。 </span> <!-- .element: class="fragment" -->
+- <span> 怎样在数学中蕴含语意呢？我们中学时都学过向量（Vector）的概念，向量是一个有方向和大小的量，可以用来表示空间中的一个点。如果我们把每一个单词视作为一个点，把单词投射到一个二维平面。并且我们规定，语义上相近的单词在这个平面上的距离也要相近。这样，我们就可以用一个向量来表示一个单词，这个向量就是这个单词的词向量（Word Embedding）。 </span> <!-- .element: class="fragment" -->
+
+- <span> 这样的表示方法，就使得点的坐标也带有了意义。举个例子，把食物的词汇投射到二维平面，并且我们规定越往X轴正方向的单词越甜，越往X轴负方向的单词越苦；越往Y轴正方向的单词越硬，越往Y轴负方向的单词越软。那么，我们就可以某个第一象限的点表示“苹果”，某个第二象限的点表示“蛋糕”，某个第三象限的点表示“苦瓜”，某个第四象限的点表示“冰淇淋”。并且根据定义，我们知道“苹果”和“梨子”在这个平面上的距离要比“苹果”和“苦瓜”要近。 </span> <!-- .element: class="fragment" -->
+
+- <span> 我们先不要管我们是如何将单词投射到这个平面上的（马上会讲到），我们先来关注这样的表示方法有哪些奇妙的性质。首先，我们可以看到，意思相近的单词在这个平面上的距离也是相近的，那么机器在学习这样的表示方法时，就可以通过这个距离来判断两个单词的语义相似度，从而更好地理解自然语言。其次，我们可以注意到，坐标轴也是有语意的！也就是说，二维空间上的两根坐标轴分别表示了甜的程度和硬的程度，而如果将这个空间扩展到三维，我们就可以新增一个维度，比如表示酸的程度，这样我们就有了更加丰富的语意表示。依此类推，我们可以将这个空间扩展到一个很高的纬度，从而将丰富的语意信息编码到这个向量中。 </span> <!-- .element: class="fragment" -->
+
+- <span> 那么如果我们能够通过某种算法，让机器自动地将单词投射到一个高维的空间中，使得这个空间中的点的坐标带有语意，那么我们就可以用这个向量来表示单词，这就是词向量的基本思想。 </span> <!-- .element: class="fragment" -->
+
+- <span> 那么，我们是如何将单词投射到这个平面上的呢？这就是我们要讲的词向量的训练方法，其中最著名的就是 word2vec </span> <!-- .element: class="fragment" -->
+<!--v-->
+
+## word2vec
+
+- <span> word2vec 是 Google 在 2013 年提出的一种词向量训练方法，它的核心思想是通过神经网络来学习单词的词向量。它基于一个很朴素的想法：在文本中，越是经常出现在一起的单词，它们的语义越相近。比如说，句子中有“小猪爱吃苹果和梨子”，那么我们就知道“小猪”、“苹果”和“梨子”存在某种联系，比如“小猪”和“苹果”可能是主语和宾语的关系，而“苹果”和“梨子”可能是同义词。那么，我们就可以通过这种关系来学习单词的词向量。 </span> <!-- .element: class="fragment" -->
+
+- <span> word2vec 首先收集了大量的文本数据，然后将句子中的任意两个单词两两组合，作为训练样本。对于每一个训练样本，word2vec 会通过神经网络来预测这两个单词之间的关系，具体来说，就是预测这两个单词之间的距离。如果两个单词在文本中经常出现在一起，那么它们之间的距离就会很小；反之，如果两个单词很少在一起出现，那么它们之间的距离就会很大。通过这种方式，word2vec 就可以学习到单词的词向量。 </span> <!-- .element: class="fragment" -->
 
 <!--s-->
 
