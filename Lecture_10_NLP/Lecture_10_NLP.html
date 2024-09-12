@@ -46,7 +46,9 @@
 - <span> 2023 年一月末，ChatGPT的月活用户已突破1亿，成为史上增长最快的消费者应用。 </span> <!-- .element: class="fragment" -->
 - <span> 笔者当时拿它做疫情期间的英语试卷，比我分还高 /TwT/ </span> <!-- .element: class="fragment" -->
 - <span> 引发了一火车 **新闻学乱象** </span> <!-- .element: class="fragment" -->
-    - <span> ![img|123](image.png) </span> <!-- .element: class="fragment" -->
+
+![img|900](image.png)
+
 
 <!--s-->
 
@@ -60,8 +62,7 @@
 
 ## 自然语言处理（NLP, Natural Language Processing）
 
-- <span> 自然语言处理 </span> <!-- .element: class="fragment" -->
-    - <span> 顾名思义：关注如何让计算机理解、解释和生成人类语言。 </span> <!-- .element: class="fragment" -->
+- <span> 顾名思义：关注如何让计算机理解、解释和生成人类语言。 </span> <!-- .element: class="fragment" -->
 - <span> 特点： </span> <!-- .element: class="fragment" -->
     - <span> 离散（Discrete）： 处理的文本数据是离散的字符和词汇。 </span> <!-- .element: class="fragment" -->
     - <span> 长上下文依赖（Long Context Dependency）： 理解和生成文本需要长距离的上下文信息。 </span> <!-- .element: class="fragment" -->
@@ -127,8 +128,138 @@
 
 <!-- <img src="./image-1.png" width="500"/> -->
 ![蛙蛙抱怨|380](image-1.png) <!-- .element: class="fragment" -->
+
 </div>
 
+<!--s-->
+
+<div class="middle center"><div style="width: 100%">
+
+# 这么厉害？那 NLP 到底在干什么？
+
+</div></div>
+
+<!--v-->
+
+## NLP 的主要任务
+
+- <span> 基础任务: </span> <!-- .element: class="fragment" -->
+    - <span> 分词（Tokenization） </span> <!-- .element: class="fragment" -->
+    - <span> 词性标注（Part-of-Speech Tagging） </span> <!-- .element: class="fragment" -->
+    - <span> 命名实体识别（Named Entity Recognition） </span> <!-- .element: class="fragment" -->
+    - <span> 句法解析（Syntactic Parsing） </span> <!-- .element: class="fragment" -->
+- <span> 高级任务: </span> <!-- .element: class="fragment" -->
+    - <span> 机器翻译（Machine Translation） </span> <!-- .element: class="fragment" -->
+    - <span> 文本摘要（Text Summarization） </span> <!-- .element: class="fragment" -->
+    - <span> 情感分析（Sentiment Analysis） </span> <!-- .element: class="fragment" -->
+    - <span> 问答系统（Question Answering） </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## NLP 的研究
+
+- <span> 模型研究（基础任务研究）： </span> <!-- .element: class="fragment" -->
+    - <span> 这类研究主要关注开发新的算法或模型，目标是提升对自然语言理解的基本能力。比如开发新的分词算法、改进词性标注器等。这些研究类似于创造新的“积木块”。 </span> <!-- .element: class="fragment" -->
+- <span> 下游任务研究： </span> <!-- .element: class="fragment" -->
+    - <span> 这部分研究关注如何将已有的模型应用于特定的实际任务，如机器翻译、文本生成等。它们相当于利用基础研究中创造的积木块，来构建复杂的系统或解决具体的问题。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## NLP 研究的思维方式
+
+- <span> 传统的NLP研究主要依赖于 </span> <!-- .element: class="fragment" -->
+    - <span> 规则：专家手动编写语言规则，例如语法规则和词典，这些用于进行各种语言处理任务。 </span> <!-- .element: class="fragment" -->
+    - <span> 统计方法：基于大规模的语言数据，利用统计学原理，构建如隐马尔可夫模型（HMM）等进行语言建模。 </span> <!-- .element: class="fragment" -->
+- <span> 在引入人工智能之后，自然语言处理领域产生了不同的方法学流派： </span> <!-- .element: class="fragment" -->
+    - <span> 符号主义（Symbolism）：关注显式规则和逻辑推理，强调知识的表达和推理，比如基于知识图谱的方法。 </span> <!-- .element: class="fragment" -->
+    - <span> 连接主义（Connectionism）：即神经网络方法，强调通过大量数据和神经网络模型进行学习，典型代表如深度学习和word2vec。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## 线性代数基础
+
+- <span> 在理解现代NLP（尤其是神经网络方法）时，线性代数是一个重要的工具。关键概念包括： </span> <!-- .element: class="fragment" -->
+    - <span> 向量（Vectors）：用于表示单词、句子等的数值表示。 </span> <!-- .element: class="fragment" -->
+    - <span> 矩阵（Matrices）：代表操作向量的线性变换。 </span> <!-- .element: class="fragment" -->
+    - <span> 奇异值分解（SVD）和特征值分解（Eigendecomposition）：用于降维和抽取数据的主要特征。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## word2vec（连接主义的胜利）
+
+- <span> word2vec是Google提出的一种用于生成词向量（词嵌入）的算法，并且展示了连接主义方法在NLP领域的巨大成功。它的核心想法是： </span> <!-- .element: class="fragment" -->
+
+    - <span> 通过扫描大规模的文本数据，word2vec学习到每个单词的向量表示（embedding），使得语义上相近的词在向量空间中彼此接近。 </span> <!-- .element: class="fragment" -->
+    - <span> 它利用两个模型框架：Skip-Gram和**Continuous Bag of Words（CBOW）**来高效地学到这些嵌入。 </span> <!-- .element: class="fragment" -->
+
+- <span> word2vec的成功标志着数据驱动方法（连接主义）在NLP中的巨大潜力，从而推动了基于神经网络的深度学习方法成为主流。 </span> <!-- .element: class="fragment" -->
+
+<!--s-->
+
+<div class="middle center"><div style="width: 100%">
+
+# 连接主义
+
+</div></div>
+
+<!--v-->
+
+## 以前的连接主义
+
+- <span> 主要依赖于递归神经网络（RNN）及其扩展 </span> <!-- .element: class="fragment" -->
+- <span> RNN可以处理任意长度的序列，适用于各种自然语言任务，如句子分类、机器翻译等。 </span> <!-- .element: class="fragment" -->
+- <span> 局限： </span> <!-- .element: class="fragment" -->
+    - <span> 梯度消失和爆炸：随着序列长度的增加，梯度在反向传播过程中可能会逐渐消失（变得非常小）或爆炸（变得非常大），导致训练困难。 </span> <!-- .element: class="fragment" -->
+    - <span> 长距离依赖问题：RNN在捕捉远距离信息时表现不佳，容易“遗忘”早期重要的信息。 </span> <!-- .element: class="fragment" -->
+- <span> 如何解决？ </span> <!-- .element: class="fragment" -->
+    - <span> 长短期记忆（LSTM）：通过引入门控机制（输入门、忘记门和输出门）来控制信息的流动，从而有效缓解梯度消失问题。 </span> <!-- .element: class="fragment" -->
+    - <span> 门控循环单元（GRU）：是LSTM的简化版，也采用门控机制，但参数更少，使得计算更为高效。 </span> <!-- .element: class="fragment" -->
+    - <span> **Attention 机制** </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## Attention 机制
+
+- <span> Attention机制是一种用于增强神经网络捕捉全局信息的技术。其核心思想是：在处理序列的每一步时，不仅关注当前输入，还要“关注”序列中其他相关位置的信息，分配不同的权重给这些位置，从而得到一个更为动态和灵活的信息表示。 </span> <!-- .element: class="fragment" -->
+- <span> 在理解Attention机制时，线性代数起到了重要的作用： </span> <!-- .element: class="fragment" -->
+    - <span> 向量和矩阵运算：Attention机制通过计算一系列向量和矩阵的点积、加权求和等操作来实现。 </span> <!-- .element: class="fragment" -->
+    - <span> Softmax函数：用于将计算出的权重标准化为概率分布。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## Attention 的诞生
+
+- <span> Attention机制首先在机器翻译任务中得到应用，可以显著提升翻译质量。最早的Attention模型由Bahdanau等人提出（2014），它引入了一个可学习的权重矩阵来在翻译过程中动态分配注意力，从而更好地捕捉源语言和目标语言之间的对齐关系。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## Attention Is All You Need（Attention机制的成功）
+
+- <span> 在2017年，Vaswani等人提出了Transformer模型，彻底改变了NLP领域。这篇论文题为“Attention Is All You Need”，核心观点是：通过Attention机制完全替代传统的RNN/LSTM结构，可以大幅提升模型的并行计算能力和长距离依赖处理能力。 </span> <!-- .element: class="fragment" -->
+- <span> Transformer模型的特点 </span> <!-- .element: class="fragment" -->
+    - <span> 自注意力机制（Self-Attention）：允许在每个时间步通过Attention机制聚合整个序列的信息。 </span> <!-- .element: class="fragment" -->
+    - <span> 多头注意力（Multi-Head Attention）：通过多个独立的Attention头来捕捉不同的子空间表示，从而获得更丰富的信息。 </span> <!-- .element: class="fragment" -->
+    - <span> 层归一化和前馈网络：结合线性代数和非线性变换，增强了模型的表达能力与训练稳定性。 </span> <!-- .element: class="fragment" -->
+
+<!--v-->
+
+## CV与NLP的相辅相成
+
+- <span> 在计算机视觉（CV）领域，Attention机制也同样得到了广泛应用。例如，Vision Transformer（ViT）便是将Transformer架构从NLP迁移到CV领域的成功案例。这表明，CV和NLP之间可以相互借鉴和影响，促进彼此的发展。例如： </span> <!-- .element: class="fragment" -->
+    - <span> Feature Extraction：在图像处理中，Attention可以帮助提取更重要的特征。 </span> <!-- .element: class="fragment" -->
+    - <span> 结构上的共性：CV中的图像信息与NLP中的文本信息都可以被视为高维序列，通过Attention机制处理这些序列能取得显著效果。 </span> <!-- .element: class="fragment" -->
+    - <span> 工具和方法的共用：如线性代数、矩阵运算等，对理解和实施Attention机制至关重要，跨越CV和NLP领域。 </span> <!-- .element: class="fragment" -->
+
+<!--s-->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>
           </textarea>
         </section>
       </div>
@@ -162,9 +293,12 @@
         controls: true,
         progress: true,
         history: true,
-        center: true,
-        transition: 'default', // none/fade/slide/convex/concave/zoom
-        slideNumber: true,
+        center: false,
+        width: 1000,
+        pdfSeparateFragments: false,
+        transition: 'slide',
+        transitionSpeed: 'fast',
+        slideNumber: "c/t",
         highlight: {
           highlightOnLoad: false
         },
@@ -180,7 +314,7 @@
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"pdfSeparateFragments":false,"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
+      var options = extend(defaultOptions, {"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
     </script>
 
     <script src="./_assets/assets/inject.js"></script>
