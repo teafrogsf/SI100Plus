@@ -34,31 +34,23 @@
 
 
 
-<!--s-->
+<div class="middle center"><div style="width: 100%">
 
-<div class="middle center">
-  <div style="width: 100%">
+# Intro: ChatGPT 的诞生
 
-  # Part.0 新闻学的故事
-  
-  </div>
-</div>
+</div></div>
 
 <!--v-->
 
-## 我们已经拿ChatGPT说过很多次了
+## ChatGPT
 
-自从ChatGPT爆火之后，GPT三个字母突然出现在了公众视野里。GPT作为一个“统一的整体”出现的越来越普遍，也引发很多非常幽默~~令人忍俊不禁~~的新闻学奇观。
+- <span> ChatGPT: Chat Generative Pre-trained Transformer </span> <!-- .element: class="fragment" -->
+- <span> 2022 年 11 月 30 日，ChatGPT 横空出世，短短5天，注册用户数就超过100万。 </span> <!-- .element: class="fragment" -->
+- <span> 2023 年一月末，ChatGPT的月活用户已突破1亿，成为史上增长最快的消费者应用。 </span> <!-- .element: class="fragment" -->
+- <span> 笔者当时拿它做疫情期间的英语试卷，比我分还高 /TwT/ </span> <!-- .element: class="fragment" -->
+- <span> 引发了一火车 **新闻学乱象** </span> <!-- .element: class="fragment" -->
 
 ![img|900](image.png)
-
-GPT究竟为什么会诞生？它最初是用来解决什么样的问题的？在它之前的模型又解决了什么样的问题？
-
-第四章的内容将带你进入**自然语言处理（NLP, Natural Language Processing）**的世界。
-
-<!-- 可是，我们的课程学到了今天，你有没有好奇过，GPT究竟是什么意思呢？
-- **Generative Pre-trained Transformer**
-它究竟是什么意思呢？非常遗憾的是这 -->
 
 
 <!--s-->
@@ -71,12 +63,15 @@ GPT究竟为什么会诞生？它最初是用来解决什么样的问题的？�
 
 <!--v-->
 
-## 自然语言处理
+## 自然语言处理（NLP, Natural Language Processing）
 
-- <span> 顾名思义：关注如何让计算机理解、解释和生成人类语言。 </span> <!-- .element: class="fragment" -->
-- <span> 早在人工智能兴起之前，NLP就是计算机科学的重要研究方向之一。我们很多熟知的技术，如搜索引擎、机器翻译、语音识别、人声合成等，都是NLP的应用。 </span> <!-- .element: class="fragment" -->
+- <span> 顾名思义：NLP，就是让机器理解自然语言（也就是人类的文化载体——文字），然后让机器处理，运用人类语言 </span> <!-- .element: class="fragment" -->
+
+- <span> 早在人工智能兴起之前，NLP就是计算机科学的重要研究方向之一。我们很多熟知的技术，如搜索引擎、机器翻译，Chatbot等，都是NLP的应用。 </span> <!-- .element: class="fragment" -->
+
 - <span> NLP的目标是让计算机能够像人类一样理解和处理自然语言，从而实现更智能的人机交互。 </span> <!-- .element: class="fragment" -->
-- <span> 在 ChatGPT 出现以前，人们通过特定的基于规则的算法来实现对文本的理解。例如，在中英文翻译中，人们会编写大量的规则来处理不同的语法结构和词汇，通过将句子拆分成词语、短语等基本单元，然后逐步翻译。 </span> <!-- .element: class="fragment" -->
+
+- <span> 这只是一个简介，后面会更加深入地介绍NLP </span> <!-- .element: class="fragment" -->
 
 <!-- FIXME: 
 
@@ -88,20 +83,29 @@ to
 GNMT(Google Neural Machine Translation)
 -->
 
-- <span> 很多翻译软件中也自带了朗读功能，这就是语音合成技术的应用。对于语音合成，一个简单直接的方法是将文本逐字（单词）地拆分，然后通过查表的方式找到对应的音素（音位）或音频片段，最后将这些音素或音频片段拼接起来，形成连贯的语音。但这种方法的效果并不好，因为不同的语气（例如疑问句、陈述句）和语境会导致句子中的音调、语速等发生变化，而这些变化是通过简单的查表方式无法捕捉到的。 汉字存在的多音字，也让规则变得极为复杂。 </span> <!-- .element: class="fragment" -->
 
 <!--v-->
 
 ## 计算机视觉（CV, Computer Vision）
 
-- <span> 让计算机能够像人类一样理解和解析视觉世界。 </span> <!-- .element: class="fragment" -->
-- <span> NLP 聚焦的是人类语言，而 CV 则是人类视觉。这两个领域都是 AI 的重要分支，他们在面对的任务和处理方式迥然不同，但在发展的过程之中又相辅相成。 </span> <!-- .element: class="fragment" -->
-- <span> 日常生活中，上班刷脸打卡、美颜相机、体感游戏、自动驾驶等等，都在应用计算机视觉技术。 </span> <!-- .element: class="fragment" -->
-- <span> 这些应用就对应了 CV 中的几个主要任务 </span> <!-- .element: class="fragment" -->
-    - <span> 图像分类（Image Classification）： 识别图像所属的类别。 </span> <!-- .element: class="fragment" -->
-    - <span> 人脸识别（Face Recognition）： 识别并确认图像或视频中的人脸。 </span> <!-- .element: class="fragment" -->
-    - <span> 目标检测/追踪（Object Detection&Tracking）： 找出图像中的目标及其位置。 </span> <!-- .element: class="fragment" -->
-    - <span> 语义分割（Semantic Segmentation）： 将图像划分为具有不同语义的区域。 </span> <!-- .element: class="fragment" -->
+### 让计算机能够像人类一样理解和解析视觉世界
+
+人类能够轻易地理解和描述图像中的场景。以下图为例，人类能做到的不仅仅是检测到图像前景中有四个人（可能是五个）和一面美国国旗
+
+![alt text](image-4.png)
+
+除了这些基本信息，人类还能够看出图像中的人物动作和神态，其中一人挥拳呐喊，我们甚至知道他是谁。我们可以理性地推断出图中人物一被击中了。人类还可以描述图中人物的穿着，不止是衣服颜色，还有材质与纹理。
+
+这也是计算机视觉系统需要的技能。简单来说，计算机视觉解决的主要问题是：
+
+- <span> 给出一张二维图像，计算机视觉系统必须识别出图像中的对象及其特征，如形状、纹理、颜色、大小、空间排列等，从而尽可能完整地描述该图像。 </span> <!-- .element: class="fragment" -->
+
+- <span> 刚刚我们在观察图片时，人眼和大脑事实上已经完成了一系列任务 </span> <!-- .element: class="fragment" -->
+- <span> 这些任务就对应了 CV 中的几个主要任务 </span> <!-- .element: class="fragment" -->
+    - <span> 图像分类（Image Classification）： 识别图像所属的类别，比如图中你研究能看出人和国旗的区别。 </span> <!-- .element: class="fragment" -->
+    - <span> 人脸识别（Face Recognition）： 识别并确认图像或视频中的人脸，比如你一眼丁真，认出了川普。 </span> <!-- .element: class="fragment" -->
+    - <span> 目标检测/追踪（Object Detection&Tracking）： 找出图像中的目标及其位置（假设这是一个视频，想必你会全神贯注地盯着Trump看） </span> <!-- .element: class="fragment" -->
+    - <span> 语义分割（Semantic Segmentation）： 将图像划分为具有不同语义的区域（在观察这张图片时，你已经自动地确定了每个角色的边界，你当然知道那只伸出的手臂是川普的而不是他保镖的） </span> <!-- .element: class="fragment" -->
 
 <!-- ## 其他流派
 
@@ -159,6 +163,35 @@ GNMT(Google Neural Machine Translation)
 </div></div>
 
 <!--v-->
+
+> 语言理解是人工智能领域皇冠上的明珠        
+——比尔·盖茨
+
+- <span> 每种动物都有自己的语言，机器也是！ </span> <!-- .element: class="fragment" -->
+
+- <span> 自然语言处理（NLP）就是在机器语言和人类语言之间沟通的桥梁，以实现人机交流的目的 </span> <!-- .element: class="fragment" -->
+
+- <span> 人类通过语言来交流，狗通过汪汪叫来交流。机器也有自己的交流方式，那就是数字信息 </span> <!-- .element: class="fragment" -->
+
+![alt text](image-5.png)
+
+- <span> 不同的语言之间是无法沟通的，比如说人类就无法听懂狗叫，甚至不同语言的人类之间都无法直接交流，需要翻译才能交流。 </span> <!-- .element: class="fragment" -->
+
+- <span> 而计算机更是如此，为了让计算机之间互相交流，人们让所有计算机都遵守一些规则，计算机的这些规则就是计算机之间的语言。 </span> <!-- .element: class="fragment" -->
+
+- <span> 既然不同人类语言之间可以有翻译，那么人类和机器之间是否可以通过“翻译”的方式来直接交流呢？ </span> <!-- .element: class="fragment" -->
+
+- <span> NLP 就是人类和机器之间沟通的桥梁！ </span> <!-- .element: class="fragment" -->
+
+![alt text](image-6.png)
+
+
+## 为什么是“自然语言”处理？
+
+- <span> 自然语言就是大家平时在生活中常用的表达方式，大家平时说的「讲人话」就是这个意思。 </span> <!-- .element: class="fragment" -->
+
+> 非自然语言：我认为意大利面就应该拌42号混凝土  
+自然语言：我瞎说的
 
 ## NLP 研究的思维方式
 
@@ -224,8 +257,6 @@ GNMT(Google Neural Machine Translation)
 
 <!--v-->
 
-## word2vec
-
 - <span> word2vec 是 Google 在 2013 年提出的一种词向量训练方法，它的核心思想是 **通过神经网络来学习单词的词向量**。 </span> <!-- .element: class="fragment" -->
 - <span> 它基于一个很朴素的想法：在文本中，**越是经常出现在一起的单词，它们的语义越相近**。 </span> <!-- .element: class="fragment" -->
 - <span> 比如说，句子中有“小猪爱吃苹果和梨子”，那么我们就知道“小猪”、“苹果”和“梨子”存在某种联系，比如“小猪”和“苹果”可能是主语和宾语的关系，而“苹果”和“梨子”可能是同义词。那么，我们就可以通过这种关系来学习单词的词向量。 </span> <!-- .element: class="fragment" -->
@@ -250,7 +281,7 @@ GNMT(Google Neural Machine Translation)
 - <span> RNN可以处理任意长度的序列，适用于各种自然语言任务，如句子分类、机器翻译等。 </span> <!-- .element: class="fragment" -->
 - <span> 局限： </span> <!-- .element: class="fragment" -->
     - <span> 梯度消失和爆炸：随着序列长度的增加，梯度在反向传播过程中可能会逐渐消失（变得非常小）或爆炸（变得非常大），导致训练困难。 </span> <!-- .element: class="fragment" -->
-    - <span> 长距离依赖问题：RNN在捕捉远距离信息时表现不佳，容易“遗忘”早期重要的信息。 </span> <!-- .element: class="fragment" -->
+    - <span> **长距离依赖问题：RNN在捕捉远距离信息时表现不佳，容易“遗忘”早期重要的信息。** </span> <!-- .element: class="fragment" -->
 - <span> 如何解决？ </span> <!-- .element: class="fragment" -->
     - <span> 长短期记忆（LSTM）：通过引入门控机制（输入门、忘记门和输出门）来控制信息的流动，从而有效缓解梯度消失问题。 </span> <!-- .element: class="fragment" -->
     - <span> 门控循环单元（GRU）：是LSTM的简化版，也采用门控机制，但参数更少，使得计算更为高效。 </span> <!-- .element: class="fragment" -->
@@ -261,9 +292,8 @@ GNMT(Google Neural Machine Translation)
 ## Attention 机制
 
 - <span> Attention机制是一种用于增强神经网络捕捉全局信息的技术。其核心思想是：在处理序列的每一步时，不仅关注当前输入，还要“关注”序列中其他相关位置的信息，分配不同的权重给这些位置，从而得到一个更为动态和灵活的信息表示。 </span> <!-- .element: class="fragment" -->
-- <span> 在理解Attention机制时，线性代数起到了重要的作用： </span> <!-- .element: class="fragment" -->
-    - <span> 向量和矩阵运算：Attention机制通过计算一系列向量和矩阵的点积、加权求和等操作来实现。 </span> <!-- .element: class="fragment" -->
-    - <span> Softmax函数：用于将计算出的权重标准化为概率分布。 </span> <!-- .element: class="fragment" -->
+
+![alt text](image-7.png)
 
 <!--v-->
 
@@ -271,9 +301,19 @@ GNMT(Google Neural Machine Translation)
 
 - <span> Attention机制首先在机器翻译任务中得到应用，可以显著提升翻译质量。最早的Attention模型由Bahdanau等人提出（2014），它引入了一个可学习的权重矩阵来在翻译过程中动态分配注意力，从而更好地捕捉源语言和目标语言之间的对齐关系。 </span> <!-- .element: class="fragment" -->
 
+![alt text](image-9.png)
+
 <!--v-->
 
 ## Attention Is All You Need（Attention机制的成功）
+
+### 自注意力机制(self-attention)
+
+- <span> 自注意力机制和注意力机制的区别就在于，注意力机制的查询和键是不同来源的， </span> <!-- .element: class="fragment" -->
+
+- <span> 例如，在Encoder-Decoder模型中，键是Encoder中的元素，而查询是Decoder中的元素。在中译英模型中，查询是中文单词特征，而键则是英文单词特征。而自注意力机制的查询和键则都是来自于同一组的元素， </span> <!-- .element: class="fragment" -->
+
+- <span> 例如，在Encoder-Decoder模型中，查询和键都是Encoder中的元素，即查询和键都是中文特征，相互之间做注意力汇聚。可以理解为同一句话中的词元或者同一张图像中不同的patch，这都是一组元素内部相互做注意力机制，因此，自注意力机制（self-attention）也被称为内部注意力机制（intra-attention） </span> <!-- .element: class="fragment" -->
 
 - <span> 在2017年，Vaswani等人提出了Transformer模型，彻底改变了NLP领域。这篇论文题为“Attention Is All You Need”，核心观点是：通过Attention机制完全替代传统的RNN/LSTM结构，可以大幅提升模型的并行计算能力和长距离依赖处理能力。 </span> <!-- .element: class="fragment" -->
 - <span> Transformer模型的特点 </span> <!-- .element: class="fragment" -->
@@ -283,12 +323,6 @@ GNMT(Google Neural Machine Translation)
 
 <!--v-->
 
-## CV与NLP的相辅相成
-
-- <span> 在计算机视觉（CV）领域，Attention机制也同样得到了广泛应用。例如，Vision Transformer（ViT）便是将Transformer架构从NLP迁移到CV领域的成功案例。这表明，CV和NLP之间可以相互借鉴和影响，促进彼此的发展。例如： </span> <!-- .element: class="fragment" -->
-    - <span> Feature Extraction：在图像处理中，Attention可以帮助提取更重要的特征。 </span> <!-- .element: class="fragment" -->
-    - <span> 结构上的共性：CV中的图像信息与NLP中的文本信息都可以被视为高维序列，通过Attention机制处理这些序列能取得显著效果。 </span> <!-- .element: class="fragment" -->
-    - <span> 工具和方法的共用：如线性代数、矩阵运算等，对理解和实施Attention机制至关重要，跨越CV和NLP领域。 </span> <!-- .element: class="fragment" -->
 
 <!--s-->
 
