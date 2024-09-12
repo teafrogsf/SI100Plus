@@ -716,9 +716,10 @@ print("外面的人", which_li_hua)
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_04_Function/Lecture_04_Function.md"],"static":"static/Lecture_04_Function","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_04_Function/Lecture_04_Function.md"],"static":"static/Lecture_04_Function","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
     </script>
 
+    <script src="./_assets/assets/inject.js"></script>
 
     <script>
       Reveal.initialize(options);

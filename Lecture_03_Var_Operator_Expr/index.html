@@ -901,9 +901,10 @@ Python 的布尔运算符就能够这样“偷懒”。
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_03_Var_Operator_Expr/Lecture_03_Var_Operator_Expr.md"],"static":"static/Lecture_03_Var_Operator_Expr","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js"}, queryOptions);
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_03_Var_Operator_Expr/Lecture_03_Var_Operator_Expr.md"],"static":"static/Lecture_03_Var_Operator_Expr","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
     </script>
 
+    <script src="./_assets/assets/inject.js"></script>
 
     <script>
       Reveal.initialize(options);
