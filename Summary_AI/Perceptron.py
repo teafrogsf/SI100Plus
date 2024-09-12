@@ -1,3 +1,4 @@
+import math
 from manim import *
 
 DEFAULT_FONT = "Noto Serif CJK SC"
@@ -420,14 +421,57 @@ class Ntwk(Scene):
         self.play(Write(x3))
         self.wait()
 
-        t3 = MathTex(r"0.7 \times 1 + 0.2 \times 1 = 0.9").shift(3.5 * RIGHT + 0.4 * DOWN)
+        t3 = MathTex(r"0.7 \times 1 + 0.2 \times 1").shift(3 * RIGHT + 0.4 * DOWN)
         self.play(Write(t3))
         self.wait()
 
-        t4 = MathTex(r"0.9?\quad 1 \lor -1?").next_to(t3, DOWN)
-        self.play(Write(t4))
-        self.wait()
+        bias = MathTex(r"-0.5").next_to(t3, RIGHT)
+        biast = Text("偏置 Bias", font=DEFAULT_FONT, font_size=30).next_to(bias, UP)
+        self.play(Write(bias), Write(biast))
 
 class AcFun(Scene):
     def construct(self):
-        pass
+        title = Text("激活函数", font=DEFAULT_FONT).shift(3 * UP + 5 * LEFT)
+        self.play(Write(title))
+        self.wait()
+
+        ax = Axes(
+            x_range=[-5, 5],
+            y_range=[-2, 2],
+            tips=True,
+            axis_config={"include_numbers": True},
+            
+        )
+        labels = ax.get_axis_labels(
+            Tex("Output").scale(0.7), Tex("Input").scale(0.7)
+        )
+        self.play(Create(ax), Write(labels))
+        self.wait()
+
+        ac1 = ax.plot(lambda _: 0, [-5, 0, 1], color=RED)
+        ac2 = ax.plot(lambda _: 1, [0, 5, 1], color=GREEN)
+        self.play(Create(ac1), Create(ac2))
+        self.wait()
+
+        name = Text("阶跃函数", font=DEFAULT_FONT).next_to(title, DOWN)
+        self.play(Write(name))
+        self.wait()
+
+        name2 = Text("Sigmoid 函数", font=DEFAULT_FONT).next_to(title, DOWN).shift(0.8 * RIGHT)
+        self.play(ReplacementTransform(name, name2))
+        self.wait()
+
+        sigmoid = ax.plot(lambda x:1/(1 + math.e ** (-x)), color=YELLOW)
+        self.play(Create(sigmoid))
+        self.wait()
+
+        sigmoid1 = ax.plot(lambda x:1/(1 + math.e ** (-x)), [-5, -2, 0.1], color=RED)
+        sigmoid2 = ax.plot(lambda x:1/(1 + math.e ** (-x)), [2, 5, 0.1], color=GREEN)
+        self.play(Create(sigmoid1), Create(sigmoid2))
+        self.wait()
+
+        self.play(FadeOut(name2), FadeOut(sigmoid), FadeOut(sigmoid1), FadeOut(sigmoid2), FadeOut(ac1), FadeOut(ac2))
+        name3 = Text("ReLU 函数", font=DEFAULT_FONT).next_to(title, DOWN).shift(0.2 * RIGHT)
+        relu1 = ax.plot(lambda _:0, [-5, 0, 1], color=RED)
+        relu2 = ax.plot(lambda x:x, [0, 5, 1], color=GREEN)
+        self.play(Write(name3), Create(relu1), Create(relu2))
