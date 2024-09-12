@@ -121,7 +121,8 @@ class ALine(Scene):
             show_ellipsis=False,
             num_decimal_places=1,
             include_sign=True,
-        ).shift(3 * UP + RIGHT) 
+        ).shift(3 * UP + RIGHT * 3) 
+        a1L = MathTex(r"a_1", "=").next_to(a1, LEFT)
         a1T = ValueTracker(2)
         a1.add_updater(lambda l:l.set_value(a1T.get_value()))
 
@@ -130,7 +131,8 @@ class ALine(Scene):
             show_ellipsis=False,
             num_decimal_places=1,
             include_sign=True,
-        ).shift(2 * UP + RIGHT)
+        ).shift(2 * UP + RIGHT * 3)
+        a2L = MathTex(r"a_2", "=").next_to(a2, LEFT)
         a2T = ValueTracker(3)
         a2.add_updater(lambda l:l.set_value(a2T.get_value()))
 
@@ -139,7 +141,8 @@ class ALine(Scene):
             show_ellipsis=False,
             num_decimal_places=1,
             include_sign=True,
-        ).shift(1 * UP + RIGHT)
+        ).shift(1 * UP + RIGHT * 3)
+        bL = MathTex(r"b", "=").next_to(b, LEFT)
         bT = ValueTracker(1)
         b.add_updater(lambda l:l.set_value(bT.get_value()))
         # ax = Axes(
@@ -152,31 +155,132 @@ class ALine(Scene):
         # line = ax.plot(lambda x: -(a1 * x + b) / a2)
         # self.add(ax, line)
 
-        def get_axes():
+        def get_line():
             ax = Axes(
-                x_range=[-5, 5],
+                x_range=[-10, 10],
                 y_range=[-5, 5],
                 tips=True
             )
-            line = ax.plot(lambda x: -(a1.get_value() * x + bT.get_value()) / a2.get_value())
+            line = ax.plot(lambda x: -(a1.get_value() * x + bT.get_value()) / a2.get_value(), color=BLUE)
             return line
         
-        ax = always_redraw(get_axes)
+        ax = always_redraw(get_line)
         self.wait(0.5)
         
-        desc = Text(fr"{a1}x + {a2}y + {b} = 0")
-        
         ax2 = Axes(
-                x_range=[-5, 5],
+                x_range=[-10, 10],
                 y_range=[-5, 5],
                 tips=True
             )
         self.play(Create(ax2))
-        self.play(Create(ax))
+        desc2 = MathTex("a_1", "x", " + ", "a_2", "y", " + ", "b", " = 0").shift(UP * 3 + LEFT * 3)
+        self.play(Write(desc2))
+        self.wait()
+        self.play(Write(a1L), Write(a2L), Write(bL))
         self.play(Write(a1), Write(a2), Write(b))
+        self.wait()
+        self.play(Create(ax))
+        self.wait()
         self.play(bT.animate.set_value(3), run_time=1)
         self.wait(0.5)
         self.play(a1T.animate.set_value(4), run_time=1)
         self.wait(0.5)
         self.play(a2T.animate.set_value(-1), run_time=1)
         self.wait()
+        
+        def get_arrow():
+            arr = Arrow(ORIGIN, ax2.c2p(a1.get_value(), a2.get_value(), 0), buff=0, color=YELLOW)
+            return arr
+        arr = always_redraw(get_arrow)
+        tip = MathTex(f"({a1.get_value()}, {a2.get_value()})").next_to(arr.get_end(), RIGHT)
+        
+        self.play(Create(arr), a1L.animate.set_color(YELLOW), a2L.animate.set_color(YELLOW),
+                  a1.animate.set_color(YELLOW), a2.animate.set_color(YELLOW))
+        self.wait(0.5)
+        self.play(Write(tip))
+        self.wait(0.5)
+        self.play(FadeOut(tip))
+        self.wait()
+        self.play(bT.animate.set_value(1), run_time=1)
+        self.wait(0.5)
+        self.play(a1T.animate.set_value(2), run_time=1)
+        self.wait(0.5)
+        self.play(a2T.animate.set_value(3), run_time=1)
+        self.wait()
+
+        vec_exp = MathTex(r"\vec{w}", color=YELLOW).shift(2.5 * UP + RIGHT * 2.5) 
+        self.play(FadeOut(a1L), FadeOut(a1), FadeOut(a2L), FadeOut(a2), Write(vec_exp))
+        self.wait(0.5)
+        exp = MathTex(r"0", "=", r"\vec{w}", r"\cdot", r"\vec{x}", "+", "b") \
+            .shift(LEFT * 3 + DOWN * 3)
+        # self.play(Write(exp))
+        self.play(Write(exp), Transform(vec_exp, exp[2]), Transform(bL[0], exp[6]))
+        self.play(FadeOut(bL), FadeOut(b))
+        self.wait()
+        self.play(Indicate(exp))
+        self.play(Indicate(desc2))
+        self.wait()
+
+        t = ValueTracker(0)
+        initial_point = [ax2.c2p(t.get_value(),
+                                 -(a1.get_value() * (t.get_value()) 
+                                   + bT.get_value()) / a2.get_value())]
+        dot = Dot(point=initial_point, color=GREEN)
+
+        dot.add_updater(lambda d:d.move_to(
+            ax2.c2p(t.get_value(), -(a1.get_value() * (t.get_value()) 
+                                   + bT.get_value()) / a2.get_value())))
+        
+        self.play(Create(dot))
+        self.wait(0.5)
+        self.play(t.animate.set_value(2))
+        self.wait()
+        self.play(t.animate.set_value(-2))
+        self.wait()
+        self.play(t.animate.set_value(1))
+        self.wait()
+
+        dot.clear_updaters()
+        dot.add_updater(lambda d:d.move_to(
+            ax2.c2p(t.get_value(), -(a1.get_value() * 1
+                                   + bT.get_value()) / a2.get_value())))
+        
+        tip_exp = MathTex(r"\vec{w} \cdot \vec{x} + b =").next_to(dot, RIGHT)
+        tip_exp.add_updater(lambda l:l.next_to(dot, RIGHT))
+        tip = DecimalNumber(
+            1,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            include_sign=True,
+        ).next_to(tip_exp, RIGHT, 2.8)
+        currentY = -(a1.get_value() * 1 + bT.get_value()) / a2.get_value()
+        tip.add_updater(lambda l:l.set_value(a1.get_value() * t.get_value() + a2.get_value() * currentY + b.get_value())
+            .next_to(dot, RIGHT, 2.8))
+
+        self.play(Write(tip_exp), Write(tip))
+        self.wait()
+        self.play(t.animate.set_value(3))
+        self.wait()
+        self.play(t.animate.set_value(-1))
+        self.wait()
+        self.play(t.animate.set_value(1))
+        self.wait()
+
+        area1 = ax2.get_area(ax, [-10, 10], color=BLUE, bounded_graph=ax2.plot(lambda _:8))
+        self.play(FadeIn(area1), t.animate.set_value(3))
+        self.wait()
+        area2 = ax2.get_area(ax, [-10, 10], color=YELLOW, bounded_graph=ax2.plot(lambda _:-8))
+        self.play(FadeOut(area1), FadeIn(area2), t.animate.set_value(-1))
+        self.wait()
+        self.play(FadeOut(area2), FadeOut(dot), FadeOut(tip), FadeOut(tip_exp))
+
+        exp2 = MathTex(r"\hat{y}", r" = \vec{w} \cdot \vec{x} + b") \
+            .shift(LEFT * 3 + DOWN * 3)
+        self.wait(0.5)
+        self.play(Indicate(exp[0]))
+        self.wait(0.5)
+        self.play(ReplacementTransform(exp[0], exp2[0]))
+        self.wait()
+        self.play(FadeIn(area1), FadeIn(area2))
+        self.wait()
+        self.play(FadeOut(area1), FadeOut(area2))
