@@ -1,5 +1,6 @@
 from manim import *
 
+DEFAULT_FONT = "Noto Serif CJK SC"
 class PreProc(Scene):
     def construct(self):
         # if there's a coord
@@ -28,12 +29,12 @@ class PreProc(Scene):
         self.play(Flash(line))
         self.play(FocusOn((1.5, 1.5, 0), color=BLUE))
         self.play(FocusOn((3.5, 2.5, 0), color=YELLOW))
-        desc = Text("分类\nClassification").shift(DOWN+LEFT)
+        desc = Text("分类\nClassification", font=DEFAULT_FONT).shift(DOWN+LEFT)
         self.play(Write(desc))
         self.wait(0.5)
 
         # or binary classification
-        descN = Text("二分类\nBinary Classification").shift(DOWN+2*LEFT)
+        descN = Text("二分类\nBinary Classification", font=DEFAULT_FONT).shift(DOWN+2*LEFT)
         self.play(ReplacementTransform(desc, descN))
         self.wait()
 
@@ -53,7 +54,7 @@ class PreProc(Scene):
         framebox1 = SurroundingRectangle(desc[1], buff = .1)
         framebox2 = SurroundingRectangle(desc[3], buff = .1)
         descN = MathTex(r"x_1^{(1)}").shift(2 * LEFT + DOWN)
-        desc2 = Text("第 1 个向量的第 1 个维度", font="Simsun").shift(2 * LEFT + 2 * DOWN)
+        desc2 = Text("第 1 个向量的第 1 个维度", font=DEFAULT_FONT).shift(2 * LEFT + 2 * DOWN)
         self.play(Create(framebox1))
         self.play(Write(descN), Write(desc2))
         self.wait()
@@ -62,7 +63,7 @@ class PreProc(Scene):
         self.play(FadeOut(descN), FadeOut(desc2))
         self.play(ReplacementTransform(framebox1, framebox2))
         descN = MathTex(r"x_2^{(1)}").shift(2 * LEFT + DOWN)
-        desc2 = Text("第 1 个向量的第 2 个维度", font="Simsun").shift(2 * LEFT + 2 * DOWN)
+        desc2 = Text("第 1 个向量的第 2 个维度", font=DEFAULT_FONT).shift(2 * LEFT + 2 * DOWN)
         self.play(Write(descN), Write(desc2))
         self.wait(0.5)
         self.play(FadeOut(descN), FadeOut(desc2))
@@ -72,7 +73,7 @@ class PreProc(Scene):
         # color
         self.play(Flash(dots[0], color=BLUE))
         self.wait()
-        desc = Text("标签\nLabel", font="Simsun").shift(LEFT + DOWN)
+        desc = Text("标签\nLabel", font=DEFAULT_FONT).shift(LEFT + DOWN)
         self.play(Write(desc))
         self.wait(0.5)
         descN = MathTex(r"y^{(1)} = \text{BLUE}").shift(2 * LEFT + DOWN)
@@ -284,3 +285,149 @@ class ALine(Scene):
         self.play(FadeIn(area1), FadeIn(area2))
         self.wait()
         self.play(FadeOut(area1), FadeOut(area2))
+
+class Perc(Scene):
+    def construct(self):
+        odot = Dot(ORIGIN)
+        numberplane = NumberPlane()
+
+        data = [[1, 1, 1], [2, 2, 1], [3, 3,-1], [4, 2,-1], [4, 3,-1]]
+        dots = [Dot(single, color=BLUE if single[2] == 1 else YELLOW) for single in data]
+        self.play(Create(numberplane, run_time=3, lag_ratio=0.02), Create(odot))
+        self.play(*[Create(dot) for dot in dots], lag_ratio=0.2)
+        self.wait()
+
+        line = Line((-4, 4, 0), (7, -7, 0))
+        exp = MathTex(r"y = -x").shift(2 * LEFT + DOWN)
+        self.play(Create(line), Write(exp))
+        self.wait()
+
+        exp2 = MathTex(r"0 = (-1, -1) \cdot \vec{x}").shift(4 * LEFT + DOWN)
+        self.play(ReplacementTransform(exp, exp2))
+        self.wait()
+
+        t = ValueTracker(0)
+        tloss = ValueTracker(0.4)
+        tlossTip = Text("Training Loss:", font=DEFAULT_FONT).shift(4 * LEFT + 0.5 * UP)
+        tlossLable = DecimalNumber(
+            0.4,
+            show_ellipsis=False,
+            num_decimal_places=2,
+            include_sign=False
+        ).next_to(tlossTip, RIGHT)
+        tlable = DecimalNumber(
+            0,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            include_sign=True,
+        ).next_to(exp2, RIGHT)
+        self.play(Write(tlable), Write(tlossTip), Write(tlossLable))
+        self.wait(0.5)
+
+        line.add_updater(lambda l:l.put_start_and_end_on(
+            (-4, 4 + t.get_value(), 0), (7, -7 + t.get_value(), 0)))
+        tlossLable.add_updater(lambda l:l.set_value(tloss.get_value()))
+        tlable.add_updater(lambda l:l.set_value(t.get_value()))
+        self.play(t.animate.set_value(3), tloss.animate.set_value(0.2))
+        self.wait(0.5)
+
+        self.play(t.animate.set_value(5), tloss.animate.set_value(0.0))
+        self.wait()
+
+        line.clear_updaters()
+        tlossLable.clear_updaters()
+
+        exp = MathTex(r"0 = (-1, 0) \cdot \vec{x}").shift(4 * LEFT + DOWN)
+
+        self.play(ReplacementTransform(exp2, exp), t.animate.set_value(2.5),
+                  line.animate.put_start_and_end_on((2.5, 4, 0), (2.5, -4, 0)))
+        t.clear_updaters()
+        self.wait()
+        
+        self.play(FadeOut(tlable), FadeOut(tlossTip), FadeOut(tlossLable), FadeOut(exp), FadeOut(line))
+        self.wait()
+
+        table0 = Table(
+            [[str(single[0]), str(single[1])] for single in data],
+            row_labels=[Text(f"{i + 1}") for i in range(len(data))],
+            col_labels=[MathTex("x_1^{(i)}"), MathTex("x_2^{(i)}")],
+            top_left_entry=MathTex("i"),
+        ).shift(3 * LEFT)
+
+        self.play(Write(table0))
+        self.wait()
+
+        mean = MathTex(r"\text{Mean:} \mu_{x_1} = 2.8 \\ \mu_{x_2} = 2.2").shift(3 * RIGHT + DOWN)
+        std = MathTex(r"\text{Std:} \sigma_{x_1} = 1.2 \\ \sigma_{x_2} = 0.7").shift(3 * RIGHT + 3 * DOWN)
+
+        self.play(Write(mean), Write(std))
+        self.wait()
+
+        exp = MathTex(r"x' = \frac{x - \mu}{\sigma}").shift(3 * LEFT + 2 * UP)
+        self.play(FadeOut(table0), Write(exp))
+        self.wait()
+
+        exp2 = MathTex(r"x'_{1} = \frac{x_{1} - 2.8}{1.2} \\ x'_{2} = \frac{x_{2} - 2.2}{0.7}").shift(3 * LEFT + 2 * UP) \
+            .next_to(exp, DOWN)
+        self.play(Write(exp2))
+        self.wait()
+
+        dataN = [[(single[0] - 2.8) / 1.2, (single[1] - 2.2) / 0.7, single[2]] for single in data]
+        dotsN = [Dot(single, color=BLUE if single[2] == 1 else YELLOW) for single in dataN]
+        self.play(*[ReplacementTransform(dots[i], dotsN[i]) for i in range(len(dots))],
+                  FadeOut(mean), FadeOut(std), FadeOut(exp2), exp.animate.move_to(3 * UP).set_color(RED),)
+        self.wait()
+
+        desc = Text("归一化: “Z-score 标准化”方法", font=DEFAULT_FONT, color=RED).shift(2 * UP)
+        self.play(Write(desc))
+        self.wait()
+
+class Ntwk(Scene):
+    def construct(self):
+        circle = Circle()
+        circle.set_fill(PINK, opacity=0.5)
+        self.play(Create(circle))
+        self.wait(0.5)
+        
+        arrow = Arrow([1, 0, 0], [3, 0, 0], buff=0, color=BLUE)
+        self.play(Create(arrow))
+        self.wait()
+
+        text = Text("神经元\nNeuron", font=DEFAULT_FONT).shift(4 * LEFT)
+        self.play(Write(text))
+        self.wait()
+        self.play(FadeOut(text))
+
+        arrow1 = Arrow([-1.29, 1.29, 0], [-0.72, 0.72, 0], buff=0, color=BLUE)
+        arrow2 = Arrow([-1.29, -1.29, 0], [-0.72, -0.72, 0], buff=0, color=BLUE)
+        circle1 = Circle().shift(2 * LEFT + 2 * UP).set_fill(PINK, opacity=0.5)
+        circle2 = Circle().shift(2 * LEFT + 2 * DOWN).set_fill(PINK, opacity=0.5)
+        self.play(Create(arrow1), Create(arrow2), Create(circle1), Create(circle2))
+        self.wait()
+
+        inputText = Text("输入层", font=DEFAULT_FONT, font_size=20).shift(2 * LEFT + 3.5 * UP)
+        outputText = Text("输出层", font=DEFAULT_FONT, font_size=20).shift(3.5 * UP)
+        self.play(Write(inputText), Write(outputText))
+
+        w1 = MathTex("w_1").next_to(arrow1, RIGHT).shift(0.5 * UP   + 0.4 * LEFT)
+        w2 = MathTex("w_2").next_to(arrow2, RIGHT).shift(0.5 * DOWN + 0.4 * LEFT)
+        x1 = MathTex("x_1").shift(2 * LEFT + 2 * UP)
+        x2 = MathTex("x_2").shift(2 * LEFT + 2 * DOWN)
+        self.play(Write(w1), Write(w2), Write(x1), Write(x2))
+        self.wait()
+
+        x3 = MathTex(r"w_1 x_1 + w_2 x_2").shift(2.5 * RIGHT + 0.4 * UP)
+        self.play(Write(x3))
+        self.wait()
+
+        t3 = MathTex(r"0.7 \times 1 + 0.2 \times 1 = 0.9").shift(3.5 * RIGHT + 0.4 * DOWN)
+        self.play(Write(t3))
+        self.wait()
+
+        t4 = MathTex(r"0.9?\quad 1 \lor -1?").next_to(t3, DOWN)
+        self.play(Write(t4))
+        self.wait()
+
+class AcFun(Scene):
+    def construct(self):
+        pass
