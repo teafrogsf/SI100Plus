@@ -108,7 +108,75 @@ class PreProc(Scene):
                         r"x_j^{(i)} \in \mathbb{R}, y^{(i)} \in \{-1, 1\}").shift(2 * DOWN)
         self.play(Write(desc2))
         self.wait()
+        self.play(FadeOut(desc2), FadeOut(desc))
 
 
 
+        self.wait()
+
+class ALine(Scene):
+    def construct(self):
+        a1 = DecimalNumber(
+            2,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            include_sign=True,
+        ).shift(3 * UP + RIGHT) 
+        a1T = ValueTracker(2)
+        a1.add_updater(lambda l:l.set_value(a1T.get_value()))
+
+        a2 = DecimalNumber(
+            3,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            include_sign=True,
+        ).shift(2 * UP + RIGHT)
+        a2T = ValueTracker(3)
+        a2.add_updater(lambda l:l.set_value(a2T.get_value()))
+
+        b = DecimalNumber(
+            1,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            include_sign=True,
+        ).shift(1 * UP + RIGHT)
+        bT = ValueTracker(1)
+        b.add_updater(lambda l:l.set_value(bT.get_value()))
+        # ax = Axes(
+        #     x_range=[-5, 5],
+        #     y_range=[-5, 5],
+        #     tips=True
+        # )
+
+        # a1 x + a2 y + b = 0
+        # line = ax.plot(lambda x: -(a1 * x + b) / a2)
+        # self.add(ax, line)
+
+        def get_axes():
+            ax = Axes(
+                x_range=[-5, 5],
+                y_range=[-5, 5],
+                tips=True
+            )
+            line = ax.plot(lambda x: -(a1.get_value() * x + bT.get_value()) / a2.get_value())
+            return line
+        
+        ax = always_redraw(get_axes)
+        self.wait(0.5)
+        
+        desc = Text(fr"{a1}x + {a2}y + {b} = 0")
+        
+        ax2 = Axes(
+                x_range=[-5, 5],
+                y_range=[-5, 5],
+                tips=True
+            )
+        self.play(Create(ax2))
+        self.play(Create(ax))
+        self.play(Write(a1), Write(a2), Write(b))
+        self.play(bT.animate.set_value(3), run_time=1)
+        self.wait(0.5)
+        self.play(a1T.animate.set_value(4), run_time=1)
+        self.wait(0.5)
+        self.play(a2T.animate.set_value(-1), run_time=1)
         self.wait()
