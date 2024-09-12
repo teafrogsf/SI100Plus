@@ -425,9 +425,18 @@ class Ntwk(Scene):
         self.play(Write(t3))
         self.wait()
 
+        bias_exp = MathTex(r"-b").next_to(x3, RIGHT)
         bias = MathTex(r"-0.5").next_to(t3, RIGHT)
-        biast = Text("偏置 Bias", font=DEFAULT_FONT, font_size=30).next_to(bias, UP)
-        self.play(Write(bias), Write(biast))
+        biast = Text("偏置 Bias", font=DEFAULT_FONT, font_size=30).next_to(bias, DOWN)
+        self.play(Write(bias), Write(biast), Write(bias_exp))
+        self.wait()
+
+        # GOTO ACFUN
+
+        exp = MathTex(r"f \left( \sum w_i x_i - b \right)").shift(3 * RIGHT + 0.7 * DOWN)
+        self.play(FadeOut(bias), FadeOut(biast), FadeOut(bias_exp), FadeOut(x3),
+                  ReplacementTransform(t3, exp))
+        self.wait()
 
 class AcFun(Scene):
     def construct(self):
