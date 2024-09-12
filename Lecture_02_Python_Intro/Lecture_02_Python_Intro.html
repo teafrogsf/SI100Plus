@@ -540,9 +540,10 @@ x = 123 + 456 - (y * 5) ** 2
     // options from URL query string
     var queryOptions = Reveal().getQueryHash() || {};
 
-    var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_02_Python_Intro/Lecture_02_Python_Intro.md"],"static":"static/Lecture_02_Python_Intro","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
+    var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_02_Python_Intro/Lecture_02_Python_Intro.md"],"static":"static/Lecture_02_Python_Intro","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/menu/menu.js,assets/inject.js"}, queryOptions);
   </script>
 
+  <script src="./_assets/assets/menu/menu.js"></script>
   <script src="./_assets/assets/inject.js"></script>
 
   <script>

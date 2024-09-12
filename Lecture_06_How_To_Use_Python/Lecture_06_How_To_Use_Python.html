@@ -624,9 +624,10 @@ def calculate_area(shape, *dimensions):
     // options from URL query string
     var queryOptions = Reveal().getQueryHash() || {};
 
-    var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_06_How_To_Use_Python/Lecture_06_How_To_Use_Python.md"],"static":"static/Lecture_06_How_To_Use_Python","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
+    var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"_":["./Lecture_06_How_To_Use_Python/Lecture_06_How_To_Use_Python.md"],"static":"static/Lecture_06_How_To_Use_Python","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/menu/menu.js,assets/inject.js"}, queryOptions);
   </script>
 
+  <script src="./_assets/assets/menu/menu.js"></script>
   <script src="./_assets/assets/inject.js"></script>
 
   <script>

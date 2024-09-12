@@ -337,9 +337,10 @@ GNMT(Google Neural Machine Translation)
     // options from URL query string
     var queryOptions = Reveal().getQueryHash() || {};
 
-    var options = extend(defaultOptions, {"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/inject.js"}, queryOptions);
+    var options = extend(defaultOptions, {"_":["./Lecture_10_NLP/Lecture_10_NLP.md"],"static":"static/Lecture_10_NLP","template":"./assets/reveal.html","preprocessor":"./assets/preproc.js","scripts":"assets/menu/menu.js,assets/inject.js"}, queryOptions);
   </script>
 
+  <script src="./_assets/assets/menu/menu.js"></script>
   <script src="./_assets/assets/inject.js"></script>
 
   <script>
