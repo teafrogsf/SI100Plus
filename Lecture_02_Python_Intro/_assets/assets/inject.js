@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     Array.from(images)
         .forEach((img, i) => {
-            if(!isNaN(Number(widths[i]))) img.setAttribute('width', widths[i]);
+            if(Number(widths[i])) img.setAttribute('width', widths[i]);
         });
 
     Array.from(document.querySelectorAll('a'))
