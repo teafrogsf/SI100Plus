@@ -10,7 +10,8 @@ module.exports = (markdown, options) => {
     <p style="font-size: 24px; color: #666;">${options.makeTitle.title || "请设置 makeTitle.title"}</p>
     <p style="font-size: 16px; color: #999; margin-top: 20px;">${options.makeTitle.detail || "请设置 makeTitle.detail"}</p>
   </div>
-</div>\n\n<!--s-->\n\n` : "") +
+</div>\n\n<!--s-->\n\n` : "")
+      +
       markdown
         .split('\n')
         .map((line, index) => {
@@ -24,6 +25,19 @@ module.exports = (markdown, options) => {
           return '<div class="middle center"><div style="width: 100%">\n\n' + line + '\n\n</div></div>';
         })
         .join('\n')
+      +
+      (options.makeThanks ? `
+
+<!--s-->
+
+<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
+  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
+      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
+    </div>
+    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
+  </div>
+</div>`: "")
     );
   });
 };
