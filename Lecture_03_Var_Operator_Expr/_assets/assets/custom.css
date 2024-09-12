@@ -379,3 +379,19 @@ div {
 del {
   text-decoration-thickness: 8%;
 }
+
+.reveal .overlay {
+  backdrop-filter: none;
+}
+
+#customcontrols ul {
+  left: 10px !important;
+  top: 70px !important;
+  bottom: auto !important;
+}
+
+#customcontrols ul > li {
+  margin: 5px !important;
+  padding: 5px !important;
+  float: none !important;
+}

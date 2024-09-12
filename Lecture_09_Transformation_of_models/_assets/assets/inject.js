@@ -1,3 +1,8 @@
+options.plugins.push(RevealMenu)
+options.menu = {
+    loadIcons: false
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Hello from inject.js');
     const images = document.querySelectorAll('img');
