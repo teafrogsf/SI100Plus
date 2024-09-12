@@ -462,6 +462,10 @@ revealOptions:
 
 ## 补充：所以MLP是怎么跑起来的？
 
+<!--v-->
+
+## 补充：拟合与过拟合
+
 <!--s-->
 
 <div class="middle center">
