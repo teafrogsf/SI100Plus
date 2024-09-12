@@ -455,6 +455,14 @@ revealOptions:
 
 </ul>
 
+<!--v-->
+
+## 补充：梯度下降的实例
+
+<!--v-->
+
+## 补充：所以MLP是怎么跑起来的？
+
 <!--s-->
 
 <div class="middle center">
@@ -665,17 +673,16 @@ revealOptions:
 <div class="middle center">
   <div style="width: 100%">
 
-  # 一点碎碎念
+  # Part. 7 Gazing up to the Darkness
   
   </div>
 </div>
 
 <!--v-->
 
-## 一点碎碎念
+<!--## 一点碎碎念
 
-<!-- - 梯度爆炸与梯度消失 -->
-- atrous convolution $\leftrightarrow$ dilated convolution? <!-- .element: class="fragment" -->
+- atrous convolution $\leftrightarrow$ dilated convolution?
   
 <div class="fragment">
 
@@ -684,7 +691,7 @@ revealOptions:
 
 </div>
 
-<img src="assets/image-20.png" width="45%" style="display: block; margin: 0 auto;"/> <!-- .element: class="fragment" -->
+<img src="assets/image-20.png" width="45%" style="display: block; margin: 0 auto;"/> -->
 
 <!--s-->
 
