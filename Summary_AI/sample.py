@@ -78,10 +78,10 @@ class TwoTransforms(Scene):
 
 class TextRender(Scene):
     def construct(self):
-        text = Text("Hello, World!")
+        text = Tex("Bias")
         self.play(Create(text))
         self.wait(0.5)
-        formula = Text(r"\frac{1}{2} \int_{-\infty}^{\infty} x^2 dx").shift(DOWN)
+        formula = Tex(r"$\frac{1}{2} \int_{-\infty}^{\infty} x^2 dx$").shift(DOWN)
         self.play(ReplacementTransform(text, formula))
         self.wait(0.5)
         self.play(FadeOut(formula))
