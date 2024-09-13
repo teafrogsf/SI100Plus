@@ -549,7 +549,7 @@ class AcFun(Scene):
             
         )
         labels = ax.get_axis_labels(
-            Tex("Output").scale(0.7), Tex("Input").scale(0.7)
+            Text("总输入", font=DEFAULT_FONT).scale(0.7), Text("输出", font=DEFAULT_FONT).scale(0.7)
         )
         self.play(Create(ax), Write(labels))
         self.wait()
