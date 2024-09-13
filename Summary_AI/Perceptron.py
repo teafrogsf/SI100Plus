@@ -581,3 +581,4 @@ class AcFun(Scene):
         relu1 = ax.plot(lambda _:0, [-5, 0, 1], color=RED)
         relu2 = ax.plot(lambda x:x, [0, 5, 1], color=GREEN)
         self.play(Write(name3), Create(relu1), Create(relu2))
+        self.wait()
