@@ -582,3 +582,71 @@ class AcFun(Scene):
         relu2 = ax.plot(lambda x:x, [0, 5, 1], color=GREEN)
         self.play(Write(name3), Create(relu1), Create(relu2))
         self.wait()
+
+class LRate(Scene):
+    def construct(self):
+        ax = Axes(
+            x_range=[-10, 10],
+            y_range=[0, 1],
+            tips=True,
+        )
+        label = ax.get_axis_labels(
+            Text("参数", font=DEFAULT_FONT).scale(0.7), Text("学习效果", font=DEFAULT_FONT).scale(0.7)
+        )
+        func = lambda x: - (x / 12) ** 2 + 0.8
+        graph = ax.plot(func, color=BLUE)
+        self.play(Write(ax), Write(label))
+        self.wait()
+        self.play(Create(graph))
+        self.wait()
+
+        t = ValueTracker(-10)
+        dot = Dot(ax.c2p(t.get_value(), func(t.get_value())), color=GREEN)
+        dot.add_updater(lambda d:d.move_to(ax.c2p(t.get_value(), func(t.get_value()))))
+
+        self.play(Create(dot))
+        self.wait(.5)
+        self.play(t.animate.set_value(-7), run_time=1)
+        self.play(t.animate.set_value(-4), run_time=1)
+        self.play(t.animate.set_value(-1), run_time=1)
+        self.play(t.animate.set_value( 2), run_time=1)
+        self.wait()
+
+        lrate = ValueTracker(3)
+        lrateTip = Text("学习率:", font=DEFAULT_FONT, font_size=30).shift(5 * LEFT + 3 * UP)
+        lrateVal = DecimalNumber(
+            3,
+            show_ellipsis=False,
+            num_decimal_places=1,
+            # include_sign=True,
+        ).next_to(lrateTip, RIGHT)
+        lrateVal.add_updater(lambda l:l.set_value(lrate.get_value()))
+
+        self.play(Write(lrateTip), Write(lrateVal), t.animate.set_value(-5))
+        self.wait()
+
+        lfunc = lambda x: 0.5 * x
+        lfuncTip = Text("衰减函数:", font=DEFAULT_FONT, font_size=30).next_to(lrateTip, DOWN, aligned_edge=LEFT)
+        lfuncVal = MathTex(r"f(\eta) = 0.5 \times \eta").scale(0.8).next_to(lfuncTip, RIGHT)
+
+        self.play(Write(lfuncTip), Write(lfuncVal))
+        self.wait()
+
+        for _ in range(5):
+            self.play(t.animate.set_value(t.get_value() + (1 if t.get_value() < 0 else -1) * lrate.get_value()))
+            self.play(lrate.animate.set_value(lfunc(lrate.get_value())))
+
+        self.wait()
+
+        self.play([FadeOut(item) for item in [dot, ax, label, graph, lrateTip, lrateVal, lfuncTip, lfuncVal]])
+
+        orig_exp = MathTex(r"\vec{w}' &= \vec{w} \pm \vec{x} \\ b' &= b \pm 1")
+        self.play(Write(orig_exp))
+        self.wait()
+
+        new_exp = MathTex(r"\vec{w}' &= \vec{w} \pm \eta \vec{x} \\ b' &= b \pm \eta")
+        self.play(ReplacementTransform(orig_exp, new_exp))
+        self.wait()
+
+        self.play(FadeOut(new_exp))
+        self.wait()
