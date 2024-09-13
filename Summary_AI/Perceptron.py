@@ -163,7 +163,7 @@ class ALine(Scene):
                 y_range=[-5, 5],
                 tips=True
             )
-            line = ax.plot(lambda x: -(a1.get_value() * x + bT.get_value()) / a2.get_value(), color=BLUE)
+            line = ax.plot(lambda x: -(a1T.get_value() * x + bT.get_value()) / a2T.get_value(), color=BLUE)
             return line
         
         ax = always_redraw(get_line)
@@ -191,13 +191,13 @@ class ALine(Scene):
         self.wait()
         
         def get_arrow():
-            arr = Arrow(ORIGIN, ax2.c2p(a1.get_value(), a2.get_value(), 0), buff=0, color=YELLOW)
+            arr = Arrow(ORIGIN, ax2.c2p(a1T.get_value(), a2T.get_value(), 0), buff=0, color=BLUE)
             return arr
         arr = always_redraw(get_arrow)
         tip = MathTex(f"({a1.get_value()}, {a2.get_value()})").next_to(arr.get_end(), RIGHT)
         
-        self.play(Create(arr), a1L.animate.set_color(YELLOW), a2L.animate.set_color(YELLOW),
-                  a1.animate.set_color(YELLOW), a2.animate.set_color(YELLOW))
+        self.play(Create(arr), a1L.animate.set_color(BLUE), a2L.animate.set_color(BLUE),
+                  a1.animate.set_color(BLUE), a2.animate.set_color(BLUE))
         self.wait(0.5)
         self.play(Write(tip))
         self.wait(0.5)
@@ -210,7 +210,7 @@ class ALine(Scene):
         self.play(a2T.animate.set_value(3), run_time=1)
         self.wait()
 
-        vec_exp = MathTex(r"\vec{w}", color=YELLOW).shift(2.5 * UP + RIGHT * 2.5) 
+        vec_exp = MathTex(r"\vec{w}", color=BLUE).shift(2.5 * UP + RIGHT * 2.5) 
         self.play(FadeOut(a1L), FadeOut(a1), FadeOut(a2L), FadeOut(a2), Write(vec_exp))
         self.wait(0.5)
         exp = MathTex(r"0", "=", r"\vec{w}", r"\cdot", r"\vec{x}", "+", "b") \
@@ -285,7 +285,104 @@ class ALine(Scene):
         self.wait()
         self.play(FadeIn(area1), FadeIn(area2))
         self.wait()
-        self.play(FadeOut(area1), FadeOut(area2))
+        self.play(FadeOut(area1), FadeOut(area2), FadeOut(desc2))
+        self.wait()
+
+        sample = Dot(ax2.c2p(2, 1, 0), color=YELLOW)
+        self.play(Create(sample))
+        self.wait(0.5)
+        
+        arrow_tip = MathTex(r"y = -1 < 0, \hat{y} > 0").next_to(sample, RIGHT)
+        self.play(FadeIn(area1), Write(arrow_tip))
+        self.wait(0.5)
+        self.play(FadeOut(area1))
+        self.wait()
+
+        self.play(a1T.animate.set_value(-2), a2T.animate.set_value(1))
+        self.wait(0.5)
+
+        self.play(a1T.animate.set_value(2), a2T.animate.set_value(3))
+        self.wait()
+
+        arrow = Arrow(ORIGIN, ax2.c2p(2, 1, 0), buff=0, color=GREEN)
+        self.play(Create(arrow))
+        self.wait()
+
+        arr_value = MathTex(r"\vec{w}", color=BLUE).next_to(arr, RIGHT).shift(UP)
+        arr_op = MathTex("-").next_to(arr_value, RIGHT)
+        arrow_value = MathTex(r"\vec{x}", color=GREEN).next_to(arr_op, RIGHT)
+        self.play(Write(arrow_value), Write(arr_op), Write(arr_value))
+        self.wait()
+
+        fin_arr_value = MathTex(r"\vec{w}'", color=BLUE_A).next_to(arr_op, UP)
+        self.play(*[FadeOut(item) for item in [arrow_value, arr_op, arr_value]], Write(fin_arr_value))
+        self.wait()
+
+        self.play(a1T.animate.set_value(0), a2T.animate.set_value(2), fin_arr_value.animate.move_to(ax2.c2p(1,2,0)))
+        self.wait()
+
+        self.play(bT.animate.set_value(bT.get_value() - 1), FadeOut(fin_arr_value))
+        self.wait()
+
+        def get_area():
+            return ax2.get_area(ax, [-10, 10], color=BLUE, bounded_graph=ax2.plot(lambda _:8))
+        area = always_redraw(get_area)
+
+        self.play(FadeIn(area))
+        self.play(a1T.animate.set_value(a1T.get_value() - 2), a2T.animate.set_value(a2T.get_value() - 1))
+        self.play(bT.animate.set_value(bT.get_value() - 1))
+        self.wait()
+
+        self.play(FadeOut(area))
+        self.play(FadeOut(arrow_tip), sample.animate.set_color(BLUE), Indicate(sample, color=BLUE))
+
+        self.play(a1T.animate.set_value(a1T.get_value() + 2), a2T.animate.set_value(a2T.get_value() + 1))
+        self.play(bT.animate.set_value(bT.get_value() + 1))
+        self.wait()
+
+        cond1 = Text("如果预测与实际相同，不做动作", font=DEFAULT_FONT, font_size=30).shift(4 * LEFT + 3.5 * UP)
+        cond2 = Text("如果预测与实际不同，调整参数", font=DEFAULT_FONT, font_size=30).next_to(cond1, DOWN)
+        self.play(AnimationGroup(Write(cond1), Write(cond2), lag_ratio=0.5))
+        self.wait()
+
+        method1 = MathTex(r"\hat{y} > 0, y < 0 \;\Rightarrow\; ", 
+                          r"\vec{w}' = \vec{w} - \vec{x}", 
+                          r" \\ ", 
+                          r"b'=b - 1", font_size=37).next_to(cond2, DOWN)
+        def get_area():
+            return ax2.get_area(ax, [-10, 10], color=BLUE, bounded_graph=ax2.plot(lambda _:8))
+        area = always_redraw(get_area)
+        self.play(Write(method1), sample.animate.set_color(YELLOW), Flash(sample, color=YELLOW), FadeIn(area))
+        self.wait()
+        self.play(a1T.animate.set_value(a1T.get_value() - 2), a2T.animate.set_value(a2T.get_value() - 1), 
+                  Indicate(method1[1]))
+        self.wait()
+        self.play(bT.animate.set_value(bT.get_value() - 1), 
+                  Indicate(method1[3]))
+        self.wait()
+        self.play(FadeOut(area))
+
+        method2 = MathTex(r"\hat{y} < 0, y > 0 \;\Rightarrow\; ", 
+                          r"\vec{w}' = \vec{w} + \vec{x}", 
+                          r" \\ ", 
+                          r"b'=b + 1", font_size=37).next_to(method1, DOWN)
+        def get_area():
+            return ax2.get_area(ax, [-10, 10], color=YELLOW, bounded_graph=ax2.plot(lambda _:-8))
+        area = always_redraw(get_area)
+        self.play(Write(method2), sample.animate.set_color(BLUE), Flash(sample, color=BLUE), FadeIn(area))
+        self.wait()
+        self.play(a1T.animate.set_value(a1T.get_value() + 2), a2T.animate.set_value(a2T.get_value() + 1), 
+                  Indicate(method2[1]))
+        self.wait()
+        self.play(bT.animate.set_value(bT.get_value() + 1), 
+                  Indicate(method2[3]))
+        self.wait()
+        self.play(FadeOut(area))
+
+
+        self.wait()
+
+
 
 class Perc(Scene):
     def construct(self):
