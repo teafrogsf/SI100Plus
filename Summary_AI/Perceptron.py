@@ -334,7 +334,7 @@ class ALine(Scene):
         self.wait()
 
         self.play(FadeOut(area))
-        self.play(FadeOut(arrow_tip), sample.animate.set_color(BLUE), Indicate(sample, color=BLUE))
+        self.play(FadeOut(arrow_tip), sample.animate.set_color(BLUE), Flash(sample, color=BLUE))
 
         self.play(a1T.animate.set_value(a1T.get_value() + 2), a2T.animate.set_value(a2T.get_value() + 1))
         self.play(bT.animate.set_value(bT.get_value() + 1))
