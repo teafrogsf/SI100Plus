@@ -650,3 +650,175 @@ class LRate(Scene):
 
         self.play(FadeOut(new_exp))
         self.wait()
+
+class XOR(Scene):
+    def construct(self):
+        title = Text("XOR问题", font=DEFAULT_FONT).shift(3 * UP + 5 * LEFT)
+        self.play(Write(title))
+        self.wait()
+
+        ax = Axes(
+            x_range=[-4, 4],
+            y_range=[-2, 2],
+            tips=True,
+            axis_config={"include_numbers": True},
+        )
+        labels = ax.get_axis_labels(
+            Tex("Input 1").scale(0.7), Tex("Input 2").scale(0.7)
+        )
+        self.play(Create(ax), Write(labels))
+        self.wait()
+
+        data = [[0, 0, 0], [0, 1, 1], [1, 0, 1], [1, 1, 0]]
+        dots = [Dot(ax.c2p(*single), color=BLUE if single[2] == 1 else YELLOW) for single in data]
+        self.play(*[Create(dot) for dot in dots])
+        self.wait()
+        
+        desc = Text("线性不可分", font=DEFAULT_FONT).shift(2 * DOWN + 2 * LEFT)
+        self.play(Write(desc))
+        self.wait()
+
+        self.play(FadeOut(desc))
+        self.wait()
+
+        desc = Text("多层感知机", font=DEFAULT_FONT).shift(2 * DOWN + 2 * LEFT)
+        self.play(Write(desc))
+        self.wait()
+
+        self.play(FadeOut(desc))
+        self.wait()
+
+class MLP(Scene):
+    def construct(self):
+        cx1 = Circle(radius=0.5, color=WHITE).shift(2.5 * LEFT + UP)
+        cx2 = Circle(radius=0.5, color=WHITE).shift(2.5 * LEFT + DOWN)
+        ch1 = Circle(radius=0.5, color=WHITE).shift(0.5 * LEFT + UP)
+        ch2 = Circle(radius=0.5, color=WHITE).shift(0.5 * LEFT + DOWN)
+        co1 = Circle(radius=0.5, color=WHITE).shift(1 * RIGHT)
+
+        self.play(Create(cx1), Create(cx2), Create(ch1), Create(ch2), Create(co1))
+
+        arr1 = Arrow([-2, 1, 0], [-1, 1, 0], buff=0, color=BLUE)
+        arr2 = Arrow([-2.14, 0.64, 0], [-0.85, -0.64, 0], buff=0, color=YELLOW_E)
+        arr3 = Arrow([-2.14, -0.64, 0], [-0.85, 0.64, 0], buff=0, color=YELLOW_E)
+        arr4 = Arrow([-2, -1, 0], [-1, -1, 0], buff=0, color=BLUE)
+        arr5 = Arrow([-0.08, 0.72, 0], [0.58, 0.27, 0], buff=0, color=BLUE)
+        arr6 = Arrow([-0.08, -0.72, 0], [0.58, -0.27, 0], buff=0, color=BLUE)
+        arr7 = Arrow([1.5, 0, 0], [2.5, 0, 0], buff=0, color=WHITE)
+
+        self.play(*[Create(arrow) for arrow in [arr1, arr2, arr3, arr4, arr5, arr6, arr7]])
+        self.wait()
+
+        arrBlue = Arrow([4, 3, 0], [5, 3, 0], buff=0, color=BLUE)
+        blueTip = MathTex("w = +1").next_to(arrBlue, RIGHT)
+        arrYellow = Arrow([4, 2, 0], [5, 2, 0], buff=0, color=YELLOW_E)
+        yellowTip = MathTex("w = -1").next_to(arrYellow, RIGHT)
+        biasTip = MathTex("b = 0.5").next_to(yellowTip, DOWN, buff=0.5 , aligned_edge=RIGHT)
+
+        self.play(Create(arrBlue), Write(blueTip), Create(arrYellow), Write(yellowTip), Write(biasTip))
+        self.wait()
+
+        x1Val = MathTex("1").next_to(cx1, LEFT)
+        x1Text = MathTex("x_1=").next_to(x1Val, LEFT)
+        x2Val = MathTex("0").next_to(cx2, LEFT)
+        x2Text = MathTex("x_2=").next_to(x2Val, LEFT)
+
+        midVal  = MathTex("0", color=WHITE).move_to([-1.5, 0, 0])
+        mid1Val = MathTex("1", color=WHITE).move_to([-1.5, 1, 0])
+
+        self.play(Write(x1Val), Write(x1Text), Write(x2Val), Write(x2Text))
+        self.wait()
+
+        # input
+        self.play(x1Val.animate.move_to([-2.5, 1, -1]), x2Val.animate.move_to([-2.5, -1, 0]))
+        self.wait()
+
+        # light up cx1
+        self.play(x1Val.animate.set_color(BLACK), cx1.animate.set_fill(WHITE, opacity=1))
+        self.wait()
+
+        # transform to arrow
+        self.play(TransformFromCopy(x1Val, mid1Val), TransformFromCopy(x2Val, midVal))
+        self.wait()
+
+        # multiply
+        self.play(AnimationGroup(Indicate(mid1Val), Indicate(blueTip), lag_ratio=1))
+        self.wait()
+        self.play(AnimationGroup(Indicate(midVal), Indicate(yellowTip), lag_ratio=1))
+        self.wait()
+
+        # move
+        self.play(mid1Val.animate.move_to([-0.5, 1, 0]), midVal.animate.move_to([-0.5, 1, 0]))
+        self.wait(0.5)
+
+        # sum
+        h1Val = MathTex("1", color=WHITE).move_to([-0.5, 1, 0])
+        self.play(FadeOut(mid1Val), FadeOut(midVal), FadeIn(h1Val))
+        self.wait()
+
+        # bias
+        self.play(AnimationGroup(Indicate(h1Val), Indicate(biasTip), lag_ratio=1))
+        self.wait(0.5)
+        h1ValN = MathTex("0.5").move_to([-0.5, 1, 0])
+        self.play(Transform(h1Val, h1ValN))
+        self.wait()
+
+        # light up
+        self.play(ch1.animate.set_fill(WHITE, opacity=1), h1Val.animate.set_color(BLACK))
+        self.wait()
+
+        # output
+        h1ValN = MathTex("1", color=BLACK).move_to([-0.5, 1, 0])
+        self.play(Transform(h1Val, h1ValN))
+        self.wait()
+
+        # 2nd
+        midVal  = MathTex("1", color=WHITE).move_to([-1.5, 0, 0])
+        mid2Val = MathTex("0", color=WHITE).move_to([-1.5, -1, 0])
+        self.play(TransformFromCopy(x1Val, midVal), TransformFromCopy(x2Val, mid2Val))
+        self.play(AnimationGroup(Indicate(midVal), Indicate(yellowTip), lag_ratio=1))
+        midValN = MathTex("-1", color=WHITE).move_to([-1.5, 0, 0])
+        self.play(Transform(midVal, midValN))
+        self.play(AnimationGroup(Indicate(mid2Val), Indicate(blueTip), lag_ratio=1))
+        self.play(midVal.animate.move_to([-0.5, -1, 0]), mid2Val.animate.move_to([-0.5, -1, 0]))
+        h2Val = MathTex("-1", color=WHITE).move_to([-0.5, -1, 0])
+        self.play(FadeOut(midVal), FadeOut(mid2Val), FadeIn(h2Val))
+        self.wait()
+        
+        h2ValN = MathTex("-1.5", color=WHITE).move_to([-0.5, -1, 0])
+        self.play(Transform(h2Val, h2ValN))
+        self.wait()
+
+        h2ValN = MathTex("0", color=WHITE).move_to([-0.5, -1, 0])
+        self.play(Transform(h2Val, h2ValN))
+        self.wait()
+        
+        # output
+        outVal = MathTex("1").move_to([1, 0, 0])
+        self.play(Write(outVal))
+        self.wait()
+
+        outValN = MathTex("0.5").move_to([1, 0, 0])
+        self.play(Transform(outVal, outValN))
+        self.wait()
+
+        outValN = MathTex("1", color=BLACK).move_to([1, 0, 0])
+        self.play(Transform(outVal, outValN), co1.animate.set_fill(WHITE, opacity=1))
+        self.wait()
+
+        self.play(*[FadeOut(item) for item in [outVal, x1Val, x2Val, h1Val, h2Val]])
+        self.wait()
+
+        datas = [[1, 1, 0, 0, 0], [1, 0, 1, 0, 1], [0, 1, 0, 1, 1], [0, 0, 0, 0, 0]]
+
+        for data in datas:
+            
+            self.play(AnimationGroup(
+                cx1.animate.set_fill(WHITE if data[0] else BLACK, opacity=1),
+                cx2.animate.set_fill(WHITE if data[1] else BLACK, opacity=1),
+                ch1.animate.set_fill(WHITE if data[2] else BLACK, opacity=1),
+                ch1.animate.set_fill(WHITE if data[3] else BLACK, opacity=1),
+                co1.animate.set_fill(WHITE if data[4] else BLACK, opacity=1),
+            ))
+        
+        self.wait()
