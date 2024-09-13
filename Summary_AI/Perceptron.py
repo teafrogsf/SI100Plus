@@ -817,8 +817,62 @@ class MLP(Scene):
                 cx1.animate.set_fill(WHITE if data[0] else BLACK, opacity=1),
                 cx2.animate.set_fill(WHITE if data[1] else BLACK, opacity=1),
                 ch1.animate.set_fill(WHITE if data[2] else BLACK, opacity=1),
-                ch1.animate.set_fill(WHITE if data[3] else BLACK, opacity=1),
+                ch2.animate.set_fill(WHITE if data[3] else BLACK, opacity=1),
                 co1.animate.set_fill(WHITE if data[4] else BLACK, opacity=1),
             ))
         
+        self.wait()
+
+class DumyNd(Scene):
+    def construct(self):
+        circle = Circle()
+        circle.set_fill(PINK, opacity=0.5)
+        arrow = Arrow([1, 0, 0], [3, 0, 0], buff=0, color=BLUE)
+        arrow1 = Arrow([-1.29, 1.29, 0], [-0.72, 0.72, 0], buff=0, color=BLUE)
+        arrow2 = Arrow([-1.29, -1.29, 0], [-0.72, -0.72, 0], buff=0, color=BLUE)
+        circle1 = Circle().shift(2 * LEFT + 2 * UP).set_fill(PINK, opacity=0.5)
+        circle2 = Circle().shift(2 * LEFT + 2 * DOWN).set_fill(PINK, opacity=0.5)
+        self.play(AnimationGroup(Create(circle), Create(arrow),
+                                 Create(circle1), Create(arrow1), 
+                                 Create(circle2), Create(arrow2),
+                                 lag_ratio=0.2))
+        self.wait()
+
+        exp = MathTex(r"f \left(\sum w_i x_i - b \right)").shift(3 * RIGHT + 2 * UP)
+
+        self.play(Write(exp))
+        self.wait()
+
+        expN = MathTex(r"f \left(\sum w_i x_i + (-1) \times b \right)").shift(3 * RIGHT + 2 * UP)
+        self.play(Transform(exp, expN))
+        self.wait()
+
+        dymcirc = Circle().shift(4 * LEFT).set_fill(BLUE, opacity=0.5).set_color(BLUE)
+        arrow3 = Arrow([-3, 0 ,0], [-1, 0, 0], buff=0, color=BLUE)
+        self.play(Create(dymcirc), Create(arrow3))
+        text = MathTex("-1").next_to(dymcirc, LEFT)
+        weight = MathTex("b").next_to(arrow3, UP, -0.1)
+        self.play(Write(text), Write(weight))
+        self.wait()
+
+        desc = Text("哑节点 Dummy Node", font=DEFAULT_FONT).shift(3 * RIGHT + 2 * DOWN)
+        self.play(Write(desc))
+        self.wait()
+
+        self.play(*[FadeOut(item) for item in [circle, circle1, circle2, arrow, arrow1, arrow2, arrow3, dymcirc, text, weight]])
+        self.play(desc.animate.move_to(3 * UP), exp.animate.move_to(3 * LEFT))
+
+        expN = MathTex(r"= f \left( \sum_{i = 1}^{n + 1} w_i x_i \right)").shift(1.5 * RIGHT)
+        self.play(Write(expN), exp.animate.set_opacity(0.5))
+        self.wait()
+
+        self.play(exp.animate.shift(UP), expN.animate.shift(UP))
+        self.wait()
+
+        origTrain = MathTex(r"\vec{w}' &= \vec{w} \pm \eta \vec{x} \\ b' &= b \pm \eta").shift(2 * LEFT + 1.5 * DOWN)
+        self.play(Write(origTrain))
+        self.wait()
+
+        newTrain = MathTex(r"\vec{w}' = \vec{w} + \eta (y - \hat{y}) x_i").shift(2.5 * RIGHT + 1.5 * DOWN)
+        self.play(Write(newTrain), origTrain.animate.set_opacity(0.5))
         self.wait()
