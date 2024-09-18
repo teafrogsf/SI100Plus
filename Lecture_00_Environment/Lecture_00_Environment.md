@@ -5,32 +5,15 @@ verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: github
 css: assets/custom.css
-revealOptions:
-    transition: 'slide'
-    transitionSpeed: fast
-    center: false
-    slideNumber: "c/t"
-    width: 1000
-    pdfSeparateFragments: false
+autoTitlePage: true
+makeTitle:
+    lecture: SI100+ 2024 Lecture 0
+    title: 环境配置
+    detail: SI100+ 2024 Staff | 2024-08-20
+makeThanks: true
 ---
 
-<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
-  <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture 0</h1>
-    <p style="font-size: 24px; color: #666;">环境配置</p>
-    <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-20</p>
-  </div>
-</div>
-
-<!--s-->
-
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part.1 配置开始前的说明
-  
-  </div>
-</div>
+# Part.1 配置开始前的说明
 
 <!--v-->
 
@@ -71,13 +54,7 @@ revealOptions:
 
 <!--s-->
 
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part.2 Anaconda
-
-  </div>
-</div>
+# Part.2 Anaconda
 
 <!--v-->
 
@@ -134,13 +111,7 @@ revealOptions:
 
 <!--s-->
 
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part.3 VS Code & 插件
-
-  </div>
-</div>
+# Part.3 VS Code & 插件
 
 <!--v-->
 
@@ -190,13 +161,7 @@ revealOptions:
 
 <!--s-->
 
-<div class="middle center">
-  <div style="width: 100%">
-
-  # Part.4 在 VS Code 中使用 Jupyter Notebook
-
-  </div>
-</div>
+# Part.4 在 VS Code 中使用 Jupyter Notebook
 
 <!--v-->
 
@@ -212,15 +177,4 @@ revealOptions:
 
 ### 到这里，我们的环境配置初步完成！🎉
 
-</div>
-
-<!--s-->
-
-<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
-  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
-      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
-    </div>
-    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
-  </div>
 </div>
