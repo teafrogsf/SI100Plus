@@ -37,24 +37,37 @@ jobs:
             echo "## SI 100+: 信息科学入门指南 Slides 页" >> index.md
             echo >> index.md
 
+            echo "<div style=\"column-count:2; column-gap:0px; padding: 1vh\">" >> index.md
+            echo >> index.md
+
+            count=0
             find . -name '*.md' \
-                ! -name 'README.md' \
-                ! -name 'ISSUES.md' \
-                ! -name 'index.md' \
-                ! -exec grep -q 'marp: true' {} \; \
-                -print | sort | while read -r file; do
+              ! -name 'README.md' \
+              ! -name 'ISSUES.md' \
+              ! -name 'index.md' \
+              ! -exec grep -q 'marp: true' {} \; \
+              -print | sort | while read -r file; do
 
-                output_dir="static/$(basename ${file%.md})"
-                echo "Processing $output_dir"
+              output_dir="static/$(basename ${file%.md})"
+              echo "Processing $output_dir"
 
-                echo "- [$(basename ${file%.md})](./$(basename ${file%.md}))" >> index.md
+              if [ $count -eq 12 ]; then
+                echo "</hr>" >> index.md
+              fi
 
-                reveal-md $file --static $output_dir --template ./assets/reveal.html --preprocessor ./assets/preproc.js --scripts assets/menu/menu.js,assets/inject.js
-                file_dir=$(dirname $file)
-                if [ -d "$file_dir/images" ]; then
-                    cp -r $file_dir/images $output_dir
-                fi
+              echo "- [$(basename ${file%.md})](./$(basename ${file%.md}))" >> index.md
+
+              reveal-md $file --static $output_dir --template ./assets/reveal.html --preprocessor ./assets/preproc.js --scripts assets/menu/menu.js,assets/inject.js
+              file_dir=$(dirname $file)
+              if [ -d "$file_dir/images" ]; then
+                cp -r $file_dir/images $output_dir
+              fi
+
+              count=$((count + 1))
             done
+
+            echo "</div>" >> index.md
+            echo >> index.md
 
             echo >> index.md
             echo "---" >> index.md
