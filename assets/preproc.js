@@ -16,14 +16,14 @@ module.exports = (markdown, options) => {
       +
       markdown
         .split('\n')
-        .map((line, index) => {
-          if (line.includes("<!--")) isComment = true;
-          if (line.includes("-->")) isComment = false;
-          if (!options.autoFragment) return line;
-          if (!/^\s*[-*] /.test(line) || index === 0) return line;
-          if (isComment) return line;
-          return line.replace(/^(\s*)[-*] (.*)/, "$1- <span> $2 </span>") + ' <!-- .element: class="fragment" -->';
-        })
+        // .map((line, index) => {
+        //   if (line.includes("<!--")) isComment = true;
+        //   if (line.includes("-->")) isComment = false;
+        //   if (!options.autoFragment) return line;
+        //   if (!/^\s*[-*] /.test(line) || index === 0) return line;
+        //   if (isComment) return line;
+        //   return line.replace(/^(\s*)[-*] (.*)/, "$1- <span> $2 </span>") + ' <!-- .element: class="fragment" -->';
+        // })
         .map((line, index) => {
           if (!options.autoTitlePage) return line;
           if (!line.startsWith('# ')) return line;

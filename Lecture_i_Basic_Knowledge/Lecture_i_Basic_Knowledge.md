@@ -1,27 +1,17 @@
 ---
-title: Lecture_i_Basic_Knowledge
+title: Lecture_i_Basic_Knowledge # Slide 标题
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: github
 css: assets/custom.css
-revealOptions:
-    transition: 'slide'
-    transitionSpeed: fast
-    center: false
-    slideNumber: "c/t"
-    width: 1000
+autoTitlePage: true # 一级标题 `#` 开头的将自动居中并占满一页
+makeTitle: # 制作封面页
+    lecture: SI100+ 2024 Lecture i
+    title: 计算机基本知识
+    detail: SI100+ 2024 Staff | 2024-08-22
+makeThanks: true # 制作结尾页
 ---
-
-<div style="display: flex; justify-content: center; align-items: center; height: 700px;">
-    <div style="text-align: center; padding: 40px; background-color: white; border: 2px solid rgb(0, 63, 163); border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-        <h1 style="font-size: 48px; font-weight: bold; margin-bottom: 20px; color: #333;">SI100+ 2024 Lecture i</h1>
-        <p style="font-size: 24px; color: #666;">计算机基本知识</p>
-        <p style="font-size: 16px; color: #999; margin-top: 20px;">SI100+ 2024 Staff | 2024-08-22</p>
-  </div>
-</div>
-
-<!--s-->
 
 ## 基本知识扫盲
 
@@ -38,6 +28,8 @@ revealOptions:
 # 计算机的基本知识
 
 <!--v-->
+<!-- .slide: class="fragmented-lists" -->
+<!-- 上面一行加在分隔符后，可将 List 自动按 Fragment 出现 -->
 
 ## 硬件：计算机的躯体
 
@@ -47,22 +39,34 @@ revealOptions:
 - **外存（外部存储器）**：用来**永久存储**数据，例如：硬盘，U盘等
 - **显卡（GPU）**：主要负责图形的处理，和 CPU 有着逻辑的根本区别，当前也流行用于 AI 训练
 
-<div style="column-count:2">
+<div class="row"> <!-- 并行布局示例 -->
 
-<img src="https://www.criwits.top/missing/computer-and-its-components/Teacher_and_homework.png" width="400"/>
+  <div class="col">
 
-- 老师 拿起 作业 批改 摞好 完成
-- 电脑 输入 数据 处理 输出 完成  
-\* 准确的说，内存是内部存储器的简称，实际上分为许多类型，而且不止在内存条中，RAM 只是其中最广为人知的一部分，这里为了简单并未展开
+![示例|400](https://www.criwits.top/missing/computer-and-its-components/Teacher_and_homework.png)
+<!-- 使用 | 后加数字来指定大小 -->
+
+  </div>
+
+  <div class="col">
+
++ 老师 拿起 作业 批改 摞好 完成
++ 电脑 输入 数据 处理 输出 完成  
++ <small>准确的说，内存是内部存储器的简称，实际上分为许多类型，而且不止在内存条中，RAM 只是其中最广为人知的一部分，这里为了简单并未展开</small>
+
+  </div>
 
 </div>
 
 <!--v-->
 
-## 软件：计算机的灵魂
+# 软件：计算机的灵魂
+
+<!--v-->
+<!-- .slide: class="fragmented-lists" -->
 
 
-### 操作系统
+## 操作系统
 
 - Windows / MacOS / Linux / FreeBSD / ... 都是桌面端操作系统
 - Android (AOSP) / iOS / HarmonyOS NEXT / ... 都是移动端的操作系统
@@ -85,7 +89,9 @@ revealOptions:
 
 ## 文件：内容的具体形式
 
-<div style="column-count:2; column-gap: 0px">
+<div class="row">
+
+<div class="col">
 
 - 当前大多数系统都是依靠“后缀名”来区分类型
 - 文件本质上的名字是 `文件名.后缀名`
@@ -95,7 +101,13 @@ revealOptions:
 - 建议使用 **英文** 命名你的文件夹和文件，很多程序不能很好兼容中文名
 - 如何管理好你的文件？[这里](https://www.criwits.top/missing/file-and-file-management.html)有一份参考
 
+</div>
+
+<div class="col">
+
 ![扩展名打开](https://www.criwits.top/missing/file-and-file-management/Windows_11_set_full_filename.png#center)
+
+</div>
 
 </div>
 
@@ -167,7 +179,9 @@ revealOptions:
 
 ## 终端：神秘的黑客工具？
 
-<div style="column-count:2; column-gap:0px; padding: 1vh">
+<div class="row">
+
+<div class="col">
 
 - 你可能听过命令行、命令提示符、终端、交互式 Bash
 - Windows 按下 `Win 徽标键` + `X`，选择 `终端` or `Windows PowerShell` 即可打开终端，MacOS 按下 `Command`+`Space` 输入 `terminal` 按下回车
@@ -175,7 +189,9 @@ revealOptions:
 - 终端是最原始，但是效率上限最高的交互方式
 - 终端是**交互式**的，输入完**一句**指令，立马就能执行并得到结果
 
-<hr/>
+</div>
+
+<div class="col">
 
 1. 使用 `cd` 命令可以浏览不同目录，空格用来区分参数
 2. `cd`, `mkdir`, ``
@@ -184,6 +200,8 @@ revealOptions:
 5. 使用上下进行浏览
 6. 某些程序可以直接在终端运行
 7. VSCode 在“运行”代码的时候，会弹出终端并自动帮你输入命令来运行你的代码
+
+</div>
 
 </div>
 
@@ -203,6 +221,7 @@ revealOptions:
 <!--v-->
 
 ## 搜索引擎——更有效地获取信息
+<!-- .slide: class="fragmented-lists" -->
 
 - 推荐：
 	- Official documents / websites (CSDN 不推荐):
@@ -215,6 +234,7 @@ revealOptions:
 - 英语的技能是必备的：后续我们接触到的大多数软件的官方文档都是英文的
 
 <!--v-->
+<!-- .slide: class="fragmented-lists" -->
 
 ## 重要的是自学 + 多问 + GPT
 
@@ -260,14 +280,3 @@ revealOptions:
 1. 打开随课件下发的 `Lessoni.ipynb`
 2. 点击代码旁边的 `▶` 运行一个代码块
 3. Python 和你打了个招呼（输出在代码块下方）
-
-<!--s-->
-
-<div style="display: flex; justify-content: center; align-items: center; height: 700px;   ">
-  <div style="text-align: center; padding: 40px; background-color: white; border-radius: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <div style="display: inline-block; padding: 20px 40px; border-radius: 10 px; margin-bottom: 20px;">
-      <h1 style="font-size: 48px; font-weight: bold; margin: 0; color: rgb(16, 33, 89)">Thanks for Listening</h1>
-    </div>
-    <p style="font-size: 24px; color: #666; margin: 0;">Any questions?</p>
-  </div>
-</div>
