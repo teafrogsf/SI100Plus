@@ -1,8 +1,3 @@
-options.plugins.push(RevealMenu)
-options.menu = {
-    loadIcons: false
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Hello from inject.js');
     const images = document.querySelectorAll('img');
@@ -21,3 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     Array.from(document.querySelectorAll('a'))
         .forEach(a => a.setAttribute('target', '_blank'));
 });
+
+Reveal.addEventListener("ready", function addFragmentToLists() {
+    for (const listItem of document.querySelectorAll(".fragmented-lists li")) {
+      listItem.classList.add("fragment");
+    }
+  });
