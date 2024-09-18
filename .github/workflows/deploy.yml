@@ -37,7 +37,7 @@ jobs:
             echo "## SI 100+: 信息科学入门指南 Slides 页" >> index.md
             echo >> index.md
 
-            echo "<div style=\"column-count:2; column-gap:0px; padding: 1vh\">" >> index.md
+            echo "<div style=\"column-count:2; column-gap:0px; padding: 1vh; word-break: break-word\">" >> index.md
             echo >> index.md
 
             count=0
